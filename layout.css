@@ -1,0 +1,71 @@
+/* GENERAL */
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: "myriad-pro-1","myriad-pro-2",sans-serif;
+	background: url(./images/bg_body.jpg);
+}
+.wrapper {
+	width: 680px;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin: 0 auto;
+}
+#head {
+	margin-top: 20px;
+	background: url(./images/bg_header.jpg) repeat-x;
+	height: 180px;
+}
+
+#head-luz {
+	height: 180px;
+	width: 100%;
+	float: left;
+	background: url(./images/bg_luz-head.png) no-repeat center top;
+}
+
+/* HEADER */
+#header {
+	width: 100%;
+	height: 116px;
+	padding: 10px 0;
+}
+#header #logo-playthecall {
+	margin-top: 10px;
+	margin-right: 30px;
+	float: left;
+	position: relative;
+}
+#header #logo-playthecall h1 {
+	width: auto;
+	float: left;
+}
+#header #logo-playthecall h1 a {
+	text-indent: -9999px;
+	width: 215px;
+	height: 139px;
+	display: block;
+	background: url(./images/logo-play.png) no-repeat;
+}
+
+/* SLOGAN */
+#slogan {
+	margin-top: 50px;
+	float: right;
+	position: relative;
+	font-family: 'Waiting for the Sunrise', cursive;
+	font-style: italic;
+}
+#slogan h2 {
+	font-size: 32px;
+	color: white;
+}
+
+#content {
+	margin-top: 10px;
+	padding-top: 30px;
+	padding-bottom: 50px;
+	background-color: lightblue;
+}
