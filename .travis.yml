@@ -1,0 +1,8 @@
+before_script:
+  - cp config/database.yml.sample config/database.yml
+
+notifications:
+  email:
+    - amadeusfolego@gmail.com
+    - playthecall@gmail.com
+
