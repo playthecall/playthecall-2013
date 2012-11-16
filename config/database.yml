@@ -1,0 +1,34 @@
+<% adapter = RUBY_ENGINE == "jruby" ? 'jdbcpostgresql' : 'postgresql' %>
+
+development:
+  adapter: <%= adapter %>
+  encoding: unicode
+  database: playthecall_development
+  pool: 5
+  username: badosu
+  password:
+
+test:
+  adapter: <%= adapter %>
+  encoding: unicode
+  database: playthecall_test
+  pool: 20
+  username: badosu
+  password:
+
+staging:
+  adapter: <%= adapter %>
+  encoding: unicode
+  database: playthecall_staging
+  pool: 5
+  username: badosu
+  password:
+
+production:
+  adapter: <%= adapter %>
+  encoding: unicode
+  database: playthecall_production
+  pool: 5
+  username:
+  password:
+
