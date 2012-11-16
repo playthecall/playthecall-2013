@@ -7,10 +7,20 @@ gem 'rails', '3.2.9'
 gem 'jquery-rails'
 gem 'nifty-generators'
 gem 'pg'
-
+gem 'thin'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+end
+
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'parallel_tests'
+  gem 'therubyracer'
+  gem 'rspec-rails'
+  gem 'forgery'
+  gem 'pry'
 end
