@@ -4,6 +4,7 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.9'
 
+gem 'activeadmin'
 gem 'jquery-rails'
 gem 'nifty-generators'
 gem 'pg'
