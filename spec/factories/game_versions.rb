@@ -1,7 +1,6 @@
-
 FactoryGirl.define do
   factory :game_version do
-    name     'Brasil'
+    sequence(:name){ |n| "Brasil (#{n})" }
     language 'pt-br'
   end
 end

@@ -6,6 +6,7 @@ class CreateGameVersions < ActiveRecord::Migration
       t.timestamps
     end
 
+    add_index :game_versions, :id,   unique: true
     add_index :game_versions, :name, unique: true
   end
 end
