@@ -9,7 +9,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'database_cleaner'
 
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+Dir[Rails.root.join("spec/support/**/*.rb")].each{ |f| require f }
 
 RSpec.configure do |config|
   config.mock_with :rspec
