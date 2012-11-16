@@ -1,0 +1,15 @@
+:br:
+    :default_language: 'pt-br'
+    :version_name:     'Brasil'
+:en:
+    :default_language: 'en'
+    :version_name:     'Global'
+:us:
+    :default_language: 'us'
+    :version_name:     'USA'
+:cn:
+    :default_language: 'cn'
+    :version_name:     'China'
+:in:
+    :default_language: 'in'
+    :version_name:     'India'

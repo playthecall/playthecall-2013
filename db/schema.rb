@@ -11,6 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20121116175722) do
+
+  create_table "game_versions", :force => true do |t|
+    t.string   "name"
+    t.string   "language"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "game_versions", ["name"], :name => "index_game_versions_on_name", :unique => true
 
 end
