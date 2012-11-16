@@ -1,0 +1,17 @@
+language: ruby
+
+rvm:
+  - 1.9.3
+
+before_script:
+  - cp config/database.yml.sample config/database.yml
+  - bundle exec rake db:create db:migrate
+
+script:
+  - bundle exec rspec
+
+notifications:
+  email:
+    - amadeusfolego@gmail.com
+    - playthecall@gmail.com
+
