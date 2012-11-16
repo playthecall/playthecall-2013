@@ -19,6 +19,7 @@ group :development, :test do
   gem 'therubyracer'
   gem 'rspec-rails'
   gem 'forgery'
+  gem 'pry'
 end
 
 # To use ActiveModel has_secure_password
