@@ -4,9 +4,12 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.9'
 
+gem 'carrierwave'
 gem 'jquery-rails'
 gem 'nifty-generators'
+gem 'nokogiri'
 gem 'pg'
+gem 'rdiscount'
 gem 'thin'
 
 group :assets do
