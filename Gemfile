@@ -5,7 +5,6 @@ ruby '1.9.3'
 gem 'rails', '3.2.9'
 
 gem 'omniauth-facebook'
-gem 'nifty-generators'
 gem 'jquery-rails'
 gem 'activeadmin'
 gem 'carrierwave'
