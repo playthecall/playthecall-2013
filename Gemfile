@@ -4,17 +4,18 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.9'
 
-gem 'carrierwave'
-gem 'jquery-rails'
 gem 'nifty-generators'
-gem 'nokogiri'
-gem 'pg'
+gem 'jquery-rails'
+gem 'activeadmin'
+gem 'carrierwave'
 gem 'rdiscount'
+gem 'nokogiri'
 gem 'thin'
+gem 'pg'
 
 group :assets do
-  gem 'sass-rails'
   gem 'coffee-rails'
+  gem 'sass-rails'
   gem 'uglifier'
 end
 
