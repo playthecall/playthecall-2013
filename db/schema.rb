@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121116175722) do
+ActiveRecord::Schema.define(:version => 20121116204435) do
 
   create_table "game_versions", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,35 @@ ActiveRecord::Schema.define(:version => 20121116175722) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "game_versions", ["id"], :name => "index_game_versions_on_id", :unique => true
   add_index "game_versions", ["name"], :name => "index_game_versions_on_name", :unique => true
+
+  create_table "mission_enrollments", :force => true do |t|
+    t.integer  "mission_id"
+    t.string   "title"
+    t.text     "description"
+    t.text     "html_description"
+    t.boolean  "accomplished"
+    t.text     "validation_params"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "mission_enrollments", ["mission_id"], :name => "index_mission_enrollments_on_mission_id"
+
+  create_table "missions", :force => true do |t|
+    t.integer  "game_version_id"
+    t.string   "title"
+    t.text     "description"
+    t.text     "html_description"
+    t.string   "video_url"
+    t.string   "image"
+    t.string   "validation_class"
+    t.text     "validation_params"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "missions", ["game_version_id"], :name => "index_missions_on_game_version_id"
 
 end
