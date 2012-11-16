@@ -6,7 +6,6 @@ FactoryGirl.define do
     validation_params YAML.dump(likes: 512, oracle_validation: false)
 
     association :mission
-    # TODO: Wait for model user
-    # association :user
+    association :user
   end
 end

@@ -1,7 +1,6 @@
 class MissionEnrollment < ActiveRecord::Base
   belongs_to :mission
-  # TODO: Waiting for users!
-  # belongs_to :user
+  belongs_to :user
 
   attr_accessible :accomplished, :description, :title, :validation_params
 
