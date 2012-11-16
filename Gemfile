@@ -19,8 +19,9 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'parallel_tests'
-  gem 'therubyracer'
+  gem 'therubyracer', platforms: :ruby
   gem 'rspec-rails'
   gem 'forgery'
+  gem 'fivemat'
   gem 'pry'
 end
