@@ -5,7 +5,7 @@ development:
   encoding: unicode
   database: playthecall_development
   pool: 5
-  username: badosu
+  username:
   password:
 
 test:
@@ -13,7 +13,7 @@ test:
   encoding: unicode
   database: playthecall_test
   pool: 20
-  username: badosu
+  username:
   password:
 
 staging:
@@ -21,7 +21,7 @@ staging:
   encoding: unicode
   database: playthecall_staging
   pool: 5
-  username: badosu
+  username:
   password:
 
 production:
