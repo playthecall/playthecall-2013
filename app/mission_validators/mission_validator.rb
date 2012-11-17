@@ -9,6 +9,10 @@ class MissionValidator
     @enrollment = enrollment
   end
 
+  def mission
+    @enrollment.mission
+  end
+
   def mission_params
     @mission_params ||= MissionValidator::Params.new @enrollment.mission
   end
@@ -19,6 +23,10 @@ class MissionValidator
 
   def presenter
     @presenter ||= "#{self.class.name}Presenter".constantize.new(@enrollment, self)
+  end
+
+  def check
+    false
   end
 
   def accomplished?

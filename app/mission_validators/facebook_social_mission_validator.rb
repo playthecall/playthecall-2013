@@ -1,9 +1,26 @@
 class FacebookSocialMissionValidator < MissionValidator
+  def check
+    ## TODO: REmember finish it
+    # begin
+    #   results = Fql.execute check_query
+    #   enrollment_params[:likes] = results['like_count']
+    #   enrollment.save
+    # rescue
+    #   Logger.warn 'Facebook check fucked everything!'
+    #   false
+    # end
+  end
+
   def accomplished?
     amount_of_likes && oracle_validation
   end
 
   protected
+  def check_query
+    "SELECT url, normalized_url, share_count, like_count, comment_count, total_count,
+    commentsbox_count, comments_fbid, click_count FROM link_stat WHERE url=\"#{enrollment.url}\""
+  end
+
   def amount_of_likes
     enrollment_params[:likes] > mission_params[:likes]
   end
