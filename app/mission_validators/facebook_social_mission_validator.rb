@@ -1,18 +1,16 @@
 class FacebookSocialMissionValidator < MissionValidator
   def check
-    ## TODO: REmember finish it
-    # begin
-    #   results = link_stats
-    #   enrollment_params[:likes] = results['like_count']
-    #   enrollment.save
-    # rescue
-    #   Logger.warn 'Facebook check fucked everything!'
-    #   false
-    # end
+    begin
+      enrollment_params[:likes] = link_stats['like_count']
+      enrollment.save
+    rescue
+      Logger.warn 'Facebook check fucked everything!'
+      false
+    end
   end
 
   def accomplished?
-    amount_of_likes && oracle_validation
+    likes_enough? && oracle_validated?
   end
 
   protected
@@ -25,11 +23,11 @@ class FacebookSocialMissionValidator < MissionValidator
     commentsbox_count, comments_fbid, click_count FROM link_stat WHERE url=\"#{enrollment.url}\""
   end
 
-  def amount_of_likes
+  def likes_enough?
     enrollment_params[:likes] > mission_params[:likes]
   end
 
-  def oracle_validation
-    !mission_params[:oracle_validation] || enrollment_params[:oracle_validation]
+  def oracle_validated?
+    !mission_params[:oracle] || enrollment_params[:oracle]
   end
 end

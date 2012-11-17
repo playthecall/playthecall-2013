@@ -3,7 +3,7 @@ FactoryGirl.define do
     title             'Random Mission Enrollment Title'
     description       'Random *Mission Enrollment* Content'
 
-    validation_params YAML.dump(likes: 512, oracle_validation: false)
+    validation_params YAML.dump(likes: 512, oracle: false)
 
     association :mission
     association :user

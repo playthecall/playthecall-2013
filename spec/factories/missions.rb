@@ -4,7 +4,7 @@ FactoryGirl.define do
     description       'Random Mission *Content*'
 
     validation_class  'FacebookSocialMissionValidator'
-    validation_params YAML.dump(likes: 1024, oracle_validation: true)
+    validation_params YAML.dump(likes: 1024, oracle: true)
 
     association :game_version
   end
