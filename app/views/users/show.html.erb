@@ -11,74 +11,60 @@
     <a href=""><%= image_tag("icons/github.jpg") %></a>
     <a href=""><%= image_tag("icons/youtube.jpg") %></a>
     <a href=""><%= image_tag("icons/insta.jpg") %></a>
-    </section>
-    <section class="points">
-      <div class="total-points">
-        9999 Points
-      </div>
-      <div class="badges">
-        <%= image_tag("icons/app.jpg") %>
-        <%= image_tag("icons/talk.jpg") %>
-        <%= image_tag("icons/search.jpg") %>
-        <%= image_tag("icons/archive.jpg") %>
-      </div>
-      <a href="" class="btn btn-ranking">Ranking Mundial</a>
-    </section>
-    <section class="missions">
-      <h1>Missões</h1>
-      <ul>
-        <li>1 <span>Teste</span></li>
-        <li>2 <span>Teste</span></li>
-        <li>3 <span>Teste</span></li>
-        <li>4 <span>Teste</span></li>
-        <li>5 <span>Teste</span></li>
-        <li>6 <span>Teste</span></li>
-        <li>7 <span>Teste</span></li>
-        <li>8 <span>Teste</span></li>
-        <li>9 <span>Teste</span></li>
-        <li>10 <span>Teste</span></li>
-        <li>11 <span>Teste</span></li>
-        <li>12 <span>Teste</span></li>
-      </ul>
-    </section>
-  </aside>
-  <section class="content">
-    <div class="content-base">
-      <ul class="carousel">
-        <li>
-          <%= image_tag("1.jpg") %>
-          <div class="image-title"><span>Missão 3:</span> Plantando árvores</div>
-        </li>
-      </ul>
-      <p>
-        Minha idéia é fazer as crianças me audarem a plantar 50 arvores perto da minha escola. Todo dia a gente vai pra aula e nota que a cidade está menos arborizada, precisamos respirar melhor e isso só acontece com as árvores. Precisamos ajudar, amigos! Espero vocês!!
-      </p>
-      <p>
-        Minha idéia é fazer as crianças me audarem a plantar 50 arvores perto da minha escola. Todo dia a gente vai pra aula e nota que a cidade está menos arborizada.
-      </p>
-      <div class="box-social">
-        <div class="fb-like" data-href="http://globo.com" data-send="true" data-width="450" data-show-faces="false"></div>
-      </div>
-      <div id="fb-root"></div>
-      <div class="fb-comments" data-href="http://globo.com" data-num-posts="2" data-width="668"></div>
-    </div>
   </section>
-  <ul class="other-missions">
-    <li>
-      <h2><%= link_to "Missão 2: Escolhendo meu lugar", mission_path 2 %></h2>
-      <ul class="points-other-mission">
-        <li><%= image_tag("icons/search.jpg") %></li>
-        <li><h2>300 curtir</h2></li>
-        <li><%= image_tag("icons/check.jpg") %></li>
-      </ul>
-    </li>
-    <li>
-      <h2><%= link_to "Missão 1: Acendendo uma vela", mission_path 1%></h2>
-      <ul class="points-other-mission">
-        <li><%= image_tag("icons/search.jpg") %></li>
-        <li><h2>300 curtir</h2></li>
-        <li><%= image_tag("icons/check.jpg") %></li>
-      </ul>
-    </li>
+  <section class="points">
+    <div class="total-points">
+      9999 Points
     </div>
-  </ul>
+    <div class="badges">
+      <%= image_tag("icons/app.jpg") %>
+      <%= image_tag("icons/talk.jpg") %>
+      <%= image_tag("icons/search.jpg") %>
+      <%= image_tag("icons/archive.jpg") %>
+    </div>
+    <a href="" class="btn btn-ranking">Ranking Mundial</a>
+  </section>
+  <section class="missions">
+    <h1>Missões</h1>
+    <ul>
+      <% @user.mission_enrollments.each_with_index do |mission_enrollment, index| %>
+        <li><%= index %><span>mission_enrollment.title</span></li>
+      <% end %>
+    </ul>
+  </section>
+</aside>
+
+<section class="content">
+  <div class="content-base">
+    <ul class="carousel">
+      <li>
+        <%= image_tag("1.jpg") %>
+        <div class="image-title"><span>Missão 3:</span> Plantando árvores</div>
+      </li>
+    </ul>
+    <p>
+      Minha idéia é fazer as crianças me audarem a plantar 50 arvores perto da minha escola. Todo dia a gente vai pra aula e nota que a cidade está menos arborizada, precisamos respirar melhor e isso só acontece com as árvores. Precisamos ajudar, amigos! Espero vocês!!
+    </p>
+    <p>
+      Minha idéia é fazer as crianças me audarem a plantar 50 arvores perto da minha escola. Todo dia a gente vai pra aula e nota que a cidade está menos arborizada.
+    </p>
+    <div class="box-social">
+      <div class="fb-like" data-href="http://globo.com" data-send="true" data-width="450" data-show-faces="false"></div>
+    </div>
+    <div id="fb-root"></div>
+    <div class="fb-comments" data-href="http://globo.com" data-num-posts="2" data-width="668"></div>
+  </div>
+</section>
+
+<ul class="other-missions">
+  <% for enrolled_mission in [] %>
+    <li>
+      <h2><%= link_to enrolled_mission.title, mission_path(2) %></h2>
+      <ul class="points-other-mission">
+        <li><%= image_tag("icons/search.jpg") %></li>
+        <li><h2>300 curtir</h2></li>
+        <li><%= image_tag("icons/check.jpg") %></li>
+      </ul>
+    </li>
+  <% end %>
+</ul>
