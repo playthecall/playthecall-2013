@@ -1,7 +1,6 @@
 s3:
-  region:        'sa-east-1'
-  access_key:    'ACCESS_KEY'
-  secret_key:    'SECRET_KEY'
-  upload_bucket: 'UPLOAD_BUCKET'
+  access_key:    ''
+  secret_key:    ''
+  upload_bucket: ''
 facebook:
   default_access_token: 'DEFAULT_ACCESS_TOKEN'
