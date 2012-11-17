@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
     t.datetime "updated_at",                             :null => false
     t.string   "element"
     t.string   "avatar"
+    t.string   "language"
     t.integer  "game_version_id"
     t.integer  "points"
     t.string   "provider"

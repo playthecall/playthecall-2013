@@ -3,6 +3,8 @@ class AddColumnsToUsers < ActiveRecord::Migration
     add_column :users, :element, :string
     add_column :users, :avatar,  :string
 
+    add_column :users, :language,  :string
+
     add_column :users, :game_version_id, :integer
     add_column :users, :points,          :integer
 
