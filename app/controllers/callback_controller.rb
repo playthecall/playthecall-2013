@@ -4,6 +4,6 @@ class CallbackController < ApplicationController
     puts YAML.dump(params)
     puts "="*80
     puts params.inspect
-    render text: 'bogus!'
+    render text: params['hub.challenge']
   end
 end
