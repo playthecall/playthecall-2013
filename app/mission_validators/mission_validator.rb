@@ -33,7 +33,7 @@ class MissionValidator
     def []=(key, value)
       params                      = resource_params
       params[key]                 = value
-      @resource.validation_params = YAML.dump(params)
+      @resource.validation_params = YAML.dump params
       value
     end
 

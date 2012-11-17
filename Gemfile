@@ -14,6 +14,7 @@ gem 'rdiscount'
 gem 'nokogiri'
 gem 'omniauth'
 gem 'devise'
+gem 'koala'
 gem 'thin'
 gem 'pg'
 
