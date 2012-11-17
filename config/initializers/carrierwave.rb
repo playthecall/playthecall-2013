@@ -16,7 +16,7 @@ end
 class CarrierWave::Uploader::Base
   class << self
     def setup_storage
-      if false # Rails.env.test? || Rails.env.development?
+      if Rails.env.test? || Rails.env.development?
         storage :file
       else
         storage :fog
