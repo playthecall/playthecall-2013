@@ -16,8 +16,20 @@
       <section class="content-header">
         <%= image_tag "logo.png", class: :logo %>
         <ul class="menu">
-          <li><a href="#">Minhas Missões</a></li>
-          <li><a href="#">Configurações</a></li>
+          <% if user_signed_in? %>
+            <li> <%= link_to "Minhas Missões", missions_path %>
+            </li>
+            <li class="settings">
+              <%= link_to "Configurações", edit_user_path(1) %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Entrar", new_user_session_path %>
+            </li>
+            <li>
+              <%= link_to "Cadastre-se", new_user_path %>
+            </li>
+          <% end %>
         </ul>
       </section>
     </header>
@@ -31,8 +43,20 @@
     <footer>
       <div>
         <ul class="menu">
-          <li><a href="#">Minhas Missões</a></li>
-          <li><a href="#">Configurações</a></li>
+          <% if user_signed_in? %>
+            <li> <%= link_to "Minhas Missões", missions_path %>
+            </li>
+            <li class="settings">
+              <%= link_to "Configurações", edit_user_path(1) %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Entrar", new_user_session_path %>
+            </li>
+            <li>
+              <%= link_to "Cadastre-se", new_user_path %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </footer>
