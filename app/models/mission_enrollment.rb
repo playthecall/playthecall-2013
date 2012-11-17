@@ -1,4 +1,6 @@
 class MissionEnrollment < ActiveRecord::Base
+  has_many :enrollment_images
+
   belongs_to :mission
   belongs_to :user
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117030844) do
+ActiveRecord::Schema.define(:version => 20121117103327) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,6 +46,15 @@ ActiveRecord::Schema.define(:version => 20121117030844) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "enrollment_images", :force => true do |t|
+    t.string   "image"
+    t.integer  "mission_enrollment_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  add_index "enrollment_images", ["mission_enrollment_id"], :name => "index_enrollment_images_on_mission_enrollment_id"
+
   create_table "game_versions", :force => true do |t|
     t.string   "name"
     t.string   "language"
@@ -76,6 +85,8 @@ ActiveRecord::Schema.define(:version => 20121117030844) do
     t.string   "title"
     t.text     "description"
     t.text     "html_description"
+    t.string   "element"
+    t.integer  "position"
     t.string   "video_url"
     t.string   "image"
     t.string   "validation_class"
@@ -84,7 +95,20 @@ ActiveRecord::Schema.define(:version => 20121117030844) do
     t.datetime "updated_at",        :null => false
   end
 
+  add_index "missions", ["element"], :name => "index_missions_on_element"
   add_index "missions", ["game_version_id"], :name => "index_missions_on_game_version_id"
+
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "facebook_link"
+    t.string   "twitter_link"
+    t.string   "google_plus_link"
+    t.string   "instagram_link"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -97,13 +121,25 @@ ActiveRecord::Schema.define(:version => 20121117030844) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "element"
+    t.string   "avatar"
+    t.integer  "game_version_id"
+    t.integer  "points"
     t.string   "provider"
     t.string   "uid"
+    t.string   "access_token"
   end
 
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
+  add_index "users", ["element"], :name => "index_users_on_element"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["game_version_id"], :name => "index_users_on_game_version_id"
+  add_index "users", ["provider", "uid"], :name => "index_users_on_provider_and_uid", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

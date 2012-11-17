@@ -1,6 +1,10 @@
 class MissionValidator
   attr_reader :enrollment
 
+  VALIDATORS = [
+    ['Facebook Likes Validator', 'FacebookSocialMissionValidator']
+  ]
+
   def initialize(enrollment)
     @enrollment = enrollment
   end
