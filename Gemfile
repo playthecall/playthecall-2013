@@ -18,6 +18,7 @@ gem 'devise'
 gem 'koala'
 gem 'thin'
 gem 'fql'
+gem 'fog'
 gem 'pg'
 
 group :assets do
