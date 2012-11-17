@@ -6,13 +6,17 @@ class Translation
   end
 
   def for(options = {})
-    return options[:user].language if options[:user]
+    language_for_user(options[:user])     ||
+    language_for_domain(options[:domain]) ||
+    DEFAULT_DOMAIN
+  end
 
-    if options[:domain]
-      language = language_for_domain options[:domain]
-      return language if language
-    end
-    return DEFAULT_DOMAIN
+  def language_for_user(user)
+    user && user.language
+  end
+
+  def language_for_domain(domain)
+    domain && @config[domain.gsub('www.', '')]
   end
 
   def self.for(options)
@@ -24,10 +28,6 @@ class Translation
   end
 
   protected
-  def language_for_domain(domain)
-    @config[domain.gsub('www.', '')]
-  end
-
   def config_path
     File.join Rails.root, 'config/translation_settings.yml'
   end
