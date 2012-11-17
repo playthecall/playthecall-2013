@@ -1,6 +1,7 @@
 module Fql
   def self.access_token
-    Settings.facebook.defalt_access_token
+    # TODO: Think about that!
+    Settings.facebook.default_access_token
   end
 
   def self.get(query)

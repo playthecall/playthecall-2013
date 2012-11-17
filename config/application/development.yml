@@ -3,3 +3,5 @@ s3:
   access_key:    'ACCESS_KEY'
   secret_key:    'SECRET_KEY'
   upload_bucket: 'UPLOAD_BUCKET'
+facebook:
+  default_access_token: 'DEFAULT_ACCESS_TOKEN'
