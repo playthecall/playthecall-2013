@@ -17,13 +17,17 @@ class MissionEnrollment < ActiveRecord::Base
     validator.presenter
   end
 
+  def check
+    check_callback if validator.check
+  end
+
   protected
   def accomplished_callback
     'Not done yet, need to create badges'
   end
 
-  def points_callback
-    'Not done yet, need to distribute points'
+  def check_callback
+    'Not done yet, need to distribute points...'
   end
 
   def compile_description
