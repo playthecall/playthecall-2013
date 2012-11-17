@@ -1,6 +1,0 @@
-s3:
-  access_key:    ''
-  secret_key:    ''
-  upload_bucket: ''
-facebook:
-  default_access_token: 'DEFAULT_ACCESS_TOKEN'

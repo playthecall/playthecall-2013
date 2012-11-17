@@ -1,0 +1,6 @@
+s3:
+  access_key:    '<%= ENV["SETINGS_S3_ACCESS_KEY"] %>'
+  secret_key:    '<%= ENV["SETINGS_S3_SECRET_KEY"] %>'
+  upload_bucket: '<%= ENV["SETINGS_S3_BUCKET"]     %>'
+facebook:
+  default_access_token: '<%= ENV["SETTINGS_FACEBOOK_DEFAULT_ACCESS_TOKEN"] %>'
