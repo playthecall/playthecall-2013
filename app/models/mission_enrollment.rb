@@ -18,6 +18,14 @@ class MissionEnrollment < ActiveRecord::Base
   end
 
   protected
+  def accomplished_callback
+    'Not done yet, need to create badges'
+  end
+
+  def points_callback
+    'Not done yet, need to distribute points'
+  end
+
   def compile_description
     if description_changed?
       self.html_description = RDiscount.new(description).to_html
@@ -28,6 +36,7 @@ class MissionEnrollment < ActiveRecord::Base
   def update_accomplished
     unless accomplished?
       self.accomplished = validator.accomplished?
+      accomplished_callback if accomplished?
     end
     true
   end
