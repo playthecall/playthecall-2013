@@ -18,7 +18,7 @@ if (typeof Object.create !== "function") {
   a.fn.doGlobe.options = {
     globeRadius: 200,
     globeShine: 30,
-    globeTexture: "textures/earthmap10k_comp.jpg",
+    globeTexture: "/assets/home/earthmap10k_comp.jpg",
     globeMinScale: .3,
     globeMaxScale: 4,
     globeSegments: 50,
@@ -34,7 +34,7 @@ if (typeof Object.create !== "function") {
     headLampPosZ: 1e9,
     hotSpotRadius: 10,
     hotspotOffset: 0,
-    hotSpotTexture: "textures/hotspotTexture.png",
+    hotSpotTexture: "/assets/home/hotspotTexture.png",
     hotspotDynamicScale: true,
     backPlateTexture: '',
     backPlateMargin: 50,

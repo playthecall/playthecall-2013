@@ -2,11 +2,11 @@
 <html lang="en">
 	<meta charset="UTF-8" >
 	<head>
-		<link rel="stylesheet" type="text/css" href="css/default.css" />
+    <%= stylesheet_link_tag 'home/default' %>
 	</head>
 	<body>
 	<div class="content">
-		<img src="images/logo.png" class="logo"/>
+    <%= image_tag 'home/logo.png', class: :logo %>
 		<div class="in">
 			<h1>entender sua missão é apenas o início dela</h1>
 			<p>
@@ -158,24 +158,20 @@
 	<div class="poi hidden" data-lat="47.21" data-long="-8.31" data-url="globe_camPos.html">Zürich, Switzerland</div>
 
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<%= javascript_include_tag "jquery" %>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("canvas").attr("height", $(window).height())
 			$("canvas").attr("width", $(window).width())
 		})
 	</script>
-	<script src="js/Tween.js"></script>
-	<script src="js/jquery.mousewheel.js"></script>
-	<script src="js/src_r47/Three.js"></script>
-	<script src="js/jquery.colorbox-min.js"></script>
-	<script src="js/Detector.js"></script>
-
-	<script src="js/dat.gui.min.js"></script>
-
-
-
-	<script src="js/globe_min.js"></script>
+	<%= javascript_include_tag "home/Tween.js" %>
+	<%= javascript_include_tag "home/jquery.mousewheel.js" %>
+	<%= javascript_include_tag "home/src_r47/Three.js" %>
+	<%= javascript_include_tag "home/jquery.colorbox-min.js" %>
+	<%= javascript_include_tag "home/Detector.js" %>
+	<%= javascript_include_tag "home/dat.gui.min.js" %>
+  <%= javascript_include_tag "home/globe_min.js" %>
 	<script>
 	$('div#globeGl_').doGlobe({
 		globeRadius: 900,
