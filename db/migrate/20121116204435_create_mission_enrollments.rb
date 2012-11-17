@@ -4,6 +4,7 @@ class CreateMissionEnrollments < ActiveRecord::Migration
       t.references :mission
       t.references :user
 
+      t.string  :url
       t.string  :title
       t.text    :description
       t.text    :html_description
@@ -19,5 +20,6 @@ class CreateMissionEnrollments < ActiveRecord::Migration
     add_index :mission_enrollments, :last_checked_at
     add_index :mission_enrollments, :mission_id
     add_index :mission_enrollments, :user_id
+    add_index :mission_enrollments, :url
   end
 end
