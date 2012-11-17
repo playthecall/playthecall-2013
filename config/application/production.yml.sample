@@ -1,0 +1,5 @@
+s3:
+  region:        'sa-east-1'
+  access_key:    ''
+  secret_key:    ''
+  upload_bucket: ''

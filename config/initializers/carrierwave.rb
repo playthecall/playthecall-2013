@@ -1,12 +1,4 @@
 # encoding: utf-8
-
-# TODO: Move AWS tokens to somewhere safe
-puts "TODO: Move AWS tokens to somewhere safe"
-
-AWS_ACCESS_KEY    = 'AWS_ACCESS_KEY'
-AWS_SECRET_KEY    = 'AWS_SECRET_KEY'
-AWS_UPLOAD_BUCKET = 'AWS_UPLOAD_BUCKET'
-
 CarrierWave.configure do |config|
   if Rails.env.test?
     config.storage           = :file
@@ -14,11 +6,11 @@ CarrierWave.configure do |config|
   else
     config.fog_credentials = {
       provider:              'AWS',
-      aws_access_key_id:     AWS_ACCESS_KEY,
-      aws_secret_access_key: AWS_SECRET_KEY,
-      region:                'sa-east-1'
+      aws_access_key_id:     Settings.s3.access_key,
+      aws_secret_access_key: Settings.s3.secret_key,
+      region:                Settings.s3.region
     }
-    config.fog_directory  = AWS_UPLOAD_BUCKET
+    config.fog_directory  = Settings.s3.upload_bucket
   end
 end
 
