@@ -1,0 +1,105 @@
+aside .missions,
+aside .points,
+aside .profile{
+  background: #fff url('../images/aside-shadow.jpg') repeat-y right center;
+}
+aside .profile {
+  width:188px;
+  padding: 25px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+aside .profile .profile-pic{
+  border: 3px solid #e6e4e4;
+  display: block;
+  margin-left: auto;
+  margin-right: auto 
+}
+aside .profile h1 {
+  color: #67757b;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 0;
+}
+
+aside .points {
+  width:228px;
+  padding: 10px 0 10px 10px;
+  min-height: 150px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+aside .points .total-points{
+  background: #ee353a;
+  color: #fff;
+  float:right;
+  text-align: center;
+  padding: 20px 0;
+  width: 222px;
+  font-size: 20px;
+  -webkit-border-top-left-radius: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  -moz-border-radius-topleft: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+aside .badges {
+  margin-bottom: 20px;
+}
+
+aside .btn {
+  margin-top: 20px;
+  background: #a1a2a3;
+  color: #fff;
+  font-weight: bold;
+  font-style: 15px;
+  text-decoration: none;
+  padding: 5px 50px 5px 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;  
+  margin-left: 5px;
+}
+
+
+aside .missions {
+  padding: 10px 15px; 
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+aside .missions h1 {
+  color: #2b707d;
+  font-size: 20px;
+}
+
+aside .missions ul {
+  margin: 10px 0 10px 0;
+  font-size: 13px;
+  font-weight: bold;
+  color:#cc292d;
+}
+
+aside .missions li:nth-child(1n+4) {
+  color:#a8a8a8!important;
+}
+
+aside .missions li {
+  line-height: 20px;
+}
+
+

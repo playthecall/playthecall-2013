@@ -1,0 +1,75 @@
+body{
+  background:#2b707d url('../images/bg-water.jpg') repeat-x center bottom ;
+  border-top: 4px solid #f3f3f3;
+  font-family:Helvetica, Arial, sans-serif;
+}
+
+ul li {list-style:none;}
+a img {border: none;}
+
+.container,
+.content-header {
+  width:993px;
+  margin: 0 auto;
+}
+/* HEADER */
+header {
+  background:#fff;
+  position: relative;
+  width: 100%;
+  -webkit-box-shadow: 0 0 25px 0 rgba(0,0,0, 0.5);
+  -moz-box-shadow:    0 0 25px 0 rgba(0,0,0, 0.5);
+  box-shadow:         0 0 25px 0 rgba(0,0,0, 0.5);
+}
+header .content-header {
+  height:104px;
+}
+header .content-header .logo {
+  float: left;
+}
+.menu {
+  float:right;
+  margin-top: 38px;
+}
+.menu li {
+  float: left;
+}
+.menu li a{
+  color: #aeaeae;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+  padding: 0 10px;
+}
+
+header .content-header .menu li:last-child{
+  background: url('../images/settings.png') no-repeat right center;
+  padding-right: 12px;
+}
+
+/* CONTENT */
+aside {
+  float:left;
+}
+aside section {margin-bottom: 20px;}
+aside strong{
+  color:#cc292d;
+  font-size:13px;
+}
+aside strong span{
+  color:#f77176;
+}
+
+aside p{
+  color:#67757b;
+  font-size:13px;
+  margin:10px 0;
+}
+
+section.content {
+  margin-bottom: 10px;
+  float: left;
+  background: #fff;
+  width:755px;
+  min-height:100px;
+}

@@ -1,0 +1,50 @@
+.content-base{padding:20px ;}
+.content-base .carousel img {border:3px solid #e6e4e4;}
+.content-base .carousel .image-title {
+  background: #ee353a;
+  padding: 15px 20px;
+  color:#fff;
+  width: 250px;
+  margin-left: 20px;
+  margin-top: -5px;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.content-base .carousel .image-title span {color:#ffc90c;}
+.content-base p {color:#5a5a5a;margin: 20px 0 20px 20px;line-height: 18px;width:668px;}
+.box-social {background: #f2f0f0;padding: 10px;margin-bottom: 10px;}
+.fb-comments {margin-left: 20px;}
+
+.other-missions {
+  background: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  width:735px;
+  margin: 0 0 10px 0;
+  float: right;
+  color: #67757b;
+  font-size: 20px;
+  padding: 10px;
+}
+.other-missions a,
+.other-missions h2 {float: left;line-height: 45px;color: #67757b;text-decoration: none}
+.other-missions .points-other-mission {float: right;width: 220px;}
+.other-missions .points-other-mission li {float: left;}
+.other-missions .points-other-mission li img {margin:0 10px 0 10px;}
+
+footer{
+  clear: both;
+  width: 100%;
+  background: #2b2c2d;
+}
+
+footer div{
+  width: 993px;
+  margin: 0 auto;
+  min-height:100px;
+}
