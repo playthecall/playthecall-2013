@@ -1,8 +1,7 @@
 class FacebookSocialMissionValidator < MissionValidator
   def check
     begin
-      enrollment_params[:likes] = link_stats['like_count']
-      enrollment.save
+      update_enrollment_params
     rescue
       Logger.warn 'Facebook check fucked everything!'
       false
@@ -14,6 +13,12 @@ class FacebookSocialMissionValidator < MissionValidator
   end
 
   protected
+  def update_enrollment_params
+    enrollment_params[:fb]    = link_stats
+    enrollment_params[:likes] = enrollment_params[:fb]['like_count']
+    enrollment.save!
+  end
+
   def link_stats
     Fql.execute(check_query).first
   end
