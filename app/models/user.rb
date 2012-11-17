@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :lockable, :timeoutable and :omniauthable
+
   has_one    :profile
+  has_many   :mission_enrollments
   belongs_to :game_version
 
   devise :database_authenticatable,   :trackable,
@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   attr_accessible :email,  :password,    :password_confirmation,
                   :avatar, :remember_me, :provider, :uid, :element,
                   :points, :game_version_id, :bio, :name, :nickname
+
 end
