@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "game_versions", ["id"], :name => "index_game_versions_on_id", :unique => true
   add_index "game_versions", ["name"], :name => "index_game_versions_on_name", :unique => true
 
   create_table "mission_enrollments", :force => true do |t|
@@ -123,10 +122,6 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "name"
@@ -141,7 +136,6 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
     t.string   "access_token"
   end
 
-  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["element"], :name => "index_users_on_element"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["game_version_id"], :name => "index_users_on_game_version_id"

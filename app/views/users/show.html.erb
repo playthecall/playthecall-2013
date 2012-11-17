@@ -63,19 +63,22 @@
       <div class="fb-comments" data-href="http://globo.com" data-num-posts="2" data-width="668"></div>
     </div>
   </section>
-  <div class="other-missions">
-    <h2><a href="">Missão 2: Escolhendo meu lugar</a></h2>
-    <ul class="points-other-mission">
-      <li><%= image_tag("icons/search.jpg") %></li>
-      <li><h2>300 curtir</h2></li>
-      <li><%= image_tag("icons/check.jpg") %></li>
-    </ul>
-  </div>
-  <div class="other-missions">
-    <h2><a href="">Missão 1: Acendendo uma vela</a></h2>
-    <ul class="points-other-mission">
-      <li><%= image_tag("icons/search.jpg") %></li>
-      <li><h2>300 curtir</h2></li>
-      <li><%= image_tag("icons/check.jpg") %></li>
-    </ul>
-  </div>
+  <ul class="other-missions">
+    <li>
+      <h2><%= link_to "Missão 2: Escolhendo meu lugar", mission_path 2 %></h2>
+      <ul class="points-other-mission">
+        <li><%= image_tag("icons/search.jpg") %></li>
+        <li><h2>300 curtir</h2></li>
+        <li><%= image_tag("icons/check.jpg") %></li>
+      </ul>
+    </li>
+    <li>
+      <h2><%= link_to "Missão 1: Acendendo uma vela", mission_path 1%></h2>
+      <ul class="points-other-mission">
+        <li><%= image_tag("icons/search.jpg") %></li>
+        <li><h2>300 curtir</h2></li>
+        <li><%= image_tag("icons/check.jpg") %></li>
+      </ul>
+    </li>
+    </div>
+  </ul>
