@@ -2,7 +2,7 @@ class FacebookSocialMissionValidator < MissionValidator
   def check
     ## TODO: REmember finish it
     # begin
-    #   results = Fql.execute check_query
+    #   results = link_stats
     #   enrollment_params[:likes] = results['like_count']
     #   enrollment.save
     # rescue
@@ -16,6 +16,10 @@ class FacebookSocialMissionValidator < MissionValidator
   end
 
   protected
+  def link_stats
+    Fql.execute(check_query).first
+  end
+
   def check_query
     "SELECT url, normalized_url, share_count, like_count, comment_count, total_count,
     commentsbox_count, comments_fbid, click_count FROM link_stat WHERE url=\"#{enrollment.url}\""

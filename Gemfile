@@ -17,6 +17,7 @@ gem 'rmagick'
 gem 'devise'
 gem 'koala'
 gem 'thin'
+gem 'fql'
 gem 'pg'
 
 group :assets do
