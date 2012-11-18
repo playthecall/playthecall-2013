@@ -1,25 +1,34 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)), :html => {:multipart => true} do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :name %><br />
-  <%= f.string_field :full_name %></div>  
+  <p><%= f.label :full_name %><br />
+  <%= f.text_field :full_name %></p> 
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <p><%= f.label :nickname %><br />
+  <%= f.text_field :nickname %></p>
   
-  <div><%= f.label :bio %><br />
-  <%= f.text_field :bio %></div>
+  <p><%= f.label :email %><br />
+  <%= f.email_field :email %></p>
 
-  <div><%= f.label :avatar %><br />
-  <%= f.hidden_field :avatar_cache %></div>
+  <p><%= f.label :password %><br />
+  <%= f.password_field :password %></p>
+
+  <p><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></p>
+  
+  <%= f.fields_for :profile do |profile_field| %>
+    <p>
+      <%= profile_field.label :bio %> <br />
+      <%= profile_field.text_field :bio %>
+    </p>
+  <%end%>
+
+  <div>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
   
   <div><%= f.submit "Sign up" %></div>
 <% end %>  
