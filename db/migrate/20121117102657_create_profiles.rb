@@ -6,6 +6,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :twitter_link
       t.string :google_plus_link
       t.string :instagram_link
+      t.text   :bio
 
       t.timestamps
     end

@@ -1,7 +1,10 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)), :html => {:multipart => true} do |f| %>
   <%= devise_error_messages! %>
+
+  <div><%= f.label :name %><br />
+  <%= f.string_field :full_name %></div>  
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
@@ -11,7 +14,13 @@
 
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
+  
+  <div><%= f.label :bio %><br />
+  <%= f.text_field :bio %></div>
 
+  <div><%= f.label :avatar %><br />
+  <%= f.hidden_field :avatar_cache %></div>
+  
   <div><%= f.submit "Sign up" %></div>
 <% end %>  
 

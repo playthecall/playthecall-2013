@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
 
   attr_accessible :email,  :password,    :password_confirmation,
                   :avatar, :remember_me, :provider, :uid, :element,
-                  :points, :game_version_id, :bio, :name, :nickname
+                  :points, :game_version_id, :name, :full_name
 
 end
