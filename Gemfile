@@ -4,6 +4,7 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.9'
 
+gem 'activerecord-import'
 gem 'omniauth-facebook'
 gem 'settingslogic'
 gem 'jquery-rails'
