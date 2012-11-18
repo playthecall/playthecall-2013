@@ -1,14 +1,10 @@
 <aside>
   <section class="profile">
     <%= image_tag("alona-tal.jpg") %>
-    <h1>Alona Tal</h1>
     <h1><%= @user.full_name%></h1>
     <strong>São Paulo <span>Brasil</span></strong>
     <p>
-      Eu adoro experiências. Não importa onde, nem como, nem o que. Apenas estar em uma ou proporcionar outra.
-    </p>
-    <p>
-      <%= @user.bio %>
+      <%= @user.profile.bio %>
     </p>
     <a href=""><%= image_tag("icons/facebook.jpg") %></a>
     <a href=""><%= image_tag("icons/twitter.jpg") %></a>
@@ -18,7 +14,7 @@
   </section>
   <section class="points">
     <div class="total-points">
-      9999 Points
+      <%= @user.points %>
     </div>
     <div class="badges">
       <%= image_tag("icons/app.jpg") %>

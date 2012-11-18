@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_one    :profile
   has_many   :mission_enrollments
   belongs_to :game_version
+  accepts_nested_attributes_for :profile
 
   devise :database_authenticatable,   :trackable,
          :recoverable, :rememberable, :confirmable,
@@ -13,6 +14,6 @@ class User < ActiveRecord::Base
   attr_accessible :email,  :password,    :password_confirmation,
                   :avatar, :remember_me, :provider, :uid, :element,
                   :points, :game_version_id, :nickname, :full_name,
-                  :profile, :avatar_cache
+                  :profile, :avatar_cache, :profile_attributes
 
 end
