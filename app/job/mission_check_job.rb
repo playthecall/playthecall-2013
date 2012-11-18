@@ -28,7 +28,7 @@ class MissionCheckJob
 
     protected
     def must_check?(enrollment)
-      enrollment.last_checked_at.nil? || enrollment.last_checked_at > 2.hours.from_now
+      enrollment.last_checked_at.nil? || enrollment.last_checked_at < 2.hours.ago
     end
 
     def threaded_delayed_check(enrollment)

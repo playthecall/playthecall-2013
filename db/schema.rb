@@ -72,11 +72,11 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
     t.string   "title"
     t.text     "description"
     t.text     "html_description"
-    t.boolean  "accomplished"
+    t.boolean  "accomplished",      :default => false
     t.text     "validation_params"
     t.datetime "last_checked_at"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
   add_index "mission_enrollments", ["last_checked_at"], :name => "index_mission_enrollments_on_last_checked_at"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
 
   create_table "missions", :force => true do |t|
     t.integer  "game_version_id"
+    t.string   "slug"
     t.string   "title"
     t.text     "description"
     t.text     "html_description"
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
 
   add_index "missions", ["element"], :name => "index_missions_on_element"
   add_index "missions", ["game_version_id"], :name => "index_missions_on_game_version_id"
+  add_index "missions", ["slug"], :name => "index_missions_on_slug"
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
@@ -108,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
     t.string   "twitter_link"
     t.string   "google_plus_link"
     t.string   "instagram_link"
+    t.text     "bio"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
@@ -131,8 +134,8 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "name"
     t.string   "full_name"
+    t.string   "nickname"
     t.string   "element"
     t.string   "avatar"
     t.string   "language"
