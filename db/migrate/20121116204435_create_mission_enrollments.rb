@@ -9,7 +9,7 @@ class CreateMissionEnrollments < ActiveRecord::Migration
       t.text    :description
       t.text    :html_description
 
-      t.boolean :accomplished
+      t.boolean :accomplished,     default: false
       t.text    :validation_params
 
       t.datetime :last_checked_at
