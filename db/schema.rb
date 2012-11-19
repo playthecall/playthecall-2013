@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
     t.string   "twitter_link"
     t.string   "google_plus_link"
     t.string   "instagram_link"
+    t.text     "bio"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
@@ -131,8 +132,8 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "name"
     t.string   "full_name"
+    t.string   "nickname"
     t.string   "element"
     t.string   "avatar"
     t.string   "language"
