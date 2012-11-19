@@ -1,4 +1,7 @@
-.content-base{padding:20px ;}
+.content-base{
+    padding:20px;
+    min-height: 1000px;
+}
 .content-base .carousel img {border:3px solid #e6e4e4;}
 .content-base .carousel .image-title {
   background: #ee353a;
@@ -13,6 +16,9 @@
   -moz-border-radius-bottomleft: 3px;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+}
+.content-base .carousel .mission-title {
+  width: 600px;
 }
 .content-base .carousel .image-title span {color:#ffc90c;}
 .content-base p {color:#5a5a5a;margin: 20px 0 20px 20px;line-height: 18px;width:668px;}

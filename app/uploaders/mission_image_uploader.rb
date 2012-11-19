@@ -3,6 +3,6 @@ class MissionImageUploader < CarrierWave::Uploader::Base
   setup_storage
 
   version :medium do
-    process resize_to_fit: [680, 350]
+    process resize_to_fit: [680, nil]
   end
 end
