@@ -5,6 +5,7 @@ FactoryGirl.define do
     password              'password'
     password_confirmation 'password'
     sex                   'male'
+    element               ''
     association :city
     association :game_version
   end
