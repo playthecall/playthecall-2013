@@ -53,10 +53,49 @@ describe MissionEnrollment do
     end
 
     it 'should get second enrollment when mission is not finished' do
+      @user.current_mission_enrollment.should_not be_accomplished
       @user.current_mission_enrollment.update_attribute :accomplished, true
       mission = @user.reload.current_mission_enrollment.mission
       mission.position.should == 2
       mission.element.should be_nil
+    end
+
+    it 'should get third enrollment when mission is not finished' do
+      @user.current_mission_enrollment.should_not be_accomplished
+      @user.current_mission_enrollment.update_attribute :accomplished, true
+      mission = @user.reload.current_mission_enrollment.mission
+      mission.position.should == 3
+      mission.element.should be_nil
+    end
+
+    it 'should get first enrollment when choosed new element' do
+      @user.update_attribute :element, 'fire'
+      @user.current_mission_enrollment.should_not be_accomplished
+      @user.current_mission_enrollment.update_attribute :accomplished, true
+      mission = @user.reload.current_mission_enrollment.mission
+      mission.position.should == 1
+      mission.element.should  == 'fire'
+    end
+
+    it 'should get second enrollment when mission is not finished with new element' do
+      @user.current_mission_enrollment.should_not be_accomplished
+      @user.current_mission_enrollment.update_attribute :accomplished, true
+      mission = @user.reload.current_mission_enrollment.mission
+      mission.position.should == 2
+      mission.element.should  == 'fire'
+    end
+
+    it 'should get third enrollment when mission is not finished with new element' do
+      @user.current_mission_enrollment.should_not be_accomplished
+      @user.current_mission_enrollment.update_attribute :accomplished, true
+      mission = @user.reload.current_mission_enrollment.mission
+      mission.position.should == 3
+      mission.element.should  == 'fire'
+    end
+
+    it 'should get last nil when there is any more missions' do
+      @user.current_mission_enrollment.update_attribute :accomplished, true
+      @user.reload.current_mission_enrollment.should be_nil
     end
   end
 end
