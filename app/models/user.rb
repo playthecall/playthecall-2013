@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :profile
 
+  validates_presence_of   :city
   validates_uniqueness_of :nickname
   validates_format_of     :nickname, :with => /[a-z\-0-9]+$/
 

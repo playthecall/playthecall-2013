@@ -36,6 +36,9 @@
   <%= f.label :email %>
   <%= f.email_field :email %>
 
+  <%= f.label :city %>
+  <%= f.collection_select :city, Country.where(code: 'br').first.cities, :id, :name %>
+
   <%= f.label :password %>
   <%= f.password_field :password %>
 
