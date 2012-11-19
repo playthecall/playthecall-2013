@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email,  :password,    :password_confirmation,
                   :avatar, :remember_me, :provider, :uid, :element,
-                  :points, :game_version_id, :nickname, :full_name,
+                  :points, :game_version_id, :nickname, :name,
                   :profile, :avatar_cache, :profile_attributes
 
   def last_mission_enrollment
