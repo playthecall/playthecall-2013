@@ -62,3 +62,6 @@ module PlayTheCall
     config.assets.version = '1.0'
   end
 end
+
+require 'settingslogic'
+load 'app/business/settings.rb'
