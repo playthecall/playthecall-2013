@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  ELEMENTS = ['earth', 'fire', 'air', 'water', '']
+
   has_one    :profile
   has_many   :mission_enrollments
   belongs_to :city
@@ -11,7 +13,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :nickname
   validates_format_of     :nickname, :with => /[a-z\-0-9]+$/
 
-  validates_inclusion_of :sex, in: ['male', 'female']
+  validates_inclusion_of :sex,     in: ['male', 'female']
+  validates_inclusion_of :element, in: ELEMENTS
 
   mount_uploader :avatar, UsersAvatarUploader
 

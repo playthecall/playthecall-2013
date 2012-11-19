@@ -27,7 +27,7 @@ ActiveAdmin.register Mission do
       f.input :video_url
       f.input :image, as: :file
 
-      f.input :element
+      f.input :element, as: :select, collection: User::ELEMENTS
       f.input :position
 
       f.input :validation_class, as: :select, collection: MissionValidator::VALIDATORS
