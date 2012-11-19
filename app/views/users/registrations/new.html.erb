@@ -1,59 +1,66 @@
-<h2>Sign up</h2>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "forms" %>
+<% end %>
 
- <% resource.build_profile %>
- <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
+<% resource.build_profile %>
+
+<aside>
+  <section class="profile">
+    <%= image_tag(@user.avatar_cache || "photo-placeholder.png") %>
+    <h1><%= @user.name %></h1>
+    <% if @user.city %>
+      <strong><%= @user.city.name %> <span><%= @user.city.country.name %></span></strong>
+    <% end %>
+    <p>
+      <%= @user.profile.bio %>
+    </p>
+    <a href=""><%= image_tag("icons/facebook.jpg") %></a>
+    <a href=""><%= image_tag("icons/twitter.jpg") %></a>
+    <a href=""><%= image_tag("icons/github.jpg") %></a>
+    <a href=""><%= image_tag("icons/youtube.jpg") %></a>
+    <a href=""><%= image_tag("icons/insta.jpg") %></a>
+  </section>
+</aside>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
+  <h2>Cadastro</h2>
+
   <%= devise_error_messages! %>
 
-  <p>
-    <%= f.label :nickname %>
-    <%= f.text_field :nickname %>
-  </p>
+  <%= f.label :nickname %>
+  <%= f.text_field :nickname %>
 
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 
-  <p>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </p>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
 
-  <p>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </p>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
 
-  <p>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </p>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
 
+  <%= f.label :sex %>
   <p>
-    <%= f.label :sex %>
     <%= f.radio_button :sex, 'male' %> 
     <%= label :user_sex, :male %>
     <%= f.radio_button :sex, 'female' %>
     <%= label :user_sex, :female %>
   </p>
 
-
   <%= f.fields_for :profile do |profile_form| %>
-    <p>
-      <%= profile_form.label :bio %>
-      <%= profile_form.text_field :bio %>
-    </p>
+    <%= profile_form.label :bio %>
+    <%= profile_form.text_area :bio, rows: 5 %>
   <%end%>
 
-  <p>
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
-    <%= f.hidden_field :avatar_cache %>
+  <%= f.label :avatar %>
+  <%= f.file_field :avatar %>
+  <%= f.hidden_field :avatar_cache %>
+
+  <p class="buttons">
+    <%= link_to "Cancelar", root_path, class: :cancel %>
+    <%= f.submit "Salvar" %>
   </p>
-
-  <p><%= f.submit "Sign up" %></p>
-<% end %>  
-
-<%= link_to "Fazer login com Facebook", user_omniauth_authorize_path(:facebook) %>
-
-<%= render "devise/shared/links" %>
+<% end %>

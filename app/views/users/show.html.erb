@@ -1,7 +1,7 @@
 <aside>
   <section class="profile">
-    <%= image_tag("alona-tal.jpg") %>
-    <h1><%= @user.full_name%></h1>
+    <%= image_tag @user.avatar, class: :avatar %>
+    <h1><%= @user.name%></h1>
     <strong>São Paulo <span>Brasil</span></strong>
     <p>
       <%= @user.profile.bio %>
