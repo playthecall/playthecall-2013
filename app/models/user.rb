@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
 
-  has_one    :city
   has_one    :profile
   has_many   :mission_enrollments
+  belongs_to :city
   belongs_to :game_version
 
   accepts_nested_attributes_for :profile

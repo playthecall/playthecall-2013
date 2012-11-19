@@ -2,15 +2,13 @@
   <%= stylesheet_link_tag "forms" %>
 <% end %>
 
-<% resource.build_profile %>
-
 <aside>
   <section class="profile">
     <%= image_tag(@user.avatar_cache || "photo-placeholder.png") %>
     <h1><%= @user.name %></h1>
-    <% if @user.city %>
-      <strong><%= @user.city.name %> <span><%= @user.city.country.name %></span></strong>
-    <% end %>
+    <strong>
+      <%= @user.city.name %> <span><%= @user.city.country.name %></span>
+    </strong>
     <p>
       <%= @user.profile.bio %>
     </p>
@@ -22,10 +20,8 @@
   </section>
 </aside>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
-  <h2>Cadastro</h2>
+<%= form_for(@user, html: {multipart: true}) do |f| %>
+  <h2>Minhas Configurações</h2>
 
-  <%= devise_error_messages! %>
-
-  <%= render partial: '/users/form', locals: {f: f} %>
+  <%= render partial: 'form', locals: {f: f} %>
 <% end %>
