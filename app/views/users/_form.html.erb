@@ -10,11 +10,9 @@
 <%= f.label :city %>
 <%= f.collection_select :city_id, Country.where(code: 'br').first.cities, :id, :name %>
 
-<%= f.label :password %>
-<%= f.password_field :password %>
-
-<%= f.label :password_confirmation %>
-<%= f.password_field :password_confirmation %>
+<%= f.label :avatar %>
+<%= f.file_field :avatar %>
+<%= f.hidden_field :avatar_cache %>
 
 <%= f.label :sex %>
 <p>
@@ -29,9 +27,11 @@
   <%= profile_form.text_area :bio, rows: 5 %>
 <%end%>
 
-<%= f.label :avatar %>
-<%= f.file_field :avatar %>
-<%= f.hidden_field :avatar_cache %>
+<%= f.label :password %>
+<%= f.password_field :password %>
+
+<%= f.label :password_confirmation %>
+<%= f.password_field :password_confirmation %>
 
 <p class="buttons">
   <%= link_to "Cancelar", root_path, class: :cancel %>

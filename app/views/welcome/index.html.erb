@@ -14,6 +14,7 @@
 				e divertido? O jogo que começa aqui e termina na sua vida.
 			</p>
       <%= link_to "Comece a jogar", new_user_registration_path, class: "btn" %>
+      <%= link_to "Entrar", new_user_session_path, class: "btn" %>
 		</div>
 		<div class="footer">
 			<ul>
@@ -174,7 +175,7 @@
   <%= javascript_include_tag "home/globe_min.js" %>
 	<script>
 	$('div#globeGl_').doGlobe({
-		globeRadius: 900,
+		globeRadius: 1300,
 		backPlateMargin: 10,
 		camX: 0,
 		camY: -50,

@@ -3,7 +3,7 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "Play The Call" %></title>
     <meta charset="UTF-8" >
-    <%= stylesheet_link_tag "reset", "base", "aside", "style" %>
+    <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
@@ -14,10 +14,11 @@
         <%= image_tag "logo.png", class: :logo %>
         <ul class="menu">
           <% if user_signed_in? %>
-            <li> <%= link_to "Minhas Missões", missions_path %>
+            <li>
+              <%= link_to "Minhas Missões", missions_path %>
             </li>
             <li class="settings">
-              <%= link_to "Configurações", edit_user_path(1) %>
+              <%= link_to "Configurações", edit_user_path(current_user) %>
             </li>
           <% else %>
             <li>
@@ -32,7 +33,7 @@
     </header>
     <div class="container">
       <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <%= content_tag :div, msg, id: "flash_#{name}" %>
       <% end %>
       <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
@@ -44,7 +45,7 @@
             <li> <%= link_to "Minhas Missões", missions_path %>
             </li>
             <li class="settings">
-              <%= link_to "Configurações", edit_user_path(1) %>
+              <%= link_to "Configurações", edit_user_path(current_user) %>
             </li>
           <% else %>
             <li>
