@@ -13,10 +13,7 @@ class FacebookSocialMissionValidator < MissionValidator
   end
 
   def initialize_params
-    {
-      likes:  0,
-      oralce: false
-    }
+    { likes:  0, oracle: false }
   end
 
   protected
