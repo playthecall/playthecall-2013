@@ -1,0 +1,39 @@
+<%= f.label :nickname %>
+<%= f.text_field :nickname %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :email %>
+<%= f.email_field :email %>
+
+<%= f.label :city %>
+<%= f.collection_select :city_id, Country.where(code: 'br').first.cities, :id, :name %>
+
+<%= f.label :password %>
+<%= f.password_field :password %>
+
+<%= f.label :password_confirmation %>
+<%= f.password_field :password_confirmation %>
+
+<%= f.label :sex %>
+<p>
+  <%= f.radio_button :sex, 'male' %> 
+  <%= label :user_sex, :male %>
+  <%= f.radio_button :sex, 'female' %>
+  <%= label :user_sex, :female %>
+</p>
+
+<%= f.fields_for :profile do |profile_form| %>
+  <%= profile_form.label :bio %>
+  <%= profile_form.text_area :bio, rows: 5 %>
+<%end%>
+
+<%= f.label :avatar %>
+<%= f.file_field :avatar %>
+<%= f.hidden_field :avatar_cache %>
+
+<p class="buttons">
+  <%= link_to "Cancelar", root_path, class: :cancel %>
+  <%= f.submit "Salvar" %>
+</p>

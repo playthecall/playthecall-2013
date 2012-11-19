@@ -8,8 +8,9 @@ pt-BR:
     attributes:
       user:
         avatar: Foto
-        nickname: Apelido
+        city: Cidade
         name: Nome Completo
+        nickname: Apelido
         password: Senha
         password_confirmation: Confirme sua senha
         sex: Sexo
