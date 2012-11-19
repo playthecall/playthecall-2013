@@ -16,7 +16,8 @@ namespace :import do
     end
   end
 
-  def import_from(content, options={country: 'br'})
+  def import_from(content, options={ country: 'br',
+                                     population_greater_than: 1000 })
     if options[:country]
       puts "Filtering by country: #{options[:country]}..."
       header = content.lines.first
@@ -24,9 +25,16 @@ namespace :import do
       content.prepend header
     end
 
+    if options[:population_greater_than]
+      puts "Filtering cities with population lower than #{
+            options[:population_greater_than]}"
+    end
+
     cities    = []
     CSV.parse content, headers: true do |row|
       country = find_or_create_country_for row
+      next if options[:population_greater_than].nil? or
+              options[:population_greater_than] > row['Population'].to_i
       city = City.new country_id: country.id,
                       name:       row['AccentCity'].encode('UTF-8'),
                       longitude:  row['Longitude'],
