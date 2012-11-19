@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many   :mission_enrollments
   belongs_to :game_version
   accepts_nested_attributes_for :profile
+  validates_format_of :nicname, :with => /[a-z\-]+$/, :on => :create
 
   devise :database_authenticatable,   :trackable,
          :recoverable, :rememberable, :confirmable,
