@@ -1,6 +1,8 @@
 pt-BR:
   helpers:
     label:
+      user:
+        remember_me: Lembrar
       user_sex:
         female: Feminino
         male: Masculino

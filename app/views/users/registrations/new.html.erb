@@ -1,12 +1,8 @@
-<% content_for :head do %>
-  <%= stylesheet_link_tag "forms" %>
-<% end %>
-
 <% resource.build_profile %>
 
 <aside>
   <section class="profile">
-    <%= image_tag(@user.avatar_cache || "photo-placeholder.png") %>
+    <%= image_tag "photo-placeholder.png" %>
     <h1><%= @user.name %></h1>
     <% if @user.city %>
       <strong><%= @user.city.name %> <span><%= @user.city.country.name %></span></strong>
@@ -14,16 +10,11 @@
     <p>
       <%= @user.profile.bio %>
     </p>
-    <a href=""><%= image_tag("icons/facebook.jpg") %></a>
-    <a href=""><%= image_tag("icons/twitter.jpg") %></a>
-    <a href=""><%= image_tag("icons/github.jpg") %></a>
-    <a href=""><%= image_tag("icons/youtube.jpg") %></a>
-    <a href=""><%= image_tag("icons/insta.jpg") %></a>
   </section>
 </aside>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
-  <h2>Cadastro</h2>
+  <h2 class="title">Cadastro</h2>
 
   <%= devise_error_messages! %>
 
