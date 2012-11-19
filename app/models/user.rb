@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :nickname
   validates_format_of     :nickname, :with => /[a-z\-0-9]+$/
 
-  validates_inclusion_of :sex, in: [:male, :female]
+  validates_inclusion_of :sex, in: ['male', 'female']
 
   mount_uploader :avatar, UsersAvatarUploader
 
