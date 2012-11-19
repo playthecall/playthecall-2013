@@ -4,3 +4,5 @@ s3:
   upload_bucket: '<%= ENV["SETINGS_S3_BUCKET"]     %>'
 facebook:
   default_access_token: '<%= ENV["SETTINGS_FACEBOOK_DEFAULT_ACCESS_TOKEN"] %>'
+mailer:
+  config: 'Missing production configurations!'

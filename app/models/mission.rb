@@ -1,4 +1,6 @@
 class Mission < ActiveRecord::Base
+  has_many   :mission_enrollments
+
   belongs_to :game_version
 
   mount_uploader :image, MissionImageUploader
@@ -17,8 +19,12 @@ class Mission < ActiveRecord::Base
     Mission.find_by_element_and_position(element, position + 1)
   end
 
-  def self.first_of_element(element)
-    self.find_by_element_and_position element, 1
+  def self.version(game_version_id)
+    self.where(game_version_id: game_version_id)
+  end
+
+  def self.first_for(user)
+    self.version(user.game_version_id).where(element: user.element, position: 1).limit(1).first
   end
 
   def self.admin_order

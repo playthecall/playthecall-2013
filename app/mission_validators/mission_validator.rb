@@ -25,12 +25,18 @@ class MissionValidator
     @presenter ||= "#{self.class.name}Presenter".constantize.new(@enrollment, self)
   end
 
+  # Subclasses should implement check, accomplished? and initialize_params!
+
   def check
     false
   end
 
   def accomplished?
     raise 'Not implemented'
+  end
+
+  def initialize_params
+    Hash.new
   end
 
   class Params

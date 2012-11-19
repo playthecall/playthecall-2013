@@ -12,6 +12,13 @@ class FacebookSocialMissionValidator < MissionValidator
     likes_enough? && oracle_validated?
   end
 
+  def initialize_params
+    {
+      likes:  0,
+      oralce: false
+    }
+  end
+
   protected
   def update_enrollment_params
     enrollment_params[:fb]    = link_stats.symbolize_keys

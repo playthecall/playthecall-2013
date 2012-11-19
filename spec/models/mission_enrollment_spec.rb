@@ -1,27 +1,62 @@
 require 'spec_helper'
 
 describe MissionEnrollment do
-  clean_with_transaction_on :all
+  context 'simple mission' do
+    clean_with_transaction_on :all
 
-  before :all do
-    @mission    = create :mission
-    @enrollment = create :mission_enrollment, mission: @mission
+    before :all do
+      @mission    = create :mission
+      @enrollment = create :mission_enrollment, mission: @mission
+    end
+
+    it 'should compile description' do
+      @enrollment.should have_description_tag 'em', 'Mission Enrollment'
+    end
+
+    it 'should have a validator class' do
+      @enrollment.validator.class.should == FacebookSocialMissionValidator
+    end
+
+    it 'should have a presenter class' do
+      @enrollment.presenter.class.should == FacebookSocialMissionValidatorPresenter
+    end
+
+    it 'should have not been accomplished' do
+      @enrollment.should_not           be_accomplished
+      @enrollment.validator.should_not be_accomplished
+    end
   end
 
-  it 'should compile description' do
-    @enrollment.should have_description_tag 'em', 'Mission Enrollment'
-  end
+  context 'multiple missions' do
+    clean_with_transaction_on :all
 
-  it 'should have a validator class' do
-    @enrollment.validator.class.should == FacebookSocialMissionValidator
-  end
+    before :all do
+      @user     = create :user
+      @missions = []
 
-  it 'should have a presenter class' do
-    @enrollment.presenter.class.should == FacebookSocialMissionValidatorPresenter
-  end
+      (1..3).each do |p|
+        @missions << create(:mission, game_version_id: @user.game_version_id, position: p)
+        @missions << create(:mission, game_version_id: @user.game_version_id, position: p, element: 'fire')
+      end
+    end
 
-  it 'should have not been accomplished' do
-    @enrollment.should_not           be_accomplished
-    @enrollment.validator.should_not be_accomplished
+    it 'should create first enrollment from first mission' do
+      mission = @user.current_mission_enrollment.mission
+      mission.position.should == 1
+      mission.element.should be_nil
+    end
+
+    it 'should get same enrollment when mission is not finished' do
+      mission = @user.current_mission_enrollment.mission
+      mission.position.should == 1
+      mission.element.should be_nil
+    end
+
+    it 'should get second enrollment when mission is not finished' do
+      @user.current_mission_enrollment.update_attribute :accomplished, true
+      mission = @user.reload.current_mission_enrollment.mission
+      mission.position.should == 2
+      mission.element.should be_nil
+    end
   end
 end
