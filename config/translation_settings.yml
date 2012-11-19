@@ -1,8 +1,8 @@
-'localhost':             'pt'
+'localhost':             'pt-BR'
 
 'playthecall.com':       'en'
-'playthecall.com.br':    'pt'
+'playthecall.com.br':    'pt-BR'
 
-'playthecall.dev':       'pt'
+'playthecall.dev':       'pt-BR'
 'en.playthecall.dev':    'en'
-'pt-br.playthecall.dev': 'pt'
+'pt-br.playthecall.dev': 'pt-BR'

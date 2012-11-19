@@ -1,5 +1,5 @@
 class Translation
-  DEFAULT_DOMAIN = 'pt'
+  FALLBACK_LOCALE = 'pt-BR'
 
   def initialize
     @config = YAML.load_file config_path
@@ -8,7 +8,7 @@ class Translation
   def for(options = {})
     language_for_user(options[:user])     ||
     language_for_domain(options[:domain]) ||
-    DEFAULT_DOMAIN
+    FALLBACK_LOCALE
   end
 
   def language_for_user(user)
