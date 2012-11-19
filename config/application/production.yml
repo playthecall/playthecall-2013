@@ -5,4 +5,11 @@ s3:
 facebook:
   default_access_token: '<%= ENV["SETTINGS_FACEBOOK_DEFAULT_ACCESS_TOKEN"] %>'
 mailer:
-  config: 'Missing production configurations!'
+  config:
+    :address:              '<%= ENV["SETTINGS_MAILER_CONFIG_ADDRESS"] %>'
+    :port:                 '<%= ENV["SETTINGS_MAILER_CONFIG_PROT"] %>'
+    :domain:               '<%= ENV["SETTINGS_MAILER_CONFIG_DOMAIN"] %>'
+    :user_name:            '<%= ENV["SETTINGS_MAILER_CONFIG_USER_NAME"] %>'
+    :password:             '<%= ENV["SETTINGS_MAILER_CONFIG_PASSWORD"] %>'
+    :authentication:       'plain'
+    :enable_starttls_auto: true
