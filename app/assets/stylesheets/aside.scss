@@ -10,6 +10,11 @@ aside .profile {
   -moz-border-radius-topleft: 5px;
   -moz-border-radius-bottomleft: 5px;
   border-bottom-left-radius: 5px;
+
+  img.avatar {
+    height: 180px;
+    width:  180px;
+  }
 }
 
 aside .profile .profile-pic{
