@@ -1,5 +1,5 @@
 class Translation
-  DEFAULT_DOMAIN = 'en'
+  DEFAULT_DOMAIN = 'pt'
 
   def initialize
     @config = YAML.load_file config_path

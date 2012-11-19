@@ -1,0 +1,12 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+pt:
+  activerecord:
+    attributes:
+      user:
+        avatar: Foto
+        nickname: Apelido
+        name: Nome Completo
+        password: Senha
+        password_confirmation: Confirme sua senha
