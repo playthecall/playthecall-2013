@@ -1,2 +1,3 @@
 en:
-  hello: "Hello world"
+  mission:
+    indexed_title: "<span>Mission %{position}:</span> %{title}"

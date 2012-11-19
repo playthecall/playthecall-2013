@@ -1,5 +1,5 @@
 game_versions = [
-  { name: 'Brasil', language: 'pt-br'},
+  { name: 'Brasil', language: 'pt-BR'},
   { name: 'Global', language: 'en'   },
   { name: 'USA',    language: 'us'   },
   { name: 'China',  language: 'cn'   },

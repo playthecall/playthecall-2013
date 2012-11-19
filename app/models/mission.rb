@@ -7,7 +7,7 @@ class Mission < ActiveRecord::Base
 
   attr_accessible :game_version_id,   :title,    :description,
                   :validation_class,  :image,    :video_url,
-                  :validation_params, :position, :element
+                  :validation_params, :position, :element, :slug
 
   before_save :compile_description
 

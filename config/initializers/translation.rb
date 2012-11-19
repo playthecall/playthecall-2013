@@ -1,5 +1,5 @@
 class Translation
-  FALLBACK_LOCALE = 'pt-BR'
+  FALLBACK_LOCALE = 'en'
 
   def initialize
     @config = YAML.load_file config_path
