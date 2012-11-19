@@ -57,7 +57,7 @@ class MissionValidator
 
     protected
     def resource_params
-      YAML.load @resource.validation_params
+      YAML.load(@resource.validation_params).symbolize_keys
     end
   end
 end
