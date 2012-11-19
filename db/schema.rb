@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117103327) do
+ActiveRecord::Schema.define(:version => 20121118020109) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,6 +46,23 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "cities", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "country_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "enrollment_images", :force => true do |t|
     t.string   "image"
     t.integer  "mission_enrollment_id"
@@ -72,11 +89,11 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
     t.string   "title"
     t.text     "description"
     t.text     "html_description"
-    t.boolean  "accomplished"
+    t.boolean  "accomplished",      :default => false
     t.text     "validation_params"
     t.datetime "last_checked_at"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
   add_index "mission_enrollments", ["last_checked_at"], :name => "index_mission_enrollments_on_last_checked_at"
@@ -86,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
 
   create_table "missions", :force => true do |t|
     t.integer  "game_version_id"
+    t.string   "slug"
     t.string   "title"
     t.text     "description"
     t.text     "html_description"
@@ -101,6 +119,7 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
 
   add_index "missions", ["element"], :name => "index_missions_on_element"
   add_index "missions", ["game_version_id"], :name => "index_missions_on_game_version_id"
+  add_index "missions", ["slug"], :name => "index_missions_on_slug"
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
@@ -142,6 +161,7 @@ ActiveRecord::Schema.define(:version => 20121117103327) do
     t.string   "provider"
     t.string   "uid"
     t.string   "access_token"
+    t.integer  "city_id"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

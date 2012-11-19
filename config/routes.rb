@@ -5,8 +5,6 @@ PlayTheCall::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  match 'callbacks/fbrealtime' => 'callback#fbrealtime'
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -21,6 +19,11 @@ PlayTheCall::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :users
   resources :missions
+  resources :mission_enrollments do
+    member do
+      post 'check'
+    end
+  end
 
   # Sample resource route with options:
   #   resources :products do

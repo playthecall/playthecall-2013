@@ -13,8 +13,12 @@ class Mission < ActiveRecord::Base
     @validator ||= validation_class.constantize.new enrollment
   end
 
-  def self.for_user(user)
-    where element: user.element
+  def next_mission
+    Mission.find_by_element_and_position(element, position + 1)
+  end
+
+  def self.first_of_element(element)
+    self.find_by_element_and_position element, 1
   end
 
   def self.admin_order

@@ -20,6 +20,7 @@ ActiveAdmin.register Mission do
     f.inputs "Content" do
       f.input :game_version_id, as: :select, collection: GameVersion.all
 
+      f.input :slug
       f.input :title
       f.input :description
 

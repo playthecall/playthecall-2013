@@ -3,6 +3,7 @@ class CreateMissions < ActiveRecord::Migration
     create_table :missions do |t|
       t.references :game_version
 
+      t.string :slug
       t.string :title
       t.text   :description
       t.text   :html_description
@@ -21,5 +22,6 @@ class CreateMissions < ActiveRecord::Migration
 
     add_index :missions, :game_version_id
     add_index :missions, :element
+    add_index :missions, :slug
   end
 end

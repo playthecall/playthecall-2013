@@ -3,6 +3,7 @@
 /log/*.log
 /tmp
 .DS_Store
+dump.rdb
 
 public/uploads/
 config/database.yml
