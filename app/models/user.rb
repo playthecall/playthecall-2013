@@ -3,10 +3,12 @@ class User < ActiveRecord::Base
   has_one    :city
   has_one    :profile
   has_many   :mission_enrollments
-
   belongs_to :game_version
-  accepts_nested_attributes_for :profile
+
   validates_format_of :nickname, with: /[a-z\-]+$/, on: :create
+  validates_inclusion_of :sex, in: [:male, :female]
+
+  accepts_nested_attributes_for :profile
 
   devise :database_authenticatable,   :trackable,
          :recoverable, :rememberable, :confirmable,
@@ -17,7 +19,7 @@ class User < ActiveRecord::Base
   attr_accessible :email,  :password,    :password_confirmation,
                   :avatar, :remember_me, :provider, :uid, :element,
                   :points, :game_version_id, :nickname, :name,
-                  :profile, :avatar_cache, :profile_attributes
+                  :profile, :avatar_cache, :profile_attributes, :sex
 
   def last_mission_enrollment
     user.mission_enrollments.order('created_at DESC').limit(1)

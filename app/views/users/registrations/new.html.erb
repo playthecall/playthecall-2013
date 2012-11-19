@@ -29,6 +29,15 @@
     <%= f.password_field :password_confirmation %>
   </p>
 
+  <p>
+    <%= f.label :sex %>
+    <%= f.radio_button :sex, 'male' %> 
+    <%= label :user_sex, :male %>
+    <%= f.radio_button :sex, 'female' %>
+    <%= label :user_sex, :female %>
+  </p>
+
+
   <%= f.fields_for :profile do |profile_form| %>
     <p>
       <%= profile_form.label :bio %>
@@ -45,6 +54,6 @@
   <p><%= f.submit "Sign up" %></p>
 <% end %>  
 
-<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+<%= link_to "Fazer login com Facebook", user_omniauth_authorize_path(:facebook) %>
 
 <%= render "devise/shared/links" %>
