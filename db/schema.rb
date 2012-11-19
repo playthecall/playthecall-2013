@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121119142336) do
+ActiveRecord::Schema.define(:version => 20121119230807) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -107,14 +107,14 @@ ActiveRecord::Schema.define(:version => 20121119142336) do
     t.string   "title"
     t.text     "description"
     t.text     "html_description"
-    t.string   "element"
+    t.string   "element",           :default => ""
     t.integer  "position"
     t.string   "video_url"
     t.string   "image"
     t.string   "validation_class"
     t.text     "validation_params"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   add_index "missions", ["element"], :name => "index_missions_on_element"
@@ -152,7 +152,7 @@ ActiveRecord::Schema.define(:version => 20121119142336) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "nickname"
-    t.string   "element"
+    t.string   "element",                :default => ""
     t.string   "avatar"
     t.string   "language"
     t.integer  "game_version_id"
