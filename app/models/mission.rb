@@ -3,6 +3,8 @@ class Mission < ActiveRecord::Base
 
   belongs_to :game_version
 
+  validates_inclusion_of :element, in: User::ELEMENTS
+
   mount_uploader :image, MissionImageUploader
 
   attr_accessible :game_version_id,   :title,    :description,
@@ -24,7 +26,9 @@ class Mission < ActiveRecord::Base
   end
 
   def self.first_for(user)
-    self.version(user.game_version_id).where(element: user.element, position: 1).limit(1).first
+    self.version(user.game_version_id).
+         where(element: user.element, position: 1).limit(1).
+         first
   end
 
   def self.admin_order
