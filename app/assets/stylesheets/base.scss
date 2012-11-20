@@ -26,40 +26,6 @@ header {
   -moz-box-shadow:    0 0 25px 0 rgba(0,0,0, 0.5);
   box-shadow:         0 0 25px 0 rgba(0,0,0, 0.5);
   .content-header {
-    .menu {
-      float:right;
-      margin-top: 38px;
-      > li {
-        float: left;
-        line-height: 1.5em;
-        a {
-          color: #aeaeae;
-          font-weight: bold;
-          font-size: 15px;
-          text-decoration: none;
-          margin-right: 10px;
-        }
-        &.settings {
-          margin-left: 0.5em;
-          &.active {
-            background-color: #F3F3F3;
-          }
-          ul.settings-drop {
-            background-color: #F3F3F3;
-            border-radius: 0 0 5px 5px;
-            display: none;
-            padding: 0.5em;
-            position: absolute;
-            width: 123px;
-          }
-          > a {
-            background: url('/assets/settings.png') no-repeat right center;
-            padding-left: 0.5em;
-            padding-right: 20px;
-          }
-        }
-      }
-    }
     height:104px;
     .logo {
       float: left;
@@ -67,6 +33,40 @@ header {
   }
 }
 
+.menu {
+  float:right;
+  margin-top: 38px;
+  > li {
+    float: left;
+    line-height: 1.5em;
+    a {
+      color: #aeaeae;
+      font-weight: bold;
+      font-size: 15px;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    &.settings {
+      margin-left: 0.5em;
+      &.active {
+        background-color: #F3F3F3;
+      }
+      ul.settings-drop {
+        background-color: #F3F3F3;
+        border-radius: 0 0 5px 5px;
+        display: none;
+        padding: 0.5em;
+        position: absolute;
+        width: 123px;
+      }
+      > a {
+        background: url('/assets/settings.png') no-repeat right center;
+        padding-left: 0.5em;
+        padding-right: 20px;
+      }
+    }
+  }
+}
 
 aside {
   float:left;
