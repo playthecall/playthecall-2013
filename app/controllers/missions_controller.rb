@@ -1,8 +1,8 @@
 class MissionsController < ApplicationController
-  layout 'users'
+  before_filter authenticate_user!
 
   def show
-    @user    = User.first
+    @user    = current_user
     @mission = Mission.find params[:id]
   end
 end

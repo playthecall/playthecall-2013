@@ -1,104 +1,37 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Play The Call" %></title>
-    <meta charset="UTF-8" >
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tag %>
-    <%= yield(:head) %>
-  </head>
-  <body>
-    <header>
-      <section class="content-header">
-        <%= image_tag "logo.png", class: :logo %>
-        <ul class="menu">
-          <% if user_signed_in? %>
-            <li>
-              <%= link_to "Minhas Missões", missions_path %>
-            </li>
-            <li class="settings">
-              <%= link_to "Configurações", edit_user_path(current_user) %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to "Entrar", new_user_session_path %>
-            </li>
-            <li>
-              <%= link_to "Quero Salvar o Mundo", new_user_path, class: 'sign-in' %>
-            </li>
-          <% end %>
-        </ul>
-      </section>
-    </header>
-    <div class="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, id: "flash_#{name}" %>
-      <% end %>
-      <%= content_tag :h1, yield(:title) if show_title? %>
-      <aside>
-        <section class="profile">
-          <%= image_tag @user.avatar, class: :avatar %>
-          <h1><%= @user.name%></h1>
-          <strong>São Paulo <span>Brasil</span></strong>
-          <p>
-            <%= @user.profile.bio %>
-          </p>
-          <a href=""><%= image_tag("icons/facebook.jpg") %></a>
-          <a href=""><%= image_tag("icons/twitter.jpg") %></a>
-          <a href=""><%= image_tag("icons/github.jpg") %></a>
-          <a href=""><%= image_tag("icons/youtube.jpg") %></a>
-          <a href=""><%= image_tag("icons/insta.jpg") %></a>
-        </section>
-        <section class="points">
-          <div class="total-points">
-            <%= @user.points %>
-          </div>
-          <div class="badges">
-            <%= image_tag("icons/app.jpg") %>
-            <%= image_tag("icons/talk.jpg") %>
-            <%= image_tag("icons/search.jpg") %>
-            <%= image_tag("icons/archive.jpg") %>
-          </div>
-          <a href="" class="btn btn-ranking">Ranking</a>
-        </section>
-        <section class="missions">
-          <h1>Missões</h1>
-          <ul>
-            <% @user.mission_enrollments.each_with_index do |mission_enrollment, index| %>
-              <li><%= index %><span><%= mission_enrollment.mission.title %></span></li>
-            <% end %>
-          </ul>
-        </section>
-      </aside>
-      <%= yield %>
+<aside>
+  <section class="profile">
+    <%= image_tag @user.avatar, class: :avatar %>
+    <h1><%= @user.name%></h1>
+    <strong><%= @user.city.name %> <span><%= @user.city.country.name %></span></strong>
+    <p>
+      <%= @user.profile.bio %>
+    </p>
+    <a href=""><%= image_tag("icons/facebook.jpg") %></a>
+    <a href=""><%= image_tag("icons/twitter.jpg") %></a>
+    <a href=""><%= image_tag("icons/github.jpg") %></a>
+    <a href=""><%= image_tag("icons/youtube.jpg") %></a>
+    <a href=""><%= image_tag("icons/insta.jpg") %></a>
+  </section>
+  <section class="points">
+    <div class="total-points">
+      <%= @user.points %>
     </div>
-    <footer>
-      <div>
-        <ul class="menu">
-          <% if user_signed_in? %>
-            <li> <%= link_to "Minhas Missões", missions_path %>
-            </li>
-            <li class="settings">
-              <%= link_to "Configurações", edit_user_path(current_user) %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to "Entrar", new_user_session_path %>
-            </li>
-            <li>
-              <%= link_to "Cadastre-se", new_user_path %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </footer>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=262206940557713";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-  </body>
-</html>
+    <div class="badges">
+      <%= image_tag("icons/app.jpg") %>
+      <%= image_tag("icons/talk.jpg") %>
+      <%= image_tag("icons/search.jpg") %>
+      <%= image_tag("icons/archive.jpg") %>
+    </div>
+    <a href="" class="btn btn-ranking">Ranking</a>
+  </section>
+  <section class="missions">
+    <h1>Missões</h1>
+    <ul>
+      <% for mission_enrollment in @user.mission_enrollments %>
+        <li><%= mission_enrollment.mission.position %> <span><%= mission_enrollment.mission.title %></span></li>
+      <% end %>
+    </ul>
+  </section>
+</aside>
+<%= yield %>
+<%= parent_layout "application" %>
