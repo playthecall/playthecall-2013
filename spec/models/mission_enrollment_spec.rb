@@ -43,13 +43,13 @@ describe MissionEnrollment do
     it 'should create first enrollment from first mission' do
       mission = @user.current_mission_enrollment.mission
       mission.position.should == 1
-      mission.element.should be_nil
+      mission.element.should be_blank
     end
 
     it 'should get same enrollment when mission is not finished' do
       mission = @user.current_mission_enrollment.mission
       mission.position.should == 1
-      mission.element.should be_nil
+      mission.element.should be_blank
     end
 
     it 'should get second enrollment when mission is not finished' do
@@ -57,7 +57,7 @@ describe MissionEnrollment do
       @user.current_mission_enrollment.update_attribute :accomplished, true
       mission = @user.reload.current_mission_enrollment.mission
       mission.position.should == 2
-      mission.element.should be_nil
+      mission.element.should be_blank
     end
 
     it 'should get third enrollment when mission is not finished' do
@@ -65,7 +65,7 @@ describe MissionEnrollment do
       @user.current_mission_enrollment.update_attribute :accomplished, true
       mission = @user.reload.current_mission_enrollment.mission
       mission.position.should == 3
-      mission.element.should be_nil
+      mission.element.should be_blank
     end
 
     it 'should get first enrollment when choosed new element' do
