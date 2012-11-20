@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121119230807) do
+ActiveRecord::Schema.define(:version => 20121120040745) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -156,7 +156,7 @@ ActiveRecord::Schema.define(:version => 20121119230807) do
     t.string   "avatar"
     t.string   "language"
     t.integer  "game_version_id"
-    t.integer  "points"
+    t.integer  "points",                 :default => 0
     t.string   "provider"
     t.string   "uid"
     t.string   "access_token"
