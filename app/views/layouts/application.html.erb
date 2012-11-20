@@ -19,13 +19,17 @@
             </li>
             <li class="settings">
               <%= link_to "Configurações", edit_user_path(current_user) %>
+              <ul class="settings-drop">
+                <li><%= link_to "Editar Perfil", edit_user_path(current_user) %></li>
+                <li><%= link_to "Sair", destroy_user_session_path %></li>
+              </ul>
             </li>
           <% else %>
             <li>
               <%= link_to "Entrar", new_user_session_path %>
             </li>
             <li>
-              <%= link_to "Quero Salvar o Mundo", new_user_path, class: 'sign-in' %>
+              <%= link_to "Quero Salvar o Mundo", new_user_registration_path, class: 'sign-in' %>
             </li>
           <% end %>
         </ul>
@@ -52,7 +56,7 @@
               <%= link_to "Entrar", new_user_session_path %>
             </li>
             <li>
-              <%= link_to "Cadastre-se", new_user_path %>
+              <%= link_to "Cadastre-se", new_user_registration_path %>
             </li>
           <% end %>
         </ul>
