@@ -43,24 +43,16 @@
       <%= yield %>
     </div>
     <footer>
-      <div>
-        <ul class="menu">
-          <% if user_signed_in? %>
-            <li> <%= link_to "Minhas Missões", missions_path %>
-            </li>
-            <li class="settings">
-              <%= link_to "Configurações", edit_user_path(current_user) %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to "Entrar", new_user_session_path %>
-            </li>
-            <li>
-              <%= link_to "Cadastre-se", new_user_registration_path %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+			<ul>
+				<li><a href="">About</a></li>
+				<li><a href="">Help</a></li>
+				<li><a href="">Terms</a></li>
+				<li><a href="">Privacy</a></li>
+				<li><a href="">Media</a></li>
+				<li><a href="">Developers</a></li>
+				<li><a href="">Resources</a></li>
+				<li>&copy; 2012 Play The Call</li>
+			</ul>
     </footer>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];

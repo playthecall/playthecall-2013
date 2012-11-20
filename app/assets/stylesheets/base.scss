@@ -7,15 +7,52 @@ body{
 ul li {list-style:none;}
 a img {border: none;}
 
+.content-header {
+  a.sign-in{
+    color: #ee353a;
+  }
+
+  .menu {
+    float:right;
+    margin-top: 38px;
+    > li {
+      float: left;
+      line-height: 1.5em;
+      a {
+        color: #aeaeae;
+        font-weight: bold;
+        font-size: 15px;
+        text-decoration: none;
+        margin-right: 10px;
+      }
+      &.settings {
+        margin-left: 0.5em;
+        &.active {
+          background-color: #F3F3F3;
+        }
+        ul.settings-drop {
+          background-color: #F3F3F3;
+          border-radius: 0 0 5px 5px;
+          display: none;
+          padding: 0.5em;
+          position: absolute;
+          width: 123px;
+        }
+        > a {
+          background: url('/assets/settings.png') no-repeat right center;
+          padding-left: 0.5em;
+          padding-right: 20px;
+        }
+      }
+    }
+  }
+}
+
 .container,
 .content-header {
   background:#fff;
   margin: 0 auto;
   width:993px;
-
-  a.sign-in{
-    color: #ee353a;
-  }
 }
 
 header {
@@ -33,40 +70,6 @@ header {
   }
 }
 
-.menu {
-  float:right;
-  margin-top: 38px;
-  > li {
-    float: left;
-    line-height: 1.5em;
-    a {
-      color: #aeaeae;
-      font-weight: bold;
-      font-size: 15px;
-      text-decoration: none;
-      margin-right: 10px;
-    }
-    &.settings {
-      margin-left: 0.5em;
-      &.active {
-        background-color: #F3F3F3;
-      }
-      ul.settings-drop {
-        background-color: #F3F3F3;
-        border-radius: 0 0 5px 5px;
-        display: none;
-        padding: 0.5em;
-        position: absolute;
-        width: 123px;
-      }
-      > a {
-        background: url('/assets/settings.png') no-repeat right center;
-        padding-left: 0.5em;
-        padding-right: 20px;
-      }
-    }
-  }
-}
 
 aside {
   float:left;
@@ -91,4 +94,23 @@ section.content {
   background: #fff;
   width:755px;
   min-height:100px;
+}
+
+footer {
+  height: 200px;
+  padding-left: 40%;
+  padding-top: 2em;
+  li {
+    display: inline;
+    color: #AEAEAE;
+    font-size: 15px;
+    font-weight: bold;
+    a {
+      color: #AEAEAE;
+      font-size: 15px;
+      font-weight: bold;
+      margin-right: 10px;
+      text-decoration: none;
+    }
+  }
 }
