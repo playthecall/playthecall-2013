@@ -100,7 +100,6 @@ if (typeof Object.create !== "function") {
       a.camera.position.x = a.options.camX;
       a.camera.position.y = a.options.camY;
       a.camera.position.z = a.options.camZ;
-      // console.log(a.camera);
       a.camera.lookAt(new THREE.Vector3(a.options.cameraTargetX, a.options.cameraTargetY, a.options.cameraTargetZ));
       a.scene.add(a.camera);
       a.ambient = new THREE.PointLight(a.options.ambientColor, a.options.ambientIntensity);
@@ -151,18 +150,6 @@ if (typeof Object.create !== "function") {
       a.scaleContainer.add(a.backPlateContainer);
       a.scaleContainer.add(a.globeContainerParent);
       a.globeContainerParent.add(a.globeContainer)
-    },
-    setupDebug: function () {
-      var a = this;
-      console.log("setupDebug");
-      a.setUpStats()
-    },
-    setUpStats: function () {
-      var a = this;
-      a.stats = new Stats;
-      a.stats.domElement.style.position = "absolute";
-      a.stats.domElement.style.top = "0";
-      a.elem.append(a.stats.domElement)
     },
     generateContent: function () {
       var b = this;
@@ -310,9 +297,6 @@ if (typeof Object.create !== "function") {
       a.globeContainerParent.rotation.x += (.35 * a.targetRotation_y - a.globeContainerParent.rotation.x) * .2;
       TWEEN.update();
       a.render();
-      if (a.options.debugMode === true) {
-        a.stats.update()
-      }
     },
     render: function () {
       var a = this;
