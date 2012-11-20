@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   attr_accessible :email,  :password, :password_confirmation, :avatar,
                   :avatar_cache, :remember_me, :provider, :element, :uid,
                   :points, :game_version_id, :nickname, :sex, :name,
-                  :profile, :avatar_cache, :profile_attributes, :bio
+                  :profile, :avatar_cache, :profile_attributes, :bio, :city_id
 
   devise :database_authenticatable,   :trackable,
          :recoverable, :rememberable, :confirmable,
