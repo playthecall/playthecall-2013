@@ -41,4 +41,8 @@ class User < ActiveRecord::Base
       last_enrollment
     end
   end
+
+  def self.ranking
+    User.order('points DESC').limit(10)
+  end
 end
