@@ -25,6 +25,8 @@ PlayTheCall::Application.routes.draw do
 
   match 'countdown' => 'welcome#countdown', as: 'countdown'
 
+  match 'ranking' => 'ranking#show', as: 'ranking'
+
   resources :users
   resources :missions
   resources :mission_enrollments do
