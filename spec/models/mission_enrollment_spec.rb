@@ -18,7 +18,7 @@ describe MissionEnrollment do
     end
 
     it 'should have a presenter class' do
-      @enrollment.presenter.class.should == FacebookSocialMissionValidatorPresenter
+      @enrollment.presenter(mock).class.should == FacebookSocialMissionValidatorPresenter
     end
 
     it 'should have not been accomplished' do
@@ -93,9 +93,10 @@ describe MissionEnrollment do
       mission.element.should  == 'fire'
     end
 
-    it 'should get last nil when there is any more missions' do
+    it "should get last_enrollment, even if it's accomplished when there isn't any more missions" do
+      last_enrollment = @user.current_mission_enrollment
       @user.current_mission_enrollment.update_attribute :accomplished, true
-      @user.reload.current_mission_enrollment.should be_nil
+      @user.reload.current_mission_enrollment.should == last_enrollment
     end
   end
 end
