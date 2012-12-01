@@ -14,12 +14,12 @@
 <%= f.file_field :avatar %>
 <%= f.hidden_field :avatar_cache %>
 
-<%= f.label :sex %>
+<%= f.label :gender %>
 <p>
-  <%= f.radio_button :sex, 'male' %> 
-  <%= label :user_sex, :male %>
-  <%= f.radio_button :sex, 'female' %>
-  <%= label :user_sex, :female %>
+  <%= f.radio_button :gender, 'male' %> 
+  <%= label :user_gender, :male %>
+  <%= f.radio_button :gender, 'female' %>
+  <%= label :user_gender, :female %>
 </p>
 
 <%= f.fields_for :profile do |profile_form| %>
