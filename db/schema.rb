@@ -171,7 +171,7 @@ ActiveRecord::Schema.define(:version => 20121201222809) do
     t.string   "access_token"
     t.integer  "city_id"
     t.string   "name"
-    t.string   "sex"
+    t.string   "gender"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

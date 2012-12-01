@@ -1,5 +1,5 @@
 body{
-  background:#2b707d url('/assets/bg-water.jpg') repeat-x center bottom ;
+  background: #2b707d url('/assets/bg-water.jpg') repeat-x center bottom;
   border-top: 4px solid #f3f3f3;
   font-family:Helvetica, Arial, sans-serif;
 }
@@ -86,6 +86,14 @@ aside {
     color:#67757b;
     font-size:13px;
     margin:10px 0;
+  }
+  .btn-ranking {
+    border: none;
+    text-shadow: 0 0 0 black;
+    &:hover {
+      background: #A1A2A3;
+      border: none;
+    }
   }
 }
 

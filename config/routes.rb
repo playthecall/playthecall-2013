@@ -21,10 +21,10 @@ PlayTheCall::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   match 'm/:nickname/:slug' => 'mission_enrollments#show', as: 'enrollment'
+  match 'countdown'         => 'welcome#countdown',        as: 'countdown'
+  match 'ranking'           => 'ranking#show',             as: 'ranking'
+
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-
-  match 'countdown' => 'welcome#countdown', as: 'countdown'
-
   resources :users
   resources :missions
   resources :mission_enrollments do

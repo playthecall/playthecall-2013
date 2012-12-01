@@ -3,7 +3,7 @@ en:
     label:
       user:
         remember_me: "Remember me"
-      user_sex:
+      user_gender:
         female: "Female"
         male:   "Male"
   activerecord:
@@ -15,6 +15,6 @@ en:
         nickname:              "Nickname"
         password:              "Password"
         password_confirmation: "Confirm your password"
-        sex:                   "Gender"
+        gender:                "Gender"
   mission:
     indexed_title: "<span>Mission %{position}:</span> %{title}"
