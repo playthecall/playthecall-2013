@@ -1,8 +1,58 @@
 <html>
   <head>
     <title></title>
+    <style type="text/css">
+      body {
+        padding:0;
+        margin: 0;
+        background: #001320 url('assets/countdown.jpg') repeat-x;
+      }
+      .content {
+        width: 510px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+      }
+      .content .logo {
+        width: 500px;
+      }
+
+      .content div{
+        position: relative;
+        width: 420px;
+        margin: 0 auto;
+      }
+
+      .content div img:first-child {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .content div img {
+        margin-top: -44px;
+      }
+
+      h1 {
+        font-size: 115px;
+        font-family: sans-serif;
+        position: relative;
+        color: rgba(250,250,250, 0.9);
+        text-align: center;
+        margin-left: 30px;
+        text-shadow: 0 0 40px #4f6877;
+      }
+
+    </style>
   </head>
   <body>
-
+    <div class="content">
+      <%= image_tag("home/logo.png", :class => "logo") %>
+      <div>
+        <%= image_tag("home/title_top.png"); %>
+        <h1>28 dias</h1>
+        <%= image_tag("home/title_bottom.png") %>
+      </div>
+    </div>
   </body>
 </html>
