@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
     return MissionEnrollment.first_for(self) unless last_enrollment
 
     if last_enrollment.accomplished?
-      last_enrollment.create_next
+      last_enrollment.create_next || last_enrollment
     else
       last_enrollment
     end
