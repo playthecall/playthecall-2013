@@ -41,7 +41,7 @@
       <% end %>
       <%= content_tag :h1, yield(:title) if show_title? %>
 
-      <% if @user.present? %>
+      <% if aside_present? %>
         <%= render 'users/sidebar', locals: {user: @user} %>
       <% end %>
       <%= yield %>
