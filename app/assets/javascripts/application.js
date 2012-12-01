@@ -12,28 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require default
 //= require_tree .
-
-$(function(){
-  $('.content-header li.settings').mouseleave(function(e) {
-    var drop = $(this).next('ul');
-    $(this).removeClass('active')
-    $(this).find('ul').fadeOut('fast');
-  });
-  $('.content-header li.settings').mouseenter(function(e) {
-    var drop = $(this).next('ul');
-    $(this).addClass('active')
-    $(this).find('ul').fadeIn('fast');
-  });
-  $('.content-header li.settings > a').click(function(e) {
-    var drop = $(this).next('ul');
-    $(this).next('ul').fadeToggle();
-    $(this).parent().toggleClass('active')
-    $(document).click(function(e) {
-      $(document).unbind('click');
-      $('li.settings ul').fadeOut();
-      e.preventDefault();
-    });
-    e.stopPropagation();
-  });
-})

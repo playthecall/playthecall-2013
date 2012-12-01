@@ -61,3 +61,19 @@ footer div{
 #flash_alert {
   padding: 1em;
 }
+
+.moreText {
+  height: 90px;
+  overflow: hidden;
+}
+
+a.more {
+  clear: both;
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  margin: -10px 0 10px 0;
+  color: blue;
+  text-align: right;
+  font-size: 12px;
+}

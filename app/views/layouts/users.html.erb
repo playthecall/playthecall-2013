@@ -3,9 +3,10 @@
     <%= image_tag @user.avatar, class: :avatar %>
     <h1><%= @user.name%></h1>
     <strong><%= @user.city.name %> <span><%= @user.city.country.name %></span></strong>
-    <p>
+    <p class="bio">
       <%= @user.profile.bio %>
     </p>
+    <a href="" class="more" data-text="Ver menos...">Ver mais...</a>
     <a href=""><%= image_tag("icons/facebook.jpg") %></a>
     <a href=""><%= image_tag("icons/twitter.jpg") %></a>
     <a href=""><%= image_tag("icons/github.jpg") %></a>
