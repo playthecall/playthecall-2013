@@ -21,7 +21,7 @@
               <%= link_to "Configurações", edit_user_path(current_user) %>
               <ul class="settings-drop">
                 <li><%= link_to "Editar Perfil", edit_user_path(current_user) %></li>
-                <li><%= link_to "Sair", destroy_user_session_path %></li>
+                <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
           <% else %>
