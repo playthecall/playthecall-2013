@@ -2,11 +2,26 @@
   <div class="content-base">
     <ul class="carousel">
       <li>
-        <div class="image-title mission-title"><%= st 'mission.indexed_title', position: @mission.position, title: @mission.title %></div>
-        <%= image_tag @mission.image.medium %>
+        <div class="image-title mission-title">
+          <%= st 'mission.indexed_title', position: @mission.position, title: @mission.title %>
+        </div>
+        <%= image_tag @mission.image.medium, :class => "image-mission" %>
       </li>
     </ul>
-    <%= @mission.html_description.html_safe %>
+    <div class="mission-content">
+      <h1>Minha ídeia é legal.</h1>
+      <%= @mission.html_description.html_safe %>
+      <ul>
+        <li>
+          <strong>Tip 1:</strong>
+          teste
+        </li>
+      </ul>
+      <div class="mission-need">
+        Essa missão precisa de <strong>120 pontos</strong>
+      </div>
+      <a href="" class="btn">Estou Pronto!</a>
+    </div>
   </div>
 </section>
 

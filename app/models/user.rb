@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, UsersAvatarUploader
 
-  attr_accessible :email,  :password, :password_confirmation, :avatar,
+  attr_accessible :city_id, :email,  :password, :password_confirmation, :avatar,
                   :avatar_cache, :remember_me, :provider, :element, :uid,
                   :points, :game_version_id, :nickname, :sex, :name,
                   :profile, :avatar_cache, :profile_attributes, :bio, :city_id

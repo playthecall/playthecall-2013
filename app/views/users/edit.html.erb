@@ -2,19 +2,6 @@
   <%= stylesheet_link_tag "forms" %>
 <% end %>
 
-<aside>
-  <section class="profile">
-    <%= image_tag(@user.avatar || "photo-placeholder.png", class: :avatar) %>
-    <h1><%= @user.name %></h1>
-    <strong>
-      <%= @user.city.name %> <span><%= @user.city.country.name %></span>
-    </strong>
-    <p>
-      <%= @user.profile.bio %>
-    </p>
-  </section>
-</aside>
-
 <%= form_for(@user, html: {multipart: true}) do |f| %>
   <h2>Editar Perfil</h2>
 

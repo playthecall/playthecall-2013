@@ -5,6 +5,7 @@ class MissionEnrollmentsController < ApplicationController
   end
 
   def show
+    @user = User.first
     @enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
   end
 end
