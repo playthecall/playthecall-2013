@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121120040745) do
+ActiveRecord::Schema.define(:version => 20121201222809) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(:version => 20121120040745) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "chapters", :force => true do |t|
+    t.integer  "game_version_id"
+    t.string   "name"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "chapters", ["game_version_id"], :name => "index_chapters_on_game_version_id"
 
   create_table "cities", :force => true do |t|
     t.string   "code"
@@ -102,7 +111,6 @@ ActiveRecord::Schema.define(:version => 20121120040745) do
   add_index "mission_enrollments", ["user_id"], :name => "index_mission_enrollments_on_user_id"
 
   create_table "missions", :force => true do |t|
-    t.integer  "game_version_id"
     t.string   "slug"
     t.string   "title"
     t.text     "description"
@@ -115,10 +123,11 @@ ActiveRecord::Schema.define(:version => 20121120040745) do
     t.text     "validation_params"
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
+    t.integer  "chapter_id"
   end
 
+  add_index "missions", ["chapter_id"], :name => "index_missions_on_chapter_id"
   add_index "missions", ["element"], :name => "index_missions_on_element"
-  add_index "missions", ["game_version_id"], :name => "index_missions_on_game_version_id"
   add_index "missions", ["slug"], :name => "index_missions_on_slug"
 
   create_table "profiles", :force => true do |t|
