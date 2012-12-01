@@ -36,6 +36,7 @@ group :development, :test do
   gem 'therubyracer', platforms: :ruby
   gem 'rspec-rails'
   gem 'forgery'
+  gem 'sqlite3'
   gem 'fivemat'
   gem 'pry'
 end

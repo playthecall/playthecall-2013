@@ -8,3 +8,6 @@ dump.rdb
 public/uploads/
 config/database.yml
 config/application/development.yml
+
+playthecall_development
+playthecall_test

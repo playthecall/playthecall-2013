@@ -1,7 +1,7 @@
 <% adapter = RUBY_ENGINE == "jruby" ? 'jdbcpostgresql' : 'postgresql' %>
 
 development:
-  adapter: <%= adapter %>
+  adapter: sqlite3
   encoding: unicode
   database: playthecall_development
   pool: 5
@@ -9,7 +9,7 @@ development:
   password:
 
 test:
-  adapter: <%= adapter %>
+  adapter: sqlite3
   encoding: unicode
   database: playthecall_test
   pool: 20
