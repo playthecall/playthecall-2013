@@ -16,8 +16,8 @@ class MissionEnrollment < ActiveRecord::Base
     mission.validator self
   end
 
-  def presenter
-    validator.presenter
+  def presenter(view)
+    validator.presenter(view)
   end
 
   def check

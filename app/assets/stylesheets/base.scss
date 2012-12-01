@@ -48,11 +48,13 @@ a img {border: none;}
   }
 }
 
+.container { min-height: 400px; }
+
 .container,
 .content-header {
-  background:#fff;
-  margin: 0 auto;
-  width:993px;
+  width:      993px;
+  margin:     0 auto;
+  background: #fff;
 }
 
 header {

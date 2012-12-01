@@ -1,7 +1,11 @@
 class FacebookSocialMissionValidator < MissionValidator
-  def check
+  def check(params)
     begin
-      update_enrollment_params
+      if params[:oracle_token]
+        update_enrollment_oracle params[:oracle_token]
+      else
+        update_enrollment_likes
+      end
     rescue
       Logger.warn 'Facebook check fucked everything!'
       false
@@ -13,14 +17,29 @@ class FacebookSocialMissionValidator < MissionValidator
   end
 
   def initialize_params
-    { likes:  0, oracle: false }
+    {
+      likes:        0,
+      oracle:       false,
+      oracle_token: oracle_token
+    }
   end
 
   protected
-  def update_enrollment_params
+  def oracle_token
+    rand(10**99).to_s(36)
+  end
+
+  def update_enrollment_likes
     enrollment_params[:fb]    = link_stats.symbolize_keys
     enrollment_params[:likes] = enrollment_params[:fb][:like_count]
     enrollment.save!
+  end
+
+  def update_enrollment_oracle(token)
+    if mission_params[:oracle] && token == enrollment_params[:oracle_token]
+      enrollment_params[:oracle] = true
+      enrollment.save!
+    end
   end
 
   def link_stats

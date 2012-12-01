@@ -1,8 +1,8 @@
 class MissionPresenter
-  attr_reader :enrollment, :validator
+  attr_reader :view, :enrollment, :validator
 
-  def initialize(enrollment, validator)
-    @enrollment, @validator = enrollment, validator
+  def initialize(enrollment, validator, view)
+    @enrollment, @validator, @view = enrollment, validator, view
   end
 
   def mission_params

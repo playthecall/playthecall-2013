@@ -10,24 +10,24 @@ class MissionValidator
   end
 
   def mission
-    @enrollment.mission
+    enrollment.mission
   end
 
   def mission_params
-    @mission_params ||= MissionValidator::Params.new @enrollment.mission
+    @mission_params ||= MissionValidator::Params.new enrollment.mission
   end
 
   def enrollment_params
-    @enrollment_params ||= MissionValidator::Params.new @enrollment
+    @enrollment_params ||= MissionValidator::Params.new enrollment
   end
 
-  def presenter
-    @presenter ||= "#{self.class.name}Presenter".constantize.new(@enrollment, self)
+  def presenter(view)
+    "#{self.class.name}Presenter".constantize.new enrollment, self, view
   end
 
-  # Subclasses should implement check, accomplished? and initialize_params!
+  # Subclasses should implement check, accomplished? and initialize_params
 
-  def check
+  def check(params)
     false
   end
 

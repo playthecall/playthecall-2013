@@ -1,3 +1,20 @@
 en:
+  helpers:
+    label:
+      user:
+        remember_me: "Remember me"
+      user_sex:
+        female: "Female"
+        male:   "Male"
+  activerecord:
+    attributes:
+      user:
+        avatar:                "Avatar"
+        city:                  "City"
+        name:                  "Name"
+        nickname:              "Nickname"
+        password:              "Password"
+        password_confirmation: "Confirm your password"
+        sex:                   "Gender"
   mission:
     indexed_title: "<span>Mission %{position}:</span> %{title}"
