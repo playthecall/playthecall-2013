@@ -23,6 +23,8 @@ PlayTheCall::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   match 'm/:nickname/:slug' => 'mission_enrollments#show', as: 'enrollment'
 
+  match 'countdown' => 'welcome#countdown', as: 'countdown'
+
   resources :users
   resources :missions
   resources :mission_enrollments do
