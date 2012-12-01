@@ -6,14 +6,13 @@ namespace :import do
 
   desc "Import cities"
   task localization: :environment do
-    Net::HTTP.start("www.maxmind.com") do |http|
-      puts "Fetching worldcitiespop.txt.gz..."
-      resp = http.get("/download/worldcities/worldcitiespop.txt.gz")
-      puts "Inflating..."
-      gzipped = Zlib::GzipReader.new StringIO.new resp.body.to_s
+      puts "Inflating db/resources/worldcitiespop.txt.gz..."
+      seed_file = File.open "db/resources/worldcitiespop.txt.gz"
+      gzipped_file = Zlib::GzipReader.new seed_file
       puts "Importing rows..."
-      import_from gzipped.read.force_encoding('ISO-8859-1')
-    end
+      import_from gzipped_file.read.
+                               force_encoding('ISO-8859-1').
+                               encode('UTF-8')
   end
 
   def import_from(content, options={ country: 'br',
@@ -36,7 +35,7 @@ namespace :import do
       next if options[:population_greater_than].nil? or
               options[:population_greater_than] > row['Population'].to_i
       city = City.new country_id: country.id,
-                      name:       row['AccentCity'].encode('UTF-8'),
+                      name:       row['AccentCity'],
                       longitude:  row['Longitude'],
                       latitude:   row['Latitude'],
                       code:       row['City']
