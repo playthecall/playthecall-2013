@@ -35,4 +35,8 @@ class User < ActiveRecord::Base
   def self.ranking
     User.order('points DESC').limit(10)
   end
+
+  def has_accomplished?(mission)
+    mission_enrollments.any? {|m| m.mission == mission and m.accomplished }
+  end
 end

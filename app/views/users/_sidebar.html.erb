@@ -28,8 +28,12 @@
   <section class="missions">
     <h1>Missões</h1>
     <ul>
-      <% for mission in [] %>
-        <li><%= mission.position %> <span><%= mission.title %></span></li>
+      <% for mission in Chapter.current_for(@user).missions %>
+        <% if @user.has_accomplished?(mission) %>
+          <%= link_to "#{mission.position} #{mission.title}", mission_enrollment_path(slug: mission.slug, nickname: @user.nickname) %>
+        <% else %>
+          <li><%= mission.position %> <span><%= mission.title %></span></li>
+        <% end %>
       <% end %>
     </ul>
   </section>
