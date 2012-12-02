@@ -4,8 +4,8 @@ class MissionEnrollmentsController < ApplicationController
     render text: @enrollment.check(params)
   end
 
-  def show
-    @user = User.first
+  def index
+    @user = current_user if user_signed_in?
     @enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
   end
 end

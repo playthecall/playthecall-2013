@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
       redirect_to controller: :welcome, action: :countdown
     end
   end
+
+  def after_sign_in_path_for(resource)
+    root_path
+  end
 end

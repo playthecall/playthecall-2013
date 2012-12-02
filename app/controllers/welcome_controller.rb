@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   skip_before_filter :redirect_to_countdown, :only => :countdown
 
   def index
-    redirect_to user_path current_user and return if user_signed_in?
+    redirect_to mission_enrollments_path and return if user_signed_in?
     render :countdown and return
     @cities = City.joins(:users)
     @users = []
