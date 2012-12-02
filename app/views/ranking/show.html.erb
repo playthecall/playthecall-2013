@@ -1,3 +1,15 @@
-<% for user in @users_ranking %>
-  <p>user.name</p>
+<p>TOP RANKING <span>Os melhores jogadores</span></p>
+
+<ul>
+<% @users_ranking.each_with_index do |user, index| %>
+  <li>
+    <p><%= image_tag user.avatar %></p>
+    <p><%= index+1 %></p>
+    <p><%= user.points %></p>
+    <p><%= user.mission_enrollments.where(accomplished: true).count %> missões cumpridas</p>
+    <p><%= user.name %></p>
+    <p><%= user.city.name %></p>
+    <p><%= user.city.country.name %></p>
+  </li>
 <% end %>
+</ul>
