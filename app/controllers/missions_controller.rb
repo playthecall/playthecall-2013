@@ -9,6 +9,6 @@ class MissionsController < ApplicationController
 
   def show
     @user    = current_user
-    @mission = Mission.find params[:id]
+    @mission = Mission.find_by_slug params[:id]
   end
 end

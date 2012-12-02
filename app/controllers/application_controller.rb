@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def choose_locale
-    I18n.locale = Translation.for domain: request.host, user: current_user
+    @language   = Translation.for domain: request.host, user: current_user
+    I18n.locale = @language
   end
 
   protected

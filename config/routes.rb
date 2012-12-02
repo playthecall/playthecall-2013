@@ -8,8 +8,9 @@ PlayTheCall::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   get 'm/:nickname/:slug' => 'mission_enrollments#show', as: 'mission_enrollment'
-  match 'countdown'       => 'welcome#countdown',      as: 'countdown'
-  match 'ranking'         => 'ranking#show',           as: 'ranking'
+  get 'ranking'           => 'ranking#show',             as: 'ranking'
+
+  match 'countdown' => 'welcome#countdown', as: 'countdown'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :users

@@ -20,10 +20,6 @@ PlayTheCall::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  config.action_mailer.default_url_options = {
-    host: 'playthecall.herokuapp.com'
-  }
-
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
@@ -55,13 +51,13 @@ PlayTheCall::Application.configure do
   # Enable threaded mode
   # config.threadsafe!
 
-  config.action_mailer.default_url_options = { host: 'playthecall.com' }
+  # Disable delivery errors, bad email addresses will be ignored
+  config.action_mailer.raise_delivery_errors = false
+
+  config.action_mailer.default_url_options = { host: 'www.playthecall.com' }
+  config.action_mailer.asset_host          = 'http://www.playthecall.com'
   config.action_mailer.delivery_method     = :smtp
   config.action_mailer.smtp_settings       = Settings.mailer.config
-
-  # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.raise_delivery_errors = true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)

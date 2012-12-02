@@ -59,6 +59,10 @@ class Mission < ActiveRecord::Base
     mission_enrollment
   end
 
+  def to_param
+    slug
+  end
+
   protected
   def compile_description
     if description_changed?
