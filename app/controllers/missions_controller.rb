@@ -3,7 +3,7 @@ class MissionsController < ApplicationController
 
   def index
     @user    = current_user
-    @mission = @user.current_mission_enrollment.mission
+    @mission = Mission.next_for @user
     render :show
   end
 

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_one    :profile
   has_many   :mission_enrollments
+  has_many   :missions, through: :game_version
   belongs_to :city
   belongs_to :game_version
 
@@ -29,17 +30,6 @@ class User < ActiveRecord::Base
 
   def last_mission_enrollment
     mission_enrollments.order('created_at DESC').limit(1).first
-  end
-
-  def current_mission_enrollment
-    last_enrollment = last_mission_enrollment
-    return MissionEnrollment.first_for(self) unless last_enrollment
-
-    if last_enrollment.accomplished?
-      last_enrollment.create_next || last_enrollment
-    else
-      last_enrollment
-    end
   end
 
   def self.ranking

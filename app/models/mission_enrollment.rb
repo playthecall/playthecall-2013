@@ -12,6 +12,8 @@ class MissionEnrollment < ActiveRecord::Base
 
   after_initialize :initialize_validation_params
 
+  scope :accomplished, where(accomplished: true)
+
   def validator
     mission.validator self
   end
@@ -30,6 +32,10 @@ class MissionEnrollment < ActiveRecord::Base
 
   def lazy_check
     MissionCheckJob.lazy_check self
+  end
+
+  def self.current_for(user)
+    self.where(user_id: user.id).order(:created_at).last
   end
 
   def create_next

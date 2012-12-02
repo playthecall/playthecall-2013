@@ -31,6 +31,24 @@ class Mission < ActiveRecord::Base
          first
   end
 
+  def self.current_for(user)
+    last_enrollment = MissionEnrollment.current_for(user)
+    if last_enrollment
+      last_enrollment.mission
+    else
+      nil
+    end
+  end
+
+  def self.next_for(user)
+    current = current_for user
+    if current
+      self.where(position: current.position + 1, chapter_id: current.chapter_id).first
+    else
+      Chapter.current_for(user).missions.where(position: 1).first
+    end
+  end
+
   def self.admin_order
     self.order 'chapter_id ASC, element ASC, position ASC'
   end
