@@ -9,8 +9,12 @@
     <%= i.file_field :image %>
   <% end %>
 
+
   <%= f.label :description, "Descreva como foi sua experiência nessa missão" %>
   <%= f.text_area :description %>
+
+  <%= f.hidden_field :mission_id %>
+  <%= f.hidden_field :user_id %>
 
   <p class="buttons">
     <%= link_to "Cancelar", mission_path(@mission), class: :cancel %>

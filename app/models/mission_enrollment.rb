@@ -8,7 +8,8 @@ class MissionEnrollment < ActiveRecord::Base
   belongs_to :mission
   belongs_to :user
 
-  attr_accessible :title, :description, :user, :mission
+  attr_accessible :title, :description, :user, :mission,
+                  :enrollment_images_attributes, :mission_id, :user_id
 
   before_create :fill_url
   before_save   :compile_description
