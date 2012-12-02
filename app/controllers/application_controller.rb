@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   protected
   def redirect_to_countdown
     if Rails.env.production? && Time.new(2012, 12, 21) > Time.now
-      redirect_to controller: :welcome, action: :countdown
+      redirect_to countdown_path
     end
   end
 
