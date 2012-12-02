@@ -13,7 +13,11 @@ class MissionPresenter
     validator.enrollment_params
   end
 
-  def html
+  def mission_html
+    raise 'not done yet'
+  end
+
+  def enrollment_html
     raise 'not done yet'
   end
 end

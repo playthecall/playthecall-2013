@@ -5,7 +5,7 @@ require 'csv'
 namespace :import do
 
   desc "Import cities"
-  task localization: :environment do
+  task cities: :environment do
       puts "Inflating db/resources/worldcitiespop.txt.gz..."
       seed_file = File.open "db/resources/worldcitiespop.txt.gz"
       gzipped_file = Zlib::GzipReader.new seed_file

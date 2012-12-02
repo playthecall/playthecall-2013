@@ -9,9 +9,15 @@ game_versions = [
 ]
 
 game_versions.each do |game_params, chapter_params|
-  n = 1
   version = GameVersion.create game_params
   chapter = version.chapters.create chapter_params
-  FactoryGirl.create :mission, slug: "missions-#{n}", chapter: chapter
-  n += 1
+
+  (1..5).each do |n|
+    FactoryGirl.create :mission,
+      slug:        "mission-#{n}",
+      chapter:     chapter,
+      position:    n,
+      description: "# Mission #{n}\n\n## Version #{ version.name }\n\n## Chapter #{ chapter.name }\n\n#{Forgery(:lorem_ipsum).words(64)}\n\n#{Forgery(:lorem_ipsum).words(64)}\n\n#{Forgery(:lorem_ipsum).words(64)}"
+  end
 end
+

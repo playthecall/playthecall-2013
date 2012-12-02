@@ -25,6 +25,10 @@ class Mission < ActiveRecord::Base
     self.where(chapter_id: chapter_id)
   end
 
+  def self.version(version_id)
+    self.joins(:chapter).where('chapters.game_version_id' => version_id)
+  end
+
   def self.first_for(user)
     self.chapter(user.chapter_id).
          where(element: user.element, position: 1).limit(1).

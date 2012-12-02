@@ -11,8 +11,10 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :profile
 
   validates_presence_of   :city
-  validates_uniqueness_of :nickname
+  validates_presence_of   :game_version
+
   validates_format_of     :nickname, :with => /[a-z\-0-9]+$/
+  validates_uniqueness_of :nickname
 
   validates_inclusion_of :gender,  in: ['male', 'female']
   validates_inclusion_of :element, in: ELEMENTS
@@ -38,5 +40,9 @@ class User < ActiveRecord::Base
 
   def has_accomplished?(mission)
     mission_enrollments.any? {|m| m.mission == mission and m.accomplished }
+  end
+
+  def nickname=(value)
+    self[:nickname] = value.downcase
   end
 end

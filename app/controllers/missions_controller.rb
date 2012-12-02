@@ -9,6 +9,6 @@ class MissionsController < ApplicationController
 
   def show
     @user    = current_user
-    @mission = Mission.find_by_slug params[:id]
+    @mission = Mission.version(@user.game_version_id).find_by_slug params[:id]
   end
 end
