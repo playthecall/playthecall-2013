@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201222809) do
+ActiveRecord::Schema.define(:version => 20121202022402) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -51,9 +51,11 @@ ActiveRecord::Schema.define(:version => 20121201222809) do
     t.string   "name"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "position"
   end
 
   add_index "chapters", ["game_version_id"], :name => "index_chapters_on_game_version_id"
+  add_index "chapters", ["position", "game_version_id"], :name => "index_chapters_on_position_and_game_version_id", :unique => true
 
   create_table "cities", :force => true do |t|
     t.string   "code"
