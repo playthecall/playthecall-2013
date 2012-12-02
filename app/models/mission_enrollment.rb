@@ -1,10 +1,14 @@
 class MissionEnrollment < ActiveRecord::Base
   has_many :enrollment_images
+  accepts_nested_attributes_for :enrollment_images
+                                #reject_if: lambda do |attributes|
+                                #  attributes['image'].blank?
+                                #end
 
   belongs_to :mission
   belongs_to :user
 
-  attr_accessible :title, :description, :user
+  attr_accessible :title, :description, :user, :mission
 
   before_create :fill_url
   before_save   :compile_description
