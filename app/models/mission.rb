@@ -53,6 +53,12 @@ class Mission < ActiveRecord::Base
     self.order 'chapter_id ASC, element ASC, position ASC'
   end
 
+  def enroll(user)
+    mission_enrollment = MissionEnrollment.new mission: self, user: user
+    mission_enrollment.enrollment_images.build
+    mission_enrollment
+  end
+
   protected
   def compile_description
     if description_changed?
