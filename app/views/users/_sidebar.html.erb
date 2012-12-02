@@ -28,8 +28,8 @@
   <section class="missions">
     <h1>Missões</h1>
     <ul>
-      <% for mission_enrollment in @user.mission_enrollments %>
-        <li><%= mission_enrollment.mission.position %> <span><%= mission_enrollment.mission.title %></span></li>
+      <% for mission in [] %>
+        <li><%= mission.position %> <span><%= mission.title %></span></li>
       <% end %>
     </ul>
   </section>

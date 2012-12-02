@@ -3,7 +3,7 @@
     <ul class="carousel">
       <li>
         <%= image_tag("1.jpg") %>
-        <div class="image-title"><span>Missão 3:</span> <%= @user.current_mission_enrollment.mission.title %></div>
+        <div class="image-title"><span>Missão 3:</span> Plantando árvores</div>
       </li>
     </ul>
     <p>
@@ -21,9 +21,9 @@
 </section>
 
 <ul class="other-missions">
-  <% for mission in @user.game_version.missions %>
+  <% for enrolled_mission in [] %>
     <li>
-      <h2><%= link_to mission.title, mission_path(mission) %></h2>
+      <h2><%= link_to enrolled_mission.title, mission_path(2) %></h2>
       <ul class="points-other-mission">
         <li><%= image_tag("icons/search.jpg") %></li>
         <li><h2>300 curtir</h2></li>

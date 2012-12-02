@@ -18,3 +18,14 @@ en:
         gender:                "Gender"
   mission:
     indexed_title: "<span>Mission %{position}:</span> %{title}"
+  mails:
+    confirmation:
+      title:  "Welcome to Play The Call, %{name}!"
+      body:   "Go to the link below to finish your registration."
+      link:   "Finish your registration"
+      footer: "If you're not %{name}, please ignore this e-mail."
+    recover_password:
+      title:  "%{name}, recover your password!"
+      body:   "Go to the link below to recover your password."
+      link:   "Recover your password"
+      footer: "If you haven't send this e-mail, please ignore this message."

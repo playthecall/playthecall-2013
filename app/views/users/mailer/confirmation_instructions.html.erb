@@ -1,5 +1,30 @@
-<p>Welcome <%= @resource.email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<HTML>
+  <head>
+    <meta charset='utf8' />
+    <%= image_tag("mail/header_email.png") %>
+  </head>
+  <body style="width: 600px; margin: 0 auto;">
+    <table width="600">
+      <tr>
+        <p style="font-family: helvetica, arial; font-size: 14px; color: red">
+          <%= t 'mails.confirmation.title', name: @user.name %>
+        </p>
+      </tr>
+      <tr>
+        <p style="font-family: helvetica, arial; font-size: 12px; color: gray">
+          <%= t 'mails.confirmation.body'%>
+        </p>
+      </tr>
+      <tr>
+        <a href="", style="font-family: helvetica, arial; font-size: 12px; color: blue">
+          <%= t 'mails.confirmation.link' %>
+        </a>
+      </tr>
+      <tr>
+        <p style="font-family: helvetica, arial; font-size: 12px; color: gray">
+	  <%= t 'mails.confirmation.footer', name: @user.name %>
+        </p>
+      </tr>
+    </table>
+  </body>
+</HTML>
