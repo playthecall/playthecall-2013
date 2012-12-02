@@ -7,6 +7,6 @@ FactoryGirl.define do
     validation_params YAML.dump(likes: 1024, oracle: true)
 
     sequence(:slug){ |n| "mission-slug-#{n}" }
-    association :game_version
+    association :chapter
   end
 end

@@ -2,7 +2,7 @@
 ActiveAdmin.register Mission do
   menu :label => 'Missions'
 
-  filter :game_version_id
+  filter :chapter_id
   filter :title
   filter :element
 
@@ -10,7 +10,7 @@ ActiveAdmin.register Mission do
 
   index do
     column :title
-    column :game_version
+    column :chapter
     column :element
     column :position
     default_actions
@@ -18,7 +18,10 @@ ActiveAdmin.register Mission do
 
   form :html => { :multipart => true } do |f|
     f.inputs "Content" do
-      f.input :game_version_id, as: :select, collection: GameVersion.all
+      f.input :chapter_id, as: :select,
+              collection: option_groups_from_collection_for_select(
+                GameVersion.all, :chapters, :name, :id, :name
+              )
 
       f.input :slug
       f.input :title

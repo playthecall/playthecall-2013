@@ -1,4 +1,5 @@
 class GameVersion < ActiveRecord::Base
+  has_many :chapters
+
   attr_accessible :language, :name
-  has_many :missions
 end

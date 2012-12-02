@@ -1,13 +1,13 @@
 class Mission < ActiveRecord::Base
   has_many   :mission_enrollments
 
-  belongs_to :game_version
+  belongs_to :chapter
 
   validates_inclusion_of :element, in: User::ELEMENTS
 
   mount_uploader :image, MissionImageUploader
 
-  attr_accessible :game_version_id,   :title,    :description,
+  attr_accessible :chapter_id,        :title,    :description,
                   :validation_class,  :image,    :video_url,
                   :validation_params, :position, :element, :slug
 
@@ -18,21 +18,21 @@ class Mission < ActiveRecord::Base
   end
 
   def next_mission
-    Mission.find_by_element_and_position(element, position + 1)
+    chapter.missions.find_by_position(position + 1)
   end
 
-  def self.version(game_version_id)
-    self.where(game_version_id: game_version_id)
+  def self.chapter(chapter_id)
+    self.where(chapter_id: chapter_id)
   end
 
   def self.first_for(user)
-    self.version(user.game_version_id).
+    self.chapter(user.chapter_id).
          where(element: user.element, position: 1).limit(1).
          first
   end
 
   def self.admin_order
-    self.order 'game_version_id ASC, element ASC, position ASC'
+    self.order 'chapter_id ASC, element ASC, position ASC'
   end
 
   protected
