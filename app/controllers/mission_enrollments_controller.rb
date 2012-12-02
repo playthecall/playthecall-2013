@@ -11,6 +11,14 @@ class MissionEnrollmentsController < ApplicationController
     @enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
   end
 
+  def show
+    nickname = params[:nickname]
+    slug = params[:slug]
+    @user = User.find_by_nickname nickname
+    @mission_enrollment = @user.mission_enrollments.joins(:mission).
+                                where('missions.slug = ?', slug).first
+  end
+
   def new
     @user = current_user
     @mission = Mission.find params[:mission_id]

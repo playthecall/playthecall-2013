@@ -17,6 +17,8 @@ PlayTheCall::Application.routes.draw do
     resources :mission_enrollments, only: [:new]
   end
 
+  resources :mission_enrollments, only: [:edit]
+
   resources :mission_enrollments, except: [:show] do
     member do
       post 'check'
