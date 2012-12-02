@@ -1,0 +1,35 @@
+<section class="content">
+  <div class="content-base">
+    <ul class="carousel">
+      <li>
+        <%= image_tag @mission_enrollment.enrollment_images.first.image %>
+        <div class="image-title">
+          <%= st 'mission.indexed_title', position: @mission_enrollment.mission.position, title: @mission_enrollment.mission.title %>
+        </div>
+      </li>
+    </ul>
+    <%= @mission_enrollment.html_description.html_safe %>
+
+    <%= form_for [@mission_enrollment.mission, @mission_enrollment] do |f| %>
+
+      <%= f.fields_for :enrollment_images do |i| %>
+        <%= i.label :image, "Adicione uma imagem para essa missão" %>
+        <%= i.file_field :image %>
+      <% end %>
+
+      <%= f.label :description, "Descreva como foi sua experiência nessa missão" %>
+      <%= f.text_area :description %>
+
+      <p class="buttons">
+        <%= link_to "Cancelar", mission_path(@mission_enrollment.mission), class: :cancel %>
+        <%= f.submit "Salvar" %>
+      </p>
+    <% end %>
+
+    <div class="box-social">
+      <div class="fb-like" data-href="http://globo.com" data-send="true" data-width="450" data-show-faces="false"></div>
+    </div>
+    <div id="fb-root"></div>
+    <div class="fb-comments" data-href="http://globo.com" data-num-posts="2" data-width="668"></div>
+  </div>
+</section>

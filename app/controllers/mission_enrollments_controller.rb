@@ -24,6 +24,20 @@ class MissionEnrollmentsController < ApplicationController
     @mission = Mission.find params[:mission_id]
   end
 
+  def edit
+    @user = current_user
+    @mission_enrollment = MissionEnrollment.find params[:id]
+  end
+
+  def update
+    mission_id = params[:mission_id]
+    mission_enrollment = MissionEnrollment.find_by_mission_id_and_user_id(mission_id, current_user.id)
+    mission_enrollment.update_attributes(params[:mission_enrollment])
+    mission_enrollment.save
+    redirect_to mission_enrollment_path nickname: mission_enrollment.user.nickname,
+                                        slug:     mission_enrollment.mission.slug
+  end
+
   def create
     mission_enrollment_attributes = params[:mission_enrollment]
     mission_enrollment = MissionEnrollment.create mission_enrollment_attributes
