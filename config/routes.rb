@@ -18,9 +18,9 @@ PlayTheCall::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
-  match 'm/:nickname/:slug' => 'mission_enrollments#show', as: 'enrollment'
-  match 'countdown'         => 'welcome#countdown',        as: 'countdown'
-  match 'ranking'           => 'ranking#show',             as: 'ranking'
+  get 'm/:nickname/:slug' => 'mission_enrollments#show', as: 'mission_enrollment'
+  match 'countdown'       => 'welcome#countdown',      as: 'countdown'
+  match 'ranking'         => 'ranking#show',           as: 'ranking'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :users
@@ -28,7 +28,7 @@ PlayTheCall::Application.routes.draw do
     resources :mission_enrollments, only: [:new]
   end
 
-  resources :mission_enrollments do
+  resources :mission_enrollments, except: [:show] do
     member do
       post 'check'
     end
