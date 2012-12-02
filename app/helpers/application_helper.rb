@@ -3,8 +3,7 @@ module ApplicationHelper
     t(*args, &block).html_safe
   end
 
-  def parent_layout(layout)
-    @view_flow.set(:layout,output_buffer)
-    self.output_buffer = render file: "layouts/#{layout}"
-  end 
+  def aside_present?
+    @user.present? and not @user.new_record?
+  end
 end

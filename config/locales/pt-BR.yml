@@ -3,7 +3,7 @@ pt-BR:
     label:
       user:
         remember_me: Lembrar
-      user_sex:
+      user_gender:
         female: Feminino
         male: Masculino
   activerecord:
@@ -15,4 +15,4 @@ pt-BR:
         nickname: Apelido
         password: Senha
         password_confirmation: Confirme sua senha
-        sex: Sexo
+        gender: Sexo

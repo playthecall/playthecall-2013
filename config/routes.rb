@@ -1,9 +1,7 @@
 PlayTheCall::Application.routes.draw do
+
   devise_for :users,
-             controllers: { omniauth_callbacks: "users/omniauth_callbacks" } do
-    get "/users/sign_out" => "devise/sessions#destroy",
-        as: :destroy_user_session
-  end
+             controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   ActiveAdmin.routes(self)
 
@@ -22,6 +20,10 @@ PlayTheCall::Application.routes.draw do
 
   match 'm/:nickname/:slug' => 'mission_enrollments#show', as: 'enrollment'
   # Sample resource route (maps HTTP verbs to controller actions automatically):
+
+  match 'countdown' => 'welcome#countdown', as: 'countdown'
+
+  match 'ranking' => 'ranking#show', as: 'ranking'
 
   resources :users
   resources :missions

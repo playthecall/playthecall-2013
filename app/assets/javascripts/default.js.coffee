@@ -34,7 +34,7 @@ window.playTheCall.worker =
 
   verifyTextToTruncate: ->
     countText = $(".bio").text().length
-    if countText >= '200'
+    if countText > '200'
       do playTheCall.worker.truncateText
     else
       $(".more").remove()
