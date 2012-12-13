@@ -12,6 +12,13 @@ class FacebookSocialMissionValidatorPresenter < MissionPresenter
   end
 
   def enrollment_html
-    "Not done Yet!".html_safe
+    view.content_tag(:div, nil, class: 'box-social') do
+      view.content_tag :div, nil,
+        'class'           => 'fb-like',
+        'data-href'       => view.mission_enrollment_url(enrollment.user.nickname, enrollment.mission.slug),
+        'data-send'       => true,
+        'data-width'      => 450,
+        'data-show-faces' => false
+    end.html_safe
   end
 end

@@ -12,11 +12,14 @@
 
     <%= link_to "Atualizar status", edit_mission_enrollment_path(@mission_enrollment) %>
 
-    <div class="box-social">
-      <div class="fb-like" data-href="http://globo.com" data-send="true" data-width="450" data-show-faces="false"></div>
-    </div>
+    <%= presenter_for_enrollment @enrollment %>
+
     <div id="fb-root"></div>
-    <div class="fb-comments" data-href="http://globo.com" data-num-posts="2" data-width="668"></div>
+    <%= view.content_tag :div, nil,
+      'class'          => 'fb-comments',
+      'data-href'      => view.mission_enrollment_url(enrollment.user.nickname, enrollment.mission.slug),
+      'data-num-posts' => 2,
+      'data-width'     => 668 %>
   </div>
 </section>
 

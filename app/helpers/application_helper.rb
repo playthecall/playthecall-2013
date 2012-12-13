@@ -12,11 +12,16 @@ module ApplicationHelper
   end
 
   def presenter_for_mission(mission)
-    return @mission_presenter if @mission_presenter
+    return @mission_presenter.mission_html if @mission_presenter
 
     enrollment = mission.mission_enrollments.build user: current_user
     validator  = mission.validator enrollment
 
-    @mission_presenter = validator.presenter self
+    @mission_presenter = validator.presenter(self)
+    @mission_presenter.mission_html
+  end
+
+  def presenter_for_enrollment(enrollment)
+    enrollment.presenter(self).enrollment_html
   end
 end

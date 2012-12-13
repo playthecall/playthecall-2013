@@ -19,7 +19,7 @@ class MissionCheckJob
     # end
 
     def check(enrollment)
-      perform enrollment.id
+      self.new.perform enrollment.id
     end
 
     def lazy_check(enrollment)
