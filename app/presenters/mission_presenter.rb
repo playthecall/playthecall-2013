@@ -5,6 +5,10 @@ class MissionPresenter
     @enrollment, @validator, @view = enrollment, validator, view
   end
 
+  def mission
+    enrollment.mission
+  end
+
   def mission_params
     validator.mission_params
   end

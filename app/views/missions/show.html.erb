@@ -10,11 +10,7 @@
     </ul>
     <div class="mission-content">
       <%= @mission.html_description.html_safe %>
-      <div class="mission-need">
-        Essa missão precisa de <strong>120 pontos</strong>
-      </div>
-
-      <%= link_to "Estou Pronto!", new_mission_mission_enrollment_path(@mission), class: 'btn' %>
+      <%= presenter_for_mission(@mission).mission_html %>
     </div>
   </div>
 </section>
