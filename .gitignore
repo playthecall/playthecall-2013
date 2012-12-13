@@ -3,6 +3,7 @@
 /log/*.log
 /tmp
 .DS_Store
+.rvmrc
 dump.rdb
 
 public/uploads/
