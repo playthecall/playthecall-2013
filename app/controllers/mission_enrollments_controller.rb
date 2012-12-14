@@ -21,7 +21,7 @@ class MissionEnrollmentsController < ApplicationController
 
   def new
     @user = current_user
-    @mission = Mission.find params[:mission_id]
+    @mission = Mission.find params[:mission_id].split("mission-")[1]
   end
 
   def edit
@@ -30,7 +30,7 @@ class MissionEnrollmentsController < ApplicationController
   end
 
   def update
-    mission_id = params[:mission_id]
+    mission_id = params[:mission_id].split("mission-")[1]
     mission_enrollment = MissionEnrollment.find_by_mission_id_and_user_id(mission_id, current_user.id)
     mission_enrollment.update_attributes(params[:mission_enrollment])
     mission_enrollment.save
