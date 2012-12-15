@@ -5,19 +5,19 @@
 <%= form_for @mission.enroll(@user) do |f| %>
 
   <%= f.fields_for :enrollment_images do |i| %>
-    <%= i.label :image, "Adicione uma imagem para essa missão" %>
+    <%= i.label :image %>
     <%= i.file_field :image %>
   <% end %>
 
-
-  <%= f.label :description, "Descreva como foi sua experiência nessa missão" %>
+  <%= f.label :description %>
   <%= f.text_area :description %>
 
   <%= f.hidden_field :mission_id %>
   <%= f.hidden_field :user_id %>
 
   <p class="buttons">
-    <%= link_to "Cancelar", mission_path(@mission), class: :cancel %>
-    <%= f.submit "Salvar" %>
+    <%= link_to t('actions.cancel'), mission_path(@mission), class: :cancel %>
+    <%= f.submit t('actions.save') %>
   </p>
+
 <% end %>

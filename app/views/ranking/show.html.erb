@@ -1,4 +1,4 @@
-<p>TOP RANKING <span>Os melhores jogadores</span></p>
+<p><%= t("ranking.header") %> <span><%= t("ranking.header_description") %></span></p>
 
 <ul>
 <% @users_ranking.each_with_index do |user, index| %>
@@ -6,7 +6,7 @@
     <p><%= image_tag user.avatar %></p>
     <p><%= index+1 %></p>
     <p><%= user.points %></p>
-    <p><%= user.mission_enrollments.where(accomplished: true).count %> missões cumpridas</p>
+    <p><%= user.mission_enrollments.where(accomplished: true).count %> <%= t("ranking.missions_accomplished") %></p>
     <p><%= user.name %></p>
     <p><%= user.city.name %></p>
     <p><%= user.city.country.name %></p>
