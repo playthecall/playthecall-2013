@@ -4,16 +4,13 @@ class Chapter < ActiveRecord::Base
 
   attr_accessible :name, :game_version_id, :position
 
-  def self.admin_order
-    self.order 'game_version_id ASC, created_at DESC'
+  def self.finished?(chapter, user)
+    accomplished_missions_quantity = user.mission_enrollments.
+      where(accomplished: true, mission_id: chapter.missions.map(&:id)).count
+    accomplished_missions_quantity == chapter.missions.count
   end
 
-  def self.current_for(user)
-    last_enrollment = user.mission_enrollments.order(:created_at).last
-    if last_enrollment
-      last_enrollment.mission.chapter
-    else
-      self.where(game_version_id: user.game_version_id).order(:position).first
-    end
+  def self.admin_order
+    self.order 'game_version_id ASC, created_at DESC'
   end
 end

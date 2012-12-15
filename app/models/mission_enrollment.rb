@@ -8,6 +8,8 @@ class MissionEnrollment < ActiveRecord::Base
   belongs_to :mission
   belongs_to :user
 
+  validates_presence_of :user_id
+
   attr_accessible :title, :description, :user, :mission,
                   :enrollment_images_attributes, :mission_id, :user_id
 
@@ -39,10 +41,6 @@ class MissionEnrollment < ActiveRecord::Base
     MissionCheckJob.lazy_check self
   end
 
-  def self.current_for(user)
-    self.where(user_id: user.id).order(:created_at).last
-  end
-
   def create_next
     if mission.next_mission
       mission.next_mission.mission_enrollments.create user: user
@@ -62,14 +60,6 @@ class MissionEnrollment < ActiveRecord::Base
     self[:mission_id] = mission_id
     initialize_validation_params
     mission_id
-  end
-
-  def self.first_for(user)
-    Mission.first_for(user).mission_enrollments.create user: user
-  end
-
-  def self.from_mission(mission_id)
-    self.where(mission_id: mission_id)
   end
 
   protected

@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
 
   has_one    :profile
   has_many   :mission_enrollments
-  has_many   :missions, through: :game_version
+  has_many   :missions, through: :chapter
+  has_many   :chapters, through: :game_version
   belongs_to :city
   belongs_to :game_version
 
@@ -44,5 +45,26 @@ class User < ActiveRecord::Base
 
   def nickname=(value)
     self[:nickname] = value.downcase
+  end
+
+  def current_chapter
+    chapters.order("position ASC").select { |c| !Chapter.finished?(c, self) }.first or
+      chapters.order("position ASC").first
+
+  end
+
+  def current_mission
+    if mission_enrollments.any?
+      finished_mission_ids = mission_enrollments.where(accomplished: true).map &:mission_id
+      unfinished_mission_ids = mission_enrollments.where(accomplished: false).map &:mission_id
+      current_chapter.missions.where(id: unfinished_mission_ids).order("position ASC").first or
+        current_chapter.missions.order("position ASC").where("id not in (#{finished_mission_ids.join(",")})").order("position ASC").first
+    else
+      current_chapter.missions.order("position ASC").first
+    end
+  end
+
+  def current_mission_enrollment
+    mission_enrollments.find_by_mission_id(current_mission.try(:id))
   end
 end
