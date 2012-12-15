@@ -24,4 +24,13 @@ module ApplicationHelper
   def presenter_for_enrollment(enrollment)
     enrollment.presenter(self).enrollment_html
   end
+
+  def user_current_mission
+    mission_enrollment = current_user.current_mission_enrollment
+    if mission_enrollment.present?
+      mission_enrollment_path(current_user.nickname, mission_enrollment.mission.slug)
+    else
+      mission_path(current_user.current_mission)
+    end
+  end
 end

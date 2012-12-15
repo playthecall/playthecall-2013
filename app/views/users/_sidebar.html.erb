@@ -28,7 +28,7 @@
   <section class="missions">
     <h1><%= t("mission.pluralized") %></h1>
     <ul>
-      <% for mission in Chapter.current_for(@user).missions %>
+      <% @user.current_chapter.missions.each do |mission| %>
         <% if @user.has_accomplished?(mission) %>
           <%= link_to t("actions.mission_enrollment_link", position: mission.position, title: mission.title),
                       mission_enrollment_path(slug: mission.slug, nickname: @user.nickname) %>
