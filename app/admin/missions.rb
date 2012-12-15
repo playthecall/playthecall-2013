@@ -1,5 +1,8 @@
 # encoding: utf-8
 ActiveAdmin.register Mission do
+
+  before_filter { Mission.class_eval { def to_param; id.to_s; end } }
+
   menu :label => 'Missions'
 
   filter :chapter_id
