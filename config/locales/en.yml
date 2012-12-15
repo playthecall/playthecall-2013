@@ -28,6 +28,7 @@ en:
       link:   "Recover your password"
       footer: "If you haven't send this e-mail, please ignore this message."
   mission:
+    pluralized: "Missões"
     indexed_title: "<span>Mission %{position}:</span> %{title}"
     like_count: "%{quantity} curtir"
     presenter:
@@ -37,20 +38,26 @@ en:
     header: "TOP RANKING"
     header_description: "Os melhores jogadores"
     missions_accomplished: "missões cumpridas"
+    translation: "Ranking"
   actions:
     cancel: "Cancelar"
     edit_profile: "Editar Perfil"
     fancy_sign_up: "Quero Salvar o Mundo"
     save: "Salvar"
+    see_less: "Ver menos..."
+    see_more: "Ver mais..."
     sign_up: "Comece a jogar"
     sign_in: "Entrar"
     sign_out: "Sair"
     unlock_account: "Unlock my account"
     update_status: "Atualizar status"
+    mission_enrollment_link: "%{position} %{title}"
   unlock_account:
     click_below: "Click the link below to unlock your account:"
     description: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
     greeting: "Hello %{name}!"
+  sidebar:
+    user_points: "%{points} Pontos"
   home:
     heading: "entender sua missão é apenas o início dela"
     description: "Você já pensou em fazer algo pelo mundo? E se fosse rápido, gratuito e divertido? O jogo que começa aqui e termina na sua vida."
