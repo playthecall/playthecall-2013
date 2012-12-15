@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
 
   def index
     if user_signed_in?
-      redirect_to mission_path(Mission.first)
+      redirect_to mission_path(Mission.version(current_user.game_version_id).first)
       return
     end
 
