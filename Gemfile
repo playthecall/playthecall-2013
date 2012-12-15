@@ -39,4 +39,5 @@ group :development, :test do
   gem 'sqlite3'
   gem 'fivemat'
   gem 'pry'
+  gem 'better_errors'
 end
