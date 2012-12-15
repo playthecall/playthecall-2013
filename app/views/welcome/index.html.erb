@@ -1,36 +1,36 @@
 <!doctype html>
 <html lang="en">
-	<meta charset="UTF-8" >
-	<head>
+  <meta charset="UTF-8" >
+  <head>
     <%= stylesheet_link_tag 'home/default' %>
-	</head>
-	<body>
-	<div class="content">
+  </head>
+  <body>
+  <div class="content">
     <%= image_tag 'home/logo.png', class: :logo %>
-		<div class="in">
+    <div class="in">
     <h1><%= t("home.heading") %></h1>
-			<p>
+      <p>
         <%= t("home.description") %>
-							</p>
+              </p>
         <%= link_to t("actions.sign_up"), new_user_registration_path, class: "btn" %>
         <%= link_to t("actions.sign_in"), new_user_session_path, class: "btn" %>
-		</div>
-		<div class="footer">
-			<ul>
-				<li><a href=""><%= t("home.footer.about") %></a></li>
-				<li><a href=""><%= t("home.footer.help") %></a></li>
-				<li><a href=""><%= t("home.footer.terms") %></a></li>
-				<li><a href=""><%= t("home.footer.privacy") %></a></li>
+    </div>
+    <div class="footer">
+      <ul>
+        <li><a href=""><%= t("home.footer.about") %></a></li>
+        <li><a href=""><%= t("home.footer.help") %></a></li>
+        <li><a href=""><%= t("home.footer.terms") %></a></li>
+        <li><a href=""><%= t("home.footer.privacy") %></a></li>
         <li><a href=""><%= t("home.footer.media") %></a></li>
-				<li><a href=""><%= t("home.footer.developers") %></a></li>
+        <li><a href=""><%= t("home.footer.developers") %></a></li>
         <li><a href=""><%= t("home.footer.resources") %></a></li>
         <li><%= st("home.footer.creative_commons") %></li>
-			</ul>
-		</div>
-	</div>
-	<div id="globeContent">
-		<div id="globeGl_" class="globeGl"></div>
-	</div>
+      </ul>
+    </div>
+  </div>
+  <div id="globeContent">
+    <div id="globeGl_" class="globeGl"></div>
+  </div>
   <% for user in @users %>
     <div class="poi hidden" data-lat="<%= user.city.latitude %>" data-long="<%= -user.city.longitude %>" data-url="globe_camPos.html">
       <%= image_tag user.avatar %>
@@ -67,7 +67,7 @@
       });
       </script>
     </div>
-	</div>
+  </div>
 </div>
 
 
