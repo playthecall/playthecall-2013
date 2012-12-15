@@ -46,6 +46,7 @@ en:
     save: "Salvar"
     see_less: "Ver menos..."
     see_more: "Ver mais..."
+    send_reset_instructions: "Send me reset password instructions"
     sign_up: "Comece a jogar"
     sign_in: "Entrar"
     sign_out: "Sair"
