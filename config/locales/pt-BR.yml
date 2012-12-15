@@ -2,23 +2,23 @@ pt-BR:
   helpers:
     label:
       user:
-        remember_me: Lembrar
+        remember_me: "Lembrar"
       user_gender:
-        female: Feminino
-        male: Masculino
+        female: "Feminino"
+        male: "Masculino"
   activerecord:
     attributes:
       mission_enrollment:
         description: "Adicione uma imagem para essa missão"
         image: "Descreva como foi sua experiência nessa missão"
       user:
-        avatar: Foto
-        city: Cidade
-        name: Nome Completo
-        nickname: Apelido
-        password: Senha
-        password_confirmation: Confirme sua senha
-        gender: Sexo
+        avatar: "Foto"
+        city: "Cidade"
+        name: "Nome Completo"
+        nickname: "Apelido"
+        password: "Senha"
+        password_confirmation: "Confirme sua senha"
+        gender: "Sexo"
   mails:
     confirmation:
       title:  "Welcome to Play The Call, %{name}!"
