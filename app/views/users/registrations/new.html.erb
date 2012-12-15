@@ -14,7 +14,7 @@
 </aside>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
-  <h2 class="title">Cadastro</h2>
+  <h2 class="title"><%= t('registration.heading') %></h2>
 
   <%= devise_error_messages! %>
 
