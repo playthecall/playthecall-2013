@@ -6,7 +6,7 @@
     <p class="bio">
       <%= @user.profile.bio %>
     </p>
-    <a href="" class="more" data-text="Ver menos...">Ver mais...</a>
+    <a href="" class="more" data-text="<%= t("actions.see_less") %>"><%= t("actions.see_more") %></a>
     <a href=""><%= image_tag("icons/facebook.jpg") %></a>
     <a href=""><%= image_tag("icons/twitter.jpg") %></a>
     <a href=""><%= image_tag("icons/github.jpg") %></a>
@@ -15,7 +15,7 @@
   </section>
   <section class="points">
     <div class="total-points">
-      <%= @user.points %> Pontos
+      <%= t("sidebar.user_points", points: @user.points) %>
     </div>
     <div class="badges">
       <%= image_tag("icons/app.jpg") %>
@@ -23,14 +23,15 @@
       <%= image_tag("icons/search.jpg") %>
       <%= image_tag("icons/archive.jpg") %>
     </div>
-    <a href="" class="btn btn-ranking">Ranking</a>
+    <a href="" class="btn btn-ranking"><%= t("ranking.translation") %></a>
   </section>
   <section class="missions">
-    <h1>Missões</h1>
+    <h1><%= t("mission.pluralized") %></h1>
     <ul>
       <% for mission in Chapter.current_for(@user).missions %>
         <% if @user.has_accomplished?(mission) %>
-          <%= link_to "#{mission.position} #{mission.title}", mission_enrollment_path(slug: mission.slug, nickname: @user.nickname) %>
+          <%= link_to t("actions.mission_enrollment_link", mission: mission.position, title: mission.title),
+                      mission_enrollment_path(slug: mission.slug, nickname: @user.nickname) %>
         <% else %>
           <li><%= mission.position %> <span><%= mission.title %></span></li>
         <% end %>
