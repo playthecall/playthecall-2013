@@ -21,7 +21,7 @@
       <h2><%= link_to enrolled_mission.title, mission_path(2) %></h2>
       <ul class="points-other-mission">
         <li><%= image_tag("icons/search.jpg") %></li>
-        <li><h2>300 curtir</h2></li>
+        <li><h2><%= t("mission.like_count", quantity: 300) %></h2></li>
         <li><%= image_tag("icons/check.jpg") %></li>
       </ul>
     </li>
