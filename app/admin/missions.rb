@@ -1,7 +1,9 @@
 # encoding: utf-8
 ActiveAdmin.register Mission do
 
-  before_filter { Mission.class_eval { def to_param; id.to_s; end } }
+  controller do
+    defaults finder: :find_by_slug
+  end
 
   menu :label => 'Missions'
 
