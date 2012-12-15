@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Chapter do
+  clean_with_transaction_on :each
+
   describe '#finished?' do
     it "is finished when user's mission enrollments for missions of that
       chapter were accomplished" do
