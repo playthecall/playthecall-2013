@@ -12,15 +12,7 @@
 
     <%= link_to t("actions.update_status"), edit_mission_enrollment_path(@mission_enrollment) %>
 
-    <%= presenter_for_enrollment @enrollment %>
-
-    <div id="fb-root"></div>
-    <%= view.content_tag :div, nil,
-      'class'          => 'fb-comments',
-      'data-href'      => view.mission_enrollment_url(enrollment.user.nickname, enrollment.mission.slug),
-      'data-num-posts' => 2,
-      'data-width'     => 668 %>
-  </div>
+    <%= presenter_for_enrollment(@mission_enrollment) %>
 </section>
 
 <ul class="other-missions">

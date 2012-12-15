@@ -1,14 +1,11 @@
 class WelcomeController < ApplicationController
   layout false
 
-  skip_before_filter :redirect_to_countdown, :only => :countdown
+  include ApplicationHelper
+  before_filter lambda { redirect_to user_current_mission }, if: :user_signed_in?
+  skip_before_filter :redirect_to_countdown, only: :countdown
 
   def index
-    if user_signed_in?
-      redirect_to mission_path(Mission.version(current_user.game_version_id).first)
-      return
-    end
-
     @cities = City.joins(:users)
     @users = []
     for city in @cities
