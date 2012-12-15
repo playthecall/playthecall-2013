@@ -7,8 +7,9 @@ PlayTheCall::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  get 'm/:nickname/:slug' => 'mission_enrollments#show', as: 'mission_enrollment'
-  get 'ranking'           => 'ranking#show',             as: 'ranking'
+  get 'm/:nickname/:slug' => 'mission_enrollments#show',  as: 'mission_enrollment'
+  get 'ranking'           => 'ranking#show',              as: 'ranking'
+  get 'missions'          => 'mission_enrollments#index', as: 'missions'
 
   match 'countdown' => 'welcome#countdown', as: 'countdown'
 
