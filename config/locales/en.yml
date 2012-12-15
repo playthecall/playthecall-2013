@@ -16,11 +16,6 @@ en:
         password:              "Password"
         password_confirmation: "Confirm your password"
         gender:                "Gender"
-  mission:
-    indexed_title: "<span>Mission %{position}:</span> %{title}"
-    presenter:
-        im_ready:     "I'm ready!"
-        likes_needed: "This mission requires %{likes} likes"
   mails:
     confirmation:
       title:  "Welcome to Play The Call, %{name}!"
@@ -32,6 +27,12 @@ en:
       body:   "Go to the link below to recover your password."
       link:   "Recover your password"
       footer: "If you haven't send this e-mail, please ignore this message."
+  mission:
+    indexed_title: "<span>Mission %{position}:</span> %{title}"
+    like_count: "%{quantity} curtir"
+    presenter:
+      im_ready:     "I'm ready!"
+      likes_needed: "This mission requires %{likes} likes"
   ranking:
     header: "TOP RANKING"
     header_description: "Os melhores jogadores"
@@ -44,11 +45,12 @@ en:
     sign_up: "Comece a jogar"
     sign_in: "Entrar"
     sign_out: "Sair"
+    unlock_account: "Unlock my account"
+    update_status: "Atualizar status"
   unlock_account:
     click_below: "Click the link below to unlock your account:"
     description: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
     greeting: "Hello %{name}!"
-    unlock_action: "Unlock my account"
   home:
     heading: "entender sua missão é apenas o início dela"
     description: "Você já pensou em fazer algo pelo mundo? E se fosse rápido, gratuito e divertido? O jogo que começa aqui e termina na sua vida."
