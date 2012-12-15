@@ -8,12 +8,11 @@
   <div class="content">
     <%= image_tag 'home/logo.png', class: :logo %>
     <div class="in">
-    <h1><%= t("home.heading") %></h1>
-      <p>
-        <%= t("home.description") %>
-              </p>
-        <%= link_to t("actions.sign_up"), new_user_registration_path, class: "btn" %>
-        <%= link_to t("actions.sign_in"), new_user_session_path, class: "btn" %>
+      <h1><%= t("home.heading") %></h1>
+      <p><%= t("home.description") %></p>
+      <ul>
+        <li><%= link_to t("actions.sign_up"), new_user_registration_path, class: "sign_up" %></li>
+        <li>ou <%= link_to t("actions.sign_in"), new_user_session_path, class: "sign_in" %>
     </div>
     <div class="footer">
       <ul>

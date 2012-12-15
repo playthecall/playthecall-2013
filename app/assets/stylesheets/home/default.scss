@@ -5,10 +5,10 @@ body {
   color: #fff;
   font-family: Helvetica, Arial, sans-serif;
 }
+
 #content{
   margin: 0 auto;
   background: #000
-
 }
 
 .content {
@@ -19,10 +19,42 @@ body {
   margin-top: 25%;
 }
 
-.content .in{
-  margin-left: 243px;
-  position: absolute;
-  margin-top: -30px;
+.content {
+  .in {
+    margin-left: 243px;
+    position: absolute;
+    margin-top: -30px;
+    p {
+      margin-bottom: 35px;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        line-height: 42px;
+        list-style: none;
+        float: left;
+        a.sign_up {
+          background: image-url('home/bt-start-to-play.png') no-repeat;
+          text-indent: -99999px;
+          text-decoration: none;
+          width: 212px;
+          height: 42px;
+          margin: 0 20px 0 0;
+          display: block;
+        }
+        a.sign_in {
+          color: #FFF;
+          font-weight: bold;
+          text-decoration: none;
+          margin: 0 0 0 5px;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
 }
 
 .footer a {
