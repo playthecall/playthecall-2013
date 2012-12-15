@@ -8,24 +8,23 @@
 	<div class="content">
     <%= image_tag 'home/logo.png', class: :logo %>
 		<div class="in">
-			<h1>entender sua missão é apenas o início dela</h1>
+    <h1><%= t("home.heading") %></h1>
 			<p>
-				Você já pensou em fazer algo pelo mundo? E se fosse rápido, gratuito
-				e divertido? O jogo que começa aqui e termina na sua vida.
-			</p>
-      <%= link_to "Comece a jogar", new_user_registration_path, class: "btn" %>
-      <%= link_to "Entrar", new_user_session_path, class: "btn" %>
+        <%= t("home.description") %>
+							</p>
+        <%= link_to t("home.sign_up"), new_user_registration_path, class: "btn" %>
+        <%= link_to t("home.sign_in"), new_user_session_path, class: "btn" %>
 		</div>
 		<div class="footer">
 			<ul>
-				<li><a href="">About</a></li>
-				<li><a href="">Help</a></li>
-				<li><a href="">Terms</a></li>
-				<li><a href="">Privacy</a></li>
-				<li><a href="">Media</a></li>
-				<li><a href="">Developers</a></li>
-				<li><a href="">Resources</a></li>
-				<li>&copy; 2012 Play The Call</li>
+				<li><a href=""><%= t("home.footer.about") %></a></li>
+				<li><a href=""><%= t("home.footer.help") %></a></li>
+				<li><a href=""><%= t("home.footer.terms") %></a></li>
+				<li><a href=""><%= t("home.footer.privacy") %></a></li>
+        <li><a href=""><%= t("home.footer.media") %></a></li>
+				<li><a href=""><%= t("home.footer.developers") %></a></li>
+        <li><a href=""><%= t("home.footer.resources") %></a></li>
+        <li><%= st("home.footer.creative_commons") %></li>
 			</ul>
 		</div>
 	</div>
