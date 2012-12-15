@@ -21,7 +21,7 @@ class MissionEnrollmentsController < ApplicationController
 
   def new
     @user = current_user
-    @mission = Mission.find params[:mission_id]
+    @mission = Mission.find_by_slug params[:mission_id]
   end
 
   def edit
