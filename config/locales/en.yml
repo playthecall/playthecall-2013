@@ -38,14 +38,15 @@ en:
     missions_accomplished: "missões cumpridas"
   actions:
     cancel: "Cancelar"
+    edit_profile: "Editar Perfil"
+    fancy_sign_up: "Quero Salvar o Mundo"
     save: "Salvar"
-  profile:
-    edit: "Editar Perfil"
+    sign_up: "Comece a jogar"
+    sign_in: "Entrar"
+    sign_out: "Sair"
   home:
     heading: "entender sua missão é apenas o início dela"
     description: "Você já pensou em fazer algo pelo mundo? E se fosse rápido, gratuito e divertido? O jogo que começa aqui e termina na sua vida."
-    sign_up: "Comece a jogar"
-    sign_in: "Entrar"
     footer:
       about: "About"
       creative_commons: "&copy; 2012 Play The Call"
