@@ -5,6 +5,7 @@
 .DS_Store
 .rvmrc
 dump.rdb
+*.swp
 
 public/uploads/
 config/database.yml
