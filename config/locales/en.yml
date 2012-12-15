@@ -32,6 +32,15 @@ en:
       body:   "Go to the link below to recover your password."
       link:   "Recover your password"
       footer: "If you haven't send this e-mail, please ignore this message."
+  ranking:
+    header: "TOP RANKING"
+    header_description: "Os melhores jogadores"
+    missions_accomplished: "missões cumpridas"
+  actions:
+    cancel: "Cancelar"
+    save: "Salvar"
+  profile:
+    edit: "Editar Perfil"
   home:
     heading: "entender sua missão é apenas o início dela"
     description: "Você já pensou em fazer algo pelo mundo? E se fosse rápido, gratuito e divertido? O jogo que começa aqui e termina na sua vida."

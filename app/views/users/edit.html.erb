@@ -3,7 +3,7 @@
 <% end %>
 
 <%= form_for(@user, html: {multipart: true}) do |f| %>
-  <h2>Editar Perfil</h2>
+  <h2><%= t("profile.edit") %></h2>
 
   <%= render partial: 'form', locals: {f: f} %>
 <% end %>

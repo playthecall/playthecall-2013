@@ -37,6 +37,6 @@
 <%= f.password_field :password_confirmation %>
 
 <p class="buttons">
-  <%= link_to "Cancelar", root_path, class: :cancel %>
-  <%= f.submit "Salvar" %>
+  <%= link_to t("actions.cancel"), root_path, class: :cancel %>
+  <%= f.submit t("actions.save") %>
 </p>
