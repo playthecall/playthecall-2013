@@ -41,10 +41,13 @@ en:
     translation: "Ranking"
   actions:
     cancel: "Cancelar"
+    config: "Configurações"
     confirmation_instructions: "Didn't receive confirmation instructions?"
     edit_profile: "Editar Perfil"
     fancy_sign_up: "Quero Salvar o Mundo"
     forgot_password: "Forgot your password?"
+    my_missions: "Minhas Missões"
+    resend_unlock_instructions: "Resend unlock instructions"
     save: "Salvar"
     see_less: "Ver menos..."
     see_more: "Ver mais..."
