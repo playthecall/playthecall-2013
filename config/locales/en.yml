@@ -9,7 +9,7 @@ en:
   activerecord:
     attributes:
       mission_enrollment:
-        description: "Adicione uma imagem para essa missão"
+        description: "Add a picture for this mission"
         image: "Descreva como foi sua experiência nessa missão"
       user:
         avatar:                "Avatar"
