@@ -21,9 +21,9 @@ ActiveAdmin.register Mission do
 
   form :html => { :multipart => true } do |f|
     f.inputs "Content" do
-      f.input :chapter_id, as: :select,
+      f.input :chapter, as: :select,
               collection: option_groups_from_collection_for_select(
-                GameVersion.all, :chapters, :name, :id, :name
+                GameVersion.all, :chapters, :name, :id, :name, f.object.chapter_id
               )
 
       f.input :slug
