@@ -8,6 +8,9 @@ en:
         male:   "Male"
   activerecord:
     attributes:
+      mission_enrollment:
+        description: "Adicione uma imagem para essa missão"
+        image: "Descreva como foi sua experiência nessa missão"
       user:
         avatar:                "Avatar"
         city:                  "City"
@@ -41,12 +44,15 @@ en:
     translation: "Ranking"
   actions:
     cancel: "Cancelar"
+    change_password: "Change my password"
     config: "Configurações"
+    confirm_new_password: "Confirm new password"
     confirmation_instructions: "Didn't receive confirmation instructions?"
     edit_profile: "Editar Perfil"
     fancy_sign_up: "Quero Salvar o Mundo"
     forgot_password: "Forgot your password?"
     my_missions: "Minhas Missões"
+    new_password: "New password"
     resend_unlock_instructions: "Resend unlock instructions"
     save: "Salvar"
     see_less: "Ver menos..."
