@@ -14,6 +14,7 @@ en:
       user:
         avatar:                "Avatar"
         city:                  "City"
+        email:                 "Email"
         name:                  "Name"
         nickname:              "Nickname"
         password:              "Password"
