@@ -16,8 +16,8 @@
       <%= f.hidden_field :user_id %>
 
       <p class="buttons">
-        <%= link_to t('actions.cancel'), mission_path(mission), style: 'font-size:13px;float:right;padding-top:10px' %>
-        <%= f.submit button, class: 'btn', style: 'padding-top:5px' %>
+        <%= link_to t('actions.cancel'), mission_path(mission) %>
+        <%= f.submit button, class: 'btn' %>
       </p>
     <% end %>
   </div>
