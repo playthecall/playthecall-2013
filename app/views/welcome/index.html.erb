@@ -13,7 +13,7 @@
       <p><%= t("home.description") %></p>
       <ul>
         <li><a href="#" data-reveal-id="intro" class="sign_up"><%= t("actions.sign_up") %></a></li>
-        <li>ou <%= link_to t("actions.sign_in"), new_user_session_path, class: "sign_in" %>
+        <li>ou <%= link_to t("actions.sign_in"), new_user_session_path, class: "sign_in", :'data-reveal-id' => 'sign_in' %>
     </div>
     <div class="footer">
       <ul>
@@ -31,7 +31,6 @@
   <div id="globeContent">
     <div id="globeGl_" class="globeGl"></div>
   </div>
-  <%= render 'sign_in' %>
   <% for user in @users %>
     <div class="poi hidden" data-lat="<%= user.city.latitude %>" data-long="<%= -user.city.longitude %>" data-url="globe_camPos.html">
       <%= image_tag user.avatar %>
@@ -42,7 +41,6 @@
 
       <%= javascript_include_tag "jquery" %>
       <%= javascript_include_tag 'jquery-ui' %>
-      <%= javascript_include_tag 'home' %>
       <script type="text/javascript">
         $(document).ready(function(){
           $("canvas").attr("height", $(window).height())
@@ -74,6 +72,6 @@
   </div>
 </div>
 <%= render 'intro_modal' %>
-
+<%= render 'sign_in' %>
 </body>
 </html>
