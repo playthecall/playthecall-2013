@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121202022402) do
+ActiveRecord::Schema.define(:version => 20121216022042) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -126,11 +126,18 @@ ActiveRecord::Schema.define(:version => 20121202022402) do
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
     t.integer  "chapter_id"
+    t.boolean  "oracle"
   end
 
   add_index "missions", ["chapter_id"], :name => "index_missions_on_chapter_id"
   add_index "missions", ["element"], :name => "index_missions_on_element"
   add_index "missions", ["slug"], :name => "index_missions_on_slug"
+
+  create_table "oracles", :force => true do |t|
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
