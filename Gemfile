@@ -39,6 +39,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'poltergeist'
   gem 'forgery'
+  gem 'launchy'
   gem 'fivemat'
   gem 'pry'
 end

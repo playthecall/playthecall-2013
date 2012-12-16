@@ -140,6 +140,8 @@ GEM
     koala (1.5.0)
       faraday (~> 0.7)
       multi_json (~> 1.3)
+    launchy (2.1.2)
+      addressable (~> 2.3)
     libv8 (3.3.10.4)
     libwebsocket (0.1.7.1)
       addressable
@@ -305,6 +307,7 @@ DEPENDENCIES
   fql
   jquery-rails
   koala
+  launchy
   nokogiri
   omniauth
   omniauth-facebook
