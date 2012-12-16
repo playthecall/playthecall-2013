@@ -102,32 +102,6 @@ body {
   }
 }
 
-.ui-dialog {
-  .ui-dialog-titlebar {
-    position: absolute;
-    top: 15px;
-    right: 13px;
-    .ui-dialog-title {
-      display: none;
-    }
-    a.ui-dialog-titlebar-close {
-      background: image-url('home/close.jpg') no-repeat;
-      text-indent: -99999px;
-      text-decoration: none;
-      width: 22px;
-      height: 18px;
-      display: block;
-    }
-  }
-}
-
-.ui-widget-overlay {
-  background: image-url('home/bg-overlay.png') repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .footer a {
   text-decoration: none;
   color: #aeaeae;
