@@ -8,12 +8,14 @@ class MissionEnrollment < ActiveRecord::Base
   belongs_to :mission
   belongs_to :user
 
-  has_one :oracle
+  belongs_to :oracle
+  accepts_nested_attributes_for :oracle
 
   validates_presence_of :user_id
 
-  attr_accessible :title, :description, :user, :mission,
-                  :enrollment_images_attributes, :mission_id, :user_id
+  attr_accessible :title, :description, :user, :mission, :oracle,
+                  :enrollment_images_attributes, :mission_id, :user_id,
+                  :oracle_attributes
 
   before_create :fill_url
   before_save   :compile_description
