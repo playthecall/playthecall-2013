@@ -9,5 +9,6 @@ FactoryGirl.define do
     element               ''
     association :city
     association :game_version
+    association :profile
   end
 end
