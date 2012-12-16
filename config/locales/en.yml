@@ -8,9 +8,11 @@ en:
         male:   "Male"
   activerecord:
     attributes:
+      enrollment_image:
+        image: "Image"
       mission_enrollment:
-        description: "Add a picture for this mission"
-        image: "Descreva como foi sua experiência nessa missão"
+        description: "Descreva como foi sua experiência nessa missão"
+        image: "Add a picture for this mission"
       user:
         avatar:                "Avatar"
         city:                  "City"
@@ -32,7 +34,7 @@ en:
       link:   "Recover your password"
       footer: "If you haven't send this e-mail, please ignore this message."
   mission:
-    oracle_field: "Please tell us who's your Oracle"
+    oracle_field: "Please tell us who is your Oracle"
     pluralized: "Missões"
     indexed_title: "<span>Mission %{position}:</span> %{title}"
     like_count: "%{quantity} curtir"

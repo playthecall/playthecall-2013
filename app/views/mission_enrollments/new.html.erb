@@ -9,6 +9,7 @@
     <%= i.file_field :image %>
   <% end %>
 
+  <% f.object.build_oracle %>
   <%= f.fields_for :oracle do |o| %>
     <%= o.label :email, t('mission.oracle_field') %>
     <%= o.text_field :email %>
