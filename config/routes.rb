@@ -9,7 +9,6 @@ PlayTheCall::Application.routes.draw do
 
   get 'm/:nickname/:slug' => 'mission_enrollments#show',  as: 'mission_enrollment'
   get 'ranking'           => 'ranking#show',              as: 'ranking'
-  get 'missions'          => 'mission_enrollments#index', as: 'missions'
 
   match 'countdown' => 'welcome#countdown', as: 'countdown'
 
