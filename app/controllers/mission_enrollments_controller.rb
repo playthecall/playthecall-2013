@@ -1,23 +1,11 @@
 class MissionEnrollmentsController < ApplicationController
   before_filter :authenticate_user!, only: [:new]
-  before_filter :load_mission_enrollments, only: [:index, :show, :edit, :new]
+  prepend_before_filter :load_mission_enrollment, only: :show
+  before_filter :load_mission_enrollments, only: [:show, :edit, :new]
 
   def check
     @enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
     render text: @enrollment.check(params)
-  end
-
-  def index
-    @user = current_user if user_signed_in?
-    @enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
-  end
-
-  def show
-    nickname = params[:nickname]
-    slug = params[:slug]
-    @user = User.find_by_nickname nickname
-    @mission_enrollment = @user.mission_enrollments.joins(:mission).
-                                where('missions.slug = ?', slug).first
   end
 
   def new
@@ -47,13 +35,16 @@ class MissionEnrollmentsController < ApplicationController
   end
 
   private
+  def load_mission_enrollment
+    nickname = params[:nickname]
+    slug = params[:slug]
+    @user = User.find_by_nickname nickname
+    @mission_enrollment = @user.mission_enrollments.joins(:mission).
+                                where('missions.slug = ?', slug).first
+  end
+
   def load_mission_enrollments
-    if params[:slug].present?
-      chapter = Mission.find_by_slug(params[:slug]).chapter
-      @enrolled_missions = current_user.mission_enrollments.accomplished.
-        where(mission_id: chapter.missions.map(&:id))
-    else
-      @enrolled_missions = current_user.mission_enrollments.accomplished
-    end
+    @enrolled_missions = current_user.mission_enrollments
+    @enrolled_missions.delete_if { |enrollment| enrollment.id == @mission_enrollment.id }
   end
 end
