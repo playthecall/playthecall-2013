@@ -66,7 +66,7 @@ en:
     unlock_account: "Unlock my account"
     unlock_instructions: "Didn't receive unlock instructions?"
     update_status: "Update your status"
-    mission_enrollment_link: "%{position} %{title}"
+    mission_link: "%{position} %{title}"
   registration:
     heading: "Register"
   unlock_account:

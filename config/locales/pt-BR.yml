@@ -66,7 +66,8 @@ pt-BR:
     unlock_account: "Desbloquear minha conta"
     unlock_instructions: "Não recebeu as instruções de desbloqueamento de conta?"
     update_status: "Atualizar status"
-    mission_enrollment_link: "%{position} %{title}"
+    mission_link: "%{position} %{title}"
+    skip: "Pular vídeo"
   registration:
     heading: "Cadastro"
   unlock_account:
