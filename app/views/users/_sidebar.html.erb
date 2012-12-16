@@ -18,10 +18,9 @@
       <%= t("sidebar.user_points", points: @user.points) %>
     </div>
     <div class="badges">
-      <%= image_tag("icons/app.jpg") %>
-      <%= image_tag("icons/talk.jpg") %>
-      <%= image_tag("icons/search.jpg") %>
-      <%= image_tag("icons/archive.jpg") %>
+      <% badge_for_user(current_user).each do |badge| %>
+        <%= image_tag badge.image.small %>
+      <% end %>
     </div>
     <a href="" class="btn btn-ranking"><%= t("ranking.translation") %></a>
   </section>
@@ -31,7 +30,7 @@
       <% @user.current_chapter.missions.each do |mission| %>
         <% if @user.has_accomplished?(mission) %>
           <%= link_to t("actions.mission_enrollment_link", position: mission.position, title: mission.title),
-                      mission_enrollment_path(slug: mission.slug, nickname: @user.nickname) %>
+            mission_enrollment_path(slug: mission.slug, nickname: @user.nickname) %>
         <% else %>
           <li><%= mission.position %> <span><%= mission.title %></span></li>
         <% end %>
