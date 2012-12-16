@@ -1,21 +1,13 @@
 class MissionEnrollmentsController < ApplicationController
-  before_filter :authenticate_user!, only: [:new]
+  prepend_before_filter :authenticate_user!, only: [:new]
   prepend_before_filter :load_mission_enrollment, only: :show
+
+  before_filter :load_mission, only: [:new, :edit]
   before_filter :load_mission_enrollments, only: :show
 
   def check
     @enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
     render text: @enrollment.check(params)
-  end
-
-  def new
-    @user = current_user
-    @mission = Mission.find_by_slug params[:mission_id]
-  end
-
-  def edit
-    @user = current_user
-    @mission_enrollment = MissionEnrollment.find params[:id]
   end
 
   def update
@@ -46,5 +38,9 @@ class MissionEnrollmentsController < ApplicationController
   def load_mission_enrollments
     @enrolled_missions = current_user.mission_enrollments
     @enrolled_missions.delete_if { |enrollment| enrollment.id == @mission_enrollment.id }
+  end
+
+  def load_mission
+    @mission = Mission.find_by_slug params[:mission_id]
   end
 end

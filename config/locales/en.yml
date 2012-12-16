@@ -56,6 +56,7 @@ en:
     resend_confirmation_instructions: "Resend confirmation instructions"
     resend_unlock_instructions: "Resend unlock instructions"
     save: "Save"
+    update: "Update"
     see_less: "See less..."
     see_more: "See more..."
     send_reset_instructions: "Send me reset password instructions"

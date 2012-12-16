@@ -56,6 +56,7 @@ cn:
     resend_confirmation_instructions: "Resend confirmation instructions"
     resend_unlock_instructions: "Resend unlock instructions"
     save: "Salvar"
+    update: "Atualizar"
     see_less: "Ver menos..."
     see_more: "Ver mais..."
     send_reset_instructions: "Send me reset password instructions"
