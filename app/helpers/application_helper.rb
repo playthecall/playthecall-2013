@@ -33,4 +33,8 @@ module ApplicationHelper
       mission_path(current_user.current_mission)
     end
   end
+
+  def last_available_mission_enrollment
+    current_user.mission_enrollments.order("created_at DESC").limit(1).first
+  end
 end

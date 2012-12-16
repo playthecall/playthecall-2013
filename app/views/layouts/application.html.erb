@@ -16,7 +16,7 @@
           <% if user_signed_in? %>
             <% if current_user.mission_enrollments.any? %>
               <li>
-                <%= link_to t('actions.my_missions'), mission_enrollment_path(current_user.nickname, current_user.current_mission.slug) %>
+                <%= link_to t('actions.my_missions'), mission_enrollment_path(current_user.nickname, last_available_mission_enrollment.mission.slug) %>
               </li>
             <% end %>
             <li class="settings">
