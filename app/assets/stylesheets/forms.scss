@@ -10,10 +10,10 @@ form {
   padding-bottom: 23px;
   padding-left: 50px;
   padding-top: 57px;
-  width: 680px;
+  width: 687px;
 
   p.buttons {
-    margin-top: 20px;
+    margin-top: 10px;
     padding-left: 70px;
   }
 
@@ -28,14 +28,15 @@ form {
   textarea {
     background-color: #f3f3f3;
     border: none;
-    border-radius: 2px;
+    border-radius: 3px;
     padding: 1em;
-    width: 363px;
+    width: 687px;
     resize: none;
   }
   a.cancel {
     display: block;
     text-decoration: none;
+    font-size: 13px;
   }
   > label{
     display: block;
@@ -63,3 +64,4 @@ form {
     clear: both;
   }
 }
+#new_mission_enrollment{ padding: 0 }
