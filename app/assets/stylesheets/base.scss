@@ -1,9 +1,10 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700);
 @import 'mixins';
 
 body{
   background: #2b707d url('/assets/bg-water.jpg') repeat-x center bottom;
   border-top: 4px solid #f3f3f3;
-  font-family:Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 ul li {list-style:none;}
