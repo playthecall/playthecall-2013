@@ -30,6 +30,22 @@
   <div id="globeContent">
     <div id="globeGl_" class="globeGl"></div>
   </div>
+  <div class="dialog login">
+    <%= form_for "user", :url => user_session_path do |f| %>
+      <ul>
+        <li>
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </li>
+        <li>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </li>
+      </ul>
+      <%= link_to t("actions.forgot_password"), new_password_path('user'), class: 'forgot' %>
+      <%= f.submit t("actions.sign_in") %>
+    <% end %>
+  </div>
   <% for user in @users %>
     <div class="poi hidden" data-lat="<%= user.city.latitude %>" data-long="<%= -user.city.longitude %>" data-url="globe_camPos.html">
       <%= image_tag user.avatar %>
@@ -40,6 +56,7 @@
 
       <%= javascript_include_tag "jquery" %>
       <%= javascript_include_tag 'jquery-ui' %>
+      <%= javascript_include_tag 'home' %>
       <script type="text/javascript">
         $(document).ready(function(){
           $("canvas").attr("height", $(window).height())
