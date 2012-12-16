@@ -14,6 +14,12 @@ Copy and configure the database.yml:
 
     $ cp config/database.yml.sample config/database.yml
 
+Copy and configure the development.yml:
+
+    $ cp config/application/development.yml.sample config/application/development.yml
+
+_Learn more about Rails Environment Variables [HERE](http://railsapps.github.com/rails-environment-variables.html)_
+
 Setup your database:
 
     $ rake db:setup
