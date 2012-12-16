@@ -9,7 +9,7 @@ class Mission < ActiveRecord::Base
 
   attr_accessible :chapter_id,        :title,    :description,
                   :validation_class,  :image,    :video_url,
-                  :validation_params, :position, :element, :slug
+                  :validation_params, :position, :element, :slug, :oracle
 
   before_save :compile_description
 

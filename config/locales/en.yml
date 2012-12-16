@@ -60,7 +60,7 @@ en:
     see_more: "Ver mais..."
     send_reset_instructions: "Send me reset password instructions"
     sign_up: "Comece a jogar"
-    sign_in: "Entrar"
+    sign_in: "Sign in"
     sign_in_with: "Sign in with %{provider}"
     sign_out: "Sair"
     unlock_account: "Unlock my account"
