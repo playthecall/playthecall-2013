@@ -1,18 +1,56 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "extensions/slides.min.jquery" %>
+  <%= stylesheet_link_tag 'slides' %>
+
+  <script type="text/javascript">
+    $(function(){
+      $('#slides').slides({
+        preload: true,
+        preloadImage: 'assets/slides/loading.gif',
+        play: 5000,
+        pause: 2500,
+        hoverPause: true,
+        pagination: false
+      });
+    });
+  </script>
+<% end %>
+
 <section class="content">
   <div class="content-base">
-    <ul class="carousel">
-      <li>
-        <%= image_tag @mission_enrollment.enrollment_images.first.image %>
-        <div class="image-title">
-          <%= st 'mission.indexed_title', position: @mission_enrollment.mission.position, title: @mission_enrollment.mission.title %>
-        </div>
-      </li>
-    </ul>
-    <%= @mission_enrollment.html_description.html_safe %>
 
-    <%= link_to t("actions.update_status"), edit_mission_mission_enrollment_path(@mission_enrollment.mission, @mission_enrollment) %>
+    <div id="slides">
+      <div class="slides_container">
+        <% @mission_enrollment.enrollment_images.each do |enrollment_image| %>
+          <div class="slide">
+            <%= image_tag enrollment_image.image.medium %>
+          </div>
+          <div class="slide">
+            <%= image_tag enrollment_image.image.medium %>
+          </div>
+        <% end %>
+      </div>
+      <a href="#" class="prev"><img src="/assets/slides/arrow-prev.png" width="24" height="43" alt="Prev"></a>
+      <a href="#" class="next"><img src="/assets/slides/arrow-next.png" width="24" height="43" alt="Next"></a>
+    </div>
 
-    <%= presenter_for_enrollment(@mission_enrollment) %>
+    <div>
+      <ul class="carousel">
+        <li>
+          <div class="image-title">
+            <%= st 'mission.indexed_title', position: @mission_enrollment.mission.position, title: @mission_enrollment.mission.title %>
+          </div>
+        </li>
+      </ul>
+      <%= @mission_enrollment.html_description.html_safe %>
+
+      <% if @mission_enrollment.user_id == current_user.id %>
+        <%= link_to t("actions.update_status"), edit_mission_mission_enrollment_path(@mission_enrollment.mission, @mission_enrollment) %>
+      <% end %>
+
+      <%= presenter_for_enrollment(@mission_enrollment) %>
+    </div>
+  </div>
 </section>
 
 <ul class="other-missions">
