@@ -1,0 +1,12 @@
+<% if @enrolled_missions.present? %>
+  <% @enrolled_missions.each do |enrolled_mission| %>
+    <li>
+      <h2><%= link_to enrolled_mission.mission.title, mission_enrollment_path(current_user.nickname, enrolled_mission.mission.slug) %></h2>
+      <ul class="points-other-mission">
+        <li><%= image_tag("icons/search.jpg") %></li>
+        <li><h2><%= t("mission.like_count", quantity: 300) %></h2></li>
+        <li><%= image_tag("icons/check.jpg") %></li>
+      </ul>
+    </li>
+  <% end %>
+<% end %>

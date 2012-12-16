@@ -1,5 +1,6 @@
 class MissionEnrollmentsController < ApplicationController
   before_filter :authenticate_user!, only: [:new]
+  before_filter :load_mission_enrollments, only: [:index, :show, :edit, :new]
 
   def check
     @enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
@@ -43,5 +44,16 @@ class MissionEnrollmentsController < ApplicationController
     mission_enrollment = MissionEnrollment.create mission_enrollment_attributes
     redirect_to mission_enrollment_path nickname: mission_enrollment.user.nickname,
                                         slug:     mission_enrollment.mission.slug
+  end
+
+  private
+  def load_mission_enrollments
+    if params[:slug].present?
+      chapter = Mission.find_by_slug(params[:slug]).chapter
+      @enrolled_missions = current_user.mission_enrollments.accomplished.
+        where(mission_id: chapter.missions.map(&:id))
+    else
+      @enrolled_missions = current_user.mission_enrollments.accomplished
+    end
   end
 end
