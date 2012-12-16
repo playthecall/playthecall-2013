@@ -110,19 +110,22 @@ section.content {
 
 footer {
   height: 200px;
-  padding-left: 40%;
   padding-top: 2em;
-  li {
-    display: inline;
-    color: #AEAEAE;
-    font-size: 15px;
-    font-weight: bold;
-    a {
+  ul {
+    width: 990px;
+    margin: 0 auto;
+    li {
+      display: inline;
       color: #AEAEAE;
       font-size: 15px;
       font-weight: bold;
-      margin-right: 10px;
-      text-decoration: none;
+      a {
+        color: #AEAEAE;
+        font-size: 15px;
+        font-weight: bold;
+        margin-right: 10px;
+        text-decoration: none;
+      }
     }
   }
 }

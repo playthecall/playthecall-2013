@@ -5,7 +5,7 @@
 #slides {
 	position:relative;
 	z-index:100;
-	margin: 6px 20px 20px;
+	margin: 6px 0 20px -8px;
 }
 
 /*
@@ -16,7 +16,7 @@
 */
 
 .slides_container {
-	width:680;
+	width:680px;
 	overflow:hidden;
 	position:relative;
 	display:none;
@@ -52,6 +52,6 @@
 }
 
 #slides .next {
-	left:675px;
+	left:680px;
 }
 .pagination { display: none; }
