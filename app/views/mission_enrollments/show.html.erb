@@ -10,20 +10,11 @@
     </ul>
     <%= @mission_enrollment.html_description.html_safe %>
 
-    <%= link_to t("actions.update_status"), edit_mission_enrollment_path(@mission_enrollment) %>
+    <%= link_to t("actions.update_status"), edit_mission_mission_enrollment_path(@mission_enrollment.mission, @mission_enrollment) %>
 
     <%= presenter_for_enrollment(@mission_enrollment) %>
 </section>
 
 <ul class="other-missions">
-  <% for enrolled_mission in [] %>
-    <li>
-      <h2><%= link_to enrolled_mission.title, mission_path(2) %></h2>
-      <ul class="points-other-mission">
-        <li><%= image_tag("icons/search.jpg") %></li>
-        <li><h2><%= t("mission.like_count", quantity: 300) %></h2></li>
-        <li><%= image_tag("icons/check.jpg") %></li>
-      </ul>
-    </li>
-  <% end %>
+  <%= render "mission_enrollments/enrolled_missions" %>
 </ul>
