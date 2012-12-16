@@ -36,7 +36,7 @@ class MissionEnrollmentsController < ApplicationController
   end
 
   def load_mission_enrollments
-    @enrolled_missions = current_user.mission_enrollments
+    @enrolled_missions = current_user.mission_enrollments.dup
     @enrolled_missions.delete_if { |enrollment| enrollment.id == @mission_enrollment.id }
   end
 
