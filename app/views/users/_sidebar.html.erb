@@ -29,7 +29,7 @@
     <h1><%= t("mission.pluralized") %></h1>
     <ul>
       <% @user.current_chapter.missions.each do |mission| %>
-        <% if @user.has_accomplished?(mission) %>
+        <% if @user.has_accomplished?(mission) || @user.current_mission == mission %>
           <li><%= link_to t("actions.mission_link", position: mission.position, title: mission.title),
             mission_path(mission) %></li>
         <% else %>
