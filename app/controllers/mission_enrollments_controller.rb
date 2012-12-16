@@ -1,7 +1,7 @@
 class MissionEnrollmentsController < ApplicationController
   before_filter :authenticate_user!, only: [:new]
   prepend_before_filter :load_mission_enrollment, only: :show
-  before_filter :load_mission_enrollments, only: [:show, :edit, :new]
+  before_filter :load_mission_enrollments, only: :show
 
   def check
     @enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
