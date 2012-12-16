@@ -1,5 +1,4 @@
 PlayTheCall::Application.routes.draw do
-
   devise_for :users,
              controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
@@ -16,6 +15,7 @@ PlayTheCall::Application.routes.draw do
   resources :users
   resources :missions, only: :show do
     resources :mission_enrollments, except: [:destroy, :index, :show] do
+      resources :status_updates, except: [:index, :show]
       member do
         post 'check'
       end
