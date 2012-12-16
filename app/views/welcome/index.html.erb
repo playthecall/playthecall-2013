@@ -3,6 +3,7 @@
   <meta charset="UTF-8" >
   <head>
     <%= stylesheet_link_tag 'home/default' %>
+    <%= stylesheet_link_tag 'home/reveal' %>
   </head>
   <body>
   <div class="content">
@@ -11,7 +12,7 @@
       <h1><%= t("home.heading") %></h1>
       <p><%= t("home.description") %></p>
       <ul>
-        <li><%= link_to t("actions.sign_up"), new_user_registration_path, class: "sign_up" %></li>
+        <li><a href="#" data-reveal-id="intro" class="sign_up"><%= t("actions.sign_up") %></a></li>
         <li>ou <%= link_to t("actions.sign_in"), new_user_session_path, class: "sign_in" %>
     </div>
     <div class="footer">
@@ -52,6 +53,7 @@
       <%= javascript_include_tag "home/Detector.js" %>
       <%= javascript_include_tag "home/dat.gui.min.js" %>
       <%= javascript_include_tag "home/globe_min.js" %>
+      <%= javascript_include_tag "home/jquery.reveal.js" %>
       <script>
       $('div#globeGl_').doGlobe({
         globeRadius: 650,
@@ -68,7 +70,7 @@
     </div>
   </div>
 </div>
-
+<%= render 'intro_modal' %>
 
 </body>
 </html>
