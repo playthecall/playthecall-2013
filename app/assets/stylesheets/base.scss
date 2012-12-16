@@ -106,6 +106,13 @@ section.content {
   background: #fff;
   width:755px;
   min-height:100px;
+  
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-bottom-right-radius: 3px; 
+  -moz-border-bottom-left-radius: 3px; 
 }
 
 footer {
