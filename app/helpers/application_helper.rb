@@ -33,4 +33,10 @@ module ApplicationHelper
       mission_path(current_user.current_mission)
     end
   end
+
+  def badge_for_user(user)
+    user.mission_enrollments.accomplished.map do |me|
+      me.mission.badge
+    end.compact
+  end
 end
