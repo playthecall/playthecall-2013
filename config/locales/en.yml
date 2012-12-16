@@ -31,6 +31,7 @@ en:
       link:   "Recover your password"
       footer: "If you haven't send this e-mail, please ignore this message."
   mission:
+    oracle_field: "Please tell us who's your Oracle"
     pluralized: "Missões"
     indexed_title: "<span>Mission %{position}:</span> %{title}"
     like_count: "%{quantity} curtir"

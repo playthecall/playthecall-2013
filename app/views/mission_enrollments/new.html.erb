@@ -2,12 +2,17 @@
   <%= st 'mission.indexed_title', position: @mission.position, title: @mission.title %>
 </div>
 
-<%= form_for [@mission, @mission.enroll(@user)] do |f| %>
+<%= form_for @mission.enroll(@user) do |f| %>
 
   <%= f.fields_for :enrollment_images do |i| %>
     <%= i.label :image %>
     <%= i.file_field :image %>
   <% end %>
+
+  <%= f.fields_for :oracle do |o| %>
+    <%= o.label :email, t('mission.oracle_field') %>
+    <%= o.text_field :email %>
+  <%end%>
 
   <%= f.label :description %>
   <%= f.text_area :description %>

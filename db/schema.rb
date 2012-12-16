@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121216022042) do
+ActiveRecord::Schema.define(:version => 20121216114115) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20121216022042) do
     t.datetime "last_checked_at"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
+    t.integer  "oracle_id"
   end
 
   add_index "mission_enrollments", ["last_checked_at"], :name => "index_mission_enrollments_on_last_checked_at"

@@ -8,6 +8,8 @@ class MissionEnrollment < ActiveRecord::Base
   belongs_to :mission
   belongs_to :user
 
+  has_one :oracle
+
   validates_presence_of :user_id
 
   attr_accessible :title, :description, :user, :mission,
