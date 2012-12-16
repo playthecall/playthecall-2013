@@ -1,4 +1,4 @@
-@mixin btn {
+@mixin btn($font-size: 21px, $padding: 6px 24px) {
   -moz-box-shadow:inset 0 0 0 0 #277993;
   -webkit-box-shadow:inset 0 0 0 0 #277993;
   box-shadow:inset 0 0 0 0 #277993;
@@ -13,9 +13,9 @@
   display:inline-block;
   color:#ffffff;
   font-family:arial;
-  font-size:21px;
+  font-size: $font-size;
   font-weight:bold;
-  padding:6px 24px;
+  padding: $padding;
   text-decoration:none;
   text-shadow:-1px -1px 0px #277993;
   &:hover {

@@ -1,3 +1,5 @@
+@import 'mixins';
+
 body {
   background-color: #000;
   margin: 0px;
@@ -32,13 +34,8 @@ body {
         list-style: none;
         float: left;
         a.sign_up {
-          background: image-url('home/bt-start-to-play.png') no-repeat;
-          text-indent: -99999px;
-          text-decoration: none;
-          width: 212px;
-          height: 42px;
+          @include btn(18px, 0 24px);
           margin: 0 20px 0 0;
-          display: block;
         }
         a.sign_in {
           color: #FFF;
