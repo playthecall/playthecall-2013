@@ -4,3 +4,12 @@ s3:
   upload_bucket: '<%= ENV["SETINGS_S3_BUCKET"]     %>'
 facebook:
   default_access_token: '<%= ENV["SETTINGS_FACEBOOK_DEFAULT_ACCESS_TOKEN"] %>'
+mailer:
+  config:
+    :address:              '<%= ENV["SETTINGS_MAILER_CONFIG_ADDRESS"] %>'
+    :port:                 '<%= ENV["SETTINGS_MAILER_CONFIG_PORT"] %>'
+    :domain:               '<%= ENV["SETTINGS_MAILER_CONFIG_DOMAIN"] %>'
+    :user_name:            '<%= ENV["SETTINGS_MAILER_CONFIG_USER_NAME"] %>'
+    :password:             '<%= ENV["SETTINGS_MAILER_CONFIG_PASSWORD"] %>'
+    :authentication:       'plain'
+    :enable_starttls_auto: true
