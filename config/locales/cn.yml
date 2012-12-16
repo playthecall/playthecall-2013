@@ -66,7 +66,7 @@ cn:
     unlock_account: "Unlock my account"
     unlock_instructions: "Didn't receive unlock instructions?"
     update_status: "Atualizar status"
-    mission_enrollment_link: "%{position} %{title}"
+    mission_link: "%{position} %{title}"
   registration:
     heading: "Cadastro"
   unlock_account:

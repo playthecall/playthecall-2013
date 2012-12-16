@@ -7,8 +7,16 @@ class FacebookSocialMissionValidatorPresenter < MissionPresenter
         :div,
         I18n.t('mission.presenter.likes_needed', likes: mission_params[:likes]),
         :class => 'mission-need'),
-      view.link_to(I18n.t('mission.presenter.im_ready'), view.new_mission_mission_enrollment_path(mission), class: 'btn')
+      im_ready_button
     ].join.html_safe
+  end
+
+  def im_ready_button
+    mission_enrollment = view.current_user.mission_enrollments.find_by_mission_id(mission.id)
+    unless mission_enrollment.present?
+      view.link_to(I18n.t('mission.presenter.im_ready'), view.new_mission_mission_enrollment_path(mission), class: 'btn')
+    end
+
   end
 
   def enrollment_html

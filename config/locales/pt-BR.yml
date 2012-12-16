@@ -68,6 +68,7 @@ pt-BR:
     update_status: "Atualizar status"
     mission_enrollment_link: "%{position} %{title}"
     skip: "Pular vídeo"
+    mission_link: "%{position} %{title}"
   registration:
     heading: "Cadastro"
   unlock_account:

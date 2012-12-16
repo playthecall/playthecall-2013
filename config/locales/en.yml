@@ -68,6 +68,7 @@ en:
     update_status: "Atualizar status"
     mission_enrollment_link: "%{position} %{title}"
     skip: Skip video
+    mission_link: "%{position} %{title}"
   registration:
     heading: "Cadastro"
   unlock_account:
