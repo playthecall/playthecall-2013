@@ -58,8 +58,10 @@ body {
   }
 }
 
-.dialog{
-  display: none;
+.login {
+  background: #FFF;
+  padding: 35px 32px;
+  border-radius: 5px;
   overflow: auto;
   ul {
     margin: 0 0 25px;
@@ -76,7 +78,7 @@ body {
         background: #ebebeb;
         font-family: 'Chivo', sans-serif;
         font-size: 14px;
-        width: 380px;
+        width: 435px;
         padding: 8px 10px;
         border: none;
         &:focus {
@@ -101,9 +103,6 @@ body {
 }
 
 .ui-dialog {
-  background: #FFF;
-  padding: 35px 32px;
-  border-radius: 5px;
   .ui-dialog-titlebar {
     position: absolute;
     top: 15px;
