@@ -58,6 +58,77 @@ body {
   }
 }
 
+.dialog{
+  display: none;
+  overflow: auto;
+  ul {
+    margin: 0 0 25px;
+    padding: 0;
+    li {
+      list-style: none;
+      margin: 0 0 15px;
+      label {
+        color: #5a5a5a;
+        font-family: 'Chivo', sans-serif;
+        display: block;
+      }
+      input {
+        background: #ebebeb;
+        font-family: 'Chivo', sans-serif;
+        font-size: 14px;
+        width: 380px;
+        padding: 8px 10px;
+        border: none;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  a.forgot {
+    color: #5a5a5a;
+    text-decoration: none;
+    margin: 10px 0 0;
+    float: left;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  input[type='submit'] {
+    @include btn(18px, 8px 40px);
+    float: right;
+  }
+}
+
+.ui-dialog {
+  background: #FFF;
+  padding: 35px 32px;
+  border-radius: 5px;
+  .ui-dialog-titlebar {
+    position: absolute;
+    top: 15px;
+    right: 13px;
+    .ui-dialog-title {
+      display: none;
+    }
+    a.ui-dialog-titlebar-close {
+      background: image-url('home/close.jpg') no-repeat;
+      text-indent: -99999px;
+      text-decoration: none;
+      width: 22px;
+      height: 18px;
+      display: block;
+    }
+  }
+}
+
+.ui-widget-overlay {
+  background: image-url('home/bg-overlay.png') repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .footer a {
   text-decoration: none;
   color: #aeaeae;
