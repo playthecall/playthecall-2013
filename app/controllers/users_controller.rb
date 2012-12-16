@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes params[:user]
-      redirect_to missions_path
+      redirect_to mission_path
     else
       render :edit
     end
