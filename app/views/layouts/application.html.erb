@@ -43,7 +43,7 @@
       <% end %>
       <%= content_tag :h1, yield(:title) if show_title? %>
 
-      <% if aside_present? %>
+      <% if user_signed_in? %>
         <%= render 'users/sidebar', locals: {user: @user} %>
       <% end %>
       <%= yield %>

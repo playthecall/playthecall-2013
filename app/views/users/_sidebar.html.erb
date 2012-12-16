@@ -1,10 +1,10 @@
 <aside>
   <section class="profile">
-    <%= image_tag @user.avatar, class: :avatar %>
-    <h1><%= @user.name%></h1>
-    <strong><%= @user.city.name %> <span><%= @user.city.country.name %></span></strong>
+    <%= image_tag current_user.avatar, class: :avatar %>
+    <h1><%= current_user.name%></h1>
+    <strong><%= current_user.city.name %> <span><%= current_user.city.country.name %></span></strong>
     <p class="bio">
-      <%= @user.profile.bio %>
+      <%= current_user.profile.bio %>
     </p>
     <a href="" class="more" data-text="<%= t("actions.see_less") %>"><%= t("actions.see_more") %></a>
     <a href=""><%= image_tag("icons/facebook.jpg") %></a>
@@ -15,7 +15,7 @@
   </section>
   <section class="points">
     <div class="total-points">
-      <%= t("sidebar.user_points", points: @user.points) %>
+      <%= t("sidebar.user_points", points: current_user.points) %>
     </div>
     <div class="badges">
       <%= image_tag("icons/app.jpg") %>
@@ -28,8 +28,8 @@
   <section class="missions">
     <h1><%= t("mission.pluralized") %></h1>
     <ul>
-      <% @user.current_chapter.missions.each do |mission| %>
-        <% if @user.has_accomplished?(mission) || @user.current_mission == mission %>
+      <% current_user.current_chapter.missions.each do |mission| %>
+        <% if current_user.has_accomplished?(mission) || current_user.current_mission == mission %>
           <li><%= link_to t("actions.mission_link", position: mission.position, title: mission.title),
             mission_path(mission) %></li>
         <% else %>
