@@ -30,8 +30,8 @@
     <ul>
       <% @user.current_chapter.missions.each do |mission| %>
         <% if @user.has_accomplished?(mission) %>
-          <%= link_to t("actions.mission_enrollment_link", position: mission.position, title: mission.title),
-                      mission_enrollment_path(slug: mission.slug, nickname: @user.nickname) %>
+          <li><%= link_to t("actions.mission_link", position: mission.position, title: mission.title),
+            mission_path(mission) %></li>
         <% else %>
           <li><%= mission.position %> <span><%= mission.title %></span></li>
         <% end %>
