@@ -18,7 +18,6 @@
 
 <section class="content">
   <div class="content-base">
-
     <div id="slides">
       <div class="slides_container">
         <% @mission_enrollment.enrollment_images.each do |enrollment_image| %>
@@ -33,23 +32,14 @@
       <a href="#" class="prev"><img src="/assets/slides/arrow-prev.png" width="24" height="43" alt="Prev"></a>
       <a href="#" class="next"><img src="/assets/slides/arrow-next.png" width="24" height="43" alt="Next"></a>
     </div>
+    <h1><%= st 'mission.indexed_title', position: @mission_enrollment.mission.position, title: @mission_enrollment.mission.title %></h1>
+    <%= @mission_enrollment.html_description.html_safe %>
 
-    <div>
-      <ul class="carousel">
-        <li>
-          <div class="image-title">
-            <%= st 'mission.indexed_title', position: @mission_enrollment.mission.position, title: @mission_enrollment.mission.title %>
-          </div>
-        </li>
-      </ul>
-      <%= @mission_enrollment.html_description.html_safe %>
+    <% if @mission_enrollment.user_id == current_user.id %>
+      <%= link_to t("actions.update_status"), edit_mission_mission_enrollment_path(@mission_enrollment.mission, @mission_enrollment), class: 'update_status' %>
+    <% end %>
 
-      <% if @mission_enrollment.user_id == current_user.id %>
-        <%= link_to t("actions.update_status"), edit_mission_mission_enrollment_path(@mission_enrollment.mission, @mission_enrollment) %>
-      <% end %>
-
-      <%= presenter_for_enrollment(@mission_enrollment) %>
-    </div>
+    <%= presenter_for_enrollment(@mission_enrollment) %>
   </div>
 </section>
 

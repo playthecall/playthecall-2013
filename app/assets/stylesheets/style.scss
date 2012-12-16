@@ -1,25 +1,43 @@
+@import 'mixins';
+
 .content-base{
-    padding:20px;
-    min-height: 1000px;
+  padding:20px;
+  min-height: 1000px;
+  & > h1 {
+    background: #ee353a;
+    color:#fff;
+    margin: 0 20px 25px;
+    padding: 15px 20px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    float: left;
+    span {
+      color:#ffc90c;
+    }
+  }
+  p {
+    color: #ca5356;
+    font-family: 'Chivo', sans-serif;
+    font-size: 15px;
+    line-height: 20px;
+    margin: 0 0 35px;
+    clear: both;
+  }
+  a.update_status {
+    @include btn(14px, 8px 15px);
+    margin: 0 0 15px;
+    float: right;
+  }
+  .box-social {
+    background: #f2f0f0;
+    padding: 10px;
+    margin-bottom: 10px;
+    clear: both;
+  }
 }
+
 .content-base .carousel img {border:3px solid #e6e4e4; width: 670px; margin: 10px 20px}
-.content-base .carousel .image-title {
-  background: #ee353a;
-  padding: 15px 20px;
-  color:#fff;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: -5px;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-}
-.content-base .carousel .mission-title {
-  width: 600px;
-}
-.content-base .carousel .image-title span {color:#ffc90c;}
-.content-base p {color:#5a5a5a;margin: 20px 0 20px 20px;line-height: 18px;width:668px;}
-.box-social {background: #f2f0f0;padding: 10px;margin-bottom: 10px;}
 .fb-comments {margin-left: 20px;}
 
 .other-missions {
