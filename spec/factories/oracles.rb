@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :oracle do
-    email "MyString"
+    email Forgery(:email).address
   end
 end
