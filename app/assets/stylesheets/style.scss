@@ -7,15 +7,12 @@
   background: #ee353a;
   padding: 15px 20px;
   color:#fff;
-  width: 250px;
   margin-left: 20px;
+  margin-right: 20px;
   margin-top: -5px;
-  -webkit-border-bottom-right-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
 }
 .content-base .carousel .mission-title {
   width: 600px;
@@ -30,7 +27,7 @@
   font-size: 20px;
 }
 .other-missions a,
-.other-missions h2 {float: left;line-height: 45px;color: #67757b;text-decoration: none}
+.other-missions h2 {float: left;line-height: 45px;color: #67757b;text-decoration: none;margin-left: 10px}
 
 .other-missions > li {
   background: #fff;
@@ -42,7 +39,7 @@
   margin: 0 0 10px 0;
   width:735px;
 }
-.other-missions .points-other-mission {float: right;width: 220px;}
+.other-missions .points-other-mission {float: right;margin-right:10px;}
 .other-missions .points-other-mission li {float: left;}
 .other-missions .points-other-mission li img {margin:0 10px 0 10px;}
 
