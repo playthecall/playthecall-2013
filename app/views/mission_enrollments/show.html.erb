@@ -36,11 +36,12 @@
     <%= @mission_enrollment.html_description.html_safe %>
 
     <% @mission_enrollment.status_updates.order("created_at DESC").each do |status_update| %>
-      <%= l status_update.created_at, format: :short %>
+      <h2><%= l status_update.created_at, format: :short %></h2>
+      <ul class="actions">
+        <li><%= link_to t("actions.edit"), edit_mission_mission_enrollment_status_update_path(@mission_enrollment.mission, @mission_enrollment, status_update) %></li>
+        <li><%= link_to t("actions.destroy"), mission_mission_enrollment_status_update_path(@mission_enrollment.mission, @mission_enrollment, status_update), method: :delete, confirm: t("actions.confirm_destroy") %></li>
+      </ul>
       <%= status_update.html_status.html_safe %>
-      <%= link_to t("actions.edit"), edit_mission_mission_enrollment_status_update_path(@mission_enrollment.mission, @mission_enrollment, status_update) %>
-      <%= link_to t("actions.destroy"), mission_mission_enrollment_status_update_path(@mission_enrollment.mission, @mission_enrollment, status_update), method: :delete, confirm: t("actions.confirm_destroy") %>
-      <hr />
     <% end %>
     <% if @mission_enrollment.user_id == current_user.id %>
         <%= link_to t("actions.update_status"), new_mission_mission_enrollment_status_update_path(@mission_enrollment.mission, @mission_enrollment), class: 'update_status' %>
