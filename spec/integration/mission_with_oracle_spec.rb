@@ -20,7 +20,9 @@ describe 'Missions with oracle' do
     end
 
     context 'fills the oracle field, and submit' do
-      it 'associates the mission enrollment with the oracle' do
+      let(:oracle) { build(:oracle) }
+
+      before do
         oracle = build(:oracle)
         mission_enrollment = build(:mission_enrollment)
         fill_in t('mission.oracle_field'), with: oracle.email
@@ -28,9 +30,18 @@ describe 'Missions with oracle' do
                 with: mission_enrollment.description
         attach_file t('activerecord.attributes.enrollment_image.image'),
                     'app/assets/images/rails.png'
+      end
+
+      it 'associates the mission enrollment with the oracle' do
         click_button t('actions.save')
         user.mission_enrollments.first.oracle.email.should eql oracle.email
       end
+
+      it 'emails the oracle with the welcome mail' do
+        click_button t('actions.save')
+        ActionMailer::Base.deliveries.last.to.should == [oracle.email]
+      end
+
     end
 
   end

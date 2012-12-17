@@ -66,6 +66,11 @@ class MissionEnrollment < ActiveRecord::Base
     mission_id
   end
 
+  def notify_oracle
+    return unless oracle
+    OracleMailer.welcome(self).deliver
+  end
+
   protected
   def accomplished_callback
     'Not done yet, need to create badges'

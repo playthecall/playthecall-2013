@@ -42,6 +42,7 @@ class MissionEnrollmentsController < ApplicationController
   def create
     mission_enrollment_attributes = params[:mission_enrollment]
     mission_enrollment = MissionEnrollment.create mission_enrollment_attributes
+    mission_enrollment.notify_oracle
     redirect_to mission_enrollment_path nickname: mission_enrollment.user.nickname,
                                         slug:     mission_enrollment.mission.slug
   end
