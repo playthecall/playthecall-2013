@@ -30,11 +30,19 @@
   <%= profile_form.text_area :bio, rows: 5 %>
 <%end%>
 
-<%= f.label :password %>
-<%= f.password_field :password %>
+<% if f.object.new_record? %>
 
-<%= f.label :password_confirmation %>
-<%= f.password_field :password_confirmation %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+<% else %>
+
+  <%= link_to t('actions.change_password'), edit_user_password_path %>
+
+<% end %>
 
 <p class="buttons">
   <%= link_to t("actions.cancel"), root_path, class: :cancel %>
