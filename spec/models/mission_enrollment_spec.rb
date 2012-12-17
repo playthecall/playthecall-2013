@@ -35,11 +35,20 @@ describe MissionEnrollment do
     end
 
     it 'sends the welcome mail when the oracle is new' do
-      subject.oracle = create :oracle
+      subject.oracle = build :oracle
       welcome_mail = mock
       welcome_mail.should_receive(:deliver)
       OracleMailer.should_receive(:welcome).with(subject).
                    and_return(welcome_mail)
+      subject.notify_oracle
+    end
+
+    it 'sends the usual mail when the oracle is already created' do
+      subject.oracle = create :oracle
+      mission_notification = mock
+      mission_notification.should_receive(:deliver)
+      OracleMailer.should_receive(:mission_notification).with(subject).
+                   and_return(mission_notification)
       subject.notify_oracle
     end
   end

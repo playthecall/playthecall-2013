@@ -22,7 +22,6 @@ describe 'Missions with oracle' do
       let(:oracle) { build(:oracle) }
 
       before do
-        oracle = build(:oracle)
         mission_enrollment = build(:mission_enrollment)
         fill_in t('mission.oracle_field'), with: oracle.email
         fill_in t('activerecord.attributes.mission_enrollment.description'),

@@ -68,7 +68,11 @@ class MissionEnrollment < ActiveRecord::Base
 
   def notify_oracle
     return unless oracle
-    OracleMailer.welcome(self).deliver
+    if oracle.new_record?
+      OracleMailer.welcome(self).deliver
+    else
+      OracleMailer.mission_notification(self).deliver
+    end
   end
 
   protected
