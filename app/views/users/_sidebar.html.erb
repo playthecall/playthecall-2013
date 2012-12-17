@@ -23,7 +23,7 @@
       <%= image_tag("icons/search.jpg") %>
       <%= image_tag("icons/archive.jpg") %>
     </div>
-    <a href="" class="btn btn-ranking"><%= t("ranking.translation") %></a>
+    <%= link_to t("ranking.translation"), ranking_path, class: 'btn btn-ranking' %>
   </section>
   <section class="missions">
     <h1><%= t("mission.pluralized") %></h1>
