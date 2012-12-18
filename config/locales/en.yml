@@ -43,9 +43,12 @@ en:
     missions_accomplished: "accomplished missions"
     translation: "Ranking"
   actions:
+    back: "Back"
     cancel: "Cancel"
+    cancel_account: "Cancel my account"
     change_password: "Change my password"
     config: "Settings"
+    confirm: "Are you sure?"
     confirm_new_password: "Confirm new password"
     confirmation_instructions: "Didn't receive confirmation instructions?"
     edit_profile: "Edit Profile"
@@ -70,6 +73,7 @@ en:
     mission_link: "%{position} %{title}"
   registration:
     heading: "Register"
+    need_password: "(we need your current password to confirm your changes)"
   unlock_account:
     click_below: "Click the link below to unlock your account:"
     description: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
