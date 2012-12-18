@@ -1,15 +1,100 @@
-<p><%= t("ranking.header") %> <span><%= t("ranking.header_description") %></span></p>
+<style type="text/css">
 
-<ul>
-<% @users_ranking.each_with_index do |user, index| %>
-  <li>
-    <p><%= image_tag user.avatar %></p>
-    <p><%= index+1 %></p>
-    <p><%= user.points %></p>
-    <p><%= user.mission_enrollments.where(accomplished: true).count %> <%= t("ranking.missions_accomplished") %></p>
-    <p><%= user.name %></p>
-    <p><%= user.city.name %></p>
-    <p><%= user.city.country.name %></p>
-  </li>
-<% end %>
-</ul>
+
+.wrapper-ranking{
+	padding: 30px;
+}
+.top-ranking{
+	background-color: #F80000  ;
+	height: 70px ;
+	text-align: center;
+	vertical-align: 50%;
+
+}
+.top-ranking p{
+
+	padding: 20px;
+	font-size: 30px;
+	color: #FF9900;
+	font-weight: bolder;
+
+}
+.top-ranking span{
+	font: chivo,open sans;
+	color: white;
+}
+
+.wrapper-user {
+  margin: 10px;
+  background-color: #E0E0E0;
+  font-size: 20px;
+  color:red;
+  height: 70px;
+  font-weight: bold;
+}
+.image {
+	  float: left;
+	  padding:5px;
+	  padding-bottom: 5px;
+}
+.index {
+	text-align: center;
+	font-size: 40px;
+	width: 80px;
+	font-weight: bolder;
+	float: left;
+	padding: 5px;
+	margin-top: 8px;
+}
+.user-points{
+	padding: 10px;
+	font-size: 18px;
+	padding-right: 15px;
+}
+.only-points{
+	float:right;
+	color:red;
+}
+.city-mission{		
+	padding: 5px;
+	font-size: 15px;
+	padding-right: 15px;
+}
+.missions{
+		float:right;
+}
+.city-country{}
+
+</style>
+
+<article class="wrapper-ranking">
+	<div class="top-ranking">
+		<p><%=t("ranking.header") %> <span><%= t("ranking.header_description") %></span></p>
+	</div>
+	<ul>
+		<% @users_ranking.each_with_index do |user, index| %>
+		  <li class="wrapper-user">
+		  	<div class="index"><%= index+1 %></div>
+
+		  	<div class="image">
+		  		<% avatar = user.avatar%>
+		  		<% avatar.resize_to_fill(60,60)%>
+		    	<%= image_tag avatar %>
+			</div>
+			<div class="user-points">
+				<%= user.name %>
+			    <a class ="only-points"><%= user.points %></a>
+			</div>
+
+			<div class="city-mission">
+				<a class="city-country"><%= user.city.name %>
+			    <%= user.city.country.name %></a>
+			    <a class="missions"><%= user.mission_enrollments.where(accomplished: true).count %> <%= t("ranking.missions_accomplished") %></a>
+		    </div>
+		    
+		  </li>
+		<% end %>
+	</ul>
+
+
+</article>
