@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates_presence_of   :city
   validates_presence_of   :game_version
 
-  validates_format_of     :nickname, :with => /[a-z\-0-9]+$/
+  validates_format_of     :nickname, :with => /^[a-z_\-0-9]+$/
   validates_uniqueness_of :nickname
 
   validates_inclusion_of :gender,  in: ['male', 'female']

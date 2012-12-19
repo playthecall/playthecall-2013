@@ -1,0 +1,63 @@
+.wrapper-ranking{
+  padding: 30px;
+}
+
+.top-ranking {
+  background-color: #F80000  ;
+  height: 70px ;
+  text-align: center;
+  vertical-align: 50%;
+
+  p {
+    padding: 20px;
+    font-size: 30px;
+    color: #FF9900;
+    font-weight: bolder;
+  }
+
+  span{
+    font: chivo,open sans;
+    color: white;
+  }
+}
+
+.wrapper-user {
+  margin: 10px;
+  background-color: #E0E0E0;
+  font-size: 20px;
+  color:red;
+  height: 70px;
+  font-weight: bold;
+}
+.image {
+    float: left;
+    padding:5px;
+    padding-bottom: 5px;
+}
+.index {
+  text-align: center;
+  font-size: 40px;
+  width: 80px;
+  font-weight: bolder;
+  float: left;
+  padding: 5px;
+  margin-top: 8px;
+}
+.user-points{
+  padding: 10px;
+  font-size: 18px;
+  padding-right: 15px;
+}
+.only-points{
+  float:right;
+  color:red;
+}
+.city-mission{    
+  padding: 5px;
+  font-size: 15px;
+  padding-right: 15px;
+}
+.missions{
+    float:right;
+}
+.city-country{}
