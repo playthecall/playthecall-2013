@@ -50,11 +50,13 @@ a img {border: none;}
   }
 }
 
-.container,
-.content-header {
+.container {
   width:      993px;
   margin:     0 auto;
+} .content-header {
   background: #fff;
+  width:      993px;
+  margin:     0 auto;
 }
 
 header {
