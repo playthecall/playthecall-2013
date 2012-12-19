@@ -15,7 +15,6 @@ describe 'Missions with oracle' do
     end
 
     it 'shows an oracle field' do
-      save_and_open_page
       page.should have_content t('mission.oracle_field')
     end
 
@@ -37,7 +36,7 @@ describe 'Missions with oracle' do
         user.mission_enrollments.first.oracle.email.should eql oracle.email
       end
 
-      it 'emails the oracle with the welcome mail' do
+      it 'notifies the oracle' do
         click_button t('actions.save')
         ActionMailer::Base.deliveries.last.to.should == [oracle.email]
       end
