@@ -8,8 +8,9 @@ class User < ActiveRecord::Base
   has_many   :chapters, through: :game_version
   belongs_to :city
   belongs_to :game_version
+  belongs_to :oracle
 
-  accepts_nested_attributes_for :profile
+  accepts_nested_attributes_for :profile, :oracle
 
   validates_presence_of   :city
   validates_presence_of   :game_version
@@ -25,7 +26,8 @@ class User < ActiveRecord::Base
   attr_accessible :city_id, :email,  :password, :password_confirmation, :avatar,
                   :avatar_cache, :remember_me, :provider, :element, :uid,
                   :points, :game_version_id, :nickname, :gender, :name,
-                  :profile, :avatar_cache, :profile_attributes, :bio, :city_id
+                  :profile, :avatar_cache, :profile_attributes, :bio, :city_id,
+                  :oracle_attributes
 
   devise :database_authenticatable,   :trackable,
          :recoverable, :rememberable, :confirmable,
