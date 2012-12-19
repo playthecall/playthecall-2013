@@ -2,12 +2,14 @@
   <div class="content-base">
     <h1><%= st 'mission.indexed_title', position: mission.position, title: mission.title %></h1>
 
-    <%= form_for mission.enroll(current_user) do |f| %>
+    <%= form_for [mission, @mission_enrollment] do |f| %>
 
       <%= f.fields_for :enrollment_images do |i| %>
         <%= i.label :image %>
         <%= i.file_field :image %>
       <% end %>
+
+      <%= presenter_for_enrollment_form @mission_enrollment, f %>
       <p><%= link_to_add_fields t('actions.add_image'), f, :enrollment_images %></p>
 
       <%= f.label :description %>

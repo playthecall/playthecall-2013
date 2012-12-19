@@ -11,8 +11,8 @@ class MissionEnrollment < ActiveRecord::Base
                                 #  attributes['image'].blank?
                                 #end
 
-  attr_accessible :title, :description, :user, :mission,
-                  :enrollment_images_attributes, :mission_id, :user_id
+  attr_accessible :title, :description, :user, :mission, :user_id,
+                  :enrollment_images_attributes, :mission_id
 
   before_create :fill_url
   before_save   :compile_description

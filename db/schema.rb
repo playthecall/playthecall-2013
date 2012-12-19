@@ -139,6 +139,12 @@ ActiveRecord::Schema.define(:version => 20121216064627) do
   add_index "missions", ["element"], :name => "index_missions_on_element"
   add_index "missions", ["slug"], :name => "index_missions_on_slug"
 
+  create_table "oracles", :force => true do |t|
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
     t.string   "facebook_link"

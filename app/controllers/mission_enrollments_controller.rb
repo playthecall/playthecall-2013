@@ -5,13 +5,24 @@ class MissionEnrollmentsController < ApplicationController
   before_filter :load_mission, only: [:new, :edit]
   before_filter :load_mission_enrollments, only: :show
 
-  def show
-    @mission_enrollment.lazy_check
+  def new
+    @mission_enrollment = @mission.enroll current_user
   end
 
   def check
+    @mission_enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
+    @mission_enrollment.async_check(params)
+    redirect_to mission_enrollment_path nickname: @mission_enrollment.user.nickname,
+                                        slug:     @mission_enrollment.mission.slug
+  end
+
+  def index
+    @user = current_user if user_signed_in?
     @enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
-    render text: @enrollment.async_check(params)
+  end
+
+  def show
+    @mission_enrollment.lazy_check
   end
 
   def update
@@ -24,10 +35,18 @@ class MissionEnrollmentsController < ApplicationController
   end
 
   def create
-    mission_enrollment_attributes = params[:mission_enrollment]
-    mission_enrollment = MissionEnrollment.create mission_enrollment_attributes
-    redirect_to mission_enrollment_path nickname: mission_enrollment.user.nickname,
-                                        slug:     mission_enrollment.mission.slug
+    mission_enrollment = MissionEnrollment.new params[:mission_enrollment]
+
+    if mission_enrollment.valid?
+      if mission_enrollment.validator.before_create(params)
+        mission_enrollment.save
+        redirect_to mission_enrollment_path nickname: mission_enrollment.user.nickname,
+                                            slug:     mission_enrollment.mission.slug
+        return
+      end
+    end
+
+    render :new
   end
 
   private

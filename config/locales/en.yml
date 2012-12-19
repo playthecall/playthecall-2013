@@ -8,18 +8,26 @@ en:
         male:   "Male"
   activerecord:
     attributes:
+      enrollment_image:
+        image: "Image"
       mission_enrollment:
         description: "Add an image to this mission"
         image: "Describe your experience in this mission"
       user:
         avatar:                "Picture"
         city:                  "City"
+        email:                 "Email"
         name:                  "Name"
         nickname:              "Nickname"
         password:              "Password"
         password_confirmation: "Confirm your password"
         gender:                "Gender"
+    oracle:
+      invalid_error_message: "Invalid Oracle"
   mails:
+    oracle:
+      welcome:
+        subject: "Welcome, Oracle!"
     confirmation:
       title:  "Welcome to Play The Call, %{name}!"
       body:   "Go to the link below to finish your registration."
@@ -31,12 +39,15 @@ en:
       link:   "Recover your password"
       footer: "If you haven't send this e-mail, please ignore this message."
   mission:
+    oracle_field: "Please tell us who is your Oracle"
     pluralized: "Missions"
     indexed_title: "<span>Mission %{position}:</span> %{title}"
     like_count: "%{quantity} like"
     presenter:
       im_ready:     "I'm ready!"
       likes_needed: "This mission requires %{likes} likes"
+      missing_likes: "missing %{count}"
+      like_count:    "%{count} likes"
   ranking:
     header: "TOP RANKING"
     header_description: "The best players"

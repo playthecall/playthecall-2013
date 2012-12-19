@@ -17,6 +17,10 @@ module ApplicationHelper
     @mission_presenter.mission_html
   end
 
+  def presenter_for_enrollment_form(enrollment, form)
+    enrollment.presenter(self).enrollment_form form
+  end
+
   def presenter_for_enrollment(enrollment)
     enrollment.presenter(self).enrollment_html
   end
