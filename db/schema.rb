@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121216114115) do
+ActiveRecord::Schema.define(:version => 20121216064627) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -105,7 +105,6 @@ ActiveRecord::Schema.define(:version => 20121216114115) do
     t.datetime "last_checked_at"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
-    t.integer  "oracle_id"
   end
 
   add_index "mission_enrollments", ["last_checked_at"], :name => "index_mission_enrollments_on_last_checked_at"
@@ -127,18 +126,11 @@ ActiveRecord::Schema.define(:version => 20121216114115) do
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
     t.integer  "chapter_id"
-    t.boolean  "oracle"
   end
 
   add_index "missions", ["chapter_id"], :name => "index_missions_on_chapter_id"
   add_index "missions", ["element"], :name => "index_missions_on_element"
   add_index "missions", ["slug"], :name => "index_missions_on_slug"
-
-  create_table "oracles", :force => true do |t|
-    t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
@@ -152,6 +144,14 @@ ActiveRecord::Schema.define(:version => 20121216114115) do
   end
 
   add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
+
+  create_table "status_updates", :force => true do |t|
+    t.integer  "mission_enrollment_id"
+    t.text     "status"
+    t.text     "html_status"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

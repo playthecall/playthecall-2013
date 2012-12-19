@@ -23,6 +23,9 @@ en:
         password_confirmation: "Confirm your password"
         gender:                "Gender"
   mails:
+    oracle:
+      welcome:
+        subject: "Welcome, Oracle!"
     confirmation:
       title:  "Welcome to Play The Call, %{name}!"
       body:   "Go to the link below to finish your registration."

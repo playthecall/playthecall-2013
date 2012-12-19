@@ -6,8 +6,6 @@ FactoryGirl.define do
     validation_class  'FacebookSocialMissionValidator'
     validation_params YAML.dump(likes: 1024)
 
-    oracle false
-
     sequence(:slug){ |n| "mission-slug-#{n}" }
     association :chapter
   end

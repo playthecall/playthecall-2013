@@ -26,30 +26,30 @@ describe MissionEnrollment do
     end
   end
 
-  context '#notify_oracle' do
-    clean_with_transaction_on :each
+  #context '#notify_oracle' do
+  #  clean_with_transaction_on :each
 
-    it 'does nothing if there is no oracle' do
-      OracleMailer.should_not_receive(:anything)
-      subject.notify_oracle
-    end
+  #  it 'does nothing if there is no oracle' do
+  #    OracleMailer.should_not_receive(:anything)
+  #    subject.notify_oracle
+  #  end
 
-    it 'sends the welcome mail when the oracle is new' do
-      subject.oracle = build :oracle
-      welcome_mail = mock
-      welcome_mail.should_receive(:deliver)
-      OracleMailer.should_receive(:welcome).with(subject).
-                   and_return(welcome_mail)
-      subject.notify_oracle
-    end
+  #  it 'sends the welcome mail when the oracle is new' do
+  #    subject.oracle = build :oracle
+  #    welcome_mail = mock
+  #    welcome_mail.should_receive(:deliver)
+  #    OracleMailer.should_receive(:welcome).with(subject).
+  #                 and_return(welcome_mail)
+  #    subject.notify_oracle
+  #  end
 
-    it 'sends the usual mail when the oracle is already created' do
-      subject.oracle = create :oracle
-      mission_notification = mock
-      mission_notification.should_receive(:deliver)
-      OracleMailer.should_receive(:mission_notification).with(subject).
-                   and_return(mission_notification)
-      subject.notify_oracle
-    end
-  end
+  #  it 'sends the usual mail when the oracle is already created' do
+  #    subject.oracle = create :oracle
+  #    mission_notification = mock
+  #    mission_notification.should_receive(:deliver)
+  #    OracleMailer.should_receive(:mission_notification).with(subject).
+  #                 and_return(mission_notification)
+  #    subject.notify_oracle
+  #  end
+  #end
 end

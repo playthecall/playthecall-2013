@@ -43,7 +43,6 @@ class MissionEnrollmentsController < ApplicationController
     mission_enrollment = MissionEnrollment.new params[:mission_enrollment]
     render :new and return unless mission_enrollment.valid?
 
-    mission_enrollment.notify_oracle
     mission_enrollment.save
 
     redirect_to mission_enrollment_path nickname: mission_enrollment.user.nickname,

@@ -8,14 +8,10 @@ class MissionEnrollment < ActiveRecord::Base
   belongs_to :mission
   belongs_to :user
 
-  belongs_to :oracle
-  accepts_nested_attributes_for :oracle
-
   validates_presence_of :user_id
 
-  attr_accessible :title, :description, :user, :mission, :oracle,
-                  :enrollment_images_attributes, :mission_id, :user_id,
-                  :oracle_attributes
+  attr_accessible :title, :description, :user, :mission, :user_id,
+                  :enrollment_images_attributes, :mission_id
 
   before_create :fill_url
   before_save   :compile_description
@@ -64,15 +60,6 @@ class MissionEnrollment < ActiveRecord::Base
     self[:mission_id] = mission_id
     initialize_validation_params
     mission_id
-  end
-
-  def notify_oracle
-    return unless oracle
-    if oracle.new_record?
-      OracleMailer.welcome(self).deliver
-    else
-      OracleMailer.mission_notification(self).deliver
-    end
   end
 
   protected

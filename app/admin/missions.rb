@@ -38,8 +38,6 @@ ActiveAdmin.register Mission do
       f.input :element, as: :select, collection: User::ELEMENTS
       f.input :position
 
-      f.input :oracle
-
       f.input :validation_class, as: :select, collection: MissionValidator::VALIDATORS
       f.input :validation_params
     end
