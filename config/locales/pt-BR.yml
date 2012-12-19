@@ -55,6 +55,9 @@ pt-BR:
     new_password: "Nova senha"
     resend_confirmation_instructions: "Reenviar as instruções de confirmação"
     resend_unlock_instructions: "Reenviar as instruções de desbloqueio"
+    edit: "Editar"
+    destroy: "Apagar"
+    confirm_destroy: "Tem certeza que deseja apagar?"
     save: "Salvar"
     update: "Atualizar"
     see_less: "Ver menos..."
@@ -80,6 +83,8 @@ pt-BR:
   home:
     heading: "Entender sua missão é apenas o início dela"
     description: "Você já pensou em fazer algo pelo mundo? E se fosse rápido, gratuito e divertido? O jogo começa aqui e continua na sua vida real."
+    english: 'Inglês'
+    portuguese: 'Português'
     footer:
       about: "Sobre"
       creative_commons: "&copy; 2012 Play The Call"
