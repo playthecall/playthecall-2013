@@ -1,15 +1,18 @@
 class Mission < ActiveRecord::Base
   has_many   :mission_enrollments
 
+  has_one :badge
+
   belongs_to :chapter
 
   validates_inclusion_of :element, in: User::ELEMENTS
 
   mount_uploader :image, MissionImageUploader
 
+  accepts_nested_attributes_for :badge
   attr_accessible :chapter_id,        :title,    :description,
                   :validation_class,  :image,    :video_url,
-                  :validation_params, :position, :element, :slug
+                  :validation_params, :position, :element, :slug, :badge_attributes
 
   before_save :compile_description
 

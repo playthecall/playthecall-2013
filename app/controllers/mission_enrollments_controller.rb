@@ -41,6 +41,6 @@ class MissionEnrollmentsController < ApplicationController
   end
 
   def load_mission
-    @mission = Mission.find_by_slug params[:mission_id]
+    @mission = current_user.current_chapter.missions.find_by_slug params[:mission_id]
   end
 end
