@@ -74,6 +74,7 @@ en:
     unlock_instructions: "Didn't receive unlock instructions?"
     update_status: "Update your status"
     mission_link: "%{position} %{title}"
+    unauthorized: "Unauthorized"
   registration:
     heading: "Register"
     need_password: "(we need your current password to confirm your changes)"

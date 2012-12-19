@@ -71,6 +71,7 @@ cn:
     unlock_instructions: "Didn't receive unlock instructions?"
     update_status: "Atualizar status"
     mission_link: "%{position} %{title}"
+    unauthorized: "Não autorizado"
   registration:
     heading: "Cadastro"
   unlock_account:
