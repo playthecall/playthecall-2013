@@ -1,0 +1,5 @@
+<% content_for :content do %>
+  <%= content_for?(:news_content) ? yield(:news_content) : yield %>
+<% end %>
+
+<%= render :template => 'layouts/application' %>
