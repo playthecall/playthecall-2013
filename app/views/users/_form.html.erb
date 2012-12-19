@@ -9,7 +9,7 @@
 <%= f.email_field :email %>
 
 <%= f.label :country %>
-<%= f.collection_select :country_id, @countries, :id, :name, :prompt => t('registration.select_country')  %>
+<%= f.collection_select :country_id, @countries, :id, :name, :prompt => t('registration.select_country'), :selected => @country.try(:id) %>
 
 <%= f.label :city %>
 <%= f.collection_select :city_id, @cities, :id, :name %>
