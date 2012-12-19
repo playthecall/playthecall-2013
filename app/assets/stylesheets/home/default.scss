@@ -9,6 +9,29 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+#top {
+  background-color: #000;
+  z-index: 9;
+  height: 38px;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+#language {
+  position: absolute;
+  z-index: 99;
+  right: 10%;
+  top: 4px;
+  } #language a {
+    color: #FFF;
+    font-size: 13px;
+    text-decoration: none;
+    margin: 10px;
+    } #language a img {
+      margin: -9px 5px;
+}
+
 #content{
   margin: 0 auto;
   background: #000

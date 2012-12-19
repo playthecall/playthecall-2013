@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121216064627) do
+ActiveRecord::Schema.define(:version => 20121216114115) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -45,13 +45,6 @@ ActiveRecord::Schema.define(:version => 20121216064627) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
-
-  create_table "badges", :force => true do |t|
-    t.string   "image"
-    t.integer  "mission_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "chapters", :force => true do |t|
     t.integer  "game_version_id"
@@ -112,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20121216064627) do
     t.datetime "last_checked_at"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
+    t.integer  "oracle_id"
   end
 
   add_index "mission_enrollments", ["last_checked_at"], :name => "index_mission_enrollments_on_last_checked_at"
@@ -133,11 +127,18 @@ ActiveRecord::Schema.define(:version => 20121216064627) do
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
     t.integer  "chapter_id"
+    t.boolean  "oracle"
   end
 
   add_index "missions", ["chapter_id"], :name => "index_missions_on_chapter_id"
   add_index "missions", ["element"], :name => "index_missions_on_element"
   add_index "missions", ["slug"], :name => "index_missions_on_slug"
+
+  create_table "oracles", :force => true do |t|
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"

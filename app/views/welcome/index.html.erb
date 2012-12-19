@@ -6,6 +6,18 @@
     <%= stylesheet_link_tag 'home/reveal' %>
   </head>
   <body>
+  <div id="language">
+    <%= link_to '#' do %>
+      <%= image_tag 'locales/pt.png' %>
+      <%= t 'home.portuguese' %>
+    <% end %>
+
+    <%= link_to '#' do %>
+      <%= image_tag 'locales/en.png' %>
+      <%= t 'home.english' %>
+    <% end %>
+  </div>
+  <div id="top"></div>
   <div class="content">
     <%= image_tag 'home/logo.png', class: :logo %>
     <div class="in">

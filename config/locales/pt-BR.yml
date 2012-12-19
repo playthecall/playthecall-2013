@@ -83,6 +83,8 @@ pt-BR:
   home:
     heading: "Entender sua missão é apenas o início dela"
     description: "Você já pensou em fazer algo pelo mundo? E se fosse rápido, gratuito e divertido? O jogo começa aqui e continua na sua vida real."
+    english: 'Inglês'
+    portuguese: 'Português'
     footer:
       about: "Sobre"
       creative_commons: "&copy; 2012 Play The Call"
