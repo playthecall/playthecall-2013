@@ -1,5 +1,5 @@
 PlayTheCall::Application.routes.draw do
-  match ':id', :to => 'pages#show', as: 'pages'
+  match ':slug', :to => 'pages#show', as: 'pages'
 
   devise_for :users,
              controllers: { omniauth_callbacks: "users/omniauth_callbacks" }

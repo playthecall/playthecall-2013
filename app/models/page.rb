@@ -1,6 +1,6 @@
 class Page < ActiveRecord::Base
   before_save :compile_content
-  attr_accessible :content, :locale, :name, :html_description
+  attr_accessible :content, :locale, :name, :html_description, :slug
 
   protected
   def compile_content
