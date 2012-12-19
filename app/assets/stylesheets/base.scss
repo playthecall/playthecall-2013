@@ -10,6 +10,17 @@ ul li {list-style:none;}
 a img {border: none;}
 
 .content-header {
+  > h1 {
+    float: left;
+    a {
+      background: image-url('logo.png') no-repeat;
+      text-indent: -99999px;
+      width: 232px;
+      height: 77px;
+      margin: 10px 0 0;
+      display: block;
+    }
+  }
   a.sign-in{
     color: #ee353a;
   }
