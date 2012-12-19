@@ -7,7 +7,7 @@ class FacebookSocialMissionValidator < MissionValidator
         update_enrollment_likes
       end
     rescue Exception => e
-      logger.warn 'Facebook check fucked everything!'
+      Rails.logger.warn 'Facebook check fucked everything!'
       false
     end
   end
@@ -30,10 +30,6 @@ class FacebookSocialMissionValidator < MissionValidator
   end
 
   def update_enrollment_likes
-    if link_stats.nil?
-      #logger.warn 'Fql did not work: #{check_query}'
-      return
-    end
     enrollment_params[:fb]    = link_stats.symbolize_keys
     enrollment_params[:likes] = enrollment_params[:fb][:like_count]
     enrollment.save!
