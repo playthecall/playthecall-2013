@@ -10,7 +10,7 @@ namespace :import do
         count += 1
         next if count == 1
         name, code = line.chomp.split(';')
-        Country.create(:name => name.titleize, :code => code)
+        Country.create(:name => name.titleize, :code => code.downcase)
       end
     end
   end
