@@ -5,18 +5,20 @@ require 'csv'
 namespace :import do
 
   desc "Import cities"
-  task cities: :environment do
+  task :cities, [:country_code, :population] => :environment do |t, args|
+      country_code = args[:country_code] || 'br'
+      population = args[:population] || 1000
       puts "Inflating db/resources/worldcitiespop.txt.gz..."
       seed_file = File.open "db/resources/worldcitiespop.txt.gz"
       gzipped_file = Zlib::GzipReader.new seed_file
       puts "Importing rows..."
-      import_from gzipped_file.read.
+      import_from(gzipped_file.read.
                                force_encoding('ISO-8859-1').
-                               encode('UTF-8')
+                               encode('UTF-8'), {:country => country_code,
+                                                 :population_greater_than => population})
   end
 
-  def import_from(content, options={ country: 'br',
-                                     population_greater_than: 1000 })
+  def import_from(content, options)
     if options[:country]
       puts "Filtering by country: #{options[:country]}..."
       header = content.lines.first
@@ -40,7 +42,6 @@ namespace :import do
                       latitude:   row['Latitude'],
                       code:       row['City']
       cities.push city
-      puts "City: #{city.inspect}"
     end
 
     puts "Importing #{cities.count} cities"
@@ -50,13 +51,7 @@ namespace :import do
 
   def find_or_create_country_for(row)
     country_code = row['Country']
-
-    unless country = Country.where(code: country_code).first
-      country = Country.create code: country_code
-      puts "Country: #{country.inspect}"
-    end
-
-    country
+    Country.find_or_create_by_code(country_code)
   end
 
 end
