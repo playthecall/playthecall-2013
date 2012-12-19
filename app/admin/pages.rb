@@ -13,5 +13,14 @@ ActiveAdmin.register Page do
     column :created_at
     default_actions
   end
+
+  form :html => { :multipart => true } do |f|
+    f.inputs "Content" do
+      f.input :name
+      f.input :locale
+      f.input :content
+    end
+    f.buttons
+  end
 end
 
