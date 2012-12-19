@@ -48,7 +48,7 @@
     <% end %>
 
     <%= presenter_for_enrollment(@mission_enrollment) %>
-    <fb:comments href="<%= request.url %>" width="660" num_posts="10"></fb:comments>
+    <fb:comments href="<%= @mission_enrollment.url %>" width="660" num_posts="10"></fb:comments>
   </div>
 </section>
 

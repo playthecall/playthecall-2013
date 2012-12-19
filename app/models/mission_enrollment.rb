@@ -69,7 +69,7 @@ class MissionEnrollment < ActiveRecord::Base
   end
 
   def fill_url
-    self.url = "m/#{user.nickname}/#{mission.slug}"
+    self.url = "playthecall.com/m/#{user.nickname}/#{mission.slug}"
   end
 
   def initialize_validation_params
