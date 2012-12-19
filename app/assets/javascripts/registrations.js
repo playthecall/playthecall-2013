@@ -5,5 +5,4 @@ $(document).ready(function() {
   };
 
   $("#user_country_id").change(fetchCities);
-  //fetchCities();
 });
