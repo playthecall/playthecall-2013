@@ -1,14 +1,6 @@
-<p>
-  <b>Name:</b>
-  <%= @page.name %>
-</p>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "pages" %>
+<% end %>
 
-<p>
-  <b>Locale:</b>
-  <%= @page.locale %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @page.content %>
-</p>
+<h1><%= @page.name %></h1>
+<%= @page.content %>
