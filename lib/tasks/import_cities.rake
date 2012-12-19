@@ -6,7 +6,7 @@ namespace :import do
 
   desc "Import cities"
   task :cities, [:country_code, :population] => :environment do |t, args|
-      country_code = args[:country_code] || 'br'
+      country_code = args[:country_code]
       population = args[:population] || 1000
       puts "Inflating db/resources/worldcitiespop.txt.gz..."
       seed_file = File.open "db/resources/worldcitiespop.txt.gz"
@@ -26,6 +26,8 @@ namespace :import do
       content.prepend header
     end
 
+    content.gsub!(/\"/,' ')
+
     if options[:population_greater_than]
       puts "Filtering cities with population lower than #{
             options[:population_greater_than]}"
@@ -33,19 +35,21 @@ namespace :import do
 
     cities    = []
     CSV.parse content, headers: true do |row|
-      country = find_or_create_country_for row
-      next if options[:population_greater_than].nil? or
-              options[:population_greater_than] > row['Population'].to_i
-      city = City.new country_id: country.id,
-                      name:       row['AccentCity'],
-                      longitude:  row['Longitude'],
-                      latitude:   row['Latitude'],
-                      code:       row['City']
-      cities.push city
+      begin
+        country = find_or_create_country_for row
+        next if options[:population_greater_than].nil? or
+          options[:population_greater_than] > row['Population'].to_i
+        City.create country_id: country.id,
+          name:       row['AccentCity'],
+          longitude:  row['Longitude'],
+          latitude:   row['Latitude'],
+          code:       row['City']
+      rescue => exception
+        p exception.message
+      end
     end
 
-    puts "Importing #{cities.count} cities"
-    City.import cities
+    puts "Importing #{City.count} cities"
     puts "Done!"
   end
 
