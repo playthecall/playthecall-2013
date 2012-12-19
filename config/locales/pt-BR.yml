@@ -72,6 +72,7 @@ pt-BR:
     update_status: "Atualizar status"
     mission_link: "%{position} %{title}"
     skip: "Pular vídeo"
+    unauthorized: "Não autorizado"
   registration:
     heading: "Cadastro"
     select_country: "Selecione seu país"
