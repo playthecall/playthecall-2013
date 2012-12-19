@@ -16,6 +16,9 @@ PlayTheCall::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :users
   resources :missions, only: :show do
+    member do
+      get 'welcome'
+    end
     resources :mission_enrollments, except: [:destroy, :index, :show] do
       resources :status_updates, except: [:index, :show]
       member do
