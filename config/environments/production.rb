@@ -54,8 +54,8 @@ PlayTheCall::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.default_url_options = { host: 'playthecall.herokuapp.com' }
-  config.action_mailer.asset_host          = 'http://playthecall.herokuapp.com'
+  config.action_mailer.default_url_options = { host: 'www.playthecall.com' }
+  config.action_mailer.asset_host          = 'http://www.playthecall.com'
   config.action_mailer.delivery_method     = :smtp
   config.action_mailer.smtp_settings       = Settings.mailer.config
 
