@@ -13,6 +13,10 @@ class Mission < ActiveRecord::Base
 
   before_save :compile_description
 
+  def self.for_user(user)
+    joins(:chapter).where('chapters.game_version_id = ?', user.game_version_id)
+  end
+
   def validator(enrollment)
     @validator ||= validation_class.constantize.new enrollment
   end
