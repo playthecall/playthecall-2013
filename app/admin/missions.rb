@@ -21,6 +21,34 @@ ActiveAdmin.register Mission do
     default_actions
   end
 
+  show do |m|
+    attributes_table do
+      row :id
+      row :slug
+      row :title
+      row :description
+      row :html_description
+      row :element
+      row :position
+      row :video_url
+      if m.image.present?
+        row :image do  |i|
+          image_tag(m.image.medium)
+        end
+      end
+      row :validation_class
+      row :validation_params
+      row :created_at
+      row :updated_at
+      row :chapter_id
+      if m.badge.present?
+        row :badge do
+          image_tag(m.badge.image.medium)
+        end
+      end
+    end
+  end
+
   form :html => { :multipart => true } do |f|
     f.inputs "Content" do
       f.input :chapter, as: :select,
@@ -35,11 +63,16 @@ ActiveAdmin.register Mission do
       f.input :video_url
       f.input :image, as: :file
 
+
       f.input :element, as: :select, collection: User::ELEMENTS
       f.input :position
 
       f.input :validation_class, as: :select, collection: MissionValidator::VALIDATORS
       f.input :validation_params
+
+      f.inputs "Badge image", for: [:badge, Badge.new] do |b|
+        b.input :image, as: :file
+      end
     end
     f.buttons
   end
