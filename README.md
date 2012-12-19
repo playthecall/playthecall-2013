@@ -28,13 +28,13 @@ Import countries running the rake task:
 
     $ rake import:countries
 
-Import cities running the rake task (for now this is going to load Brazil cities):
+Import cities running the rake task (it will import cities from all countries):
 
     $ rake import:cities
 
-If you want to load other countries, pass the country code as param(to load cities from Argentina):
+If you want to load specific cities from a certain country, pass the country code as param(to load cities from Brazil):
 
-    $ rake import:cities['ar']
+    $ rake import:cities['br']
 
 Now it is ready to contribute
 
