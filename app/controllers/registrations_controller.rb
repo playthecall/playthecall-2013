@@ -22,6 +22,6 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def load_countries
-    @countries = Country.all
+    @countries = Country.order(:name).joins(:cities).uniq
   end
 end
