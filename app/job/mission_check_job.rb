@@ -5,8 +5,8 @@
 class MissionCheckJob
   # include Sidekiq::Worker
 
-  def perform(enrollment_id)
-    MissionEnrollment.find(enrollment_id).check
+  def perform(enrollment_id, params)
+    MissionEnrollment.find(enrollment_id).check params
   end
 
   class << self
@@ -18,12 +18,12 @@ class MissionCheckJob
     #   perform_in 30.minutes, enrollment.id
     # end
 
-    def check(enrollment)
-      self.new.perform enrollment.id
+    def check(enrollment, params)
+      self.new.perform enrollment.id, params
     end
 
-    def lazy_check(enrollment)
-      threaded_delayed_check(enrollment) if must_check?(enrollment)
+    def lazy_check(enrollment, params)
+      threaded_delayed_check(enrollment, params) if must_check?(enrollment)
     end
 
     protected
@@ -31,8 +31,12 @@ class MissionCheckJob
       enrollment.last_checked_at.nil? || enrollment.last_checked_at < 2.hours.ago
     end
 
-    def threaded_delayed_check(enrollment)
-      Thread.new{ check enrollment }
+    def threaded_delayed_check(enrollment, params)
+      if Rails.env.development?
+        check enrollment, params
+      else
+        Thread.new{ check enrollment, params }
+      end
     end
   end
 end
