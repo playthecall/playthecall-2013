@@ -10,26 +10,27 @@ body {
 }
 
 #top {
-  background-color: #000;
+  position: absolute;
+  background: image-url('home/bg-languages.png') repeat;
   z-index: 9;
   height: 38px;
-  opacity: 0.4;
-  position: absolute;
   top: 0;
   width: 100%;
-}
-#language {
-  position: absolute;
-  z-index: 99;
-  right: 10%;
-  top: 4px;
-  } #language a {
-    color: #FFF;
-    font-size: 13px;
-    text-decoration: none;
-    margin: 10px;
-    } #language a img {
-      margin: -9px 5px;
+  #language {
+    position: absolute;
+    z-index: 99;
+    right: 10%;
+    top: 7px;
+    a {
+      color: #FFF;
+      font-size: 13px;
+      text-decoration: none;
+      margin: 0 10px;
+      img {
+        margin: -9px 5px;
+      }
+    }
+  }
 }
 
 #content{
@@ -44,15 +45,17 @@ body {
   left: 50%;
   margin: 120px 0 0 -387px;
   .in {
-    margin-left: 243px;
     position: absolute;
-    margin-top: -30px;
+    margin: -15px 0 0 243px;
     h1 {
       font-size: 18px;
       text-transform: uppercase;
+      line-height: 25px;
+      margin: 0 0 15px;
     }
     p {
       font-size: 15px;
+      line-height: 20px;
       width: 480px;
       margin-bottom: 35px;
     }
@@ -138,7 +141,7 @@ body {
   font-size: 12px;
   font-weight: bold;
   color: #aeaeae;
-  margin-top: 200px;
+  margin-top: 270px;
   clear: both;
 }
 

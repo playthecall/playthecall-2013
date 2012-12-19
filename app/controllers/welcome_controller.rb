@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  layout false
+  layout 'welcome'
 
   before_filter lambda { redirect_to user_current_mission }, if: :user_signed_in?
   skip_before_filter :redirect_to_countdown, only: :countdown
