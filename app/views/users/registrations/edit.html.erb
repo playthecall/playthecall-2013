@@ -1,20 +1,20 @@
-<h2><%= t('action.change_password') %></h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+	<h2 class="title"><%= t('action.change_password') %></h2>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+  <label><%= f.label :password %></label>
+  <%= f.password_field :password, :autocomplete => "off" %>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <label><%= f.label :password_confirmation %></label>
+  <%= f.password_field :password_confirmation %>
 
-<div><%= f.label :current_password %> <i><%= t('registration.need_password') %></i><br />
-  <%= f.password_field :current_password %></div>
+	<label><%= f.label :current_password %> <i><%= t('registration.need_password') %></i></label>
+  <%= f.password_field :current_password %>
 
-  <div><%= f.submit t('actions.update') %></div>
+  <div>
+	<%= link_to t('actions.cancel_account'), registration_path(resource_name), :data => { :confirm => t('actions.confirm') }, :method => :delete, :class => 'cancel_account' %>
+  	<br /><%= f.submit t('actions.update') %><br>
+  </div>
 <% end %>
 
-<p><%= link_to t('actions.cancel_account'), registration_path(resource_name), :data => { :confirm => t('actions.confirm') }, :method => :delete %>.</p>
-
-<%= link_to t('actions.back'), :back %>

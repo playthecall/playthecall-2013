@@ -3,7 +3,6 @@
 
 body{
   background: #2b707d url('/assets/bg-water.jpg') repeat-x center bottom;
-  border-top: 4px solid #f3f3f3;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -106,13 +105,13 @@ section.content {
   background: #fff;
   width:755px;
   min-height:100px;
-  
+
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   -webkit-border-bottom-left-radius: 3px;
   -webkit-border-bottom-right-radius: 3px;
-  -moz-border-bottom-right-radius: 3px; 
-  -moz-border-bottom-left-radius: 3px; 
+  -moz-border-bottom-right-radius: 3px;
+  -moz-border-bottom-left-radius: 3px;
 }
 
 footer {

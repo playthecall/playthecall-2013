@@ -30,6 +30,12 @@ module ApplicationHelper
     end
   end
 
+  def badge_for_user(user)
+    user.mission_enrollments.accomplished.map do |me|
+      me.mission.badge
+    end.compact
+  end
+
   def last_available_mission_enrollment
     current_user.mission_enrollments.order("created_at DESC").limit(1).first
   end
