@@ -55,7 +55,11 @@ cn:
     new_password: "New password"
     resend_confirmation_instructions: "Resend confirmation instructions"
     resend_unlock_instructions: "Resend unlock instructions"
+    edit: "Editar"
+    destroy: "Apagar"
+    confirm_destroy: "Tem certeza que deseja apagar?"
     save: "Salvar"
+    update: "Atualizar"
     see_less: "Ver menos..."
     see_more: "Ver mais..."
     send_reset_instructions: "Send me reset password instructions"
@@ -66,7 +70,8 @@ cn:
     unlock_account: "Unlock my account"
     unlock_instructions: "Didn't receive unlock instructions?"
     update_status: "Atualizar status"
-    mission_enrollment_link: "%{position} %{title}"
+    mission_link: "%{position} %{title}"
+    unauthorized: "Não autorizado"
   registration:
     heading: "Cadastro"
   unlock_account:

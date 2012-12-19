@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include ApplicationHelper
+
   before_filter :authenticate_user!
   before_filter :check_users
 
@@ -7,7 +9,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes params[:user]
-      redirect_to missions_path
+      redirect_to user_current_mission
     else
       render :edit
     end

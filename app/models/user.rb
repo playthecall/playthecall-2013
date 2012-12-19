@@ -9,12 +9,14 @@ class User < ActiveRecord::Base
   belongs_to :city
   belongs_to :game_version
 
+  attr_accessor :country_id
+
   accepts_nested_attributes_for :profile
 
   validates_presence_of   :city
   validates_presence_of   :game_version
 
-  validates_format_of     :nickname, :with => /[a-z\-0-9]+$/
+  validates_format_of     :nickname, :with => /^[a-z_\-0-9]+$/
   validates_uniqueness_of :nickname
 
   validates_inclusion_of :gender,  in: ['male', 'female']
@@ -25,7 +27,7 @@ class User < ActiveRecord::Base
   attr_accessible :city_id, :email,  :password, :password_confirmation, :avatar,
                   :avatar_cache, :remember_me, :provider, :element, :uid,
                   :points, :game_version_id, :nickname, :gender, :name,
-                  :profile, :avatar_cache, :profile_attributes, :bio, :city_id
+                  :profile, :avatar_cache, :profile_attributes, :bio, :city_id, :country_id
 
   devise :database_authenticatable,   :trackable,
          :recoverable, :rememberable, :confirmable,
@@ -55,10 +57,10 @@ class User < ActiveRecord::Base
 
   def current_mission
     if mission_enrollments.any?
-      finished_mission_ids = mission_enrollments.where(accomplished: true).map &:mission_id
-      unfinished_mission_ids = mission_enrollments.where(accomplished: false).map &:mission_id
+      finished_mission_ids   = mission_enrollments.where(accomplished: true).pluck :mission_id
+      unfinished_mission_ids = mission_enrollments.where(accomplished: false).pluck :mission_id
       current_chapter.missions.where(id: unfinished_mission_ids).order("position ASC").first or
-        current_chapter.missions.order("position ASC").where("id not in (#{finished_mission_ids.join(",")})").order("position ASC").first
+        current_chapter.missions.where("id not in (#{finished_mission_ids.join(",")})").order("position ASC").first
     else
       current_chapter.missions.order("position ASC").first
     end

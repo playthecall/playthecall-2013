@@ -1,0 +1,1 @@
+$('#user_city_id').html('<%= escape_javascript options_for_select @cities.map{ |city| [city.name, city.id]} %>');

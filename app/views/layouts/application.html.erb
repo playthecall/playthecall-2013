@@ -3,49 +3,14 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "Play The Call" %></title>
     <meta charset="UTF-8" >
+    <%= csrf_meta_tag %>
+    <%= javascript_include_tag "jquery" %>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
   <body>
-    <header>
-      <section class="content-header">
-        <%= image_tag "logo.png", class: :logo %>
-        <ul class="menu">
-          <% if user_signed_in? %>
-            <li>
-              <%= link_to t('actions.my_missions'), missions_path %>
-            </li>
-            <li class="settings">
-              <%= link_to t('actions.config'), edit_user_path(current_user) %>
-              <ul class="settings-drop">
-                <li><%= link_to t('actions.edit_profile'), edit_user_path(current_user) %></li>
-                <li><%= link_to t('actions.sign_out'), destroy_user_session_path, method: :delete %></li>
-              </ul>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to t('actions.sign_in'), new_user_session_path %>
-            </li>
-            <li>
-              <%= link_to t('actions.fancy_sign_up'), new_user_registration_path, class: 'sign-in' %>
-            </li>
-          <% end %>
-        </ul>
-      </section>
-    </header>
-    <div class="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, id: "flash_#{name}" %>
-      <% end %>
-      <%= content_tag :h1, yield(:title) if show_title? %>
-
-      <% if aside_present? %>
-        <%= render 'users/sidebar', locals: {user: @user} %>
-      <% end %>
-      <%= yield %>
-    </div>
+    <%= content_for?(:content) ? yield(:content) : yield %>
     <footer>
       <ul>
         <li><a href=""><%= t("home.footer.about") %></a></li>
@@ -65,5 +30,6 @@
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=262206940557713";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+    <%= yield :footer %>
   </body>
 </html>

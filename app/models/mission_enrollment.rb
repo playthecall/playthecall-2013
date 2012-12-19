@@ -1,14 +1,15 @@
 class MissionEnrollment < ActiveRecord::Base
   has_many :enrollment_images
-  accepts_nested_attributes_for :enrollment_images
-                                #reject_if: lambda do |attributes|
-                                #  attributes['image'].blank?
-                                #end
+  has_many :status_updates
 
   belongs_to :mission
   belongs_to :user
 
   validates_presence_of :user_id
+  accepts_nested_attributes_for :enrollment_images
+                                #reject_if: lambda do |attributes|
+                                #  attributes['image'].blank?
+                                #end
 
   attr_accessible :title, :description, :user, :mission, :user_id,
                   :enrollment_images_attributes, :mission_id
@@ -31,16 +32,16 @@ class MissionEnrollment < ActiveRecord::Base
     validator.presenter(view)
   end
 
-  def check
-    validator.check
+  def check(params)
+    validator.check params
   end
 
-  def async_check
-    MissionCheckJob.check self
+  def async_check(params = {})
+    MissionCheckJob.check self, params
   end
 
-  def lazy_check
-    MissionCheckJob.lazy_check self
+  def lazy_check(params = {})
+    MissionCheckJob.lazy_check self, params
   end
 
   def create_next
@@ -74,7 +75,7 @@ class MissionEnrollment < ActiveRecord::Base
   end
 
   def fill_url
-    self.url = "m/#{user.nickname}/#{mission.slug}"
+    self.url = "playthecall.com/m/#{user.nickname}/#{mission.slug}"
   end
 
   def initialize_validation_params

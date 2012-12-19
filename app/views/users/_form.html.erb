@@ -1,3 +1,4 @@
+
 <%= f.label :nickname %>
 <%= f.text_field :nickname %>
 
@@ -7,8 +8,11 @@
 <%= f.label :email %>
 <%= f.email_field :email %>
 
+<%= f.label :country %>
+<%= f.collection_select :country_id, @countries, :id, :name, :prompt => t('registration.select_country')  %>
+
 <%= f.label :city %>
-<%= f.collection_select :city_id, Country.where(code: 'br').first.cities, :id, :name %>
+<%= f.collection_select :city_id, @cities, :id, :name %>
 
 <%= f.label :game_version %>
 <%= f.collection_select :game_version_id, GameVersion.all, :id, :name %>
@@ -19,9 +23,9 @@
 
 <%= f.label :gender %>
 <p>
-  <%= f.radio_button :gender, 'male' %> 
+  <%= f.radio_button :gender, 'male' %>
   <%= label :user_gender, :male %>
-  <%= f.radio_button :gender, 'female' %>
+  <%= f.radio_button :gender, 'female', :checked => true %>
   <%= label :user_gender, :female %>
 </p>
 
@@ -30,11 +34,19 @@
   <%= profile_form.text_area :bio, rows: 5 %>
 <%end%>
 
-<%= f.label :password %>
-<%= f.password_field :password %>
+<% if f.object.new_record? %>
 
-<%= f.label :password_confirmation %>
-<%= f.password_field :password_confirmation %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+<% else %>
+
+  <%= link_to t('actions.change_password'), edit_user_registration_path %>
+
+<% end %>
 
 <p class="buttons">
   <%= link_to t("actions.cancel"), root_path, class: :cancel %>

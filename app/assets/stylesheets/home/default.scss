@@ -9,6 +9,30 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+#top {
+  position: absolute;
+  background: image-url('home/bg-languages.png') repeat;
+  z-index: 9;
+  height: 38px;
+  top: 0;
+  width: 100%;
+  #language {
+    position: absolute;
+    z-index: 99;
+    right: 10%;
+    top: 7px;
+    a {
+      color: #FFF;
+      font-size: 13px;
+      text-decoration: none;
+      margin: 0 10px;
+      img {
+        margin: -9px 5px;
+      }
+    }
+  }
+}
+
 #content{
   margin: 0 auto;
   background: #000
@@ -21,15 +45,17 @@ body {
   left: 50%;
   margin: 120px 0 0 -387px;
   .in {
-    margin-left: 243px;
     position: absolute;
-    margin-top: -30px;
+    margin: -15px 0 0 243px;
     h1 {
       font-size: 18px;
       text-transform: uppercase;
+      line-height: 25px;
+      margin: 0 0 15px;
     }
     p {
       font-size: 15px;
+      line-height: 20px;
       width: 480px;
       margin-bottom: 35px;
     }
@@ -58,6 +84,50 @@ body {
   }
 }
 
+.login {
+  background: #FFF;
+  padding: 35px 32px;
+  border-radius: 5px;
+  overflow: auto;
+  ul {
+    margin: 0 0 25px;
+    padding: 0;
+    li {
+      list-style: none;
+      margin: 0 0 15px;
+      label {
+        color: #5a5a5a;
+        font-family: 'Chivo', sans-serif;
+        display: block;
+      }
+      input {
+        background: #ebebeb;
+        font-family: 'Chivo', sans-serif;
+        font-size: 14px;
+        width: 435px;
+        padding: 8px 10px;
+        border: none;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  a.forgot {
+    color: #5a5a5a;
+    text-decoration: none;
+    margin: 10px 0 0;
+    float: left;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  input[type='submit'] {
+    @include btn(18px, 8px 40px);
+    float: right;
+  }
+}
+
 .footer a {
   text-decoration: none;
   color: #aeaeae;
@@ -71,7 +141,7 @@ body {
   font-size: 12px;
   font-weight: bold;
   color: #aeaeae;
-  margin-top: 200px;
+  margin-top: 270px;
   clear: both;
 }
 

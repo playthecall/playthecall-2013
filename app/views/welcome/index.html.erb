@@ -1,74 +1,81 @@
-<!doctype html>
-<html lang="en">
-  <meta charset="UTF-8" >
-  <head>
-    <%= stylesheet_link_tag 'home/default' %>
-  </head>
-  <body>
-  <div class="content">
-    <%= image_tag 'home/logo.png', class: :logo %>
-    <div class="in">
-      <h1><%= t("home.heading") %></h1>
-      <p><%= t("home.description") %></p>
-      <ul>
-        <li><%= link_to t("actions.sign_up"), new_user_registration_path, class: "sign_up" %></li>
-        <li>ou <%= link_to t("actions.sign_in"), new_user_session_path, class: "sign_in" %>
-    </div>
-    <div class="footer">
-      <ul>
-        <li><a href=""><%= t("home.footer.about") %></a></li>
-        <li><a href=""><%= t("home.footer.help") %></a></li>
-        <li><a href=""><%= t("home.footer.terms") %></a></li>
-        <li><a href=""><%= t("home.footer.privacy") %></a></li>
-        <li><a href=""><%= t("home.footer.media") %></a></li>
-        <li><a href=""><%= t("home.footer.developers") %></a></li>
-        <li><a href=""><%= t("home.footer.resources") %></a></li>
-        <li><%= st("home.footer.creative_commons") %></li>
-      </ul>
-    </div>
-  </div>
-  <div id="globeContent">
-    <div id="globeGl_" class="globeGl"></div>
-  </div>
-  <% for user in @users %>
-    <div class="poi hidden" data-lat="<%= user.city.latitude %>" data-long="<%= -user.city.longitude %>" data-url="globe_camPos.html">
-      <%= image_tag user.avatar %>
-      <%= user.name %>
-      <%= user.city.name %>
-    </div>
-  <% end %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'home/default' %>
+  <%= stylesheet_link_tag 'home/reveal' %>
+<% end %>
 
-      <%= javascript_include_tag "jquery" %>
-      <script type="text/javascript">
-        $(document).ready(function(){
-          $("canvas").attr("height", $(window).height())
-          $("canvas").attr("width", $(window).width())
-        })
-      </script>
-      <%= javascript_include_tag "home/Tween.js" %>
-      <%= javascript_include_tag "home/jquery.mousewheel.js" %>
-      <%= javascript_include_tag "home/src_r47/Three.js" %>
-      <%= javascript_include_tag "home/jquery.colorbox-min.js" %>
-      <%= javascript_include_tag "home/Detector.js" %>
-      <%= javascript_include_tag "home/dat.gui.min.js" %>
-      <%= javascript_include_tag "home/globe_min.js" %>
-      <script>
-      $('div#globeGl_').doGlobe({
-        globeRadius: 650,
-        backPlateMargin: 10,
-        camX: 0,
-        camY: -50,
-        camZ: 1500,
-        cameraTargetX:0,
-        cameraTargetY:200,
-        cameraTargetZ:0
+<% content_for :footer do %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("canvas").attr("height", $(window).height());
+      $("canvas").attr("width", $(window).width());
+    });
+  </script>
+  <%= javascript_include_tag "home/Tween.js" %>
+  <%= javascript_include_tag "home/jquery.mousewheel.js" %>
+  <%= javascript_include_tag "home/src_r47/Three.js" %>
+  <%= javascript_include_tag "home/jquery.colorbox-min.js" %>
+  <%= javascript_include_tag "home/Detector.js" %>
+  <%= javascript_include_tag "home/dat.gui.min.js" %>
+  <%= javascript_include_tag "home/globe_min.js" %>
+  <%= javascript_include_tag "home/jquery.reveal.js" %>
+  <script>
+    $('div#globeGl_').doGlobe({
+      globeRadius: 650,
+      backPlateMargin: 10,
+      camX: 0,
+      camY: -50,
+      camZ: 1500,
+      cameraTargetX:0,
+      cameraTargetY:200,
+      cameraTargetZ:0
 
-      });
-      </script>
-    </div>
+    });
+  </script>
+<% end %>
+<div id="top">
+  <div id="language">
+    <%= link_to '#' do %>
+      <%= image_tag 'locales/pt.png' %>
+      <%= t 'home.portuguese' %>
+    <% end %>
+
+    <%= link_to '#' do %>
+      <%= image_tag 'locales/en.png' %>
+      <%= t 'home.english' %>
+    <% end %>
   </div>
 </div>
-
-
-</body>
-</html>
+<div class="content">
+  <%= image_tag 'home/logo.png', class: :logo %>
+  <div class="in">
+    <h1><%= t("home.heading") %></h1>
+    <p><%= t("home.description") %></p>
+    <ul>
+      <li><a href="#" data-reveal-id="intro" data-animation="fade" class="sign_up"><%= t("actions.sign_up") %></a></li>
+      <li>ou <%= link_to t("actions.sign_in"), new_user_session_path, class: "sign_in", :'data-reveal-id' => 'sign_in', :'data-animation' => 'fade' %>
+  </div>
+  <div class="footer">
+    <ul>
+      <li><a href=""><%= t("home.footer.about") %></a></li>
+      <li><a href=""><%= t("home.footer.help") %></a></li>
+      <li><a href=""><%= t("home.footer.terms") %></a></li>
+      <li><a href=""><%= t("home.footer.privacy") %></a></li>
+      <li><a href=""><%= t("home.footer.media") %></a></li>
+      <li><a href=""><%= t("home.footer.developers") %></a></li>
+      <li><a href=""><%= t("home.footer.resources") %></a></li>
+      <li><%= st("home.footer.creative_commons") %></li>
+    </ul>
+  </div>
+</div>
+<div id="globeContent">
+  <div id="globeGl_" class="globeGl"></div>
+</div>
+<% for user in @users %>
+  <div class="poi hidden" data-lat="<%= user.city.latitude %>" data-long="<%= -user.city.longitude %>" data-url="globe_camPos.html">
+    <%= image_tag user.avatar %>
+    <%= user.name %>
+    <%= user.city.name %>
+  </div>
+<% end %>
+<%= render 'intro_modal' %>
+<%= render 'sign_in' %>

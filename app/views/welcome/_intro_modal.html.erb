@@ -1,0 +1,6 @@
+<div id="intro" class="reveal-modal">
+	<%= image_tag 'home/logo.png', class: :logo, size: '520x170' %>
+	<h1><%= t("home.heading") %></h1>
+	<iframe id="youtube" width="520" height="275" src="http://www.youtube.com/embed/EigbFw23Urw" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	<%= link_to t("actions.skip"), new_user_registration_path, class: "btn close-reveal-modal" %>
+</div>

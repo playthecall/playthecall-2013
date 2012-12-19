@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121216020935) do
+ActiveRecord::Schema.define(:version => 20121216064627) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(:version => 20121216020935) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "badges", :force => true do |t|
+    t.string   "image"
+    t.integer  "mission_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "chapters", :force => true do |t|
     t.integer  "game_version_id"
@@ -150,6 +157,14 @@ ActiveRecord::Schema.define(:version => 20121216020935) do
   end
 
   add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
+
+  create_table "status_updates", :force => true do |t|
+    t.integer  "mission_enrollment_id"
+    t.text     "status"
+    t.text     "html_status"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

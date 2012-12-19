@@ -1,28 +1,101 @@
+@import 'mixins';
+
 .content-base{
-    padding:20px;
-    min-height: 1000px;
+  padding: 20px 48px;
+  min-height: 1000px;
+  p {
+    font-family: 'Chivo', sans-serif;
+    clear: both;
+  }
+  & > h1 {
+    background: #ee353a;
+    color:#fff;
+    margin: 0 0 25px;
+    padding: 15px 20px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    span {
+      color:#ffc90c;
+    }
+    &+p {
+      color: #ca5356;
+      font-size: 15px;
+      line-height: 20px;
+      margin: 0 0 35px;
+      clear: both;
+    }
+  }
+  h2 {
+    color: #ee353a;
+    font-family: 'Chivo', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin: 0 0 5px;
+    float: left;
+  }
+  h3 {
+    color: #ee353a;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin: 0 0 15px;
+    &+ul {
+      margin: 0 0 40px;
+      li {
+        color: #5a5a5a;
+        font-family: 'Chivo', sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        margin: 0 0 20px;
+        strong {
+          color: #e6383c;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+  ul.actions {
+    text-align: right;
+    float: right;
+    li {
+      display: inline;
+      margin: 0 0 0 5px;
+      a {
+        font-size: 14px;
+        text-transform: lowercase;
+      }
+    }
+    &+p {
+      font-size: 14px;
+      line-height: 20px;
+      margin: 0 0 55px;
+      padding: 5px 0 0;
+      border-top: 1px #DDD solid;
+      clear: both;
+    }
+  }
+  a.update_status {
+    @include btn(14px, 8px 15px);
+    margin: 0 0 15px;
+    float: right;
+  }
+  a.add_link {
+    color: #cc292d;
+    font-size: 13px;
+  }
+  .box-social {
+    background: #f2f0f0;
+    padding: 14px;
+    margin-bottom: 10px;
+    clear: both;
+  }
+  .count_likes { float: right; margin-top: -54px; margin-right: 10px; }
+  .count_likes h4 { color: #67757B; text-transform: lowercase; font-size: 22px; font-weight: bold }
+  .count_likes p { color: #999; font-family: 'Open Sans'; font-size: 13px; }
 }
-.content-base .carousel img {border:3px solid #e6e4e4;}
-.content-base .carousel .image-title {
-  background: #ee353a;
-  padding: 15px 20px;
-  color:#fff;
-  width: 250px;
-  margin-left: 20px;
-  margin-top: -5px;
-  -webkit-border-bottom-right-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-.content-base .carousel .mission-title {
-  width: 600px;
-}
-.content-base .carousel .image-title span {color:#ffc90c;}
-.content-base p {color:#5a5a5a;margin: 20px 0 20px 20px;line-height: 18px;width:668px;}
-.box-social {background: #f2f0f0;padding: 10px;margin-bottom: 10px;}
+a { color: #333; text-decoration: none; }
+.content-base .carousel img {border:3px solid #e6e4e4; width: 670px; margin: 10px 20px}
 .fb-comments {margin-left: 20px;}
 
 .other-missions {
@@ -30,7 +103,7 @@
   font-size: 20px;
 }
 .other-missions a,
-.other-missions h2 {float: left;line-height: 45px;color: #67757b;text-decoration: none}
+.other-missions h2 {float: left;line-height: 45px;color: #67757b;text-decoration: none;margin-left: 10px}
 
 .other-missions > li {
   background: #fff;
@@ -42,7 +115,7 @@
   margin: 0 0 10px 0;
   width:735px;
 }
-.other-missions .points-other-mission {float: right;width: 220px;}
+.other-missions .points-other-mission {float: right;margin-right:10px;}
 .other-missions .points-other-mission li {float: left;}
 .other-missions .points-other-mission li img {margin:0 10px 0 10px;}
 

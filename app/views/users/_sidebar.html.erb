@@ -1,10 +1,10 @@
 <aside>
   <section class="profile">
-    <%= image_tag @user.avatar, class: :avatar %>
-    <h1><%= @user.name%></h1>
-    <strong><%= @user.city.name %> <span><%= @user.city.country.name %></span></strong>
+    <%= image_tag current_user.avatar, class: :avatar %>
+    <h1><%= current_user.name%></h1>
+    <strong><%= current_user.city.name %> <span><%= current_user.city.country.name %></span></strong>
     <p class="bio">
-      <%= @user.profile.bio %>
+      <%= current_user.profile.bio %>
     </p>
     <a href="" class="more" data-text="<%= t("actions.see_less") %>"><%= t("actions.see_more") %></a>
     <a href=""><%= image_tag("icons/facebook.jpg") %></a>
@@ -15,23 +15,22 @@
   </section>
   <section class="points">
     <div class="total-points">
-      <%= t("sidebar.user_points", points: @user.points) %>
+      <%= t("sidebar.user_points", points: current_user.points) %>
     </div>
     <div class="badges">
-      <%= image_tag("icons/app.jpg") %>
-      <%= image_tag("icons/talk.jpg") %>
-      <%= image_tag("icons/search.jpg") %>
-      <%= image_tag("icons/archive.jpg") %>
+      <% badge_for_user(current_user).each do |badge| %>
+        <%= image_tag badge.image.small %>
+      <% end %>
     </div>
-    <a href="" class="btn btn-ranking"><%= t("ranking.translation") %></a>
+    <%= link_to t("ranking.translation"), ranking_path, class: 'btn btn-ranking' %>
   </section>
   <section class="missions">
     <h1><%= t("mission.pluralized") %></h1>
     <ul>
-      <% @user.current_chapter.missions.each do |mission| %>
-        <% if @user.has_accomplished?(mission) %>
-          <%= link_to t("actions.mission_enrollment_link", position: mission.position, title: mission.title),
-                      mission_enrollment_path(slug: mission.slug, nickname: @user.nickname) %>
+      <% current_user.current_chapter.missions.each do |mission| %>
+        <% if current_user.has_accomplished?(mission) || current_user.current_mission == mission %>
+          <li><%= link_to t("actions.mission_link", position: mission.position, title: mission.title),
+            mission_path(mission) %></li>
         <% else %>
           <li><%= mission.position %> <span><%= mission.title %></span></li>
         <% end %>

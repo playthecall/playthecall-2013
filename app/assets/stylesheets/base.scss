@@ -3,7 +3,6 @@
 
 body{
   background: #2b707d url('/assets/bg-water.jpg') repeat-x center bottom;
-  border-top: 4px solid #f3f3f3;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -106,35 +105,45 @@ section.content {
   background: #fff;
   width:755px;
   min-height:100px;
+
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-bottom-right-radius: 3px;
+  -moz-border-bottom-left-radius: 3px;
 }
 
 footer {
   height: 200px;
-  padding-left: 40%;
   padding-top: 2em;
-  li {
-    display: inline;
-    color: #AEAEAE;
-    font-size: 15px;
-    font-weight: bold;
-    a {
+  ul {
+    width: 990px;
+    margin: 0 auto;
+    li {
+      display: inline;
       color: #AEAEAE;
       font-size: 15px;
       font-weight: bold;
-      margin-right: 10px;
-      text-decoration: none;
+      a {
+        color: #AEAEAE;
+        font-size: 15px;
+        font-weight: bold;
+        margin-right: 10px;
+        text-decoration: none;
+      }
     }
   }
 }
 
 .content-base {
   .mission-need {
-    background-color: #fffacd;
-    padding: 10px;
-    color: #5A5A5A;
+    background-color: #fdf6be;
+    color: #7e7e7e;
     font-weight: bold;
-    width: 620px;
-    margin-top: 10px;
+    width: 640px;
+    margin: 10px 0 20px;
+    padding: 15px 20px;
     strong {
       float: right;
     }

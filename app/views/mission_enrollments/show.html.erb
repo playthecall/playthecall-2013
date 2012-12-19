@@ -1,25 +1,52 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "extensions/slides.min.jquery" %>
+  <%= stylesheet_link_tag 'slides' %>
+
+  <script type="text/javascript">
+    $(function(){
+      $('#slides').slides({
+        preload: true,
+        preloadImage: 'assets/slides/loading.gif',
+        play: 5000,
+        pause: 2500,
+        hoverPause: true,
+        pagination: false
+      });
+    });
+  </script>
+<% end %>
+
 <section class="content">
   <div class="content-base">
-    <ul class="carousel">
-      <li>
-        <%= image_tag @mission_enrollment.enrollment_images.first.image %>
-        <div class="image-title">
-          <%= st 'mission.indexed_title', position: @mission_enrollment.mission.position, title: @mission_enrollment.mission.title %>
-        </div>
-      </li>
-    </ul>
+    <div id="slides">
+      <div class="slides_container">
+        <% @mission_enrollment.enrollment_images.each do |enrollment_image| %>
+          <div class="slide">
+            <%= image_tag enrollment_image.image.medium %>
+          </div>
+        <% end %>
+      </div>
+      <a href="#" class="prev"><img src="/assets/slides/arrow-prev.png" width="24" height="43" alt="Prev"></a>
+      <a href="#" class="next"><img src="/assets/slides/arrow-next.png" width="24" height="43" alt="Next"></a>
+    </div>
+    <h1><%= st 'mission.indexed_title', position: @mission_enrollment.mission.position, title: @mission_enrollment.mission.title %></h1>
     <%= @mission_enrollment.html_description.html_safe %>
 
-    <%= link_to t("actions.update_status"), edit_mission_mission_enrollment_path(@mission_enrollment.mission, @mission_enrollment) %>
-
+    <% @mission_enrollment.status_updates.order("created_at DESC").each do |status_update| %>
+      <h2><%= l status_update.created_at, format: :short %></h2>
+      <ul class="actions">
+        <li><%= link_to t("actions.edit"), edit_mission_mission_enrollment_status_update_path(@mission_enrollment.mission, @mission_enrollment, status_update) %></li>
+        <li><%= link_to t("actions.destroy"), mission_mission_enrollment_status_update_path(@mission_enrollment.mission, @mission_enrollment, status_update), method: :delete, confirm: t("actions.confirm_destroy") %></li>
+      </ul>
+      <%= status_update.html_status.html_safe %>
+    <% end %>
+    <% if @mission_enrollment.user_id == current_user.id %>
+      <%= link_to t("actions.update_status"), new_mission_mission_enrollment_status_update_path(@mission_enrollment.mission, @mission_enrollment), class: 'update_status' %>
+    <% end %>
     <%= presenter_for_enrollment(@mission_enrollment) %>
 
-    <%= content_tag :div, nil,
-      'class'          => 'fb-comments',
-      'data-href'      => @mission_enrollment.url,
-      'data-num-posts' => 2,
-      'data-width'     => 668 %>
-
+    <fb:comments href="<%= @mission_enrollment.url %>" width="660" num_posts="10"></fb:comments>
+  </div>
 </section>
 
 <ul class="other-missions">

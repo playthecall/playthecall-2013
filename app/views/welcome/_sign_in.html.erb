@@ -1,0 +1,19 @@
+<div id="sign_in" class="reveal-modal">
+	<%= image_tag 'home/logo.png', class: :logo, size: '520x170' %>
+  <div class="login">
+    <%= form_for "user", :url => user_session_path do |f| %>
+      <ul>
+        <li>
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </li>
+        <li>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </li>
+      </ul>
+      <%= link_to t("actions.forgot_password"), new_password_path('user'), class: 'forgot' %>
+      <%= f.submit t("actions.sign_in") %>
+    <% end %>
+  </div>
+</div>

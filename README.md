@@ -24,9 +24,17 @@ Setup your database:
 
     $ rake db:setup
 
-Import cities running the rake task:
+Import countries running the rake task:
+
+    $ rake import:countries
+
+Import cities running the rake task (it will import cities from all countries):
 
     $ rake import:cities
+
+If you want to load specific cities from a certain country, pass the country code as param(to load cities from Brazil):
+
+    $ rake import:cities['br']
 
 Now it is ready to contribute
 

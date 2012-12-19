@@ -10,6 +10,7 @@
       <% end %>
 
       <%= presenter_for_enrollment_form @mission_enrollment, f %>
+      <p><%= link_to_add_fields t('actions.add_image'), f, :enrollment_images %></p>
 
       <%= f.label :description %>
       <%= f.text_area :description, rows: 5 %>
@@ -24,3 +25,5 @@
     <% end %>
   </div>
 </section>
+
+<%= javascript_include_tag 'extensions/nested_form' %>
