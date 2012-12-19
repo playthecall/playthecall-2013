@@ -1,10 +1,10 @@
 <section class="content">
   <div class="content-base">
-    <div class="mission-title">
+    <h1 class="mission-title">
       <%= st 'mission.indexed_title', position: mission_enrollment.mission.position, title:mission_enrollment.mission.title %>
-    </div>
+    </h1>
 
-    <%= form_for [mission_enrollment.mission, mission_enrollment, status_update] do |f| %>
+    <%= form_for [mission_enrollment.mission, mission_enrollment, status_update], html: { style: 'padding:0' } do |f| %>
       <%= f.error_messages %>
 
       <%= f.label :status %>
@@ -12,9 +12,9 @@
 
       <%= f.hidden_field :mission_enrollment_id %>
 
-      <p class="buttons">
+      <div class="buttons">
         <%= f.submit button %>
-      </p>
+      </div>
     <% end %>
   </div>
 </section>
