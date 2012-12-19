@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   belongs_to :city
   belongs_to :game_version
 
+  attr_accessor :country_id
+
   accepts_nested_attributes_for :profile
 
   validates_presence_of   :city
@@ -25,7 +27,7 @@ class User < ActiveRecord::Base
   attr_accessible :city_id, :email,  :password, :password_confirmation, :avatar,
                   :avatar_cache, :remember_me, :provider, :element, :uid,
                   :points, :game_version_id, :nickname, :gender, :name,
-                  :profile, :avatar_cache, :profile_attributes, :bio, :city_id
+                  :profile, :avatar_cache, :profile_attributes, :bio, :city_id, :country_id
 
   devise :database_authenticatable,   :trackable,
          :recoverable, :rememberable, :confirmable,
