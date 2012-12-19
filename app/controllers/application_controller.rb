@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  layout 'logged'
+
   before_filter :choose_locale
   before_filter :redirect_to_countdown
   protect_from_forgery

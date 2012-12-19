@@ -1,0 +1,43 @@
+<% content_for :content do %>
+  <header>
+    <section class="content-header">
+      <%= image_tag "logo.png", class: :logo %>
+      <ul class="menu">
+        <% if user_signed_in? %>
+          <% if current_user.mission_enrollments.any? %>
+            <li>
+              <%= link_to t('actions.my_missions'), mission_enrollment_path(current_user.nickname, last_available_mission_enrollment.mission.slug) %>
+            </li>
+          <% end %>
+          <li class="settings">
+            <%= link_to t('actions.config'), edit_user_path(current_user) %>
+            <ul class="settings-drop">
+              <li><%= link_to t('actions.edit_profile'), edit_user_path(current_user) %></li>
+              <li><%= link_to t('actions.sign_out'), destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to t('actions.sign_in'), new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to t('actions.fancy_sign_up'), new_user_registration_path, class: 'sign-in' %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  </header>
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+    <% end %>
+    <%= content_tag :h1, yield(:title) if show_title? %>
+
+    <% if user_signed_in? %>
+      <%= render 'users/sidebar', locals: {user: @user} %>
+    <% end %>
+    <%= content_for?(:news_content) ? yield(:news_content) : yield %>
+  </div>
+<% end %>
+
+<%= render :template => 'layouts/application' %>
