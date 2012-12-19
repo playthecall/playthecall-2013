@@ -35,7 +35,7 @@ class Mission < ActiveRecord::Base
   def enroll(user)
     mission_enrollment = MissionEnrollment.new mission: self, user: user
     mission_enrollment.enrollment_images.build
-    [self, mission_enrollment]
+    mission_enrollment
   end
 
   def to_param

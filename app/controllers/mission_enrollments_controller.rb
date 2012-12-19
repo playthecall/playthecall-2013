@@ -6,14 +6,14 @@ class MissionEnrollmentsController < ApplicationController
   before_filter :load_mission_enrollments, only: :show
 
   def new
-    @mission_enrollment = mission.enroll current_user
+    @mission_enrollment = @mission.enroll current_user
   end
 
   def check
     @mission_enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
     @mission_enrollment.async_check(params)
-    redirect_to mission_enrollment_path nickname: mission_enrollment.user.nickname,
-                                        slug:     mission_enrollment.mission.slug
+    redirect_to mission_enrollment_path nickname: @mission_enrollment.user.nickname,
+                                        slug:     @mission_enrollment.mission.slug
   end
 
   def index

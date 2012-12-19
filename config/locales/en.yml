@@ -46,6 +46,8 @@ en:
     presenter:
       im_ready:     "I'm ready!"
       likes_needed: "This mission requires %{likes} likes"
+      missing_likes: "missing %{count}"
+      like_count:    "%{count} likes"
   ranking:
     header: "TOP RANKING"
     header_description: "The best players"

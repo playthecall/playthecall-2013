@@ -2,7 +2,7 @@
   <div class="content-base">
     <h1><%= st 'mission.indexed_title', position: mission.position, title: mission.title %></h1>
 
-    <%= form_for @mission_enrollment do |f| %>
+    <%= form_for [mission, @mission_enrollment] do |f| %>
 
       <%= f.fields_for :enrollment_images do |i| %>
         <%= i.label :image %>

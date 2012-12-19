@@ -19,12 +19,20 @@ class FacebookSocialMissionValidatorPresenter < MissionPresenter
 
   def enrollment_html
     view.content_tag(:div, nil, class: 'box-social') do
-      view.content_tag :div, nil,
-        'class'           => 'fb-like',
-        'data-href'       => view.mission_enrollment_url(enrollment.user.nickname, enrollment.mission.slug),
-        'data-send'       => true,
-        'data-width'      => 450,
-        'data-show-faces' => false
+      [
+        view.content_tag(:div, nil,
+          'class'           => 'fb-like',
+          'data-href'       => view.mission_enrollment_url(enrollment.user.nickname, enrollment.mission.slug),
+          'data-send'       => true,
+          'data-width'      => 450,
+          'data-show-faces' => false),
+        view.content_tag(:div, nil, class: 'count_likes') do
+          [
+            view.content_tag(:h4, I18n.t('mission.presenter.like_count',    count: enrollment_params[:likes])),
+            view.content_tag(:p,  I18n.t('mission.presenter.missing_likes', count: mission_params[:likes])),
+          ].join.html_safe
+        end
+      ].join.html_safe
     end.html_safe
   end
 
