@@ -15,7 +15,6 @@
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    float: left;
     span {
       color:#ffc90c;
     }
@@ -35,6 +34,26 @@
     text-transform: uppercase;
     margin: 0 0 5px;
     float: left;
+  }
+  h3 {
+    color: #ee353a;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin: 0 0 15px;
+    &+ul {
+      margin: 0 0 40px;
+      li {
+        color: #5a5a5a;
+        font-family: 'Chivo', sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        margin: 0 0 20px;
+        strong {
+          color: #e6383c;
+          text-transform: uppercase;
+        }
+      }
+    }
   }
   ul.actions {
     text-align: right;
