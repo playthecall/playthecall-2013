@@ -3,7 +3,9 @@
 <% end %>
 <% content_for :content do %>
   <%= render 'shared/header' %>
-  <%= content_for?(:news_content) ? yield(:news_content) : yield %>
+  <div class="container">
+    <%= content_for?(:news_content) ? yield(:news_content) : yield %>
+  </div>
 <% end %>
 
 <%= render :template => 'layouts/application' %>
