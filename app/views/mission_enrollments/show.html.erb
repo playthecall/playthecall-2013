@@ -13,6 +13,13 @@
     <%= link_to t("actions.update_status"), edit_mission_mission_enrollment_path(@mission_enrollment.mission, @mission_enrollment) %>
 
     <%= presenter_for_enrollment(@mission_enrollment) %>
+
+    <%= content_tag :div, nil,
+      'class'          => 'fb-comments',
+      'data-href'      => @mission_enrollment.url,
+      'data-num-posts' => 2,
+      'data-width'     => 668 %>
+
 </section>
 
 <ul class="other-missions">

@@ -21,6 +21,10 @@ class MissionPresenter
     raise 'not done yet'
   end
 
+  def enrollment_form(form)
+    raise 'not done yet'
+  end
+
   def enrollment_html
     raise 'not done yet'
   end

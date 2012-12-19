@@ -19,6 +19,7 @@ PlayTheCall::Application.routes.draw do
     resources :mission_enrollments, except: [:destroy, :index, :show] do
       member do
         post 'check'
+        get  'check'
       end
     end
   end

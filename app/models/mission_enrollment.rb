@@ -13,6 +13,8 @@ class MissionEnrollment < ActiveRecord::Base
   attr_accessible :title, :description, :user, :mission, :user_id,
                   :enrollment_images_attributes, :mission_id
 
+  after_create :validator_after_create
+
   before_create :fill_url
   before_save   :compile_description
   before_save   :update_accomplished
@@ -63,6 +65,10 @@ class MissionEnrollment < ActiveRecord::Base
   end
 
   protected
+  def validator_after_create
+    validator.after_create
+  end
+
   def accomplished_callback
     'Not done yet, need to create badges'
   end

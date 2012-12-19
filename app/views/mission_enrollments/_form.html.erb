@@ -1,0 +1,26 @@
+<section class="content">
+  <div class="content-base">
+    <h1><%= st 'mission.indexed_title', position: mission.position, title: mission.title %></h1>
+
+    <%= form_for @mission_enrollment do |f| %>
+
+      <%= f.fields_for :enrollment_images do |i| %>
+        <%= i.label :image %>
+        <%= i.file_field :image %>
+      <% end %>
+
+      <%= presenter_for_enrollment_form @mission_enrollment, f %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 5 %>
+
+      <%= f.hidden_field :mission_id %>
+      <%= f.hidden_field :user_id %>
+
+      <p class="buttons">
+        <%= link_to t('actions.cancel'), mission_path(mission) %>
+        <%= f.submit button, class: 'btn' %>
+      </p>
+    <% end %>
+  </div>
+</section>

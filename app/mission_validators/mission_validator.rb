@@ -35,6 +35,10 @@ class MissionValidator
     raise 'Not implemented'
   end
 
+  def before_create(params)
+    true
+  end
+
   def initialize_params
     Hash.new
   end

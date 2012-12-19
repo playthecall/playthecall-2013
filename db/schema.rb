@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121216064627) do
+ActiveRecord::Schema.define(:version => 20121216020935) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -132,6 +132,12 @@ ActiveRecord::Schema.define(:version => 20121216064627) do
   add_index "missions", ["element"], :name => "index_missions_on_element"
   add_index "missions", ["slug"], :name => "index_missions_on_slug"
 
+  create_table "oracles", :force => true do |t|
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
     t.string   "facebook_link"
@@ -144,14 +150,6 @@ ActiveRecord::Schema.define(:version => 20121216064627) do
   end
 
   add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
-
-  create_table "status_updates", :force => true do |t|
-    t.integer  "mission_enrollment_id"
-    t.text     "status"
-    t.text     "html_status"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
-  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

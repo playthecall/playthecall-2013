@@ -2,9 +2,15 @@ class MissionEnrollmentsController < ApplicationController
   before_filter :authenticate_user!, only: [:new]
   before_filter :load_mission_enrollments, only: [:index, :show, :edit, :new]
 
+  def new
+    @mission_enrollment = mission.enroll current_user
+  end
+
   def check
-    @enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
-    render text: @enrollment.check(params)
+    @mission_enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
+    @mission_enrollment.check params
+    redirect_to mission_enrollment_path nickname: mission_enrollment.user.nickname,
+                                        slug:     mission_enrollment.mission.slug
   end
 
   def index
@@ -41,12 +47,17 @@ class MissionEnrollmentsController < ApplicationController
 
   def create
     mission_enrollment = MissionEnrollment.new params[:mission_enrollment]
-    render :new and return unless mission_enrollment.valid?
 
-    mission_enrollment.save
+    if mission_enrollment.valid?
+      if mission_enrollment.validator.before_create(params)
+        mission_enrollment.save
+        redirect_to mission_enrollment_path nickname: mission_enrollment.user.nickname,
+                                            slug:     mission_enrollment.mission.slug
+        return
+      end
+    end
 
-    redirect_to mission_enrollment_path nickname: mission_enrollment.user.nickname,
-                                        slug:     mission_enrollment.mission.slug
+    render :new
   end
 
   private
