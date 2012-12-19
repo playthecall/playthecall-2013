@@ -11,7 +11,7 @@ class MissionEnrollmentsController < ApplicationController
 
   def check
     @enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
-    render text: @enrollment.check(params)
+    render text: @enrollment.async_check(params)
   end
 
   def update
@@ -45,6 +45,6 @@ class MissionEnrollmentsController < ApplicationController
   end
 
   def load_mission
-    @mission = Mission.find_by_slug params[:mission_id]
+    @mission = current_user.current_chapter.missions.find_by_slug params[:mission_id]
   end
 end

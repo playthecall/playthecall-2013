@@ -30,16 +30,16 @@ class MissionEnrollment < ActiveRecord::Base
     validator.presenter(view)
   end
 
-  def check
-    validator.check
+  def check(params)
+    validator.check params
   end
 
-  def async_check
-    MissionCheckJob.check self
+  def async_check(params = {})
+    MissionCheckJob.check self, params
   end
 
-  def lazy_check
-    MissionCheckJob.lazy_check self
+  def lazy_check(params = {})
+    MissionCheckJob.lazy_check self, params
   end
 
   def create_next

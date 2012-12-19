@@ -1,15 +1,34 @@
-<p><%= t("ranking.header") %> <span><%= t("ranking.header_description") %></span></p>
-
-<ul>
-<% @users_ranking.each_with_index do |user, index| %>
-  <li>
-    <p><%= image_tag user.avatar %></p>
-    <p><%= index+1 %></p>
-    <p><%= user.points %></p>
-    <p><%= user.mission_enrollments.where(accomplished: true).count %> <%= t("ranking.missions_accomplished") %></p>
-    <p><%= user.name %></p>
-    <p><%= user.city.name %></p>
-    <p><%= user.city.country.name %></p>
-  </li>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "ranking" %>
 <% end %>
-</ul>
+
+<article class="wrapper-ranking">
+	<div class="top-ranking">
+		<p><%=t("ranking.header") %> <span><%= t("ranking.header_description") %></span></p>
+	</div>
+	<ul>
+		<% @users_ranking.each_with_index do |user, index| %>
+		  <li class="wrapper-user">
+		  	<div class="index"><%= index+1 %></div>
+
+		  	<div class="image">
+		  		<% unless user.avatar.blank? %> <% user.avatar.resize_to_fill(60,60) %> <% end %>
+		    	<%= image_tag user.avatar %>
+			</div>
+			<div class="user-points">
+				<%= user.name %>
+			    <a class ="only-points"><%= user.points %></a>
+			</div>
+
+			<div class="city-mission">
+				<a class="city-country"><%= user.city.name %>
+			    <%= user.city.country.name %></a>
+			    <a class="missions"><%= user.mission_enrollments.where(accomplished: true).count %> <%= t("ranking.missions_accomplished") %></a>
+		    </div>
+		    
+		  </li>
+		<% end %>
+	</ul>
+
+
+</article>

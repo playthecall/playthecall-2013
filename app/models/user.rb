@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates_presence_of   :city
   validates_presence_of   :game_version
 
-  validates_format_of     :nickname, :with => /[a-z\-0-9]+$/
+  validates_format_of     :nickname, :with => /^[a-z_\-0-9]+$/
   validates_uniqueness_of :nickname
 
   validates_inclusion_of :gender,  in: ['male', 'female']
@@ -54,14 +54,14 @@ class User < ActiveRecord::Base
   end
 
   def current_mission
-    if mission_enrollments.any?
-      finished_mission_ids = mission_enrollments.where(accomplished: true).map &:mission_id
-      unfinished_mission_ids = mission_enrollments.where(accomplished: false).map &:mission_id
-      current_chapter.missions.where(id: unfinished_mission_ids).order("position ASC").first or
-        current_chapter.missions.order("position ASC").where("id not in (#{finished_mission_ids.join(",")})").order("position ASC").first
-    else
-      current_chapter.missions.order("position ASC").first
-    end
+    # if mission_enrollments.any?
+    #   finished_mission_ids = mission_enrollments.where(accomplished: true).map &:mission_id
+    #   unfinished_mission_ids = mission_enrollments.where(accomplished: false).map &:mission_id
+    #   current_chapter.missions.where(id: unfinished_mission_ids).order("position ASC").first or
+    #     current_chapter.missions.order("position ASC").where("id not in (#{finished_mission_ids.join(",")})").order("position ASC").first
+    # else
+    #   current_chapter.missions.order("position ASC").first
+    # end
   end
 
   def current_mission_enrollment
