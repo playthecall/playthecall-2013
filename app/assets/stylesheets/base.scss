@@ -2,7 +2,7 @@
 @import 'mixins';
 
 body{
-  background: #2b707d url('/assets/bg-water.jpg') repeat-x center bottom;
+  background: #03427c url('/assets/bg-sky.jpg') repeat-x center top;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -50,11 +50,13 @@ a img {border: none;}
   }
 }
 
-.container,
-.content-header {
+.container {
   width:      993px;
   margin:     0 auto;
+} .content-header {
   background: #fff;
+  width:      993px;
+  margin:     0 auto;
 }
 
 header {
