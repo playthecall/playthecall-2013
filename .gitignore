@@ -6,7 +6,7 @@
 .rvmrc
 dump.rdb
 *.swp
-
+db/schema.rb
 public/uploads/
 config/database.yml
 config/application/development.yml
