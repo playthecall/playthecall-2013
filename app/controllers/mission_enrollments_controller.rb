@@ -5,9 +5,13 @@ class MissionEnrollmentsController < ApplicationController
   before_filter :load_mission, only: [:new, :edit]
   before_filter :load_mission_enrollments, only: :show
 
+  def show
+    @mission_enrollment.lazy_check
+  end
+
   def check
     @enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
-    render text: @enrollment.check(params)
+    render text: @enrollment.async_check(params)
   end
 
   def update

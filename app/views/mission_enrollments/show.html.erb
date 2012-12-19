@@ -44,11 +44,7 @@
       <%= link_to t("actions.update_status"), new_mission_mission_enrollment_status_update_path(@mission_enrollment.mission, @mission_enrollment), class: 'update_status' %>
     <% end %>
     <%= presenter_for_enrollment(@mission_enrollment) %>
-    <div class="count_likes">
-      <h4>236 curtiram</h4>
-      <p>de 900 necessários</p>
-    </div>
-    <fb:comments href="<%= request.url %>" width="660" num_posts="10"></fb:comments>
+    <fb:comments href="<%= @mission_enrollment.url %>" width="660" num_posts="10"></fb:comments>
   </div>
 </section>
 
