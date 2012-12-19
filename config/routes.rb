@@ -1,6 +1,7 @@
 PlayTheCall::Application.routes.draw do
   devise_for :users,
-             controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+             controllers: { omniauth_callbacks: "users/omniauth_callbacks",
+                            :registrations => :registrations}
 
   ActiveAdmin.routes(self)
 
@@ -8,6 +9,7 @@ PlayTheCall::Application.routes.draw do
 
   get 'm/:nickname/:slug' => 'mission_enrollments#show',  as: 'mission_enrollment'
   get 'ranking'           => 'ranking#show',              as: 'ranking'
+  get 'cities/by_country' => 'cities#by_country'
 
   match 'countdown' => 'welcome#countdown', as: 'countdown'
 
