@@ -54,14 +54,14 @@ class User < ActiveRecord::Base
   end
 
   def current_mission
-    # if mission_enrollments.any?
-    #   finished_mission_ids = mission_enrollments.where(accomplished: true).map &:mission_id
-    #   unfinished_mission_ids = mission_enrollments.where(accomplished: false).map &:mission_id
-    #   current_chapter.missions.where(id: unfinished_mission_ids).order("position ASC").first or
-    #     current_chapter.missions.order("position ASC").where("id not in (#{finished_mission_ids.join(",")})").order("position ASC").first
-    # else
-    #   current_chapter.missions.order("position ASC").first
-    # end
+    if mission_enrollments.any?
+      finished_mission_ids   = mission_enrollments.where(accomplished: true).pluck :mission_id
+      unfinished_mission_ids = mission_enrollments.where(accomplished: false).pluck :mission_id
+      current_chapter.missions.where(id: unfinished_mission_ids).order("position ASC").first or
+        current_chapter.missions.where("id not in (#{finished_mission_ids.join(",")})").order("position ASC").first
+    else
+      current_chapter.missions.order("position ASC").first
+    end
   end
 
   def current_mission_enrollment
