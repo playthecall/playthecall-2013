@@ -3,6 +3,10 @@
 .content-base{
   padding: 20px 48px;
   min-height: 1000px;
+  p {
+    font-family: 'Chivo', sans-serif;
+    clear: both;
+  }
   & > h1 {
     background: #ee353a;
     color:#fff;
@@ -11,19 +15,46 @@
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    width: 619px;
     float: left;
     span {
       color:#ffc90c;
     }
+    &+p {
+      color: #ca5356;
+      font-size: 15px;
+      line-height: 20px;
+      margin: 0 0 35px;
+      clear: both;
+    }
   }
-  p {
-    color: #ca5356;
+  h2 {
+    color: #ee353a;
     font-family: 'Chivo', sans-serif;
-    font-size: 15px;
-    line-height: 20px;
-    margin: 0 0 35px;
-    clear: both;
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin: 0 0 5px;
+    float: left;
+  }
+  ul.actions {
+    text-align: right;
+    float: right;
+    li {
+      display: inline;
+      margin: 0 0 0 5px;
+      a {
+        font-size: 14px;
+        text-transform: lowercase;
+      }
+    }
+    &+p {
+      font-size: 14px;
+      line-height: 20px;
+      margin: 0 0 55px;
+      padding: 5px 0 0;
+      border-top: 1px #DDD solid;
+      clear: both;
+    }
   }
   a.update_status {
     @include btn(14px, 8px 15px);

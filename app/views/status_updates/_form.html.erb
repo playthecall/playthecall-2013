@@ -1,0 +1,20 @@
+<section class="content">
+  <div class="content-base">
+    <div class="mission-title">
+      <%= st 'mission.indexed_title', position: mission_enrollment.mission.position, title:mission_enrollment.mission.title %>
+    </div>
+
+    <%= form_for [mission_enrollment.mission, mission_enrollment, status_update] do |f| %>
+      <%= f.error_messages %>
+
+      <%= f.label :status %>
+      <%= f.text_area :status %>
+
+      <%= f.hidden_field :mission_enrollment_id %>
+
+      <p class="buttons">
+        <%= f.submit button %>
+      </p>
+    <% end %>
+  </div>
+</section>
