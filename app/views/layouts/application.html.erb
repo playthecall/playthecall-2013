@@ -3,9 +3,10 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "Play The Call" %></title>
     <meta charset="UTF-8" >
+    <%= csrf_meta_tag %>
+    <%= javascript_include_tag "jquery" %>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
   <body>
@@ -29,5 +30,6 @@
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=262206940557713";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+    <%= yield :footer %>
   </body>
 </html>

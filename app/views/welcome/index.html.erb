@@ -2,6 +2,36 @@
   <%= stylesheet_link_tag 'home/default' %>
   <%= stylesheet_link_tag 'home/reveal' %>
 <% end %>
+
+<% content_for :footer do %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("canvas").attr("height", $(window).height());
+      $("canvas").attr("width", $(window).width());
+    });
+  </script>
+  <%= javascript_include_tag "home/Tween.js" %>
+  <%= javascript_include_tag "home/jquery.mousewheel.js" %>
+  <%= javascript_include_tag "home/src_r47/Three.js" %>
+  <%= javascript_include_tag "home/jquery.colorbox-min.js" %>
+  <%= javascript_include_tag "home/Detector.js" %>
+  <%= javascript_include_tag "home/dat.gui.min.js" %>
+  <%= javascript_include_tag "home/globe_min.js" %>
+  <%= javascript_include_tag "home/jquery.reveal.js" %>
+  <script>
+    $('div#globeGl_').doGlobe({
+      globeRadius: 650,
+      backPlateMargin: 10,
+      camX: 0,
+      camY: -50,
+      camZ: 1500,
+      cameraTargetX:0,
+      cameraTargetY:200,
+      cameraTargetZ:0
+
+    });
+  </script>
+<% end %>
 <div id="top">
   <div id="language">
     <%= link_to '#' do %>
@@ -21,8 +51,8 @@
     <h1><%= t("home.heading") %></h1>
     <p><%= t("home.description") %></p>
     <ul>
-      <li><a href="#" data-reveal-id="intro" class="sign_up"><%= t("actions.sign_up") %></a></li>
-      <li>ou <%= link_to t("actions.sign_in"), new_user_session_path, class: "sign_in", :'data-reveal-id' => 'sign_in' %>
+      <li><a href="#" data-reveal-id="intro" data-animation="fade" class="sign_up"><%= t("actions.sign_up") %></a></li>
+      <li>ou <%= link_to t("actions.sign_in"), new_user_session_path, class: "sign_in", :'data-reveal-id' => 'sign_in', :'data-animation' => 'fade' %>
   </div>
   <div class="footer">
     <ul>
@@ -47,34 +77,5 @@
     <%= user.city.name %>
   </div>
 <% end %>
-<%= javascript_include_tag "jquery" %>
-<%= javascript_include_tag 'jquery-ui' %>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $("canvas").attr("height", $(window).height())
-    $("canvas").attr("width", $(window).width())
-  })
-</script>
-<%= javascript_include_tag "home/Tween.js" %>
-<%= javascript_include_tag "home/jquery.mousewheel.js" %>
-<%= javascript_include_tag "home/src_r47/Three.js" %>
-<%= javascript_include_tag "home/jquery.colorbox-min.js" %>
-<%= javascript_include_tag "home/Detector.js" %>
-<%= javascript_include_tag "home/dat.gui.min.js" %>
-<%= javascript_include_tag "home/globe_min.js" %>
-<%= javascript_include_tag "home/jquery.reveal.js" %>
-<script>
-  $('div#globeGl_').doGlobe({
-    globeRadius: 650,
-    backPlateMargin: 10,
-    camX: 0,
-    camY: -50,
-    camZ: 1500,
-    cameraTargetX:0,
-    cameraTargetY:200,
-    cameraTargetZ:0
-
-  });
-</script>
 <%= render 'intro_modal' %>
 <%= render 'sign_in' %>
