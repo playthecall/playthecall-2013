@@ -74,4 +74,28 @@ form {
 #new_mission_enrollment .btn {padding-top:5px;margin-right:10px }
 #new_mission_enrollment .buttons a {font-size:13px;float:right;padding-top:20px}
 a.cancel_account { padding: 34px; color: #cc292d; font-size: 13px; text-transform: lowercase; float: right }
+#error_explanation {
+  padding: 20px;
+  border: 1px dotted #222;
+  font-size: 13px;
+  width: 85%;
+  margin: 10px 0;
+  ul {
+    li {
+      margin: 8px 0;
+      color: #CC292D;
+    }
+  }
+}
+.field_with_errors {
+  input { border: 1px solid #CC292D !important; }
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    margin-left: 2px;
+    margin-top: 19px;
+  }
+}
 

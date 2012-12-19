@@ -1,3 +1,4 @@
+
 <%= f.label :nickname %>
 <%= f.text_field :nickname %>
 
@@ -24,7 +25,7 @@
 <p>
   <%= f.radio_button :gender, 'male' %>
   <%= label :user_gender, :male %>
-  <%= f.radio_button :gender, 'female' %>
+  <%= f.radio_button :gender, 'female', :checked => true %>
   <%= label :user_gender, :female %>
 </p>
 
