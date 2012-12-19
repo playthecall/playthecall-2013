@@ -19,9 +19,4 @@ class RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  private
-
-  def load_countries
-    @countries = Country.order(:name).joins(:cities).uniq
-  end
 end
