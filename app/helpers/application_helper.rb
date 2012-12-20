@@ -52,4 +52,8 @@ module ApplicationHelper
     link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")", :class => 'add_link')
   end
 
+  def embedded_video(url)
+    "<iframe width='640' height='360' src='#{url}' frameborder='0' allowfullscreen></iframe>".html_safe
+  end
+
 end
