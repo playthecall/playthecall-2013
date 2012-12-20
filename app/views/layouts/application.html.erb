@@ -11,18 +11,20 @@
   </head>
   <body>
     <%= content_for?(:content) ? yield(:content) : yield %>
-    <footer>
-      <ul>
-        <li><a href=""><%= t("home.footer.about") %></a></li>
-        <li><a href=""><%= t("home.footer.help") %></a></li>
-        <li><a href=""><%= t("home.footer.terms") %></a></li>
-        <li><a href=""><%= t("home.footer.privacy") %></a></li>
-        <li><a href=""><%= t("home.footer.media") %></a></li>
-        <li><a href=""><%= t("home.footer.developers") %></a></li>
-        <li><a href=""><%= t("home.footer.resources") %></a></li>
-        <li><%= st("home.footer.creative_commons") %></li>
-      </ul>
-    </footer>
+    <% unless params[:controller] == 'welcome' && params[:action] == 'countdown' %>
+      <footer>
+        <ul>
+          <li><a href=""><%= t("home.footer.about") %></a></li>
+          <li><a href=""><%= t("home.footer.help") %></a></li>
+          <li><a href=""><%= t("home.footer.terms") %></a></li>
+          <li><a href=""><%= t("home.footer.privacy") %></a></li>
+          <li><a href=""><%= t("home.footer.media") %></a></li>
+          <li><a href=""><%= t("home.footer.developers") %></a></li>
+          <li><a href=""><%= t("home.footer.resources") %></a></li>
+          <li><%= st("home.footer.creative_commons") %></li>
+        </ul>
+      </footer>
+    <% end %>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
