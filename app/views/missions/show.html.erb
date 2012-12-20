@@ -1,12 +1,6 @@
 <section class="content">
   <div class="content-base">
-    <ul class="carousel">
-      <li>
-        <div class="image-title mission-title">
-        </div>
-        <%= image_tag @mission.image.medium, :class => "image-mission" %>
-      </li>
-    </ul>
+    <div class="video"><%= @mission.video_url.html_safe %></div>
     <h1><%= st 'mission.indexed_title', position: @mission.position, title: @mission.title %></h1>
     <%= @mission.html_description.html_safe %>
     <%= presenter_for_mission @mission %>
