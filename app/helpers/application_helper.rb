@@ -53,7 +53,7 @@ module ApplicationHelper
   end
 
   def embedded_video(url)
-    content_tag(:iframe,"",src: url, frameborder: '0', allowfullscreen: 'allowfullscreen', width: 640,height: 360)
+    content_tag(:iframe,"",src: FormattedURL.url(url, :embed), frameborder: '0', allowfullscreen: 'allowfullscreen', width: 640,height: 360)
   end
 
 end
