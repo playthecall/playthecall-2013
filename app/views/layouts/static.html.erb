@@ -1,5 +1,11 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'logged' %>
+<% end %>
 <% content_for :content do %>
-  <%= content_for?(:news_content) ? yield(:news_content) : yield %>
+  <%= render 'shared/header' %>
+  <div class="container">
+    <%= content_for?(:news_content) ? yield(:news_content) : yield %>
+  </div>
 <% end %>
 
 <%= render :template => 'layouts/application' %>

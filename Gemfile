@@ -31,16 +31,15 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'binding_of_caller', platforms: :ruby
+  gem 'therubyracer', platforms: :ruby
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'parallel_tests'
-  gem 'therubyracer', platforms: :ruby
+  gem 'better_errors'
   gem 'rspec-rails'
+  gem 'poltergeist'
   gem 'forgery'
-  gem 'sqlite3'
   gem 'fivemat'
   gem 'pry'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'poltergeist'
 end

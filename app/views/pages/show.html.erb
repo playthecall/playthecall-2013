@@ -1,0 +1,6 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "pages" %>
+<% end %>
+
+<h1><%= @page.name %></h1>
+<%= @page.html_description.html_safe %>
