@@ -42,4 +42,5 @@ group :development, :test do
   gem 'forgery'
   gem 'fivemat'
   gem 'pry'
+  gem 'sqlite3'
 end
