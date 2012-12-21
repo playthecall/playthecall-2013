@@ -1,0 +1,27 @@
+div.content-base {
+  position: relative;
+  img.badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  h1 {
+    margin: 25px 0 8px;
+    padding: 15px 20px 15px 120px;
+  }
+  h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0 0 65px 120px;
+  }
+  h3 {
+    clear: both;
+  }
+  p {
+    color: #5a5a5a;
+    font-size: 16px;
+    line-height: 22px;
+    margin: 0 0 20px;
+  }
+}
