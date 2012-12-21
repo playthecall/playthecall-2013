@@ -1,4 +1,6 @@
 class MissionsController < ApplicationController
+  layout :layout_by_resource
+
   before_filter :authenticate_user!
   before_filter :welcome_message_logic, :only => [:show]
 
@@ -17,5 +19,12 @@ class MissionsController < ApplicationController
       session[:saw_welcome_message] = true
       redirect_to :action => 'welcome'
     end
+  end
+
+  protected
+
+  def layout_by_resource
+    return "static" if action_name == "welcome"
+    return 'logged'
   end
 end

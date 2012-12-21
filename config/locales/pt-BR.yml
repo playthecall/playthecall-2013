@@ -37,7 +37,8 @@ pt-BR:
     presenter:
       im_ready:     "Estou pronto!"
       likes_needed: "Esta missão precisa de %{likes} curtir"
-    welcome_title: "saudações, heróis das estrelas!"
+    welcome_greetings: "saudações,"
+    welcome_title: "heróis das estrelas!"
     welcome_message: "Que bom saber que você, assim como outros irmãos e irmãs, ouviu esse chamado que ecoa entre os sete continentes da terra. Um convite para realizar seus sonhos através da brincadeira, criatividade e alegria. Este é um momento especial, e mesmo que você não sinta; você está pronto. Das reservas das estrelas, você trouxe coragem e luz; eles não só fazem parte de você, como vão lhe guiar nos momentos mais sombrios. A Terra estava a sua espera. Ela ama o que você é hoje e o que você se tornará."
     welcome_footer: "Responda ao chamado, e sua vida se tornará de forma rápida, divertida e de graça: uma grande aventura!"
   ranking:
