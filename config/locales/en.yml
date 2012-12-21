@@ -37,7 +37,9 @@ en:
     presenter:
       im_ready:     "I'm ready!"
       likes_needed: "This mission requires %{likes} likes"
-    welcome_message: "Greetings, Star Heroes! We are so happy you have heard, along with your sisters and brothers, your gifted generation, this seven continent call, this tap-on-the-shoulder-of-your-heart invitation, to realize your dreams through play, creativity, and joy – a call and invitation you had only forgotten that you were expecting. This is a turning point in time. And though you may not know it, you are ready! You have brought with you from the stars vast galactic reservoirs of courage and light. They are not only over-flowing in you, they’ve got your back! The Earth, she has been expecting you. She loves what you are and what you will be. Answer the Call and your life, itself, will become a fast, free, and fun adventure!"
+    welcome_title: "greetings, star heros!"
+    welcome_message: "We are so happy you have heard, along with your sisters and brothers, your gifted generation, this seven continent call, this tap-on-the-shoulder-of-your-heart invitation, to realize your dreams through play, creativity, and joy – a call and invitation you had only forgotten that you were expecting. This is a turning point in time. And though you may not know it, you are ready! You have brought with you from the stars vast galactic reservoirs of courage and light. They are not only over-flowing in you, they’ve got your back! The Earth, she has been expecting you. She loves what you are and what you will be."
+    welcome_footer: "Answer the Call and your life, itself, will become a fast, free, and fun adventure!"
   ranking:
     header: "TOP RANKING"
     header_description: "The best players"
