@@ -52,7 +52,7 @@
     <p><%= t("home.description") %></p>
     <ul>
       <li><a href="#" data-reveal-id="intro" data-animation="fade" class="sign_up"><%= t("actions.sign_up") %></a></li>
-      <li>ou <%= link_to t("actions.sign_in"), new_user_session_path, class: "sign_in", :'data-reveal-id' => 'sign_in', :'data-animation' => 'fade' %>
+      <li><%= t("home.or") %> <%= link_to t("actions.sign_in"), new_user_session_path, class: "sign_in", :'data-reveal-id' => 'sign_in', :'data-animation' => 'fade' %>
   </div>
   <div class="footer">
     <ul>
