@@ -7,6 +7,11 @@ module ApplicationHelper
     "#{url_options[:host]}/#{image_path path}"
   end
 
+  def avatar_url
+    placeholder = "avatar-placeholder.jpg"
+    current_user.avatar? ? current_user.avatar : placeholder
+  end
+
   def presenter_for_mission(mission)
     return @mission_presenter.mission_html if @mission_presenter
 

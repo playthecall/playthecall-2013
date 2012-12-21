@@ -1,7 +1,7 @@
 <aside>
   <section class="profile">
-    <%= image_tag current_user.avatar, class: :avatar %>
-    <h1><%= current_user.name%></h1>
+    <%= image_tag avatar_url, class: :avatar %>
+    <h1><%= current_user.name %></h1>
     <strong><%= current_user.city.name %> <span><%= current_user.city.country.name %></span></strong>
     <p class="bio">
       <%= current_user.profile.bio %>
