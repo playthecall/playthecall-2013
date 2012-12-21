@@ -1,0 +1,37 @@
+@import 'mixins';
+
+div.container {
+  color: #FFF;
+  text-align: center;
+  padding: 60px 0;
+  h1 {
+    font-size: 78px;
+    line-height: 56px;
+    text-align: center;
+    width: 430px;
+    margin: 0 auto 60px;
+    span {
+      font-size: 55px;
+      display: block;
+    }
+    &+p {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 32px;
+      text-align: center;
+      width: 755px;
+      margin: 0 auto 60px;
+    }
+  }
+  h2 {
+    font-size: 28px;
+    line-height: 42px;
+    text-align: center;
+    width: 600px;
+    margin: 0 auto 50px;
+  }
+  a.btn {
+    @include btn;
+    font-size: 26px;
+  }
+}

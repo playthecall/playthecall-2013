@@ -2,33 +2,32 @@
   <%= stylesheet_link_tag "ranking" %>
 <% end %>
 
-<article class="wrapper-ranking">
-	<div class="top-ranking">
-		<p><%=t("ranking.header") %> <span><%= t("ranking.header_description") %></span></p>
-	</div>
-	<ul>
-		<% @users_ranking.each_with_index do |user, index| %>
-		  <li class="wrapper-user">
-		  	<div class="index"><%= index+1 %></div>
+<section class="content">
+  <div class="content-base">
+    <h1><span><%=t("ranking.header") %></span> <%= t("ranking.header_description") %></h1>
 
-		  	<div class="image">
-		  		<% unless user.avatar.blank? %> <% user.avatar.resize_to_fill(60,60) %> <% end %>
-		    	<%= image_tag user.avatar %>
-			</div>
-			<div class="user-points">
-				<%= user.name %>
-			    <a class ="only-points"><%= user.points %></a>
-			</div>
-
-			<div class="city-mission">
-				<a class="city-country"><%= user.city.name %>
-			    <%= user.city.country.name %></a>
-			    <a class="missions"><%= user.mission_enrollments.where(accomplished: true).count %> <%= t("ranking.missions_accomplished") %></a>
-		    </div>
-		    
-		  </li>
-		<% end %>
-	</ul>
-
-
-</article>
+    <ul class="ranking">
+      <% @users_ranking.each_with_index do |user, index| %>
+        <li>
+          <table cellspacing="0" cellpadding="0">
+            <tr>
+              <td class="position"><h1><%= index+1 %></h1></td>
+              <td>
+                <% unless user.avatar.blank? %> <% user.avatar.resize_to_fill(60,60) %> <% end %>
+                <%= image_tag user.avatar %>
+              </td>
+              <td class="name">
+                <h2><%= user.name %></h2>
+                <p><%= user.city.name %><%= user.city.country.name %></p>
+              </td>
+              <td>
+                <h2><%= user.points %></h2>
+                <p><%= user.mission_enrollments.where(accomplished: true).count %> <%= t("ranking.missions_accomplished") %></p>
+              </td>
+            </tr>
+          </table>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</section>

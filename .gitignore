@@ -1,5 +1,4 @@
 /.bundle
-/db/schema.rb
 /db/*.sqlite3
 /log/*.log
 /tmp
@@ -7,7 +6,6 @@
 .rvmrc
 dump.rdb
 *.swp
-db/schema.rb
 public/uploads/
 config/database.yml
 config/application/development.yml

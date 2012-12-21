@@ -1,0 +1,28 @@
+<header>
+  <section class="content-header">
+    <h1><%= link_to "Play the Call", root_path %></h1>
+    <ul class="menu">
+      <% if user_signed_in? %>
+        <% if current_user.mission_enrollments.any? %>
+          <li>
+            <%= link_to t('actions.my_missions'), mission_enrollment_path(current_user.nickname, last_available_mission_enrollment.mission.slug) %>
+          </li>
+        <% end %>
+        <li class="settings">
+          <%= link_to t('actions.config'), edit_user_path(current_user) %>
+          <ul class="settings-drop">
+            <li><%= link_to t('actions.edit_profile'), edit_user_path(current_user) %></li>
+            <li><%= link_to t('actions.sign_out'), destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to t('actions.sign_in'), new_user_session_path %>
+        </li>
+        <li>
+          <%= link_to t('actions.fancy_sign_up'), new_user_registration_path, class: 'sign-in' %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</header>

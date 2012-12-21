@@ -1,0 +1,8 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "welcome" %>
+<% end %>
+
+<h1><span><%= t('mission.welcome_greetings') %></span><%= t('mission.welcome_title') %></h1>
+<p><%= t('mission.welcome_message') %></p>
+<h2><%= t('mission.welcome_footer') %></h2>
+<%= link_to('Start', Mission.first, :class => 'btn')%>

@@ -6,7 +6,15 @@ class MissionEnrollmentsController < ApplicationController
   before_filter :load_mission_enrollments, only: :show
 
   def new
-    @mission_enrollment = @mission.enroll current_user
+    if current_user.current_mission_enrollment && current_user.current_mission_enrollment.accomplished?
+      @mission_enrollment = @mission.enroll current_user
+    else
+      redirect_to root_path
+    end
+  end
+
+  def show
+    @mission_enrollment.lazy_check
   end
 
   def check
@@ -35,18 +43,21 @@ class MissionEnrollmentsController < ApplicationController
   end
 
   def create
-    mission_enrollment = MissionEnrollment.new params[:mission_enrollment]
-
-    if mission_enrollment.valid?
-      if mission_enrollment.validator.before_create(params)
-        mission_enrollment.save
-        redirect_to mission_enrollment_path nickname: mission_enrollment.user.nickname,
-                                            slug:     mission_enrollment.mission.slug
-        return
+    if current_user.current_mission_enrollment && current_user.current_mission_enrollment.accomplished?
+      @mission_enrollment = MissionEnrollment.new params[:mission_enrollment]
+      if @mission_enrollment.valid?
+        if @mission_enrollment.validator.before_create(params)
+          @mission_enrollment.save
+          redirect_to mission_enrollment_path nickname: @mission_enrollment.user.nickname,
+                                              slug:     @mission_enrollment.mission.slug
+          return
+        end
       end
-    end
 
-    render :new
+      render :new
+    else
+      redirect_to root_path
+    end
   end
 
   private

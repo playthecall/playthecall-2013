@@ -13,6 +13,6 @@ class WelcomeController < ApplicationController
   end
 
   def countdown
-    @days_to_release = (Date.new(2012, 12, 21) - Date.today).to_i.to_s.rjust(2, '0')
+    @days_to_release = (Date.new(2012, 12, 21) - Date.today + 1).to_i.to_s.rjust(2, '0')
   end
 end

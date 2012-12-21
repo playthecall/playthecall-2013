@@ -7,6 +7,7 @@ gem 'rails', '3.2.9'
 gem 'activerecord-import'
 gem 'omniauth-facebook'
 gem 'settingslogic'
+gem 'formatted_url'
 gem 'jquery-rails'
 gem 'activeadmin'
 gem 'carrierwave'
@@ -30,7 +31,8 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'therubyracer', platforms: :ruby
+  gem 'binding_of_caller', platforms: :ruby
+  gem 'therubyracer',      platforms: :ruby
   gem 'factory_girl_rails'
   gem 'binding_of_caller'
   gem 'database_cleaner'
@@ -41,5 +43,6 @@ group :development, :test do
   gem 'forgery'
   gem 'launchy'
   gem 'fivemat'
+  gem 'sqlite3'
   gem 'pry'
 end

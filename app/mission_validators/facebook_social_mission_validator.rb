@@ -6,8 +6,8 @@ class FacebookSocialMissionValidator < MissionValidator
       else
         update_enrollment_likes
       end
-    rescue
-      Logger.warn 'Facebook check fucked everything!'
+    rescue Exception => e
+      Rails.logger.warn 'Facebook check fucked everything!'
       false
     end
   end

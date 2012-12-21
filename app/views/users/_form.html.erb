@@ -1,6 +1,7 @@
-
-<%= f.label :nickname %>
-<%= f.text_field :nickname %>
+<% if @user.new_record? %>
+  <%= f.label :nickname %>
+  <%= f.text_field :nickname %>
+<% end %>
 
 <%= f.label :name %>
 <%= f.text_field :name %>
@@ -9,7 +10,7 @@
 <%= f.email_field :email %>
 
 <%= f.label :country %>
-<%= f.collection_select :country_id, @countries, :id, :name, :prompt => t('registration.select_country')  %>
+<%= f.collection_select :country_id, @countries, :id, :name, :prompt => t('registration.select_country'), :selected => @country.try(:id) %>
 
 <%= f.label :city %>
 <%= f.collection_select :city_id, @cities, :id, :name %>
@@ -25,7 +26,7 @@
 <p>
   <%= f.radio_button :gender, 'male' %>
   <%= label :user_gender, :male %>
-  <%= f.radio_button :gender, 'female', :checked => true %>
+  <%= f.radio_button :gender, 'female' %>
   <%= label :user_gender, :female %>
 </p>
 
@@ -44,7 +45,7 @@
 
 <% else %>
 
-  <%= link_to t('actions.change_password'), edit_user_registration_path %>
+  <%= link_to t('actions.change_password'), edit_user_registration_path, :class => 'cancel_account' %>
 
 <% end %>
 

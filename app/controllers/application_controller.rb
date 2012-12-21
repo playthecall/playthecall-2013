@@ -11,9 +11,13 @@ class ApplicationController < ActionController::Base
     I18n.locale = @language
   end
 
+  def load_countries
+    @countries = Country.order(:name).joins(:cities).uniq
+  end
+
   protected
   def redirect_to_countdown
-    if (Rails.env.production? && Time.new(2012, 12, 21) > Time.now) and not
+    if (Rails.env.production? && Time.new(2012, 12, 22) > Time.now) and not
        request.host.include?('herokuapp')
       redirect_to countdown_path
     end

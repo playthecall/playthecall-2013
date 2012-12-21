@@ -1,4 +1,5 @@
 PlayTheCall::Application.routes.draw do
+
   devise_for :users,
              controllers: { omniauth_callbacks: "users/omniauth_callbacks",
                             :registrations => :registrations}
@@ -15,7 +16,15 @@ PlayTheCall::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :users
+
+  resources :pages, except: [:show]
+
+  match '/pages/:slug', :to => 'pages#show', as: 'page'
+
   resources :missions, only: :show do
+    member do
+      get 'welcome'
+    end
     resources :mission_enrollments, except: [:destroy, :index, :show] do
       resources :status_updates, except: [:index, :show]
       member do

@@ -1,63 +1,43 @@
-.wrapper-ranking{
-  padding: 30px;
-}
-
-.top-ranking {
-  background-color: #F80000  ;
-  height: 70px ;
-  text-align: center;
-  vertical-align: 50%;
-
-  p {
-    padding: 20px;
-    font-size: 30px;
-    color: #FF9900;
-    font-weight: bolder;
+ul.ranking {
+  li {
+    background: #e8e7e7;
+    margin: 0 0 10px;
+    padding: 15px;
+    table {
+      tr {
+        td {
+          vertical-align: top;
+          h1 {
+            color: #ee353a;
+            font-family: 'chivo', sans-serif;
+            font-size: 46px;
+            font-weight: normal;
+            letter-spacing: -2px;
+            padding: 0 15px 0 0;
+          }
+          h2 {
+            color: #ee353a;
+            font-family: 'chivo', sans-serif;
+            font-size: 18px;
+            margin: 5px 0 7px;
+            float: left;
+          }
+          img {
+            margin: 0 20px 0 0;
+            border: 2px #CCC solid;
+          }
+          p {
+            color: #5a5a5a;
+            font-size: 15px;
+          }
+          &.position {
+            vertical-align: middle;
+          }
+          &.name {
+            width: 300px;
+          }
+        }
+      }
+    }
   }
-
-  span{
-    font: chivo,open sans;
-    color: white;
-  }
 }
-
-.wrapper-user {
-  margin: 10px;
-  background-color: #E0E0E0;
-  font-size: 20px;
-  color:red;
-  height: 70px;
-  font-weight: bold;
-}
-.image {
-    float: left;
-    padding:5px;
-    padding-bottom: 5px;
-}
-.index {
-  text-align: center;
-  font-size: 40px;
-  width: 80px;
-  font-weight: bolder;
-  float: left;
-  padding: 5px;
-  margin-top: 8px;
-}
-.user-points{
-  padding: 10px;
-  font-size: 18px;
-  padding-right: 15px;
-}
-.only-points{
-  float:right;
-  color:red;
-}
-.city-mission{    
-  padding: 5px;
-  font-size: 15px;
-  padding-right: 15px;
-}
-.missions{
-    float:right;
-}
-.city-country{}
