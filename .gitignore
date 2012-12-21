@@ -9,6 +9,7 @@ dump.rdb
 public/uploads/
 config/database.yml
 config/application/development.yml
-
+db/schema.rb
 playthecall_development
 playthecall_test
+
