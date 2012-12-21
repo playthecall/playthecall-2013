@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def redirect_to_countdown
-    if (Rails.env.production? && Time.new(2012, 12, 22) > Time.now) and not
+    if (Rails.env.production? && Time.new(2012, 12, 22, 4, 0, 0) > Time.now) and not
        request.host.include?('herokuapp')
       redirect_to countdown_path
     end
