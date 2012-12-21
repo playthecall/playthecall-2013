@@ -20,7 +20,7 @@ ActiveAdmin.register Page do
     f.inputs "Content" do
       f.input :name
       f.input :slug
-      f.input :locale
+      f.input :locale, as: :select, collection: ['en', 'es', 'pt-BR']
       f.input :content
     end
     f.buttons
