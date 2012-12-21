@@ -10,6 +10,7 @@ class MissionsController < ApplicationController
   end
 
   def welcome
+    @first_mission = Mission.where(:position => 1, :chapter_id => 1).first
   end
 
   private
