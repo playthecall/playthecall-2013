@@ -1,6 +1,7 @@
-
-<%= f.label :nickname %>
-<%= f.text_field :nickname %>
+<% if @user.new_record? %>
+  <%= f.label :nickname %>
+  <%= f.text_field :nickname %>
+<% end %>
 
 <%= f.label :name %>
 <%= f.text_field :name %>

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    params[:user].delete :nickname
     if @user.update_attributes params[:user]
       redirect_to user_current_mission
     else
