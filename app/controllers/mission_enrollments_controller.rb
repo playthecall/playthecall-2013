@@ -5,6 +5,12 @@ class MissionEnrollmentsController < ApplicationController
   before_filter :load_mission, only: [:new, :edit]
   before_filter :load_mission_enrollments, only: :show
 
+  def new
+    unless current_user.current_mission_enrollment && current_user.current_mission_enrollment.accomplished?
+      redirect_to root_path
+    end
+  end
+
   def show
     @mission_enrollment.lazy_check
   end
@@ -24,10 +30,13 @@ class MissionEnrollmentsController < ApplicationController
   end
 
   def create
-    mission_enrollment_attributes = params[:mission_enrollment]
-    mission_enrollment = MissionEnrollment.create mission_enrollment_attributes
-    redirect_to mission_enrollment_path nickname: mission_enrollment.user.nickname,
-                                        slug:     mission_enrollment.mission.slug
+    if current_user.current_mission_enrollment && current_user.current_mission_enrollment.accomplished?
+      mission_enrollment = MissionEnrollment.create params[:mission_enrollment]
+      redirect_to mission_enrollment_path nickname: mission_enrollment.user.nickname,
+                                          slug:     mission_enrollment.mission.slug
+    else
+      redirect_to root_path
+    end
   end
 
   private
