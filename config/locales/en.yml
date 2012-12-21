@@ -89,6 +89,7 @@ en:
   sidebar:
     user_points: "%{points} Points"
   home:
+    or: "or"
     heading: "Understanding your mission is only the beginning of your journey"
     description: " Have you ever thought about doing something to change the world? What if it could be fast, free and fun? This game starts here and continues in your real life."
     english: English

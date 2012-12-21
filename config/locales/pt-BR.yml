@@ -84,6 +84,7 @@ pt-BR:
   sidebar:
     user_points: "%{points} Pontos"
   home:
+    or: "ou"
     heading: "Entender sua missão é apenas o início dela"
     description: "Você já pensou em fazer algo pelo mundo? E se fosse rápido, gratuito e divertido? O jogo começa aqui e continua na sua vida real."
     english: 'Inglês'
