@@ -1,0 +1,19 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "congratulations" %>
+<% end %>
+
+<section class="content">
+  <div class="content-base">
+    <%= image_tag 'badges/badge_fake.png', :class => "badge" %>
+    <h1><span>Perfeito!</span> Você concluiu sua missão!</h1>
+    <h2>Missão 3: Plante uma árvore</h2>
+
+    <h3>Reflita</h3>
+    <p>"Minha idéia é fazer as crianças me audarem a plantar 50 arvores perto da minha escola. Todo dia a gente vai pra aula e nota que a cidade está menos arborizada."</p>
+    <%= link_to "Próxima Missão", "#", :class => "btn" %>
+  </div>
+</section>
+
+<ul class="other-missions">
+  <%= render "mission_enrollments/enrolled_missions" %>
+</ul>

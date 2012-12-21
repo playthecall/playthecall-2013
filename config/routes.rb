@@ -24,6 +24,7 @@ PlayTheCall::Application.routes.draw do
   resources :missions, only: :show do
     member do
       get 'welcome'
+      get 'congratulations'
     end
     resources :mission_enrollments, except: [:destroy, :index, :show] do
       resources :status_updates, except: [:index, :show]
