@@ -38,9 +38,11 @@ class FacebookSocialMissionValidatorPresenter < MissionPresenter
 
   protected
   def im_ready_button
-    mission_enrollment = view.current_user.mission_enrollments.find_by_mission_id(mission.id)
-    unless mission_enrollment.present?
-      view.link_to(I18n.t('mission.presenter.im_ready'), view.new_mission_mission_enrollment_path(mission), class: 'btn')
-    end
+    #mission_enrollment = view.current_user.mission_enrollments.find_by_mission_id(mission.id)
+    #unless mission_enrollment.present?
+    #  view.link_to(I18n.t('mission.presenter.im_ready'), view.new_mission_mission_enrollment_path(mission), class: 'btn')
+    #end
+    # TODO: show the im_ready button
+    view.content_tag(:p, I18n.t('mission.hang_on_message'), :class => 'hang-on-message')
   end
 end
