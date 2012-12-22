@@ -10,6 +10,9 @@
     <%= yield(:head) %>
   </head>
   <body>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+    <% end %>
     <%= content_for?(:content) ? yield(:content) : yield %>
     <% unless params[:controller] == 'welcome' && params[:action] == 'countdown' %>
       <%= render 'shared/footer' %>
