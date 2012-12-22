@@ -14,8 +14,14 @@ div.container {
     margin: 25px 0 30px;
   }
   p {
-    font-size: 16px;
-    line-height: 16px;
+    font-size: 14px;
+    line-height: 18px;
     margin: 0 0 20px;
+  }
+  ul li {
+    font-size: 14px;
+    line-height: 18px;
+    list-style: none outside none;
+    margin-bottom: 1em;
   }
 }
