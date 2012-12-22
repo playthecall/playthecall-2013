@@ -1,11 +1,12 @@
 class FacebookSocialMissionValidator < MissionValidator
   def check(params)
     begin
-      if params[:oracle_token]
-        update_enrollment_oracle params[:oracle_token]
-      else
-        update_enrollment_likes
-      end
+      update_enrollment_likes
+      #if params[:oracle_token]
+        #update_enrollment_oracle params[:oracle_token]
+      #else
+        #update_enrollment_likes
+      #end
     rescue Exception => e
       Rails.logger.warn 'Facebook check fucked everything!'
       false
