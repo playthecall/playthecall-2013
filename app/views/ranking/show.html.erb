@@ -14,7 +14,7 @@
               <td class="position"><h1><%= index+1 %></h1></td>
               <td>
                 <% unless user.avatar.blank? %> <% user.avatar.resize_to_fill(60,60) %> <% end %>
-                <%= image_tag user.avatar %>
+                <%= image_tag avatar_url(user), :size => "60x60" %>
               </td>
               <td class="name">
                 <h2><%= user.name %></h2>
