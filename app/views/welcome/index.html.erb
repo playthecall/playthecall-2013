@@ -41,18 +41,7 @@
       <li><a href="#" data-reveal-id="intro" data-animation="fade" class="sign_up"><%= t("actions.sign_up") %></a></li>
       <li><%= t("home.or") %> <%= link_to t("actions.sign_in"), new_user_session_path, class: "sign_in", :'data-reveal-id' => 'sign_in', :'data-animation' => 'fade' %>
   </div>
-  <div class="footer">
-    <ul>
-      <li><a href=""><%= t("home.footer.about") %></a></li>
-      <li><a href=""><%= t("home.footer.help") %></a></li>
-      <li><a href=""><%= t("home.footer.terms") %></a></li>
-      <li><a href=""><%= t("home.footer.privacy") %></a></li>
-      <li><a href=""><%= t("home.footer.media") %></a></li>
-      <li><a href=""><%= t("home.footer.developers") %></a></li>
-      <li><a href=""><%= t("home.footer.resources") %></a></li>
-      <li><%= st("home.footer.creative_commons") %></li>
-    </ul>
-  </div>
+  <%= render 'shared/footer' %>
 </div>
 <div id="globeContent">
   <div id="globeGl_" class="globeGl"></div>

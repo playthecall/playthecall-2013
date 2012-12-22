@@ -128,24 +128,27 @@ body {
   }
 }
 
-.footer a {
+footer a {
   text-decoration: none;
   color: #aeaeae;
 }
 
-.footer a:hover {
+footer a:hover {
   text-decoration: underline;
 }
 
-.footer{
+footer{
   font-size: 12px;
   font-weight: bold;
   color: #aeaeae;
   margin-top: 270px;
   clear: both;
+  div.content {
+    margin: 0 0 0 -387px;
+  }
 }
 
-.footer li {
+footer li {
   padding: 0 5px;
   list-style: none;
   float: left;

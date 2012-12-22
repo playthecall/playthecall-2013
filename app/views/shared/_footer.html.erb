@@ -1,12 +1,13 @@
 <footer>
-  <ul>
-    <li><a href=""><%= t("home.footer.about") %></a></li>
-    <li><a href=""><%= t("home.footer.help") %></a></li>
-    <li><a href=""><%= t("home.footer.terms") %></a></li>
-    <li><a href=""><%= t("home.footer.privacy") %></a></li>
-    <li><a href=""><%= t("home.footer.media") %></a></li>
-    <li><a href=""><%= t("home.footer.developers") %></a></li>
-    <li><a href=""><%= t("home.footer.resources") %></a></li>
-    <li><%= st("home.footer.creative_commons") %></li>
-  </ul>
+  <div class="content">
+    <ul>
+      <li><%= link_to t("home.footer.about"), page_path(t("pages.about")) %></li>
+      <li><%= link_to t("home.footer.how_to"), page_path(t("pages.how_to")) %></li>
+      <li><%= link_to t("home.footer.terms"), page_path(t("pages.terms")) %></li>
+      <li><%= link_to t("home.footer.principles"), page_path(t("pages.principles")) %></li>
+      <% if params[:controller] == 'welcome' && params[:action] == 'index' %>
+        <li><%= st("home.footer.creative_commons") %></li>
+      <% end %>
+    </ul>
+  </div>
 </footer>
