@@ -16,6 +16,10 @@ class Mission < ActiveRecord::Base
 
   before_save :compile_description
 
+  def self.first_mission
+    Mission.where(:position => 1, :chapter_id => 1).first
+  end
+
   def self.for_user(user)
     joins(:chapter).where('chapters.game_version_id = ?', user.game_version_id)
   end

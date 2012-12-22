@@ -14,10 +14,10 @@ class FacebookSocialMissionValidator < MissionValidator
 
   def before_create(params)
     if mission_params[:oracle]
-      if Oracle.new(params[:oracle]).create
-        OracleMailer.welcome(mission_enrollment.user.oracle).deliver
+      if Oracle.create(params[:oracle])
+        OracleMailer.welcome(enrollment.user.oracle).deliver
       else
-        mission_enrollment.errors.add_to_base I18n.t('activerecord.oracle.invalid_error_message')
+        enrollment.errors.add_to_base I18n.t('activerecord.oracle.invalid_error_message')
         false
       end
     else
@@ -26,7 +26,7 @@ class FacebookSocialMissionValidator < MissionValidator
   end
 
   def accomplished?
-    likes_enough? && oracle_validated?
+    likes_enough? #&& oracle_validated?
   end
 
   def initialize_params

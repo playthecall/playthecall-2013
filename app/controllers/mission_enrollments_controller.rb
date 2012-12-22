@@ -2,11 +2,11 @@ class MissionEnrollmentsController < ApplicationController
   prepend_before_filter :authenticate_user!, only: [:new]
   prepend_before_filter :load_mission_enrollment, only: :show
 
-  before_filter :load_mission, only: [:new, :edit]
+  before_filter :load_mission, only: [:new, :edit, :create]
   before_filter :load_mission_enrollments, only: :show
 
   def new
-    if current_user.current_mission_enrollment && current_user.current_mission_enrollment.accomplished?
+    if current_user.can_enroll?(@mission)
       @mission_enrollment = @mission.enroll current_user
     else
       redirect_to root_path
@@ -43,18 +43,14 @@ class MissionEnrollmentsController < ApplicationController
   end
 
   def create
-    if current_user.current_mission_enrollment && current_user.current_mission_enrollment.accomplished?
+    if current_user.can_enroll?(@mission)
       @mission_enrollment = MissionEnrollment.new params[:mission_enrollment]
-      if @mission_enrollment.valid?
-        if @mission_enrollment.validator.before_create(params)
-          @mission_enrollment.save
+      if @mission_enrollment.save
           redirect_to mission_enrollment_path nickname: @mission_enrollment.user.nickname,
                                               slug:     @mission_enrollment.mission.slug
-          return
-        end
+      else
+        render :new
       end
-
-      render :new
     else
       redirect_to root_path
     end

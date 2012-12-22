@@ -71,4 +71,9 @@ class User < ActiveRecord::Base
   def current_mission_enrollment
     mission_enrollments.find_by_mission_id(current_mission.try(:id))
   end
+
+  def can_enroll?(mission)
+    (mission_enrollments.empty? && (mission == Mission.first_mission)) ||
+    (current_mission_enrollment && current_mission_enrollment.accomplished?)
+  end
 end

@@ -12,9 +12,9 @@ class FacebookSocialMissionValidatorPresenter < MissionPresenter
   end
 
   def enrollment_form(form)
-    if mission_params[:oracle]
-      view.link_to check_mission_mission_enrollment_path(mission_enrollment, oracle_token: mission_enrollment[:oracle_token])
-    end
+    #if mission_params[:oracle]
+      #view.link_to check_mission_mission_enrollment_path(mission_enrollment, oracle_token: mission_enrollment[:oracle_token])
+    #end
   end
 
   def enrollment_html
