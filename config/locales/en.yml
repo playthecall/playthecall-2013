@@ -30,7 +30,7 @@ en:
         subject: "Welcome, Oracle!"
     confirmation:
       title:  "Welcome to Play The Call, %{name}!"
-      body:   "Go to the link below to finish your registration."
+      body:   "The People of the Stars are glad to see you that you answered your call! Before you can start your journey with Play The Call, we need to make sure it was you who signed up! Click on the link below to confirm your email address and get started!"
       link:   "Finish your registration"
       footer: "If you're not %{name}, please ignore this e-mail."
     recover_password:
