@@ -86,6 +86,7 @@ pt-BR:
   registration:
     heading: "Cadastro"
     select_country: "Selecione seu país"
+    social_network: "Redes Sociais"
   unlock_account:
     click_below: "Clique no link abaixo para desbloquear sua conta:"
     description: "Sua conta foi bloqueada devido ao número excessivo de tentativas de de entrada no site."

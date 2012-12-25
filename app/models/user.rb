@@ -29,7 +29,8 @@ class User < ActiveRecord::Base
                   :avatar_cache, :remember_me, :provider, :element, :uid,
                   :points, :game_version_id, :nickname, :gender, :name,
                   :profile, :avatar_cache, :profile_attributes, :bio, :city_id,
-                  :oracle_attributes, :country_id
+                  :oracle_attributes, :country_id, :facebook_profile, :twitter_profile,
+                  :google_plus_profile, :youtube_profile, :instagram_profile
 
   devise :database_authenticatable,   :trackable,
          :recoverable, :rememberable, :confirmable,

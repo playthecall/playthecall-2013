@@ -42,7 +42,7 @@ form {
     text-decoration: none;
     font-size: 13px;
   }
-  > label{
+  > label, fieldset > label {
     display: block;
     font-weight: bold;
     font-size: 14px;
@@ -66,6 +66,17 @@ form {
     vertical-align: center;
     width: 127px;
     font-size: 13px;
+  }
+  fieldset {
+    margin: 25px 0;
+    h1 {
+      width: 380px;
+      padding-bottom: 5px;
+      border-bottom: 1px #CCC solid;
+      &+label {
+        margin-top: 15px;
+      }
+    }
   }
   .register-links {
     clear: both;
@@ -102,8 +113,8 @@ a.cancel_account { padding: 34px; color: #cc292d; font-size: 13px; text-transfor
 
 #flash_error {
   padding: 10px;
-  color: #CC292D; 
-  font-size: 13px; 
+  color: #CC292D;
+  font-size: 13px;
   position: absolute;
   padding: 20px 30px;
   width: 687px
