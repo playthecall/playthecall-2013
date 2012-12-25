@@ -1,0 +1,17 @@
+<ul class="social">
+  <% if current_user.facebook_profile? %>
+    <li class="facebook"><%= link_to "Facebook", current_user.facebook_profile, target: "_blank" %></li>
+  <% end %>
+  <% if current_user.twitter_profile? %>
+    <li class="twitter"><%= link_to "Twitter", current_user.twitter_profile, target: "_blank" %></li>
+  <% end %>
+  <% if current_user.google_plus_profile? %>
+    <li class="google_plus"><%= link_to "G+", current_user.google_plus_profile, target: "_blank" %></li>
+  <% end %>
+  <% if current_user.youtube_profile? %>
+    <li class="youtube"><%= link_to "Youtube", current_user.youtube_profile, target: "_blank" %></li>
+  <% end %>
+  <% if current_user.instagram_profile? %>
+    <li class="instagram"><%= link_to "Instagram", current_user.instagram_profile, target: "_blank" %></li>
+  <% end %>
+</ul>
