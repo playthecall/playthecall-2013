@@ -81,6 +81,12 @@ form {
   .register-links {
     clear: both;
   }
+  &.sign_in, &.forgot_password {
+    width: 420px;
+    margin: 0 auto 75px;
+    padding-top: 0;
+    float: none;
+  }
 }
 #new_mission_enrollment{ padding: 0; width: 660px }
 #new_mission_enrollment .btn {padding-top:5px;margin-right:10px }

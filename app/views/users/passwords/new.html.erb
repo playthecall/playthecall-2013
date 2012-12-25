@@ -1,4 +1,8 @@
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "pages" %>
+<% end %>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, class: 'forgot_password' }) do |f| %>
 	<h2 class="title"><%= t('actions.forgot_password') %></h2>
 
   <%= devise_error_messages! %>

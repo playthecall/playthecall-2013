@@ -1,4 +1,8 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "pages" %>
+<% end %>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'sign_in' }) do |f| %>
   <h2 class="title">Login</h2>
   <%= f.label :email %>
   <%= f.email_field :email %>
