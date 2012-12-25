@@ -1,7 +1,3 @@
-<% content_for :head do %>
-  <%= stylesheet_link_tag "forms" %>
-<% end %>
-
 <%= form_for(@user, html: {multipart: true}) do |f| %>
   <h2><%= t("actions.edit_profile") %></h2>
 
