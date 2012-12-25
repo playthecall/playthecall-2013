@@ -21,7 +21,7 @@ aside .profile .profile-pic{
   border: 3px solid #e6e4e4;
   display: block;
   margin-left: auto;
-  margin-right: auto 
+  margin-right: auto
 }
 aside .profile h1 {
   color: #67757b;
@@ -47,8 +47,9 @@ aside .points .total-points{
   color: #fff;
   float:right;
   text-align: center;
+  margin: 0 0 10px;
   padding: 20px 0;
-  width: 222px;
+  width: 225px;
   font-size: 20px;
   -webkit-border-top-left-radius: 2px;
   -webkit-border-bottom-left-radius: 2px;
@@ -59,7 +60,16 @@ aside .points .total-points{
 }
 
 aside .badges {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  ul {
+    width: 100%;
+    overflow: auto;
+    margin: 5px 0;
+    li {
+      margin: 0 5px 5px 0;
+      float: left;
+    }
+  }
 }
 
 aside .btn {
@@ -72,13 +82,13 @@ aside .btn {
   padding: 5px 50px 5px 10px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  border-radius: 3px;  
+  border-radius: 3px;
   margin-left: 5px;
 }
 
 
 aside .missions {
-  padding: 10px 15px; 
+  padding: 10px 15px;
   -webkit-border-top-left-radius: 5px;
   -webkit-border-bottom-left-radius: 5px;
   -moz-border-radius-topleft: 5px;

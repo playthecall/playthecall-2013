@@ -13,9 +13,11 @@
       <%= t("sidebar.user_points", points: current_user.points) %>
     </div>
     <div class="badges">
-      <% badge_for_user(current_user).each do |badge| %>
-        <%= image_tag badge.image.small %>
-      <% end %>
+      <ul>
+        <% badge_for_user(current_user).each do |badge| %>
+          <li><%= image_tag badge.image.small %></li>
+        <% end %>
+      </ul>
     </div>
     <%= link_to t("ranking.translation"), ranking_path, class: 'btn btn-ranking' %>
   </section>
