@@ -15,6 +15,47 @@ aside .profile {
     height: 180px;
     width:  180px;
   }
+
+  ul.social {
+    width: 100%;
+    overflow: auto;
+    li {
+      a {
+        background: image-url('icons/social.png') no-repeat;
+        text-indent: -99999px;
+        width: 25px;
+        height: 25px;
+        margin: 0 5px 5px 0;
+        display: block;
+        float: left;
+      }
+      &.facebook {
+        a {
+          background-position: 0 0;
+        }
+      }
+      &.twitter {
+        a {
+          background-position: -31px 0;
+        }
+      }
+      &.google_plus {
+        a {
+          background-position: -61px 0;
+        }
+      }
+      &.youtube {
+        a {
+          background-position: -90px 0;
+        }
+      }
+      &.instagram {
+        a {
+          background-position: -119px 0;
+        }
+      }
+    }
+  }
 }
 
 aside .profile .profile-pic{
