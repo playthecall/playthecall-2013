@@ -9,6 +9,20 @@
 <%= f.label :email %>
 <%= f.email_field :email %>
 
+<%= field_set_tag do %>
+  <h1><%= t('registration.social_network') %></h1>
+  <%= f.label :facebook_profile %>
+  <%= f.text_field :facebook_profile %>
+  <%= f.label :twitter_profile %>
+  <%= f.text_field :twitter_profile %>
+  <%= f.label :google_plus_profile %>
+  <%= f.text_field :google_plus_profile %>
+  <%= f.label :youtube_profile %>
+  <%= f.text_field :youtube_profile %>
+  <%= f.label :instagram_profile %>
+  <%= f.text_field :instagram_profile %>
+<% end %>
+
 <%= f.label :country %>
 <%= f.collection_select :country_id, @countries, :id, :name, :prompt => t('registration.select_country'), :selected => @country.try(:id) %>
 

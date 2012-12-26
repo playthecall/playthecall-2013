@@ -102,6 +102,7 @@ en:
     heading: "Register"
     need_password: "(we need your current password to confirm your changes)"
     select_country: "Select your country"
+    social_network: "Social Network"
   unlock_account:
     click_below: "Click the link below to unlock your account:"
     description: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."

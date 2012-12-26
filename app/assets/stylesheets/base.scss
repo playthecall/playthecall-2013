@@ -64,6 +64,7 @@ a img {border: none;}
 .container {
   width:      993px;
   margin:     0 auto;
+  overflow: auto;
 } .content-header {
   background: #fff;
   width:      993px;
@@ -100,15 +101,9 @@ aside {
   p {
     color:#67757b;
     font-size:13px;
+    width: 188px;
+    overflow: hidden;
     margin:10px 0;
-  }
-  .btn-ranking {
-    border: none;
-    text-shadow: 0 0 0 black;
-    &:hover {
-      background: #A1A2A3;
-      border: none;
-    }
   }
 }
 

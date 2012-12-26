@@ -1,11 +1,12 @@
 <aside>
   <section class="profile">
-    <%= image_tag current_user.avatar, class: :avatar %>
-    <h1><%= current_user.name%></h1>
+    <%= image_tag avatar_url, class: :avatar %>
+    <h1><%= current_user.name %></h1>
     <strong><%= current_user.city.name %> <span><%= current_user.city.country.name %></span></strong>
     <p class="bio">
       <%= current_user.profile.bio %>
     </p>
+    <%= render "users/social" %>
     <a href="" class="more" data-text="<%= t("actions.see_less") %>"><%= t("actions.see_more") %></a>
   </section>
   <section class="points">
@@ -13,9 +14,11 @@
       <%= t("sidebar.user_points", points: current_user.points) %>
     </div>
     <div class="badges">
-      <% badge_for_user(current_user).each do |badge| %>
-        <%= image_tag badge.image.small %>
-      <% end %>
+      <ul>
+        <% badge_for_user(current_user).each do |badge| %>
+          <li><%= image_tag badge.image.small %></li>
+        <% end %>
+      </ul>
     </div>
     <%= link_to t("ranking.translation"), ranking_path, class: 'btn btn-ranking' %>
   </section>

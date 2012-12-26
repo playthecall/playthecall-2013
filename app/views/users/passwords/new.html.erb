@@ -1,10 +1,14 @@
-<h2>Forgot your password?</h2>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "pages" %>
+<% end %>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, class: 'forgot_password' }) do |f| %>
+	<h2 class="title"><%= t('actions.forgot_password') %></h2>
+
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <%= f.label :email %>
+  <%= f.email_field :email %><br /><br />
 
-  <div><%= f.submit t("actions.send_reset_instructions") %></div>
+  <%= f.submit t("actions.send_reset_instructions"), style: 'width:290px;margin-left:0' %>
 <% end %>
