@@ -4,8 +4,9 @@ describe "pages/show" do
   before(:each) do
     @page = assign(:page, stub_model(Page,
       :name => "Name",
-      :locale => "Locale",
-      :content => "MyText"
+      :locale => "en",
+      :html_description => "MyText",
+      :slug => 'testing'
     ))
   end
 
@@ -13,7 +14,6 @@ describe "pages/show" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Name/)
-    rendered.should match(/Locale/)
     rendered.should match(/MyText/)
   end
 end

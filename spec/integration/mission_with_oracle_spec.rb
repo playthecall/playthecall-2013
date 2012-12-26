@@ -1,12 +1,10 @@
 require 'integration_spec_helper'
 
 describe 'Missions with oracle' do
-
   context 'user enters in new mission enrollment page' do
-
     clean_with_transaction_on :each
 
-    let(:mission) { create :mission, oracle: true }
+    let(:mission) { create :mission }
     let(:user) { create :user, game_version: mission.chapter.game_version }
 
     before :each do

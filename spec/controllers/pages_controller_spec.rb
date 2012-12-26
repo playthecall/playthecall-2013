@@ -24,7 +24,7 @@ describe PagesController do
   # Page. As you add validations to Page, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {name: 'Test Page', locale: 'en', slug: 'testing'}
   end
 
   # This should return the minimal set of values that should be in the session
@@ -34,33 +34,14 @@ describe PagesController do
     {}
   end
 
-  describe "GET index" do
-    it "assigns all pages as @pages" do
-      page = Page.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:pages).should eq([page])
-    end
+  before :each do
+    controller.stub(:current_user => User.new)
   end
 
   describe "GET show" do
     it "assigns the requested page as @page" do
       page = Page.create! valid_attributes
-      get :show, {:id => page.to_param}, valid_session
-      assigns(:page).should eq(page)
-    end
-  end
-
-  describe "GET new" do
-    it "assigns a new page as @page" do
-      get :new, {}, valid_session
-      assigns(:page).should be_a_new(Page)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested page as @page" do
-      page = Page.create! valid_attributes
-      get :edit, {:id => page.to_param}, valid_session
+      get :show, {:slug => page.slug}, valid_session
       assigns(:page).should eq(page)
     end
   end
@@ -91,13 +72,6 @@ describe PagesController do
         Page.any_instance.stub(:save).and_return(false)
         post :create, {:page => {}}, valid_session
         assigns(:page).should be_a_new(Page)
-      end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Page.any_instance.stub(:save).and_return(false)
-        post :create, {:page => {}}, valid_session
-        response.should render_template("new")
       end
     end
   end
@@ -134,14 +108,6 @@ describe PagesController do
         Page.any_instance.stub(:save).and_return(false)
         put :update, {:id => page.to_param, :page => {}}, valid_session
         assigns(:page).should eq(page)
-      end
-
-      it "re-renders the 'edit' template" do
-        page = Page.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Page.any_instance.stub(:save).and_return(false)
-        put :update, {:id => page.to_param, :page => {}}, valid_session
-        response.should render_template("edit")
       end
     end
   end
