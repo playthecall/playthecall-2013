@@ -87,7 +87,14 @@ form {
     padding-top: 0;
     float: none;
   }
+	select.chzn-select {
+	  width: 200px;
+	}
 }
+div.chzn-search input[type="text"] {
+  height: 16px;
+}
+
 #new_mission_enrollment{ padding: 0; width: 660px }
 #new_mission_enrollment .btn {padding-top:5px;margin-right:10px }
 #new_mission_enrollment .buttons a {font-size:13px;float:right;padding-top:20px}
