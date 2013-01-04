@@ -32,7 +32,7 @@ ActiveAdmin.register Mission do
       row :position
       row :video_url
       if m.image.present?
-        row :image do  |i|
+        row :image do
           image_tag(m.image.medium)
         end
       end
@@ -63,7 +63,6 @@ ActiveAdmin.register Mission do
       f.input :video_url
       f.input :image, as: :file
 
-
       f.input :element, as: :select, collection: User::ELEMENTS
       f.input :position
 
@@ -71,7 +70,9 @@ ActiveAdmin.register Mission do
       f.input :validation_params
 
       f.inputs "Badge image", for: [:badge, Badge.new] do |b|
-        b.input :image, as: :file
+        b.input :image, as: :file, :hint => ( f.object.badge.nil? ?
+                                             f.template.content_tag(:span, "no badge yet") :
+                                             f.template.image_tag(f.object.badge.image.medium) )
       end
     end
     f.buttons
