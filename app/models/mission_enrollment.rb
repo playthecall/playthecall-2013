@@ -21,6 +21,7 @@ class MissionEnrollment < ActiveRecord::Base
   after_initialize :initialize_validation_params
 
   scope :accomplished, where(accomplished: true)
+  scope :unaccomplished, where(accomplished: false)
 
   def validator
     mission.validator self
@@ -61,6 +62,11 @@ class MissionEnrollment < ActiveRecord::Base
     self[:mission_id] = mission_id
     initialize_validation_params
     mission_id
+  end
+
+  # Returns composed validation params
+  def validation_params
+    @validation_params ||= ValidationParams.new(self[:validation_params].to_s)
   end
 
   protected
