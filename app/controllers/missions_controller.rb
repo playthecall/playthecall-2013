@@ -14,7 +14,13 @@ class MissionsController < ApplicationController
   end
 
   def congratulations
-
+    @user = current_user
+    @mission = Mission.for_user(current_user).find_by_slug params[:id]
+    @enrolled_missions = @user.mission_enrollments.accomplished
+    unless @enrolled_missions.detect{|x| x.mission_id == @mission.id}
+      redirect_to(root_path) and return
+    end
+    @next_mission = @user.mission_enrollments.unaccomplished.first.try(:mission)
   end
 
   private
