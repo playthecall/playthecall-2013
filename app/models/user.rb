@@ -73,8 +73,25 @@ class User < ActiveRecord::Base
     mission_enrollments.find_by_mission_id(current_mission.try(:id))
   end
 
+  # If current user is OK with all mission enrollments
+  def accomplished_all_enrolled_missions?
+    mission_enrollments.select{|m| !m.accomplished? }.empty?
+  end
+
+  # Returns the last +MissionEnrollment+
+  def last_accomplished_mission_enrollment
+    mission_enrollments.accomplished.last
+  end
+
+  def current_or_last_accomplished_mission_enrollment
+    return last_accomplished_mission_enrollment if accomplished_all_enrolled_missions?
+    current_mission_enrollment
+  end
+
+  # If user can enroll the next mission
   def can_enroll?(mission)
     (mission_enrollments.empty? && (mission == Mission.first_mission)) ||
-    (current_mission_enrollment && current_mission_enrollment.accomplished?)
+    ( (current_or_last_accomplished_mission_enrollment && current_or_last_accomplished_mission_enrollment.accomplished?) &&
+    (last_accomplished_mission_enrollment.mission.next_mission == mission ) )
   end
 end

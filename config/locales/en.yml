@@ -38,6 +38,8 @@ en:
       body:   "Go to the link below to recover your password."
       link:   "Recover your password"
       footer: "If you haven't send this e-mail, please ignore this message."
+    accomplished_mission:
+      subject: "Mission Completed!"
   mission:
     oracle_field: "Please tell us who is your Oracle"
     pluralized: "Missions"
