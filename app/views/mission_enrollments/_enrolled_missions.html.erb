@@ -6,7 +6,7 @@
         <% if enrolled_mission.mission.badge.present? %>
           <li><%= image_tag(enrolled_mission.mission.badge.image.small) %></li>
         <% end %>
-        <li><h2><%= t("mission.like_count", quantity: enrolled_mission.validation_params.to_hash[:likes]) %></h2></li>
+        <li><h2><%= t("mission.like_count", quantity: validation_params(enrolled_mission)[:likes]) %></h2></li>
         <li><%= image_tag("icons/check.jpg") %></li>
       </ul>
     </li>
