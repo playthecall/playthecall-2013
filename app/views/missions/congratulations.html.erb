@@ -4,13 +4,13 @@
 
 <section class="content">
   <div class="content-base">
-    <%= image_tag 'badges/badge_1.png', :class => "badge" %>
-    <h1><span>Perfeito!</span> Você concluiu sua missão!</h1>
-    <h2>Missão 3: Plante uma árvore</h2>
+    <%= image_tag @mission.badge.image.medium, :class => "badge" %>
+    <h1><%= t('mission.congratulations.title').html_safe %></h1>
+    <h2><%= t('mission.indexed_title', position: @mission.position, title: @mission.title).html_safe %></h2>
 
-    <h3>Reflita</h3>
-    <p>"Minha idéia é fazer as crianças me audarem a plantar 50 arvores perto da minha escola. Todo dia a gente vai pra aula e nota que a cidade está menos arborizada."</p>
-    <%= link_to "Próxima Missão", "#", :class => "btn" %>
+    <h3><%= t('mission.congratulations.reflect') %> </h3>
+    <p><%= @mission.badge.message %></p>
+    <p><%= link_to t('mission.congratulations.next_mission'), @next_mission, :class => "btn" %><br /></p>
   </div>
 </section>
 

@@ -30,7 +30,8 @@ PlayTheCall::Application.routes.draw do
       resources :status_updates, except: [:index, :show]
       member do
         post 'check'
-        get  'check'
+        get 'check'
+        get 'badge'
       end
     end
   end

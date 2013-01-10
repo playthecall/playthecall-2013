@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219223629) do
+ActiveRecord::Schema.define(:version => 20130104010939) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20121219223629) do
     t.integer  "mission_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "message"
   end
 
   create_table "chapters", :force => true do |t|
@@ -206,6 +207,11 @@ ActiveRecord::Schema.define(:version => 20121219223629) do
     t.string   "name"
     t.string   "gender"
     t.integer  "oracle_id"
+    t.string   "facebook_profile"
+    t.string   "twitter_profile"
+    t.string   "google_plus_profile"
+    t.string   "youtube_profile"
+    t.string   "instagram_profile"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
