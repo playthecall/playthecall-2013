@@ -20,7 +20,7 @@ class MissionsController < ApplicationController
     unless @enrolled_missions.detect{|x| x.mission_id == @mission.id}
       redirect_to(root_path) and return
     end
-    @next_mission = @user.mission_enrollments.unaccomplished.first.try(:mission)
+    @next_mission = @mission.next_mission
   end
 
   private

@@ -65,4 +65,8 @@ module ApplicationHelper
     content_tag(:iframe,"",src: FormattedURL.url(url, :embed), frameborder: '0', allowfullscreen: 'allowfullscreen', width: 640,height: 360)
   end
 
+  def validation_params(resource)
+    ValidationParams.new(resource.validation_params).to_hash
+  end
+
 end

@@ -64,14 +64,10 @@ class MissionEnrollment < ActiveRecord::Base
     mission_id
   end
 
-  # Returns composed validation params
-  def validation_params
-    @validation_params ||= ValidationParams.new(self[:validation_params].to_s)
-  end
-
   protected
+
   def accomplished_callback
-    'Not done yet, need to create badges'
+    MissionMailer.accomplished_mission(self, self.user).deliver
   end
 
   def fill_url

@@ -26,14 +26,6 @@ describe MissionEnrollment do
     end
   end
 
-  describe "#validation_params" do
-    subject { MissionEnrollment.new }
-
-    it 'should return a composed object of ValidationParams' do
-      subject.validation_params.class.should == ValidationParams
-    end
-  end
-
   #context '#notify_oracle' do
   #  clean_with_transaction_on :each
 
