@@ -69,4 +69,8 @@ module ApplicationHelper
     ValidationParams.new(resource.validation_params).to_hash
   end
 
+  def localized_url(url)
+    url.gsub('playthecall.com/', I18n.t('url'))
+  end
+
 end

@@ -10,7 +10,7 @@ Devise.setup do |config|
   config.mailer_sender = "confirmation@playthecall.com"
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = "Devise::Mailer"
+  config.mailer = "CustomDeviseMailer"
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
