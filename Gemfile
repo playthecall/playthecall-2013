@@ -5,6 +5,7 @@ ruby '1.9.3'
 gem 'rails', '3.2.11'
 
 gem 'activerecord-import'
+gem 'active_admin_editor'
 gem 'omniauth-facebook'
 gem 'settingslogic'
 gem 'formatted_url','~> 0.0.4'
