@@ -41,6 +41,15 @@ en:
       footer: "If you haven't send this e-mail, please ignore this message."
     accomplished_mission:
       subject: "Mission Completed!"
+      greetings: "Greetings Star Hero!"
+      p_1: "We are happy to announce you just completed your mission, and can now move to the next one."
+      p_2: "Before you rush off too fast to the next mission, just remember that the more you share what 
+you have already accomplished with your friends and community, the more that people will know what you are doing, and they’ll be eager to help you!
+"
+      p_3: "Click on the link below to receive your next mission:"
+      p_4: "Keep up the good work!"
+      regards: "Your Friends, <br />
+The People of the Stars"
   mission:
     oracle_field: "Please tell us who is your Oracle"
     pluralized: "Missions"
