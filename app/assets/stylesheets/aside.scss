@@ -144,7 +144,10 @@ aside .missions ul {
   margin: 10px 0 10px 0;
   font-size: 13px;
   font-weight: bold;
-  color:#cc292d;
+  color: #333333;
+  a {
+    color: #cc292d;
+  }
 }
 
 aside .missions li:nth-child(1n+4) {
