@@ -9,7 +9,7 @@
     <h2><%= t('mission.indexed_title', position: @mission.position, title: @mission.title).html_safe %></h2>
 
     <h3><%= t('mission.congratulations.reflect') %> </h3>
-    <%= @mission.badge.message.html_safe %>
+    <%= @mission.badge.message.html_safe if @mission.badge.message? %>
     <p><%= link_to t('mission.congratulations.next_mission'), @next_mission, :class => "btn" %><br /></p>
   </div>
 </section>
