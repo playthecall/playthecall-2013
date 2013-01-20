@@ -65,7 +65,7 @@ class FacebookSocialMissionValidator < MissionValidator
   end
 
   def likes_enough?
-    enrollment_params[:likes] > mission_params[:likes]
+    enrollment_params[:likes] >= mission_params[:likes]
   end
 
   def oracle_validated?
