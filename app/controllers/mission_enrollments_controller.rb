@@ -28,10 +28,6 @@ class MissionEnrollmentsController < ApplicationController
     @enrollment = MissionEnrollment.find_by_url "m/#{params[:nickname]}/#{params[:slug]}"
   end
 
-  def show
-    @mission_enrollment.lazy_check
-  end
-
   def update
     mission_id = Mission.find_by_slug(params[:mission_id]).id
     mission_enrollment = MissionEnrollment.find_by_mission_id_and_user_id(mission_id, current_user.id)
