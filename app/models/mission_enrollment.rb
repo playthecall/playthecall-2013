@@ -33,6 +33,7 @@ class MissionEnrollment < ActiveRecord::Base
 
   def check(params)
     validator.check params
+    user.aggregate_points!
   end
 
   def async_check(params = {})
@@ -68,7 +69,6 @@ class MissionEnrollment < ActiveRecord::Base
 
   def accomplished_callback
     MissionMailer.accomplished_mission(self, self.user).deliver
-    user.points += self.mission.points
   end
 
   def fill_url
