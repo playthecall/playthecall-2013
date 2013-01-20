@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   end
 
   def self.ranking
-    User.order('points DESC').limit(10)
+    User.where('points > ?', 0).order('points DESC').limit(10)
   end
 
   def has_accomplished?(mission)
