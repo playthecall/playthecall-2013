@@ -1,8 +1,8 @@
 class WelcomeController < ApplicationController
   layout 'welcome'
 
-  before_filter lambda { redirect_to user_current_mission }, if: :user_signed_in?
-  skip_before_filter :redirect_to_countdown, only: :countdown
+  before_filter lambda { redirect_to user_current_mission },
+                if: :user_signed_in?
 
   def index
     @cities = City.joins(:users)
@@ -10,9 +10,5 @@ class WelcomeController < ApplicationController
     for city in @cities
       @users << city.users.first(order: "RANDOM()")
     end
-  end
-
-  def countdown
-    @days_to_release = (Date.new(2012, 12, 21) - Date.today + 1).to_i.to_s.rjust(2, '0')
   end
 end
