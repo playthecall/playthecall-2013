@@ -95,4 +95,48 @@ describe User do
       user.current_mission_enrollment.should == @mission_enrollment
     end
   end
+
+  describe "#aggregate_points" do
+    let(:mission) { create(:mission, chapter: chapter, position: 1) }
+    let(:chapter) { create :chapter, game_version: user.game_version,
+                                     position: 1 }
+
+    it "is zero when there is no mission enrollment" do
+      user.aggregate_points.should eql 0
+    end
+
+    context "has an enrollment" do
+      let(:enrollment) do
+        create(:mission_enrollment, mission: mission,
+                                   user: user, accomplished: false,
+                                   validation_params: YAML.dump(likes: 10))
+      end
+
+      it "sums the number of likes in the enrollment_param" do
+        enrollment
+        user.aggregate_points.
+             should eql enrollment.validator.enrollment_params[:likes]
+      end
+
+      context "has another enrollment" do
+
+        let(:another_mission) do
+          create(:mission, chapter: chapter, position: 2)
+        end
+
+        let(:another_enrollment) do
+          create(:mission_enrollment, mission: another_mission,
+                                     user: user, accomplished: false,
+                                     validation_params: YAML.dump(likes: 5))
+        end
+
+        it "sums both number of likes" do
+          enrollment and another_enrollment
+          user.aggregate_points.
+               should eql(enrollment.validator.enrollment_params[:likes] +
+                        another_enrollment.validator.enrollment_params[:likes])
+        end
+      end
+    end
+  end
 end

@@ -88,6 +88,15 @@ class User < ActiveRecord::Base
     current_mission_enrollment
   end
 
+  def aggregate_points!
+    update_attribute(:points, aggregate_points)
+  end
+
+  def aggregate_points
+    mission_enrollments.map{|me| me.validator.enrollment_params[:likes]}.
+                        reduce(0, :+)
+  end
+
   # If user can enroll the next mission
   def can_enroll?(mission)
     (mission_enrollments.empty? && (mission == current_chapter.missions.first_mission)) ||
