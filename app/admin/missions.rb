@@ -58,7 +58,7 @@ ActiveAdmin.register Mission do
 
       f.input :slug
       f.input :title
-      f.input :description
+      f.input :description, as: :html_editor
 
       f.input :video_url
       f.input :image, as: :file

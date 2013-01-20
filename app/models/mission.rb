@@ -14,8 +14,6 @@ class Mission < ActiveRecord::Base
                   :validation_class,  :image,    :video_url,
                   :validation_params, :position, :element, :slug, :badge_attributes
 
-  before_save :compile_description
-
   def self.first_mission
     Mission.where(:position => 1).first
   end
@@ -44,12 +42,5 @@ class Mission < ActiveRecord::Base
 
   def to_param
     slug
-  end
-
-  protected
-  def compile_description
-    if description_changed?
-      self.html_description = RDiscount.new(description).to_html
-    end
   end
 end
