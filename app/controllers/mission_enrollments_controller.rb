@@ -1,6 +1,5 @@
 class MissionEnrollmentsController < ApplicationController
   prepend_before_filter :authenticate_user!, only: [:new]
-  prepend_before_filter :load_mission_enrollment, only: :show
 
   before_filter :load_mission, only: [:new, :edit, :create]
   before_filter :load_mission_enrollments, only: :show
@@ -57,17 +56,13 @@ class MissionEnrollmentsController < ApplicationController
   end
 
   private
-  def load_mission_enrollment
-    nickname = params[:nickname]
+  def load_mission_enrollments
     slug = params[:slug]
-    @user = User.find_by_nickname nickname
+    @user = User.find_by_nickname params[:nickname]
     @mission_enrollment = @user.mission_enrollments.joins(:mission).
                                 where('missions.slug = ?', slug).first
-  end
-
-  def load_mission_enrollments
-    @enrolled_missions = current_user.mission_enrollments.dup
-    @enrolled_missions.delete_if { |enrollment| enrollment.id == @mission_enrollment.id }
+    @enrolled_missions = @user.mission_enrollments.dup
+    @enrolled_missions.delete_if { |e| e.id == @mission_enrollment.id }
   end
 
   def load_mission

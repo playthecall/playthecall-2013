@@ -40,7 +40,7 @@
       </ul>
       <%= status_update.html_status.html_safe %>
     <% end %>
-    <% if @mission_enrollment.user_id == current_user.id %>
+    <% if @mission_enrollment.user_id == @user.id %>
       <%= link_to t("actions.update_status"), new_mission_mission_enrollment_status_update_path(@mission_enrollment.mission, @mission_enrollment), class: 'update_status' %>
     <% end %>
     <%= presenter_for_enrollment(@mission_enrollment) %>
