@@ -68,10 +68,11 @@ class MissionEnrollment < ActiveRecord::Base
 
   def accomplished_callback
     MissionMailer.accomplished_mission(self, self.user).deliver
+    user.points += self.mission.points
   end
 
   def fill_url
-    self.url = "playthecall.com/m/#{user.nickname}/#{mission.slug}"
+    self.url = "#{ I18n.t 'url' }m/#{user.nickname}/#{mission.slug}"
   end
 
   def initialize_validation_params
