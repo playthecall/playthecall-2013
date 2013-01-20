@@ -1,6 +1,6 @@
 ActiveAdmin.register Badge do
   filter :mission 
-  
+
   index do
     column :mission
     column :image
@@ -15,5 +15,16 @@ ActiveAdmin.register Badge do
       end
       row :message
     end
+  end
+
+  form :html => { :multipart => true } do |f|
+    f.inputs "Content" do
+      f.input :mission
+      f.input :image, as: :file, hint:
+        if f.object.image? then f.template.image_tag(f.object.image.medium) end
+      f.input :message
+    end
+
+    f.buttons
   end
 end
