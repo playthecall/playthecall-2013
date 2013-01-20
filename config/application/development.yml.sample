@@ -3,7 +3,8 @@ s3:
   secret_key:    '<%= ENV["SETINGS_S3_SECRET_KEY"] %>'
   upload_bucket: '<%= ENV["SETINGS_S3_BUCKET"]     %>'
 facebook:
-  default_access_token: '<%= ENV["SETTINGS_FACEBOOK_DEFAULT_ACCESS_TOKEN"] %>'
+  app_id:     '<%= ENV["SETTINGS_FACEBOOK_APP_ID"] %>'
+  app_secret: '<%= ENV["SETTINGS_FACEBOOK_APP_SECRET"] %>'
 mailer:
   config:
     :address:              '<%= ENV["SETTINGS_MAILER_CONFIG_ADDRESS"] %>'
