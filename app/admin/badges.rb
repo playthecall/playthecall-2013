@@ -22,7 +22,7 @@ ActiveAdmin.register Badge do
       f.input :mission
       f.input :image, as: :file, hint:
         if f.object.image? then f.template.image_tag(f.object.image.medium) end
-      f.input :message
+      f.input :message, as: :html_editor
     end
 
     f.buttons

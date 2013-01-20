@@ -19,11 +19,12 @@ ActiveAdmin::Dashboards.build do
   # The block is rendered within the context of the view, so you can
   # easily render a partial rather than build content in ruby.
   #
-  #   section "Recent Posts" do
-  #     div do
-  #       render 'recent_posts' # => this will render /app/views/admin/dashboard/_recent_posts.html.erb
-  #     end
-  #   end
+  section "User Count" do
+    ul do
+      li "We have #{User.count} users"
+      li "We have #{User.where('confirmed_at IS NOT NULL').count} confirmed users"
+    end
+  end
   
   # == Section Ordering
   # The dashboard sections are ordered by a given priority from top left to
