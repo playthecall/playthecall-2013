@@ -89,8 +89,9 @@
     padding: 14px;
     margin-bottom: 10px;
     clear: both;
+    overflow: hidden;
   }
-  .count_likes { float: right; margin-top: -54px; margin-right: 10px; }
+  .count_likes { float: right; margin-right: 10px; }
   .count_likes h4 { color: #67757B; text-transform: lowercase; font-size: 22px; font-weight: bold }
   .count_likes p { color: #999; font-family: 'Open Sans'; font-size: 13px; }
 }
