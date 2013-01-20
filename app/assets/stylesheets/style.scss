@@ -7,6 +7,13 @@
     font-family: 'Chivo', sans-serif;
     clear: both;
   }
+  & > h1 +p, & > ul + p {
+      color: #ca5356;
+      font-size: 15px;
+      line-height: 20px;
+      margin: 0 0 35px;
+      clear: both;
+  }
   & > h1 {
     background: #ee353a;
     color:#fff;
@@ -17,13 +24,6 @@
     -moz-border-radius: 3px;
     span {
       color:#ffc90c;
-    }
-    &+p {
-      color: #ca5356;
-      font-size: 15px;
-      line-height: 20px;
-      margin: 0 0 35px;
-      clear: both;
     }
   }
   h2 {
