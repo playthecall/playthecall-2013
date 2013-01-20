@@ -7,7 +7,7 @@ class FacebookSocialMissionValidatorPresenter < MissionPresenter
         :div,
         I18n.t('mission.presenter.likes_needed', likes: mission_params[:likes]),
         :class => 'mission-need'),
-      im_ready_button
+      #im_ready_button
     ].join.html_safe
   end
 
