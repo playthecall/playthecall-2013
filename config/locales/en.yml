@@ -79,6 +79,7 @@ The People of the Stars"
     header_description: "The best players"
     missions_accomplished: "accomplished missions"
     translation: "Ranking"
+    points: "%{points} points"
   actions:
     back: "Back"
     cancel: "Cancel"

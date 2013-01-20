@@ -65,6 +65,7 @@ pt-BR:
     header_description: "Os melhores jogadores"
     missions_accomplished: "missões cumpridas"
     translation: "Ranking"
+    points: "%{points} points"
   actions:
     cancel: "Cancelar"
     change_password: "Mudar minha senha"

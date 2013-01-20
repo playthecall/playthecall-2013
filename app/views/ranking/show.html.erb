@@ -20,10 +20,10 @@
               </td>
               <td class="name">
                 <h2><%= user.name %></h2>
-                <p><%= user.city.name %> <%= user.city.country.name %></p>
+                <p><%= user.city.name %> - <%= user.city.country.name %></p>
               </td>
               <td>
-                <h2><%= user.points %></h2>
+                <h2><%= t("ranking.points", points: user.points) %> </h2>
                 <p><%= user.mission_enrollments.where(accomplished: true).count %> <%= t("ranking.missions_accomplished") %></p>
               </td>
             </tr>
