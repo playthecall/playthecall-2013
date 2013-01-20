@@ -17,7 +17,7 @@ class Mission < ActiveRecord::Base
   before_save :compile_description
 
   def self.first_mission
-    Mission.where(:position => 1, :chapter_id => 1).first
+    Mission.where(:position => 1).first
   end
 
   def self.for_user(user)

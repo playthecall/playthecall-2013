@@ -90,7 +90,7 @@ class User < ActiveRecord::Base
 
   # If user can enroll the next mission
   def can_enroll?(mission)
-    (mission_enrollments.empty? && (mission == Mission.first_mission)) ||
+    (mission_enrollments.empty? && (mission == current_chapter.missions.first_mission)) ||
     ( (current_or_last_accomplished_mission_enrollment && current_or_last_accomplished_mission_enrollment.accomplished?) &&
     (last_accomplished_mission_enrollment.mission.next_mission == mission ) )
   end
