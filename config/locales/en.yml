@@ -19,7 +19,7 @@ en:
         city:                  "City"
         email:                 "Email"
         name:                  "Name"
-        nickname:              "Nickname"
+        nickname:              "Username"
         password:              "Password"
         password_confirmation: "Confirm your password"
         gender:                "Gender"
