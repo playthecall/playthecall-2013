@@ -10,7 +10,7 @@ class MissionsController < ApplicationController
   end
 
   def welcome
-    @first_mission = current_chapter.missions.first_mission
+    @first_mission = current_user.current_chapter.missions.first_mission
   end
 
   def congratulations
