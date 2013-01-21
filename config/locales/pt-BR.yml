@@ -1,5 +1,6 @@
 pt-BR:
   url: 'playthecall.com.br/'
+  host: 'playthecall.com.br'
   helpers:
     label:
       user:

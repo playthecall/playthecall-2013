@@ -12,7 +12,7 @@
 <%= t('mails.accomplished_mission.p_3') %>
 </p>
 
-<%= link_to(@mission.title,congratulations_mission_url(@mission)) %>
+<%= link_to(@mission.title, congratulations_mission_url(@mission), host: t('host')) %>
 <p>
 <%= t('mails.accomplished_mission.p_4') %>
 </p>

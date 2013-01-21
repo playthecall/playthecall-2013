@@ -1,5 +1,6 @@
 en:
   url: 'playthecall.com/'
+  host: 'playthecall.com'
   helpers:
     label:
       user:

@@ -20,7 +20,7 @@
         </td>
       </tr>
       <tr>
-        <td><%= link_to t('mails.confirmation.link'), localized_url(user_confirmation_url(:confirmation_token => @resource.confirmation_token)) %></td>
+        <td><%= link_to t('mails.confirmation.link'), user_confirmation_url(confirmation_token: @resource.confirmation_token, host: t('host')) %></td>
       </tr>
       <tr>
         <td>
