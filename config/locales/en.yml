@@ -1,5 +1,5 @@
 en:
-Começar  url: 'playthecall.com/'
+  url: 'playthecall.com/'
   helpers:
     label:
       user:
