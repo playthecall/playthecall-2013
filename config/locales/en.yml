@@ -13,8 +13,8 @@ en:
       enrollment_image:
         image: "Image"
       mission_enrollment:
-        description: "Add an image to this mission"
-        image: "Describe your experience in this mission"
+        description: "Describe your experience in this mission"
+        image: "Add an image to this mission"
       user:
         avatar:                "Picture"
         city:                  "City"
@@ -39,7 +39,7 @@ en:
       title:  "%{name}, recover your password!"
       body:   "Go to the link below to recover your password."
       link:   "Recover your password"
-      footer: "If you haven't send this e-mail, please ignore this message."
+      footer: "If you haven't asked for another password, please ignore this message."
     accomplished_mission:
       subject: "Mission Completed!"
       greetings: "Greetings Star Hero!"

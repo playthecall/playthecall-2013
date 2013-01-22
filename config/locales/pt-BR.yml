@@ -11,8 +11,8 @@ pt-BR:
   activerecord:
     attributes:
       mission_enrollment:
-        description: "Adicione uma imagem para essa missão"
-        image: "Descreva como foi sua experiência nessa missão"
+        description: "Descreva como foi sua experiência nessa missão"
+        image: "Adicione uma imagem para essa missão"
       user:
         avatar: "Foto"
         city: "Cidade"

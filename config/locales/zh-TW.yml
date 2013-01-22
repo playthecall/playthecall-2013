@@ -10,8 +10,8 @@ zh-TW:
   activerecord:
     attributes:
       mission_enrollment:
-        description: "Add an image to this mission"
-        image: "Describe your experience in this mission"
+        description: "Describe your experience in this mission"
+        image: "Add an image to this mission"
       user:
         avatar:                "Picture"
         city:                  "City"
