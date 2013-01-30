@@ -23,6 +23,8 @@ class MissionEnrollment < ActiveRecord::Base
   scope :accomplished, where(accomplished: true)
   scope :unaccomplished, where(accomplished: false)
 
+  delegate :nickname, to: :user, :prefix => true, :allow_nil => true
+
   def validator
     mission.validator self
   end

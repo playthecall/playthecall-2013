@@ -30,7 +30,7 @@
       <a href="#" class="next"><img src="/assets/slides/arrow-next.png" width="24" height="43" alt="Next"></a>
     </div>
     <h1><%= st 'mission.indexed_title', position: @mission_enrollment.mission.position, title: @mission_enrollment.mission.title %></h1>
-    <%= @mission_enrollment.html_description.html_safe %>
+    <%= @mission_enrollment.html_description.to_s.html_safe %>
 
     <% @mission_enrollment.status_updates.order("created_at DESC").each do |status_update| %>
       <h2><%= l status_update.created_at, format: :short %></h2>
@@ -40,7 +40,7 @@
       </ul>
       <%= status_update.html_status.html_safe %>
     <% end %>
-    <% if @mission_enrollment.user_id == @user.id %>
+    <% if @mission_enrollment.user_id == current_user.try(:id) %>
       <%= link_to t("actions.update_status"), new_mission_mission_enrollment_status_update_path(@mission_enrollment.mission, @mission_enrollment), class: 'update_status' %>
     <% end %>
     <%= presenter_for_enrollment(@mission_enrollment) %>
