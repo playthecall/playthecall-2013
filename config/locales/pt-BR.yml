@@ -57,6 +57,35 @@ pt-BR:
       reflect: ''
       title: '<span>Perfeito!</span> Você concluiu sua missão!'
       next_mission: 'Próxima missão'
+    end_of_chapter:
+      title: 'O próximo passo'
+      message: |
+        <p>
+        At this turning point in time, Star Hero,
+        you were asked to awake and you awoke.
+        </p>
+        <p>
+        Behold the people of the stars rejoicing. <br />
+        At this turning point in time,
+        you were challenged to show your quality and
+        you showed your quality.
+        </p>
+        <p>
+        Behold the Earth, our mother, rejoicing. <br />
+        At this turning point in time,
+        you were asked to make a difference and
+        you were the difference.
+        </p>
+        <p>
+        Behold your entire community rejoicing.
+        </p>
+        <p>
+        A cosmic call was sent out and you answered it, oh how you answered it!<br />
+        You have officially, and in stellar fashion, completed Chapter I. <br />
+        We all honor you. <br />
+        We all celebrate you. <br />
+        We all invite you to begin Chapter II of the great adventure of your life.
+        </p>
   pages:
     about: "sobre"
     how_to: "como-jogar"
