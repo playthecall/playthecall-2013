@@ -12,8 +12,5 @@ describe Mission do
       @mission = create :mission, chapter: @chapter
     end
 
-    it 'should compile description' do
-      @mission.should have_description_tag 'em', 'Content'
-    end
   end
 end

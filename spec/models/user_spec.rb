@@ -16,7 +16,7 @@ describe User do
     end
 
     it 'is limited to the top 10' do
-      11.times{create :user}
+      11.times{create :user, points: 10}
       User.ranking.count.should be 10
     end
   end
