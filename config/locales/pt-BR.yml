@@ -57,6 +57,37 @@ pt-BR:
       reflect: ''
       title: '<span>Perfeito!</span> Você concluiu sua missão!'
       next_mission: 'Próxima missão'
+    end_of_chapter:
+      title: 'O próximo passo'
+      message: |
+        <p>
+        Você chegou a um momento decisivo, Herói.
+        Você foi Chamado para despertar e você despertou.
+        </p>
+        <p>
+        O Povo das Estrelas está em festa.
+        Até este momento,
+        Você foi desafiado a mostrar suas capacidades,
+        E você as mostrou.
+        </p>
+        <p>
+        A Terra, nossa criada, está em festa.
+        Até este momento,
+        Você foi chamado para mudar,
+        E você foi a mudança.
+        </p>
+        <p>
+        Toda sua comunidade está em festa.
+        </p>
+
+        <p>
+        O Chamado cósmico foi feito, e você respondeu, e como respondeu! <br />
+        Você oficialmente, de forma excepcional,
+        terminou esse primeiro capítulo. <br />
+        Nós honramos você. <br />
+        Nós celebramos seus feitos.<br />
+        E agora convidamos você para começar o segundo capítulo dessa grande aventura!
+        </p>
   pages:
     about: "sobre"
     how_to: "como-jogar"
