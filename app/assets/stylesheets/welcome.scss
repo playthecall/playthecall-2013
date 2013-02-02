@@ -34,4 +34,7 @@ div.container {
     @include btn;
     font-size: 26px;
   }
+  p {
+    margin: 10px auto;
+  }
 }

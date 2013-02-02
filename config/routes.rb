@@ -21,6 +21,8 @@ PlayTheCall::Application.routes.draw do
 
   match '/pages/:slug', :to => 'pages#show', as: 'page'
 
+  match '/missions/end_of_chapter', :to => 'missions#end_of_chapter', as: 'end_of_chapter'
+
   resources :missions, only: :show do
     member do
       get 'welcome'
@@ -35,6 +37,8 @@ PlayTheCall::Application.routes.draw do
       end
     end
   end
+
+
 
   root to: 'welcome#index'
 end
