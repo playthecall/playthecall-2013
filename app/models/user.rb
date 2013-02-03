@@ -23,6 +23,9 @@ class User < ActiveRecord::Base
   validates_inclusion_of :gender,  in: ['male', 'female']
   validates_inclusion_of :element, in: ELEMENTS
 
+  validates_presence_of :birthday
+  validate :validate_birthday
+
   mount_uploader :avatar, UsersAvatarUploader
 
   attr_accessible :city_id, :email,  :password, :password_confirmation, :avatar,
@@ -30,7 +33,7 @@ class User < ActiveRecord::Base
                   :points, :game_version_id, :nickname, :gender, :name,
                   :profile, :avatar_cache, :profile_attributes, :bio, :city_id,
                   :oracle_attributes, :country_id, :facebook_profile, :twitter_profile,
-                  :google_plus_profile, :youtube_profile, :instagram_profile
+                  :google_plus_profile, :youtube_profile, :instagram_profile, :birthday
 
   devise :database_authenticatable,   :trackable,
          :recoverable, :rememberable, :confirmable,
@@ -102,5 +105,13 @@ class User < ActiveRecord::Base
     (mission_enrollments.empty? && (mission == current_chapter.missions.first_mission)) ||
     ( (current_or_last_accomplished_mission_enrollment && current_or_last_accomplished_mission_enrollment.accomplished?) &&
     (last_accomplished_mission_enrollment.mission.next_mission == mission ) )
+  end
+
+  private
+
+  def validate_birthday
+    if read_attribute(:birthday) > 13.years.ago.to_date
+      errors.add :birthday, I18n.t('activerecord.user.invalid_birthday_message')
+    end
   end
 end
