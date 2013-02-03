@@ -24,11 +24,11 @@ en:
         password:              "Password"
         password_confirmation: "Confirm your password"
         gender:                "Gender"
-        birthday:              "Birthday"
+        birthday:              "Date of birth"
     oracle:
       invalid_error_message: "Invalid Oracle"
     user:
-      invalid_birthday_message: 'Ops! Sorry little hero, you are too young for now.'
+      invalid_birthday_message: "Whoop, hero, you're still too young!"
   mails:
     oracle:
       welcome:
