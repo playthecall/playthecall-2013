@@ -1,3 +1,7 @@
+# Play the call
+
+[![Build Status](https://travis-ci.org/playthecall/playthecall.png?branch=master)](https://travis-ci.org/playthecall/playthecall)
+
 This read me intend to help you to setup the development environment.
 
 ## HOW TO
