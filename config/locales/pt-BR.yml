@@ -21,9 +21,6 @@ pt-BR:
         password: "Senha"
         password_confirmation: "Confirme sua senha"
         gender: "Sexo"
-        birthday: "Data de nascimento"
-    user:
-      invalid_birthday_message: 'Oops! Desculpe pequeno Herói, você ainda é muito novo.'
   mails:
     confirmation:
       title:  "Bem-Vindo ao Play The Call, %{name}!"

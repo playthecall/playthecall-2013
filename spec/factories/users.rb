@@ -7,7 +7,6 @@ FactoryGirl.define do
     confirmed_at          DateTime.now
     gender                'male'
     element               ''
-    birthday              14.years.ago.to_date
     association :city
     association :game_version
     association :profile
