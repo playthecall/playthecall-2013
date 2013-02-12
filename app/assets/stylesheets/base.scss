@@ -6,6 +6,17 @@ body{
   font-family: 'Open Sans', sans-serif;
 }
 
+.beta-banner {
+  position: absolute;
+  background-image: url('/assets/beta.png');
+  background-repeat: no-repeat;
+  width: 131px;
+  height: 123px;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
 ul li {list-style:none;}
 a img {border: none;}
 

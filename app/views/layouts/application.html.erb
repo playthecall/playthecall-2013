@@ -10,6 +10,7 @@
     <%= yield(:head) %>
   </head>
   <body>
+    <div class="beta-banner"></div>
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, id: "flash_notice" if name.to_s == 'notice' %>
     <% end %>
