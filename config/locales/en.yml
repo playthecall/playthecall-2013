@@ -177,4 +177,5 @@ The People of the Stars"
       privacy: "Privacy"
       resources: "Resources"
       terms: "Terms"
-
+  registrations:
+    limit_exceeded: "The limit of users was exceeded."

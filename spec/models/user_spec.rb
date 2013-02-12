@@ -139,4 +139,15 @@ describe User do
       end
     end
   end
+
+  describe "#limit_exceeded?" do
+    it 'returns false when count is below 3000' do
+      User.limit_exceeded?.should be_false
+    end
+
+    it 'returns true when count is equal or higher then 3000' do
+      User.stub(:count => User::USERS_COUNT_LIMIT)
+      User.limit_exceeded?.should be_true
+    end
+  end
 end

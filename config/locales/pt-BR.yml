@@ -161,4 +161,5 @@ pt-BR:
       privacy: "Privacidade"
       resources: "Recursos"
       terms: "Termos"
-
+  registrations:
+    limit_exceeded: "O limite de usuários foi excedido."

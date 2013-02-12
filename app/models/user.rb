@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   ELEMENTS = ['earth', 'fire', 'air', 'water', '']
+  USERS_COUNT_LIMIT = 3000
 
   has_one    :profile
   has_many   :mission_enrollments
@@ -38,6 +39,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable,   :trackable,
          :recoverable, :rememberable, :confirmable,
          :validatable, :omniauthable, :registerable
+
+  def self.limit_exceeded?
+    count >= USERS_COUNT_LIMIT
+  end
 
   def last_mission_enrollment
     mission_enrollments.order('created_at DESC').limit(1).first
