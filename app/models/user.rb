@@ -63,7 +63,6 @@ class User < ActiveRecord::Base
   def current_chapter
     chapters.order("position ASC").select { |c| !Chapter.finished?(c, self) }.first or
       chapters.order("position ASC").first
-
   end
 
   def current_mission
@@ -115,7 +114,8 @@ class User < ActiveRecord::Base
   private
 
   def validate_birthday
-    if read_attribute(:birthday) > 13.years.ago.to_date
+    birthday = read_attribute(:birthday)
+    if birthday && birthday > 13.years.ago.to_date
       errors.add :birthday, I18n.t('activerecord.user.invalid_birthday_message')
     end
   end

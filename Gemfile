@@ -47,4 +47,5 @@ group :development, :test do
   gem 'fivemat'
   gem 'sqlite3'
   gem 'pry'
+  gem 'valid_attribute'
 end

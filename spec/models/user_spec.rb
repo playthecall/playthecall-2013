@@ -4,6 +4,24 @@ describe User do
   clean_with_transaction_on :each
 
   let(:user) { create :user }
+  let(:city) { create :city }
+
+  subject { user }
+
+  it { should have_valid(:nickname).when('john_doe', '1234') }
+  it { should_not have_valid(:nickname).when('') }
+
+  it { should have_valid(:email).when('johndoe@example.com') }
+  it { should_not have_valid(:email).when('', nil) }
+
+  it { should have_valid(:birthday).when('1970-03-10') }
+  it { should_not have_valid(:birthday).when('', nil, (13.years.ago + 1.day).to_date) }
+
+  it { should have_valid(:gender).when('male', 'female') }
+  it { should_not have_valid(:gender).when('animal', '', nil) }
+
+  it { should have_valid(:city).when(city) }
+  it { should_not have_valid(:city).when(nil) }
 
   context '::ranking' do
     it 'is empty when there are no users' do
