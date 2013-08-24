@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
+ruby '2.0.0'
 
 gem 'rails', '3.2.11'
 
@@ -32,19 +32,22 @@ group :assets do
   gem 'uglifier'
 end
 
-group :development, :test do
-  gem 'binding_of_caller', platforms: :ruby
-  gem 'therubyracer',      platforms: :ruby
+group :development do
+  gem 'letter_opener'
+end
+
+group :test do
   gem 'factory_girl_rails'
-  gem 'binding_of_caller'
   gem 'database_cleaner'
-  gem 'parallel_tests'
-  gem 'better_errors'
+  gem 'simplecov', :require => false
+end
+
+group :development, :test do
+  gem 'therubyracer', platforms: :ruby
   gem 'rspec-rails'
   gem 'poltergeist'
   gem 'forgery'
   gem 'launchy'
   gem 'fivemat'
   gem 'sqlite3'
-  gem 'pry'
 end

@@ -1,10 +1,12 @@
 # encoding: utf-8
+require 'simplecov'
+SimpleCov.start
+
 require 'rubygems'
 
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 
-require 'pry'
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'database_cleaner'
