@@ -1,5 +1,4 @@
 PlayTheCall::Application.routes.draw do
-
   devise_for :users,
              controllers: { omniauth_callbacks: "users/omniauth_callbacks",
                             :registrations => :registrations}
@@ -14,7 +13,6 @@ PlayTheCall::Application.routes.draw do
 
   match 'countdown' => 'welcome#countdown', as: 'countdown'
 
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :users
 
   resources :pages, except: [:show]
@@ -37,8 +35,6 @@ PlayTheCall::Application.routes.draw do
       end
     end
   end
-
-
 
   root to: 'welcome#index'
 end
