@@ -1,5 +1,5 @@
 class BadgeImageUploader < CarrierWave::Uploader::Base
-  include CarrierWave::RMagick
+  include CarrierWave::MiniMagick
   setup_storage
 
   version :small do

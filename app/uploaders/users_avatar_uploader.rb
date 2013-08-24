@@ -1,5 +1,5 @@
 class UsersAvatarUploader < CarrierWave::Uploader::Base
-  include CarrierWave::RMagick
+  include CarrierWave::MiniMagick
   setup_storage
 
   process resize_to_fill: [180, 180]
