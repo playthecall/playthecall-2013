@@ -54,8 +54,12 @@ namespace :import do
   end
 
   def find_or_create_country_for(row)
+    @countries ||= {}
     country_code = row['Country']
-    Country.find_or_create_by_code(country_code)
+    if @countries[country_code.to_sym].nil?
+      @countries[country_code.to_sym] = Country.find_or_create_by_code(country_code)
+    end
+    @countries[country_code.to_sym]
   end
 
 end
