@@ -17,7 +17,7 @@ describe MissionEnrollment do
     end
 
     it 'should have a presenter class' do
-      subject.presenter(mock).class.should == FacebookSocialMissionValidatorPresenter
+      subject.presenter(double).class.should == FacebookSocialMissionValidatorPresenter
     end
 
     it 'should have not been accomplished' do
