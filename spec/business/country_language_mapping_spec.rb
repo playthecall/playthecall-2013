@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe CountryLanguageMapping do
   before :each do
-    @brazilian_version = mock
-    @global_version    = mock
+    @brazilian_version = double
+    @global_version    = double
 
     GameVersion.stub :find_by_name do |name|
       if name == 'Brasil'
