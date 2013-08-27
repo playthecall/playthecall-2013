@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
+ruby '2.0.0'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.14'
 
 gem 'activerecord-import'
 gem 'active_admin_editor'
@@ -14,10 +14,11 @@ gem 'jquery-rails'
 gem 'activeadmin'
 gem 'carrierwave'
 gem 'rb-readline'
+# MiniMagick needs ImageMagick installed
+gem 'mini_magick'
 gem 'rdiscount'
 gem 'nokogiri'
 gem 'omniauth'
-gem 'rmagick'
 gem 'sidekiq'
 gem 'devise'
 gem 'koala'
@@ -32,19 +33,23 @@ group :assets do
   gem 'uglifier'
 end
 
-group :development, :test do
-  gem 'binding_of_caller', platforms: :ruby
-  gem 'therubyracer',      platforms: :ruby
-  gem 'factory_girl_rails'
-  gem 'binding_of_caller'
-  gem 'database_cleaner'
-  gem 'parallel_tests'
+group :development do
+  gem 'letter_opener'
   gem 'better_errors'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'simplecov', :require => false
+end
+
+group :development, :test do
+  gem 'therubyracer', platforms: :ruby
   gem 'rspec-rails'
   gem 'poltergeist'
   gem 'forgery'
   gem 'launchy'
   gem 'fivemat'
   gem 'sqlite3'
-  gem 'pry'
 end
