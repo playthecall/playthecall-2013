@@ -49,7 +49,6 @@
 
 <% @users.each do |user| %>
   <div class="poi hidden" data-lat="<%= user.city.latitude %>" data-long="<%= -user.city.longitude %>" data-url="globe_camPos.html">
-    <%= user.name %>
     <%= user.city.name %>
   </div>
 <% end %>
