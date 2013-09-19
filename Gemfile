@@ -13,9 +13,7 @@ gem 'chosen-rails'
 gem 'jquery-rails'
 gem 'activeadmin'
 gem 'carrierwave'
-gem 'rb-readline'
-# MiniMagick needs ImageMagick installed
-gem 'mini_magick'
+gem 'mini_magick' # MiniMagick needs ImageMagick installed
 gem 'rdiscount'
 gem 'nokogiri'
 gem 'omniauth'
