@@ -3,11 +3,7 @@ class WelcomeController < ApplicationController
   before_filter :mission_redirect
 
   def index
-    @cities = City.joins(:users)
-    @users = []
-    for city in @cities
-      @users << city.users.first(order: "RANDOM()")
-    end
+    @users = User.includes(:city).group(:city_id).order('RANDOM()')
   end
 
   private
