@@ -13,3 +13,4 @@ db/schema.rb
 playthecall_development
 playthecall_test
 coverage/
+.env
