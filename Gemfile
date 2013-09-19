@@ -49,5 +49,4 @@ group :development, :test do
   gem 'forgery'
   gem 'launchy'
   gem 'fivemat'
-  gem 'sqlite3'
 end

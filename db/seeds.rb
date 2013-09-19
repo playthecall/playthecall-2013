@@ -1,4 +1,6 @@
 # encoding: utf-8
+require 'factory_girl'
+require './spec/factories/missions'
 
 game_versions = [
   [{ name: 'Brasil', language: 'pt-BR'}, { name: 'Capítulo I - Despertar' }],

@@ -3,7 +3,8 @@ class WelcomeController < ApplicationController
   before_filter :mission_redirect
 
   def index
-    @users = User.includes(:city).group(:city_id).order('RANDOM()')
+    # selects one user per city
+    @users = User.includes(:city).select('DISTINCT ON (city_id) city_id, users.*')
   end
 
   private
